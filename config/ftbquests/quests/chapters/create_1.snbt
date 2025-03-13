@@ -1,0 +1,198 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "create_1"
+	group: "34DE6C1EE226FBA2"
+	icon: "create:wrench"
+	id: "12098B4B2323C55C"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: [
+				"7AA0E8034655D154"
+				"0BEC75B508DE57F9"
+			]
+			id: "404D041462C6BD60"
+			tasks: [{
+				id: "1A190C497916533C"
+				item: "create:andesite_alloy"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -2.0d
+		}
+		{
+			id: "0BEC75B508DE57F9"
+			tasks: [{
+				id: "7565217B626471BE"
+				item: "minecraft:andesite"
+				type: "item"
+			}]
+			title: "Naturaly Occuring Andesite"
+			x: -1.5d
+			y: 1.0d
+		}
+		{
+			id: "7AA0E8034655D154"
+			tasks: [{
+				id: "33658DC5641DEB76"
+				item: "mekanism:ingot_tin"
+				type: "item"
+			}]
+			x: -1.5d
+			y: -1.0d
+		}
+		{
+			id: "7F4985F10C97C35E"
+			tasks: [{
+				id: "04B1ECA22DA316F3"
+				item: "mbd2:ember_engine"
+				type: "item"
+			}]
+			x: -2.0d
+			y: 4.5d
+		}
+		{
+			id: "4DD9613A79B2570D"
+			tasks: [
+				{
+					id: "104BBEFE1EF68705"
+					item: "create:mechanical_press"
+					type: "item"
+				}
+				{
+					id: "1D12078786672161"
+					item: "mekanism:bio_fuel"
+					type: "item"
+				}
+			]
+			title: "Press -> Bio Mass"
+			x: 1.0d
+			y: 4.5d
+		}
+		{
+			id: "298A3EC4BBDFD02F"
+			tasks: [
+				{
+					id: "100C4DF79F5ED538"
+					item: "mekanism:dust_copper"
+					type: "item"
+				}
+				{
+					id: "39037B178E06191C"
+					item: "mekanism:isotopic_centrifuge"
+					type: "item"
+				}
+			]
+			title: "Centrifuge -> Copper"
+			x: 4.0d
+			y: 4.5d
+		}
+		{
+			id: "58B100C655BAC35B"
+			tasks: [
+				{
+					id: "4121433D06B898E9"
+					item: "create:encased_fan"
+					type: "item"
+				}
+				{
+					id: "4D93E1CE0FBD7E79"
+					item: "embers:ash"
+					type: "item"
+				}
+			]
+			title: "Bulk Blasting -> Ash"
+			x: 2.5d
+			y: 4.5d
+		}
+		{
+			id: "64A3DAFEAB821446"
+			tasks: [
+				{
+					id: "2EF2B31FB7F793C0"
+					item: "minecraft:kelp"
+					type: "item"
+				}
+				{
+					id: "3A998F3A89292262"
+					item: "minecraft:cactus"
+					type: "item"
+				}
+				{
+					id: "3250E15090F87093"
+					item: "minecraft:carrot"
+					type: "item"
+				}
+				{
+					id: "40C43F556507A955"
+					item: "minecraft:potato"
+					type: "item"
+				}
+				{
+					id: "7F7FAEFB6F60956E"
+					item: "minecraft:oak_leaves"
+					type: "item"
+				}
+			]
+			title: "Organic Matter"
+			x: -0.5d
+			y: 4.5d
+		}
+		{
+			id: "139DA19409D23AE5"
+			tasks: [{
+				id: "6E79EA640F209889"
+				item: "create:millstone"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			id: "59D6BDAA00B936A6"
+			tasks: [{
+				id: "18AC280752DA7950"
+				item: "embers:caminite_blend"
+				type: "item"
+			}]
+			title: "Andesite Blend"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			id: "70A15061FA3B03F0"
+			tasks: [{
+				count: 2L
+				id: "5C18B432826EC015"
+				item: { Count: 2, id: "create:andesite_alloy" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			id: "3333406792F5CE07"
+			tasks: [{
+				id: "31807001D465C896"
+				item: "mbd2:super_furnace"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			id: "4EFDE2AD9B665426"
+			tasks: [{
+				count: 3L
+				id: "59B3826578A079F8"
+				item: { Count: 3, id: "create:andesite_alloy" }
+				type: "item"
+			}]
+			x: 1.5d
+			y: 2.0d
+		}
+	]
+	title: "Create 1"
+}

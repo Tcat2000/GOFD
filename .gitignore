@@ -1,0 +1,6 @@
+mods/**
+logs/**
+saves/**
+crash-reports/**
+usernamecache.json
+usercache.json

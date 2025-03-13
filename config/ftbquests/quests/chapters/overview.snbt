@@ -1,0 +1,223 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "overview"
+	group: ""
+	id: "1ACDA7D339999F4F"
+	images: [{
+		height: 1.0d
+		image: "embers:textures/gui/ember_meter_overlay.png"
+		rotation: 0.0d
+		width: 1.0d
+		x: -4.5d
+		y: -2.0d
+	}]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "embers:ember_crystal_cluster"
+			id: "45B490493A2A1943"
+			subtitle: "Tin"
+			tasks: [{
+				id: "2CF101CC1D2AA8E4"
+				title: "Embers"
+				type: "checkmark"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["45B490493A2A1943"]
+			id: "19B0E6FDB43A63B9"
+			subtitle: "Copper"
+			tasks: [{
+				id: "5B8DA94574C85852"
+				item: "create:wrench"
+				type: "item"
+			}]
+			title: "Create"
+			x: 1.5d
+			y: -1.0d
+		}
+		{
+			dependencies: [
+				"19B0E6FDB43A63B9"
+				"7ED7C37A444F64A3"
+			]
+			id: "4A97BAB4CF4ADDE9"
+			subtitle: "Steel"
+			tasks: [{
+				id: "4A43586E4EEC8711"
+				item: {
+					Count: 1
+					id: "immersiveengineering:hammer"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Immersive Engineering"
+			x: 3.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["45B490493A2A1943"]
+			id: "7ED7C37A444F64A3"
+			subtitle: "Iron"
+			tasks: [{
+				id: "51B0CF8E24616505"
+				item: "occultism:spirit_fire"
+				type: "item"
+			}]
+			title: "Occultism"
+			x: 1.5d
+			y: 1.0d
+		}
+		{
+			dependencies: ["19B0E6FDB43A63B9"]
+			id: "5B2444F76F5E094B"
+			subtitle: "Quartz?"
+			tasks: [{
+				id: "51A4277B4FA76CE0"
+				item: "pneumaticcraft:air_compressor"
+				type: "item"
+			}]
+			title: "Pnematic Craft"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["7ED7C37A444F64A3"]
+			id: "2CA739BF6591F470"
+			subtitle: "Redstone"
+			tasks: [{
+				id: "1BD2998312872783"
+				item: "botania:mana_pool"
+				type: "item"
+			}]
+			title: "Botania"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"5B2444F76F5E094B"
+				"2CA739BF6591F470"
+			]
+			id: "179E3DF98E188C24"
+			tasks: [{
+				id: "243DBD31597B65ED"
+				item: "mekanism:alloy_reinforced"
+				type: "item"
+			}]
+			title: "Mekanism"
+			x: 4.5d
+			y: 3.0d
+		}
+		{
+			dependencies: [
+				"5B2444F76F5E094B"
+				"4A97BAB4CF4ADDE9"
+			]
+			id: "55FB4224071F5D5D"
+			subtitle: "Brass"
+			tasks: [{
+				id: "69032DAF99A0D9CF"
+				item: "create:brass_hand"
+				type: "item"
+			}]
+			title: "Create 2"
+			x: 4.5d
+			y: -1.0d
+		}
+		{
+			id: "5ADD9337FF6DADAF"
+			tasks: [{
+				id: "303500EFC25CD2E3"
+				item: "create:rose_quartz_lamp"
+				type: "item"
+			}]
+			title: "AE2"
+			x: 6.0d
+			y: -2.0d
+		}
+		{
+			id: "021B34FC06592FF4"
+			tasks: [{
+				id: "4A1851973ED43D1F"
+				item: "immersiveengineering:ingot_uranium"
+				type: "item"
+			}]
+			title: "Draconic Evolution"
+			x: 7.5d
+			y: -1.0d
+		}
+		{
+			id: "24B79C2429474797"
+			tasks: [{
+				id: "473AE604C9AFDF79"
+				item: "mbd2:mbd_gadgets"
+				type: "item"
+			}]
+			title: "Custom Content"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			id: "51D0B1EB43ECBF76"
+			tasks: [{
+				id: "000FB3F1F897D910"
+				item: "immersiveengineering:ingot_uranium"
+				type: "item"
+			}]
+			title: "Nuclearcraft"
+			x: 7.5d
+			y: 1.0d
+		}
+		{
+			id: "25A01AE03B7C1190"
+			tasks: [{
+				id: "22AA07FA9BCFB62C"
+				item: {
+					Count: 1
+					id: "minecraft:firework_rocket"
+					tag: {
+						Fireworks: {
+							Flight: 1b
+						}
+					}
+				}
+				type: "item"
+			}]
+			title: "space?"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			id: "646CDFC41C8C2B3F"
+			tasks: [{
+				id: "333DE4A996E7290C"
+				item: "minecraft:torchflower"
+				type: "item"
+			}]
+			title: "Nature's Aura"
+			x: 4.5d
+			y: 1.0d
+		}
+		{
+			dependencies: ["2CA739BF6591F470"]
+			id: "19126F1E928A74AB"
+			tasks: [{
+				id: "34DA888FC2788134"
+				item: "embers:wildfire_core"
+				type: "item"
+			}]
+			title: "Embers 2"
+			x: 4.5d
+			y: -3.0d
+		}
+	]
+	title: "Overview"
+}

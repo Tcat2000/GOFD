@@ -1,0 +1,220 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"ember_engine.running": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"crank": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						},
+						"2.0": {
+							"vector": [0, 0, 360],
+							"easing": "linear"
+						}
+					}
+				},
+				"piston_rod": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						},
+						"0.125": {
+							"vector": [0, 0, 4.3],
+							"easing": "linear"
+						},
+						"0.25": {
+							"vector": [0, 0, 8],
+							"easing": "linear"
+						},
+						"0.375": {
+							"vector": [0, 0, 11.3],
+							"easing": "linear"
+						},
+						"0.5": {
+							"vector": [0, 0, 13.3],
+							"easing": "linear"
+						},
+						"0.625": {
+							"vector": [0, 0, 13.58],
+							"easing": "linear"
+						},
+						"0.75": {
+							"vector": [0, 0, 11.5],
+							"easing": "linear"
+						},
+						"0.875": {
+							"vector": [0, 0, 6.6],
+							"easing": "linear"
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						},
+						"1.125": {
+							"vector": [0, 0, -6.6],
+							"easing": "linear"
+						},
+						"1.25": {
+							"vector": [0, 0, -11.5],
+							"easing": "linear"
+						},
+						"1.375": {
+							"vector": [0, 0, -13.58],
+							"easing": "linear"
+						},
+						"1.5": {
+							"vector": [0, 0, -13.3],
+							"easing": "linear"
+						},
+						"1.625": {
+							"vector": [0, 0, -11.3],
+							"easing": "linear"
+						},
+						"1.75": {
+							"vector": [0, 0, -8],
+							"easing": "linear"
+						},
+						"1.875": {
+							"vector": [0, 0, -4.3],
+							"easing": "linear"
+						},
+						"2.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						}
+					},
+					"position": {
+						"vector": ["math.sin(query.anim_time * 180 + 0) * 4", "-4 + math.sin(query.anim_time * 180 + 90) * 4", 0],
+						"easing": "linear"
+					}
+				}
+			},
+			"timeline": {
+				"1.125": "particle;"
+			}
+		},
+		"ember_engine.running_offset": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"crank": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, -180],
+							"easing": "linear"
+						},
+						"2.0": {
+							"vector": [0, 0, 180],
+							"easing": "linear"
+						}
+					}
+				},
+				"piston_rod": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						},
+						"0.125": {
+							"vector": [0, 0, -6.6],
+							"easing": "linear"
+						},
+						"0.25": {
+							"vector": [0, 0, -11.5],
+							"easing": "linear"
+						},
+						"0.375": {
+							"vector": [0, 0, -13.58],
+							"easing": "linear"
+						},
+						"0.5": {
+							"vector": [0, 0, -13.3],
+							"easing": "linear"
+						},
+						"0.625": {
+							"vector": [0, 0, -11.3],
+							"easing": "linear"
+						},
+						"0.75": {
+							"vector": [0, 0, -8],
+							"easing": "linear"
+						},
+						"0.875": {
+							"vector": [0, 0, -4.3],
+							"easing": "linear"
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						},
+						"1.125": {
+							"vector": [0, 0, 4.3],
+							"easing": "linear"
+						},
+						"1.25": {
+							"vector": [0, 0, 8],
+							"easing": "linear"
+						},
+						"1.375": {
+							"vector": [0, 0, 11.3],
+							"easing": "linear"
+						},
+						"1.5": {
+							"vector": [0, 0, 13.3],
+							"easing": "linear"
+						},
+						"1.625": {
+							"vector": [0, 0, 13.58],
+							"easing": "linear"
+						},
+						"1.75": {
+							"vector": [0, 0, 11.5],
+							"easing": "linear"
+						},
+						"1.875": {
+							"vector": [0, 0, 6.6],
+							"easing": "linear"
+						},
+						"2.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						}
+					},
+					"position": {
+						"vector": ["-math.sin(query.anim_time * 180 + 0) * 4", "-4 - math.sin(query.anim_time * 180 + 90) * 4", 0],
+						"easing": "linear"
+					}
+				}
+			},
+			"timeline": {
+				"0.125": "particle;"
+			}
+		},
+		"ember_engine.idle": {
+			"loop": true
+		},
+		"ember_engine.idle_offset": {
+			"loop": true,
+			"bones": {
+				"crank": {
+					"rotation": {
+						"vector": [0, 0, 180],
+						"easing": "linear"
+					}
+				},
+				"piston_rod": {
+					"position": {
+						"vector": [0, -8, 0],
+						"easing": "linear"
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

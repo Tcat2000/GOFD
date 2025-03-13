@@ -1,0 +1,32 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "embers"
+	group: "54592A670B710988"
+	id: "120099BE777598D1"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			id: "0C4C2EAB072D5B3E"
+			tasks: [{
+				id: "454113D2EEF3D6D9"
+				item: "embers:caminite_brick"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			id: "041F8371FADDBB13"
+			tasks: [{
+				id: "4C737A82C8C012CF"
+				item: "mekanism:ingot_tin"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 0.0d
+		}
+	]
+	title: "Embers 1"
+}
