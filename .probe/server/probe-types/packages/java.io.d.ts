@@ -741,6 +741,8 @@ import {$Readable, $Readable$Type} from "packages/java/lang/$Readable"
 export class $Reader implements $Readable, $Closeable {
 
 
+public static "nullReader"(): $Reader
+public "ready"(): boolean
 public "read"(arg0: (character)[]): integer
 public "read"(arg0: (character)[], arg1: integer, arg2: integer): integer
 public "read"(arg0: $CharBuffer$Type): integer
@@ -751,8 +753,6 @@ public "transferTo"(arg0: $Writer$Type): long
 public "skip"(arg0: long): long
 public "markSupported"(): boolean
 public "reset"(): void
-public static "nullReader"(): $Reader
-public "ready"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -860,6 +860,7 @@ export class $BufferedReader extends $Reader {
 constructor(arg0: $Reader$Type, arg1: integer)
 constructor(arg0: $Reader$Type)
 
+public "ready"(): boolean
 public "lines"(): $Stream<(string)>
 public "read"(): integer
 public "read"(arg0: (character)[], arg1: integer, arg2: integer): integer
@@ -869,7 +870,6 @@ public "mark"(arg0: integer): void
 public "skip"(arg0: long): long
 public "markSupported"(): boolean
 public "reset"(): void
-public "ready"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

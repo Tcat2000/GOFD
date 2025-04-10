@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+      "layer0": "kubejs:item/raw_small_advanced_pcb"
+    }
+  }

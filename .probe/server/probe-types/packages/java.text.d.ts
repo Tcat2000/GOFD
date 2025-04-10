@@ -724,13 +724,13 @@ export interface $AttributedCharacterIterator extends $CharacterIterator {
 
  "getAttributes"(): $Map<($AttributedCharacterIterator$Attribute), (any)>
  "getAttribute"(arg0: $AttributedCharacterIterator$Attribute$Type): any
- "getAllAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
  "getRunStart"(): integer
  "getRunStart"(arg0: $Set$Type<(any)>): integer
  "getRunStart"(arg0: $AttributedCharacterIterator$Attribute$Type): integer
+ "getRunLimit"(arg0: $Set$Type<(any)>): integer
  "getRunLimit"(arg0: $AttributedCharacterIterator$Attribute$Type): integer
  "getRunLimit"(): integer
- "getRunLimit"(arg0: $Set$Type<(any)>): integer
+ "getAllAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
  "clone"(): any
  "next"(): character
  "last"(): character

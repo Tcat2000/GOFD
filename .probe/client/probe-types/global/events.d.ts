@@ -1,3 +1,4 @@
+import {$MBDMachineEvents$MachineCustomKeyframeEventJS, $MBDMachineEvents$MachineCustomKeyframeEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineCustomKeyframeEventJS"
 import {$FoodEatenEventJS, $FoodEatenEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$FoodEatenEventJS"
 import {$BlockPlacedEventJS, $BlockPlacedEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$BlockPlacedEventJS"
 import {$ItemEntityInteractedEventJS, $ItemEntityInteractedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemEntityInteractedEventJS"
@@ -28,6 +29,7 @@ import {$ExplosionEventJS$Before, $ExplosionEventJS$Before$Type} from "packages/
 import {$JEISubtypesEventJS, $JEISubtypesEventJS$Type} from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$JEISubtypesEventJS"
 import {$ItemDroppedEventJS, $ItemDroppedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemDroppedEventJS"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$MBDMachineEvents$MachineClientSetupEventJS, $MBDMachineEvents$MachineClientSetupEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineClientSetupEventJS"
 import {$TypeAssignmentEventJS, $TypeAssignmentEventJS$Type} from "packages/moe/wolfgirl/probejs/events/$TypeAssignmentEventJS"
 import {$ItemSmeltedEventJS, $ItemSmeltedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemSmeltedEventJS"
 import {$DetectorBlockEventJS, $DetectorBlockEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$DetectorBlockEventJS"
@@ -138,10 +140,14 @@ function lang(extra: string, handler: (event: $LangEventJS) => void): void
 function highPriorityAssets(handler: (event: $GenerateClientAssetsEventJS) => void): void
 }
 export namespace MBDMachineEvents {
+function onCustomKeyframe(extra: string, handler: (event: $MBDMachineEvents$MachineCustomKeyframeEventJS) => void): void
+function onCustomKeyframe(handler: (event: $MBDMachineEvents$MachineCustomKeyframeEventJS) => void): void
 function onClientTick(extra: string, handler: (event: $MBDMachineEvents$MachineClientTickEventJS) => void): void
 function onClientTick(handler: (event: $MBDMachineEvents$MachineClientTickEventJS) => void): void
 function onCustomDataUpdate(extra: string, handler: (event: $MBDMachineEvents$MachineCustomDataUpdateEventJS) => void): void
 function onCustomDataUpdate(handler: (event: $MBDMachineEvents$MachineCustomDataUpdateEventJS) => void): void
+function onClientMachineSetup(extra: string, handler: (event: $MBDMachineEvents$MachineClientSetupEventJS) => void): void
+function onClientMachineSetup(handler: (event: $MBDMachineEvents$MachineClientSetupEventJS) => void): void
 }
 export namespace BlockEvents {
 function broken(extra: $Block$Type, handler: (event: $BlockBrokenEventJS) => void): void

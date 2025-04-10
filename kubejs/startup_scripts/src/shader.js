@@ -1,0 +1,1 @@
+// StartupEvents.registry("recipe_type")

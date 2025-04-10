@@ -18,14 +18,14 @@ export interface $Logger {
  "info"(arg0: $Marker$Type, arg1: string, arg2: any): void
  "info"(arg0: $Marker$Type, arg1: string): void
  "trace"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
- "trace"(arg0: string, arg1: any): void
- "trace"(arg0: string, arg1: any, arg2: any): void
- "trace"(arg0: string, ...arg1: (any)[]): void
  "trace"(arg0: string, arg1: $Throwable$Type): void
- "trace"(arg0: string): void
- "trace"(arg0: $Marker$Type, arg1: string): void
- "trace"(arg0: $Marker$Type, arg1: string, arg2: any): void
+ "trace"(arg0: string, ...arg1: (any)[]): void
+ "trace"(arg0: string, arg1: any, arg2: any): void
+ "trace"(arg0: string, arg1: any): void
  "trace"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
+ "trace"(arg0: $Marker$Type, arg1: string, arg2: any): void
+ "trace"(arg0: $Marker$Type, arg1: string): void
+ "trace"(arg0: string): void
  "trace"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
  "debug"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
  "debug"(arg0: $Marker$Type, arg1: string, arg2: any): void
@@ -37,44 +37,44 @@ export interface $Logger {
  "debug"(arg0: string): void
  "debug"(arg0: string, arg1: $Throwable$Type): void
  "debug"(arg0: $Marker$Type, arg1: string): void
- "error"(arg0: string, arg1: $Throwable$Type): void
+ "error"(arg0: string): void
  "error"(arg0: $Marker$Type, arg1: string, arg2: any): void
  "error"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
  "error"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
- "error"(arg0: string, arg1: any): void
- "error"(arg0: string): void
- "error"(arg0: string, ...arg1: (any)[]): void
  "error"(arg0: string, arg1: any, arg2: any): void
- "error"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
+ "error"(arg0: string, ...arg1: (any)[]): void
+ "error"(arg0: string, arg1: any): void
  "error"(arg0: $Marker$Type, arg1: string): void
- "warn"(arg0: string, arg1: $Throwable$Type): void
+ "error"(arg0: string, arg1: $Throwable$Type): void
+ "error"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
  "warn"(arg0: string, arg1: any, arg2: any): void
- "warn"(arg0: string, ...arg1: (any)[]): void
- "warn"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
- "warn"(arg0: $Marker$Type, arg1: string): void
  "warn"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
+ "warn"(arg0: string, ...arg1: (any)[]): void
  "warn"(arg0: $Marker$Type, arg1: string, arg2: any): void
+ "warn"(arg0: $Marker$Type, arg1: string): void
+ "warn"(arg0: string, arg1: $Throwable$Type): void
  "warn"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
+ "warn"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
  "warn"(arg0: string): void
  "warn"(arg0: string, arg1: any): void
- "makeLoggingEventBuilder"(arg0: $Level$Type): $LoggingEventBuilder
  "isEnabledForLevel"(arg0: $Level$Type): boolean
- "isWarnEnabled"(): boolean
- "isWarnEnabled"(arg0: $Marker$Type): boolean
+ "isInfoEnabled"(arg0: $Marker$Type): boolean
+ "isInfoEnabled"(): boolean
+ "isTraceEnabled"(): boolean
+ "isTraceEnabled"(arg0: $Marker$Type): boolean
  "isDebugEnabled"(arg0: $Marker$Type): boolean
  "isDebugEnabled"(): boolean
- "isInfoEnabled"(): boolean
- "isInfoEnabled"(arg0: $Marker$Type): boolean
  "isErrorEnabled"(): boolean
  "isErrorEnabled"(arg0: $Marker$Type): boolean
- "isTraceEnabled"(arg0: $Marker$Type): boolean
- "isTraceEnabled"(): boolean
+ "isWarnEnabled"(): boolean
+ "isWarnEnabled"(arg0: $Marker$Type): boolean
+ "atError"(): $LoggingEventBuilder
  "atTrace"(): $LoggingEventBuilder
- "atLevel"(arg0: $Level$Type): $LoggingEventBuilder
  "atDebug"(): $LoggingEventBuilder
  "atWarn"(): $LoggingEventBuilder
- "atError"(): $LoggingEventBuilder
+ "atLevel"(arg0: $Level$Type): $LoggingEventBuilder
  "atInfo"(): $LoggingEventBuilder
+ "makeLoggingEventBuilder"(arg0: $Level$Type): $LoggingEventBuilder
 }
 
 export namespace $Logger {

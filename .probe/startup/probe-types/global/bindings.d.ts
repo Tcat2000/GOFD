@@ -24,6 +24,7 @@ import {$JavaWrapper, $JavaWrapper$Type} from "packages/dev/latvian/mods/kubejs/
 import {$ConfigBlockProperties, $ConfigBlockProperties$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigBlockProperties"
 import {$RotationAxis, $RotationAxis$Type} from "packages/dev/latvian/mods/kubejs/util/$RotationAxis"
 import {$Painter, $Painter$Type} from "packages/dev/latvian/mods/kubejs/client/painter/$Painter"
+import {$SidedNativeEvents, $SidedNativeEvents$Type} from "packages/zank/mods/eventjs/$SidedNativeEvents"
 import {$TabButton, $TabButton$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$TabButton"
 import {$BlockUIJSFactory, $BlockUIJSFactory$Type} from "packages/com/lowdragmc/lowdraglib/kjs/ui/$BlockUIJSFactory"
 import {$IngredientForgeHelper, $IngredientForgeHelper$Type} from "packages/dev/latvian/mods/kubejs/platform/forge/$IngredientForgeHelper"
@@ -122,6 +123,7 @@ const ImageWidget: typeof $ImageWidget
 const PhantomFluidWidget: typeof $PhantomFluidWidget
 const Client: $Minecraft
 const MBDRegistries: typeof $MBDRegistries
+const NativeEvents: $SidedNativeEvents
 const MachineState: typeof $MachineState
 const ConfigBlockProperties: typeof $ConfigBlockProperties
 const SoundType: typeof $SoundType

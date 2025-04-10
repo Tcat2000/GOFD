@@ -18,8 +18,8 @@ import {$Resource, $Resource$Type} from "packages/com/lowdragmc/lowdraglib/gui/e
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$Widget"
 import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/$Resources"
-import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$Layout, $Layout$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/layout/$Layout"
+import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$Target, $Target$Type} from "packages/com/lowdragmc/lowdraglib/gui/ingredient/$Target"
 import {$ModularUI, $ModularUI$Type} from "packages/com/lowdragmc/lowdraglib/gui/modular/$ModularUI"
 import {$IGuiTexture, $IGuiTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$IGuiTexture"
@@ -32,90 +32,93 @@ constructor(position: $Position$Type)
 constructor(x: integer, y: integer, width: integer, height: integer)
 constructor()
 
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
 public "setLayout"(layout: $Layout$Type): void
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "updateScreen"(): void
+public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "mouseMoved"(mouseX: double, mouseY: double): boolean
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "getGuiExtraAreas"(guiRect: $Rect2i$Type, list: $List$Type<($Rect2i$Type)>): $List<($Rect2i)>
+public "isChild"(widget: $Widget$Type): boolean
+public "setAllowXEIIngredientOverMouse"(allowXEIIngredientOverMouse: boolean): void
+public "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public "getContainedWidgets"(includeHidden: boolean): $List<($Widget)>
+public "setClientSideWidget"(): $WidgetGroup
+public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "getLayout"(): $Layout
+public "isAllowXEIIngredientOverMouse"(): boolean
+public "detectAndSendChanges"(): void
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "setGui"(gui: $ModularUI$Type): void
 public "getHoverElement"(mouseX: double, mouseY: double): $Widget
-public "isMouseOverElement"(mouseX: double, mouseY: double): boolean
 public "initWidget"(): void
-public "onScreenSizeUpdate"(screenWidth: integer, screenHeight: integer): void
 public "drawOverlay"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "isMouseOverElement"(mouseX: double, mouseY: double): boolean
+public "onScreenSizeUpdate"(screenWidth: integer, screenHeight: integer): void
 public "waitToAdded"(widget: $Widget$Type): void
 public "isDynamicSized"(): boolean
 public "initTemplate"(): void
+public "waitToRemoved"(widget: $Widget$Type): void
 public "setDynamicSized"(dynamicSized: boolean): void
+public "getFirstWidgetById"(regex: string): $Widget
 public "getWidgetsById"(regex: string): $List<($Widget)>
 public "getWidgetsByType"<T extends $Widget>(clazz: $Class$Type<(T)>): $List<(T)>
-public "getFirstWidgetById"(regex: string): $Widget
 public "setLayoutPadding"(layoutPadding: integer): void
-public "waitToRemoved"(widget: $Widget$Type): void
-public "addWidgets"(...widgets: ($Widget$Type)[]): $WidgetGroup
-public "removeWidget"(widget: $Widget$Type): void
-public "getPhantomTargets"(ingredient: any): $List<($Target)>
-public "clearAllWidgets"(): void
-public "removeWidgetAnima"(widget: $Widget$Type, animation: $Transform$Type): void
 public "addWidgetAnima"(widget: $Widget$Type, animation: $Transform$Type): void
 public "getAllWidgetSize"(): integer
-public "canWidgetAccepted"(widget: $IConfigurableWidget$Type): boolean
-public "acceptWidget"(widget: $IConfigurableWidget$Type): void
-public "getLayoutPadding"(): integer
-public "onWidgetRemoved"(widget: $IConfigurableWidget$Type): void
+public "clearAllWidgets"(): void
+public "removeWidgetAnima"(widget: $Widget$Type, animation: $Transform$Type): void
+public "getPhantomTargets"(ingredient: any): $List<($Target)>
+public "removeWidget"(widget: $Widget$Type): void
+public "addWidgets"(...widgets: ($Widget$Type)[]): $WidgetGroup
 public "serializeInnerNBT"(): $CompoundTag
+public "onWidgetRemoved"(widget: $IConfigurableWidget$Type): void
+public "canWidgetAccepted"(widget: $IConfigurableWidget$Type): boolean
+public "getLayoutPadding"(): integer
+public "acceptWidget"(widget: $IConfigurableWidget$Type): void
+public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
 public "charTyped"(codePoint: character, modifiers: integer): boolean
-public "keyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
 public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "keyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
 public "addWidget"<T extends $Widget>(widget: T, callback: $Consumer$Type<(T)>): $WidgetGroup
 public "addWidget"(index: integer, widget: $Widget$Type): $WidgetGroup
 public "addWidget"(widget: $Widget$Type): $WidgetGroup
 public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
-public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "isChild"(widget: $Widget$Type): boolean
-public "detectAndSendChanges"(): void
-public "isAllowXEIIngredientOverMouse"(): boolean
-public "setGui"(gui: $ModularUI$Type): void
-public "setAllowXEIIngredientOverMouse"(allowXEIIngredientOverMouse: boolean): void
-public "getContainedWidgets"(includeHidden: boolean): $List<($Widget)>
-public "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
-public "getLayout"(): $Layout
+public "setVisible"(visible: boolean): $WidgetGroup
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
-public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "getGuiExtraAreas"(guiRect: $Rect2i$Type, list: $List$Type<($Rect2i$Type)>): $List<($Rect2i)>
-public "mouseMoved"(mouseX: double, mouseY: double): boolean
-public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "updateScreen"(): void
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "serializeWrapper"(): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "canDragIn"(dragging: any): boolean
+public "serializeWrapper"(): $CompoundTag
 public "handleDragging"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 set "layout"(value: $Layout$Type)
+set "allowXEIIngredientOverMouse"(value: boolean)
+get "layout"(): $Layout
+get "allowXEIIngredientOverMouse"(): boolean
+set "gui"(value: $ModularUI$Type)
 get "dynamicSized"(): boolean
 set "dynamicSized"(value: boolean)
 set "layoutPadding"(value: integer)
 get "allWidgetSize"(): integer
 get "layoutPadding"(): integer
-get "allowXEIIngredientOverMouse"(): boolean
-set "gui"(value: $ModularUI$Type)
-set "allowXEIIngredientOverMouse"(value: boolean)
-get "layout"(): $Layout
+set "visible"(value: boolean)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -137,8 +140,8 @@ import {$Resource, $Resource$Type} from "packages/com/lowdragmc/lowdraglib/gui/e
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$Widget"
 import {$IGuiTexture, $IGuiTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$IGuiTexture"
-import {$Configurator, $Configurator$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$Configurator"
 import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
+import {$Configurator, $Configurator$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$Configurator"
 import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/$Resources"
 
 export class $ConfiguratorGroup extends $Configurator {
@@ -148,27 +151,27 @@ constructor(name: string)
 constructor(name: string, isCollapse: boolean)
 
 public "init"(width: integer): void
-public "getConfigurators"(): $List<($Configurator)>
-public "removeConfigurator"(configurator: $Configurator$Type): void
-public "addConfigurators"(...configurators: ($Configurator$Type)[]): void
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "setConfiguratorContainer"(configuratorContainer: $IConfiguratorContainer$Type): void
 public "removeAllConfigurators"(): void
-public "addConfigurator"(index: integer, configurator: $Configurator$Type): void
-public "isCollapse"(): boolean
-public "setCanCollapse"(canCollapse: boolean): void
-public "setCollapse"(collapse: boolean): void
+public "addConfigurators"(...configurators: ($Configurator$Type)[]): void
 public "computeHeight"(): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "addConfigurator"(index: integer, configurator: $Configurator$Type): void
+public "removeConfigurator"(configurator: $Configurator$Type): void
+public "setCollapse"(collapse: boolean): void
+public "setCanCollapse"(canCollapse: boolean): void
+public "isCollapse"(): boolean
+public "getConfigurators"(): $List<($Configurator)>
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-get "configurators"(): $List<($Configurator)>
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 set "configuratorContainer"(value: $IConfiguratorContainer$Type)
-get "collapse"(): boolean
-set "canCollapse"(value: boolean)
 set "collapse"(value: boolean)
+set "canCollapse"(value: boolean)
+get "collapse"(): boolean
+get "configurators"(): $List<($Configurator)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -205,35 +208,35 @@ readonly "widgets": $List<($Widget)>
 constructor(arg0: $MachineEditor$Type)
 
 public "getLevel"(): $TrackedDummyWorld
+public "isDrawRenderingBoxFrameLines"(): boolean
+public "setDrawRenderingBoxFrameLines"(arg0: boolean): void
+public "isDrawShapeFrameLines"(): boolean
+public "reloadAdditionalTraits"(): void
+public "setDrawShapeFrameLines"(arg0: boolean): void
+public "refreshButtonGroupPosition"(): void
+public "getButtonGroup"(): $WidgetGroup
+public "addSwitch"(arg0: $IGuiTexture$Type, arg1: $IGuiTexture$Type, arg2: string, arg3: $BooleanSupplier$Type, arg4: $BooleanConsumer$Type): void
+public "getEditor"(): $MachineEditor
+public "resetScene"(): void
+public "prepareButtonGroup"(): void
+public "getPreviewMachine"(): $MBDMachine
 public "renderAfterWorld"(arg0: $SceneWidget$Type): void
 public "getScene"(): $SceneWidget
 public "addButton"(arg0: $IGuiTexture$Type, arg1: string, arg2: $Runnable$Type): void
-public "getPreviewMachine"(): $MBDMachine
-public "prepareButtonGroup"(): void
-public "refreshButtonGroupPosition"(): void
-public "addSwitch"(arg0: $IGuiTexture$Type, arg1: $IGuiTexture$Type, arg2: string, arg3: $BooleanSupplier$Type, arg4: $BooleanConsumer$Type): void
-public "getButtonGroup"(): $WidgetGroup
-public "getEditor"(): $MachineEditor
-public "resetScene"(): void
-public "reloadAdditionalTraits"(): void
-public "isDrawShapeFrameLines"(): boolean
-public "setDrawShapeFrameLines"(arg0: boolean): void
-public "setDrawRenderingBoxFrameLines"(arg0: boolean): void
-public "isDrawRenderingBoxFrameLines"(): boolean
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "level"(): $TrackedDummyWorld
-get "scene"(): $SceneWidget
-get "previewMachine"(): $MBDMachine
-get "buttonGroup"(): $WidgetGroup
-get "editor"(): $MachineEditor
+get "drawRenderingBoxFrameLines"(): boolean
+set "drawRenderingBoxFrameLines"(value: boolean)
 get "drawShapeFrameLines"(): boolean
 set "drawShapeFrameLines"(value: boolean)
-set "drawRenderingBoxFrameLines"(value: boolean)
-get "drawRenderingBoxFrameLines"(): boolean
+get "buttonGroup"(): $WidgetGroup
+get "editor"(): $MachineEditor
+get "previewMachine"(): $MBDMachine
+get "scene"(): $SceneWidget
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -255,18 +258,18 @@ export interface $IRef {
 
  "update"(): void
  "getKey"(): $ManagedKey
- "markAsDirty"(): void
+ "setOnSyncListener"(arg0: $BooleanConsumer$Type): void
+ "isPersistedDirty"(): boolean
+ "isLazy"(): boolean
  "clearSyncDirty"(): void
  "isSyncDirty"(): boolean
  "clearPersistedDirty"(): void
  "setPersistedPrefixName"(arg0: string): void
+ "markAsDirty"(): void
  "readRaw"<T>(): T
  "getPersistedKey"(): string
- "isPersistedDirty"(): boolean
- "setOnSyncListener"(arg0: $BooleanConsumer$Type): void
  "setOnPersistedListener"(arg0: $BooleanConsumer$Type): void
  "getPersistedPrefixName"(): string
- "isLazy"(): boolean
 }
 
 export namespace $IRef {
@@ -292,18 +295,18 @@ export class $ConfigMachineSettings$SignalConnection {
 constructor()
 
 public "getConnection"(arg0: $Direction$Type, arg1: $Direction$Type): boolean
-public "rightConnection"(): boolean
+public "bottomConnection"(): boolean
+public "bottomConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
 public "rightConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
-public "frontConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
-public "frontConnection"(): boolean
-public "backConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
-public "backConnection"(): boolean
-public "leftConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
-public "leftConnection"(): boolean
+public "rightConnection"(): boolean
 public "topConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
 public "topConnection"(): boolean
-public "bottomConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
-public "bottomConnection"(): boolean
+public "leftConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
+public "leftConnection"(): boolean
+public "backConnection"(): boolean
+public "backConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
+public "frontConnection"(arg0: boolean): $ConfigMachineSettings$SignalConnection
+public "frontConnection"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -335,56 +338,54 @@ import {$IGuiTexture, $IGuiTexture$Type} from "packages/com/lowdragmc/lowdraglib
 
 export class $SwitchWidget extends $Widget implements $IConfigurableWidget {
 
-constructor(xPosition: integer, yPosition: integer, width: integer, height: integer, onPressed: $BiConsumer$Type<($ClickData$Type), (boolean)>)
 constructor()
+constructor(xPosition: integer, yPosition: integer, width: integer, height: integer, onPressed: $BiConsumer$Type<($ClickData$Type), (boolean)>)
 
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "initTemplate"(): void
-public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "setBaseTexture"(...baseTexture: ($IGuiTexture$Type)[]): $SwitchWidget
-public "setPressedTexture"(...pressedTexture: ($IGuiTexture$Type)[]): $SwitchWidget
-public "isPressed"(): boolean
-public "detectAndSendChanges"(): void
-public "setHoverTexture"(...hoverTexture: ($IGuiTexture$Type)[]): $SwitchWidget
-public "setTexture"(baseTexture: $IGuiTexture$Type, pressedTexture: $IGuiTexture$Type): $SwitchWidget
-public "setPressed"(isPressed: boolean): $SwitchWidget
-public "setSupplier"(supplier: $Supplier$Type<(boolean)>): $SwitchWidget
-public "setOnPressCallback"(onPressCallback: $BiConsumer$Type<($ClickData$Type), (boolean)>): void
-public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "updateScreen"(): void
 public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "updateScreen"(): void
+public "isPressed"(): boolean
+public "setBaseTexture"(...baseTexture: ($IGuiTexture$Type)[]): $SwitchWidget
+public "setPressedTexture"(...pressedTexture: ($IGuiTexture$Type)[]): $SwitchWidget
+public "setOnPressCallback"(onPressCallback: $BiConsumer$Type<($ClickData$Type), (boolean)>): void
+public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "setPressed"(isPressed: boolean): $SwitchWidget
+public "setTexture"(baseTexture: $IGuiTexture$Type, pressedTexture: $IGuiTexture$Type): $SwitchWidget
+public "detectAndSendChanges"(): void
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "initTemplate"(): void
+public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "setSupplier"(supplier: $Supplier$Type<(boolean)>): $SwitchWidget
 public "setHoverBorderTexture"(border: integer, color: integer): $SwitchWidget
-public "widget"(): $Widget
-public "serializeWrapper"(): $CompoundTag
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
+public "serializeWrapper"(): $CompoundTag
 public "handleDragging"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
+get "pressed"(): boolean
 set "baseTexture"(value: ($IGuiTexture$Type)[])
 set "pressedTexture"(value: ($IGuiTexture$Type)[])
-get "pressed"(): boolean
-set "hoverTexture"(value: ($IGuiTexture$Type)[])
+set "onPressCallback"(value: $BiConsumer$Type<($ClickData$Type), (boolean)>)
 set "pressed"(value: boolean)
 set "supplier"(value: $Supplier$Type<(boolean)>)
-set "onPressCallback"(value: $BiConsumer$Type<($ClickData$Type), (boolean)>)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -410,16 +411,16 @@ export class $MachineBeforeRecipeWorkingEvent extends $MachineEvent {
 readonly "recipe": $MBDRecipe
 readonly "machine": $MBDMachine
 
-constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type)
 constructor()
+constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type)
 
-public "getRecipe"(): $MBDRecipe
-public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
+public "getListenerList"(): $ListenerList
+public "getRecipe"(): $MBDRecipe
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-get "recipe"(): $MBDRecipe
-get "listenerList"(): $ListenerList
 get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
+get "recipe"(): $MBDRecipe
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -450,13 +451,13 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $LivingEntity$Type, arg2: $ItemStack$Type)
 
+public "getPlayer"(): $LivingEntity
 public "getListenerList"(): $ListenerList
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "getItemStack"(): $ItemStack
-public "getPlayer"(): $LivingEntity
+get "player"(): $LivingEntity
 get "listenerList"(): $ListenerList
 get "itemStack"(): $ItemStack
-get "player"(): $LivingEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -472,8 +473,8 @@ export type $MachinePlacedEvent_ = $MachinePlacedEvent$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/common/item/$MBDGadgetsItem" {
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$HeldItemUIFactory$HeldItemHolder, $HeldItemUIFactory$HeldItemHolder$Type} from "packages/com/lowdragmc/lowdraglib/gui/factory/$HeldItemUIFactory$HeldItemHolder"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$HeldItemUIFactory$HeldItemHolder, $HeldItemUIFactory$HeldItemHolder$Type} from "packages/com/lowdragmc/lowdraglib/gui/factory/$HeldItemUIFactory$HeldItemHolder"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
@@ -494,19 +495,20 @@ static readonly "BY_BLOCK": $Map<($Block), ($Item)>
 static readonly "MAX_STACK_SIZE": integer
 static readonly "EAT_DURATION": integer
 static readonly "MAX_BAR_WIDTH": integer
+ "craftingRemainingItem": $Item
 
 constructor()
 
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "getDescriptionId"(arg0: $ItemStack$Type): string
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "isMultiblockBuilder"(arg0: $ItemStack$Type): boolean
+public "isMultiblockDebugger"(arg0: $ItemStack$Type): boolean
 public "createUI"(arg0: $Player$Type, arg1: $HeldItemUIFactory$HeldItemHolder$Type): $ModularUI
 public "getRecipe"(arg0: $ItemStack$Type): $ResourceLocation
 public "setRecipe"(arg0: $ItemStack$Type, arg1: $ResourceLocation$Type): void
 public "isRecipeDebugger"(arg0: $ItemStack$Type): boolean
-public "isMultiblockBuilder"(arg0: $ItemStack$Type): boolean
-public "isMultiblockDebugger"(arg0: $ItemStack$Type): boolean
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -555,34 +557,34 @@ import {$IContentChangeAware, $IContentChangeAware$Type} from "packages/com/lowd
 
 export class $ItemStackTransfer implements $IItemTransfer, $ITagSerializable<($CompoundTag)>, $IContentChangeAware {
 
-constructor(stack: $ItemStack$Type)
-constructor(stacks: $NonNullList$Type<($ItemStack$Type)>)
-constructor(size: integer)
 constructor()
+constructor(stack: $ItemStack$Type)
+constructor(size: integer)
+constructor(stacks: $NonNullList$Type<($ItemStack$Type)>)
 
+public "getSlots"(): integer
 public "copy"(): $ItemStackTransfer
 public "setSize"(size: integer): void
 public "setFilter"(filter: $Function$Type<($ItemStack$Type), (boolean)>): void
+public "restoreFromSnapshot"(snapshot: any): void
+public "getStackInSlot"(slot: integer): $ItemStack
+public "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean, notifyChanges: boolean): $ItemStack
+public "extractItem"(slot: integer, amount: integer, simulate: boolean, notifyChanges: boolean): $ItemStack
+public "getSlotLimit"(slot: integer): integer
+public "isItemValid"(slot: integer, stack: $ItemStack$Type): boolean
 public "getOnContentsChanged"(): $Runnable
 public "setOnContentsChanged"(onContentsChanged: $Runnable$Type): void
+public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
+public "createSnapshot"(): any
 public "serializeNBT"(): $CompoundTag
 public "deserializeNBT"(nbt: $CompoundTag$Type): void
-public "getStackInSlot"(slot: integer): $ItemStack
-public "getSlotLimit"(slot: integer): integer
-public "extractItem"(slot: integer, amount: integer, simulate: boolean, notifyChanges: boolean): $ItemStack
-public "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean, notifyChanges: boolean): $ItemStack
-public "isItemValid"(slot: integer, stack: $ItemStack$Type): boolean
-public "getSlots"(): integer
 public "onContentsChanged"(): void
 public "onContentsChanged"(slot: integer): void
-public "createSnapshot"(): any
-public "restoreFromSnapshot"(snapshot: any): void
-public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
-public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean): $ItemStack
+public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
+get "slots"(): integer
 set "size"(value: integer)
 set "filter"(value: $Function$Type<($ItemStack$Type), (boolean)>)
-get "slots"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -607,39 +609,39 @@ import {$IContentChangeAware, $IContentChangeAware$Type} from "packages/com/lowd
 
 export class $FluidStorage implements $IFluidStorage, $IContentChangeAware, $ITagSerializable<($CompoundTag)> {
 
-constructor(fluidStack: $FluidStack$Type)
-constructor(capacity: long, validator: $Predicate$Type<($FluidStack$Type)>)
 constructor(capacity: long)
+constructor(capacity: long, validator: $Predicate$Type<($FluidStack$Type)>)
+constructor(fluidStack: $FluidStack$Type)
 
-public "fill"(tank: integer, resource: $FluidStack$Type, simulate: boolean, notifyChange: boolean): long
-public "copy"(): $FluidStorage
 public "drain"(tank: integer, resource: $FluidStack$Type, simulate: boolean, notifyChange: boolean): $FluidStack
 public "getCapacity"(): long
 public "setCapacity"(capacity: long): void
+public "fill"(tank: integer, resource: $FluidStack$Type, simulate: boolean, notifyChange: boolean): long
+public "copy"(): $FluidStorage
+public "restoreFromSnapshot"(snapshot: any): void
+public "setValidator"(validator: $Predicate$Type<($FluidStack$Type)>): void
+public "setFluid"(fluid: $FluidStack$Type): void
+public "supportsDrain"(tank: integer): boolean
+public "supportsFill"(tank: integer): boolean
 public "getOnContentsChanged"(): $Runnable
 public "setOnContentsChanged"(onContentsChanged: $Runnable$Type): void
-public "deserializeNBT"(nbt: $CompoundTag$Type): void
-public "setValidator"(validator: $Predicate$Type<($FluidStack$Type)>): void
-public "supportsFill"(tank: integer): boolean
-public "supportsDrain"(tank: integer): boolean
-public "setFluid"(fluid: $FluidStack$Type): void
-public "isFluidValid"(stack: $FluidStack$Type): boolean
-public "onContentsChanged"(): void
-public "createSnapshot"(): any
-public "restoreFromSnapshot"(snapshot: any): void
 public "getFluid"(): $FluidStack
-public "getTankCapacity"(tank: integer): long
-public "getFluidInTank"(tank: integer): $FluidStack
+public "createSnapshot"(): any
+public "deserializeNBT"(nbt: $CompoundTag$Type): void
+public "onContentsChanged"(): void
+public "isFluidValid"(stack: $FluidStack$Type): boolean
 public "getFluidAmount"(): long
+public "isFluidValid"(tank: integer, stack: $FluidStack$Type): boolean
 public "setFluidInTank"(tank: integer, fluidStack: $FluidStack$Type): void
 public "getTanks"(): integer
-public "isFluidValid"(tank: integer, stack: $FluidStack$Type): boolean
-public "fill"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): long
-public "fill"(resource: $FluidStack$Type, simulate: boolean): long
+public "getFluidInTank"(tank: integer): $FluidStack
+public "getTankCapacity"(tank: integer): long
 public "drain"(resource: $FluidStack$Type, simulate: boolean): $FluidStack
 public "drain"(maxDrain: long, simulate: boolean, notifyChanges: boolean): $FluidStack
-public "drain"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): $FluidStack
 public "drain"(maxDrain: long, simulate: boolean): $FluidStack
+public "drain"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): $FluidStack
+public "fill"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): long
+public "fill"(resource: $FluidStack$Type, simulate: boolean): long
 get "capacity"(): long
 set "capacity"(value: long)
 set "validator"(value: $Predicate$Type<($FluidStack$Type)>)
@@ -710,27 +712,27 @@ public static "create"(stack: $FluidStack$Type, amount: long): $FluidStack
 public "grow"(amount: long): void
 public "getTag"(): $CompoundTag
 public "getDisplayName"(): $Component
-public "setTag"(tag: $CompoundTag$Type): void
-public "setAmount"(amount: long): void
-public "getAmount"(): long
-public static "loadFromTag"(nbt: $CompoundTag$Type): $FluidStack
 public "saveToTag"(nbt: $CompoundTag$Type): $CompoundTag
+public "setTag"(tag: $CompoundTag$Type): void
+public "setFluid"(fluid: $Fluid$Type): void
+public "getAmount"(): long
 public "isFluidEqual"(other: $FluidStack$Type): boolean
-public "getRawFluid"(): $Fluid
+public "setAmount"(amount: long): void
 public static "readFromBuf"(buf: $FriendlyByteBuf$Type): $FluidStack
+public "getRawFluid"(): $Fluid
 public "writeToBuf"(buf: $FriendlyByteBuf$Type): void
 public "isFluidStackEqual"(other: $FluidStack$Type): boolean
-public "setFluid"(fluid: $Fluid$Type): void
-public "hasTag"(): boolean
 public "shrink"(amount: long): void
 public "getFluid"(): $Fluid
+public "hasTag"(): boolean
+public static "loadFromTag"(nbt: $CompoundTag$Type): $FluidStack
 get "tag"(): $CompoundTag
 get "displayName"(): $Component
 set "tag"(value: $CompoundTag$Type)
-set "amount"(value: long)
-get "amount"(): long
-get "rawFluid"(): $Fluid
 set "fluid"(value: $Fluid$Type)
+get "amount"(): long
+set "amount"(value: long)
+get "rawFluid"(): $Fluid
 get "fluid"(): $Fluid
 }
 /**
@@ -763,18 +765,18 @@ export interface $IGuiTexture extends $IConfigurable {
  "copy"(): $IGuiTexture
  "rotate"(degree: float): $IGuiTexture
  "setColor"(color: integer): $IGuiTexture
- "setUIResource"(texturesResource: $Resource$Type<($IGuiTexture$Type)>): void
  "createPreview"(father: $ConfiguratorGroup$Type): void
- "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: float, arg4: float, arg5: integer, arg6: integer): void
  "drawSubArea"(graphics: $GuiGraphics$Type, x: float, y: float, width: float, height: float, drawnU: float, drawnV: float, drawnWidth: float, drawnHeight: float): void
- "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+ "setUIResource"(texturesResource: $Resource$Type<($IGuiTexture$Type)>): void
+ "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: float, arg4: float, arg5: integer, arg6: integer): void
  "updateTick"(): void
+ "buildConfigurator"(father: $ConfiguratorGroup$Type): void
  "name"(): string
  "group"(): string
  "isLDLRegister"(): boolean
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
  "getRegisterUI"(): $LDLRegister
+ "getChatComponent"(): $Component
 
 (scale: float): $IGuiTexture
 }
@@ -783,8 +785,8 @@ export namespace $IGuiTexture {
 const EMPTY: $IGuiTexture
 const MISSING_TEXTURE: $IGuiTexture
 const CACHE: $Function<(string), ($AnnotationDetector$Wrapper<($LDLRegister), ($IGuiTexture)>)>
-function serializeWrapper(texture: $IGuiTexture$Type): $CompoundTag
 function deserializeWrapper(tag: $CompoundTag$Type): $IGuiTexture
+function serializeWrapper(texture: $IGuiTexture$Type): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -798,6 +800,32 @@ export type $IGuiTexture$Type = ($IGuiTexture);
 declare global {
 export type $IGuiTexture_ = $IGuiTexture$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/$PatternPreviewWidget$MBPattern" {
+import {$TraceabilityPredicate, $TraceabilityPredicate$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$TraceabilityPredicate"
+import {$BlockInfo, $BlockInfo$Type} from "packages/com/lowdragmc/lowdraglib/utils/$BlockInfo"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$IMultiController, $IMultiController$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMultiController"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+
+export class $PatternPreviewWidget$MBPattern {
+
+constructor(arg0: $Map$Type<($BlockPos$Type), ($BlockInfo$Type)>, arg1: $List$Type<($List$Type<($ItemStack$Type)>)>, arg2: $Map$Type<($BlockPos$Type), ($TraceabilityPredicate$Type)>, arg3: $IMultiController$Type, arg4: $List$Type<(string)>)
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PatternPreviewWidget$MBPattern$Type = ($PatternPreviewWidget$MBPattern);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $PatternPreviewWidget$MBPattern_ = $PatternPreviewWidget$MBPattern$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigBlockProperties$RenderTypes" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$IPersistedSerializable, $IPersistedSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$IPersistedSerializable"
@@ -808,12 +836,12 @@ constructor()
 
 public "solid"(arg0: boolean): $ConfigBlockProperties$RenderTypes
 public "solid"(): boolean
-public "cutoutMipped"(): boolean
-public "cutoutMipped"(arg0: boolean): $ConfigBlockProperties$RenderTypes
-public "translucent"(arg0: boolean): $ConfigBlockProperties$RenderTypes
-public "translucent"(): boolean
 public "cutout"(arg0: boolean): $ConfigBlockProperties$RenderTypes
 public "cutout"(): boolean
+public "cutoutMipped"(arg0: boolean): $ConfigBlockProperties$RenderTypes
+public "cutoutMipped"(): boolean
+public "translucent"(arg0: boolean): $ConfigBlockProperties$RenderTypes
+public "translucent"(): boolean
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 }
 /**
@@ -839,8 +867,8 @@ import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/
 import {$MBDRecipe, $MBDRecipe$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipe"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$MBDRecipeType, $MBDRecipeType$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipeType"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$ContentModifier, $ContentModifier$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$ContentModifier"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$RecipeLogic$Status, $RecipeLogic$Status$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$RecipeLogic$Status"
 import {$RecipeLogic, $RecipeLogic$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$RecipeLogic"
 import {$List, $List$Type} from "packages/java/util/$List"
@@ -853,50 +881,50 @@ export interface $IMachine extends $IRecipeCapabilityHolder {
 
  "getOffset"(): long
  "getLevel"(): $Level
- "doModifyRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
- "onLoad"(): void
- "notifyRecipeStatusChanged"(arg0: $RecipeLogic$Status$Type, arg1: $RecipeLogic$Status$Type): void
+ "getBlockState"(): $BlockState
  "alwaysTryModifyRecipe"(): boolean
- "afterWorking"(): void
- "getModifiedRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
- "beforeWorking"(arg0: $MBDRecipe$Type): boolean
- "getMaxParallel"(arg0: $MBDRecipe$Type): $ContentModifier
- "onWorking"(): boolean
- "onWaiting"(): void
- "runRecipeLogic"(): boolean
- "hasFrontFacing"(): boolean
- "modifyFuelRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
- "setFrontFacing"(arg0: $Direction$Type): void
- "onUnload"(): void
- "getMachineLevel"(): integer
- "getOffsetTimer"(): long
- "isFacingValid"(arg0: $Direction$Type): boolean
- "onRotated"(arg0: $Direction$Type, arg1: $Direction$Type): void
- "isInValid"(): boolean
- "applyParallel"(arg0: $MBDRecipe$Type, arg1: integer): $MBDRecipe
- "getChanceTier"(): integer
- "dampingWhenWaiting"(): boolean
- "getPos"(): $BlockPos
- "getRecipeType"(): $MBDRecipeType
- "getRecipeLogic"(): $RecipeLogic
- "getFrontFacing"(): $Optional<($Direction)>
- "onFuelBurningFinish"(arg0: $MBDRecipe$Type): void
- "scheduleRenderUpdate"(): void
+ "notifyRecipeStatusChanged"(arg0: $RecipeLogic$Status$Type, arg1: $RecipeLogic$Status$Type): void
  "loadCustomPersistedData"(arg0: $CompoundTag$Type): void
- "alwaysReSearchRecipe"(): boolean
+ "scheduleRenderUpdate"(): void
  "getRecipeDampingValue"(): integer
  "saveCustomPersistedData"(arg0: $CompoundTag$Type, arg1: boolean): void
- "getBlockState"(): $BlockState
- "getHolder"(): $BlockEntity
+ "onFuelBurningFinish"(arg0: $MBDRecipe$Type): void
+ "alwaysReSearchRecipe"(): boolean
+ "getFrontFacing"(): $Optional<($Direction)>
+ "getMaxParallel"(arg0: $MBDRecipe$Type): $ContentModifier
+ "getModifiedRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+ "onRotated"(arg0: $Direction$Type, arg1: $Direction$Type): void
+ "hasFrontFacing"(): boolean
+ "onWaiting"(): void
+ "isInValid"(): boolean
+ "onWorking"(): boolean
+ "setFrontFacing"(arg0: $Direction$Type): void
+ "afterWorking"(): void
+ "getOffsetTimer"(): long
+ "beforeWorking"(arg0: $MBDRecipe$Type): boolean
+ "isFacingValid"(arg0: $Direction$Type): boolean
+ "runRecipeLogic"(): boolean
+ "getChanceTier"(): integer
+ "dampingWhenWaiting"(): boolean
+ "onUnload"(): void
+ "getMachineLevel"(): integer
+ "modifyFuelRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+ "applyParallel"(arg0: $MBDRecipe$Type, arg1: integer): $MBDRecipe
+ "getRecipeLogic"(): $RecipeLogic
+ "getRecipeType"(): $MBDRecipeType
  "notifyBlockUpdate"(): void
+ "onLoad"(): void
+ "getHolder"(): $BlockEntity
+ "getPos"(): $BlockPos
  "markDirty"(): void
- "hasProxies"(): boolean
+ "doModifyRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
  "getRecipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
+ "hasProxies"(): boolean
 }
 
 export namespace $IMachine {
-function ofMachine(arg0: $BlockEntity$Type): $Optional<($IMachine)>
 function ofMachine(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMachine)>
+function ofMachine(arg0: $BlockEntity$Type): $Optional<($IMachine)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -921,15 +949,15 @@ import {$IManagedStorage, $IManagedStorage$Type} from "packages/com/lowdragmc/lo
 
 export interface $IAutoPersistBlockEntity extends $IManagedBlockEntity {
 
- "loadManagedPersistentData"(tag: $CompoundTag$Type): void
- "saveManagedPersistentData"(tag: $CompoundTag$Type, forDrop: boolean): void
  "loadCustomPersistedData"(tag: $CompoundTag$Type): void
  "saveCustomPersistedData"(tag: $CompoundTag$Type, forDrop: boolean): void
+ "loadManagedPersistentData"(tag: $CompoundTag$Type): void
+ "saveManagedPersistentData"(tag: $CompoundTag$Type, forDrop: boolean): void
  "getCurrentPos"(): $BlockPos
+ "getSelf"(): $BlockEntity
+ "getRootStorage"(): $IManagedStorage
  "getBlockEntityType"(): $BlockEntityType<(any)>
  "getNonLazyFields"(): ($IRef)[]
- "getRootStorage"(): $IManagedStorage
- "getSelf"(): $BlockEntity
 
 (tag: $CompoundTag$Type): void
 }
@@ -948,6 +976,29 @@ export type $IAutoPersistBlockEntity$Type = ($IAutoPersistBlockEntity);
  */
 declare global {
 export type $IAutoPersistBlockEntity_ = $IAutoPersistBlockEntity$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineClientSetupEventJS" {
+import {$MBDMachineEvents$MachineEventJS, $MBDMachineEvents$MachineEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineEventJS"
+import {$MachineEvent, $MachineEvent$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/event/$MachineEvent"
+import {$MachineClientSetupEvent, $MachineClientSetupEvent$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/event/$MachineClientSetupEvent"
+
+export class $MBDMachineEvents$MachineClientSetupEventJS extends $MBDMachineEvents$MachineEventJS<($MachineClientSetupEvent)> {
+readonly "event": E
+
+constructor(arg0: $MachineClientSetupEvent$Type)
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MBDMachineEvents$MachineClientSetupEventJS$Type = ($MBDMachineEvents$MachineClientSetupEventJS);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MBDMachineEvents$MachineClientSetupEventJS_ = $MBDMachineEvents$MachineClientSetupEventJS$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineEventJS" {
 import {$EventJS, $EventJS$Type} from "packages/dev/latvian/mods/kubejs/event/$EventJS"
@@ -980,28 +1031,28 @@ import {$IFluidTransfer, $IFluidTransfer$Type} from "packages/com/lowdragmc/lowd
 export interface $IFluidStorage extends $IFluidTransfer {
 
  "getCapacity"(): long
- "getTankCapacity"(tank: integer): long
- "getFluidInTank"(tank: integer): $FluidStack
- "getFluidAmount"(): long
- "setFluidInTank"(tank: integer, fluidStack: $FluidStack$Type): void
- "getTanks"(): integer
  "setFluid"(arg0: $FluidStack$Type): void
+ "getFluidAmount"(): long
+ "getFluid"(): $FluidStack
  "isFluidValid"(arg0: $FluidStack$Type): boolean
  "isFluidValid"(tank: integer, stack: $FluidStack$Type): boolean
- "getFluid"(): $FluidStack
- "fill"(arg0: integer, arg1: $FluidStack$Type, arg2: boolean, arg3: boolean): long
- "fill"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): long
- "fill"(resource: $FluidStack$Type, simulate: boolean): long
+ "setFluidInTank"(tank: integer, fluidStack: $FluidStack$Type): void
+ "getTanks"(): integer
+ "getFluidInTank"(tank: integer): $FluidStack
+ "getTankCapacity"(tank: integer): long
+ "drain"(arg0: integer, arg1: $FluidStack$Type, arg2: boolean, arg3: boolean): $FluidStack
  "drain"(resource: $FluidStack$Type, simulate: boolean): $FluidStack
  "drain"(maxDrain: long, simulate: boolean, notifyChanges: boolean): $FluidStack
- "drain"(arg0: integer, arg1: $FluidStack$Type, arg2: boolean, arg3: boolean): $FluidStack
- "drain"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): $FluidStack
  "drain"(maxDrain: long, simulate: boolean): $FluidStack
- "supportsFill"(arg0: integer): boolean
- "supportsDrain"(arg0: integer): boolean
- "onContentsChanged"(): void
- "createSnapshot"(): any
+ "drain"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): $FluidStack
+ "fill"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): long
+ "fill"(resource: $FluidStack$Type, simulate: boolean): long
+ "fill"(arg0: integer, arg1: $FluidStack$Type, arg2: boolean, arg3: boolean): long
  "restoreFromSnapshot"(arg0: any): void
+ "supportsDrain"(arg0: integer): boolean
+ "supportsFill"(arg0: integer): boolean
+ "createSnapshot"(): any
+ "onContentsChanged"(): void
 }
 
 export namespace $IFluidStorage {
@@ -1085,25 +1136,25 @@ export class $ConfigItemProperties implements $IConfigurable, $IPersistedSeriali
 public "apply"(arg0: $Item$Properties$Type): $Item$Properties
 public static "builder"(): $ConfigItemProperties$ConfigItemPropertiesBuilder
 public "maxStackSize"(): integer
+public "rarity"(): $Rarity
 public "creativeTab"(): $ToggleCreativeTab
 public "isGui3d"(): boolean
-public "itemTooltips"(): $List<($Component)>
 public "useBlockLight"(): boolean
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "itemTooltips"(): $List<($Component)>
 public "renderer"(): $ToggleRenderer
-public "rarity"(): $Rarity
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "gui3d"(): boolean
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1129,9 +1180,9 @@ export interface $IConfigurable extends $ILDLRegister {
  "name"(): string
  "group"(): string
  "isLDLRegister"(): boolean
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
  "getRegisterUI"(): $LDLRegister
+ "getChatComponent"(): $Component
 }
 
 export namespace $IConfigurable {
@@ -1158,9 +1209,9 @@ export interface $IHandlerContext {
 
  "getContext"(): any
  "getLevel"(): $Level
- "isClient"(): boolean
  "getServer"(): $MinecraftServer
  "getPlayer"(): $ServerPlayer
+ "isClient"(): boolean
 }
 
 export namespace $IHandlerContext {
@@ -1177,6 +1228,48 @@ export type $IHandlerContext$Type = ($IHandlerContext);
  */
 declare global {
 export type $IHandlerContext_ = $IHandlerContext$Type;
+}}
+declare module "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$ISceneObject" {
+import {$IScene, $IScene$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$IScene"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Transform, $Transform$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/data/$Transform"
+
+export interface $ISceneObject {
+
+ "transform"(): $Transform
+ "id"(): $UUID
+ "destroy"(): void
+ "children"(): $List<($ISceneObject)>
+ "updateTick"(): void
+ "getScene"(): $IScene
+ "setSceneInternal"(arg0: $IScene$Type): void
+ "onParentChanged"(): void
+ "executeAll"(consumer: $Consumer$Type<($ISceneObject$Type)>, before: $Consumer$Type<($ISceneObject$Type)>, after: $Consumer$Type<($ISceneObject$Type)>): void
+ "executeAll"(consumer: $Consumer$Type<($ISceneObject$Type)>): void
+ "updateFrame"(partialTicks: float): void
+ "setScene"(scene: $IScene$Type): void
+ "onTransformChanged"(): void
+ "onChildChanged"(): void
+ "setTransform"(transform: $Transform$Type): void
+ "awake"(): void
+}
+
+export namespace $ISceneObject {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ISceneObject$Type = ($ISceneObject);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ISceneObject_ = $ISceneObject$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/networking/c2s/$CPacketUIClientAction" {
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
@@ -1226,6 +1319,59 @@ export type $BlendModeAccessor$Type = ($BlendModeAccessor);
  */
 declare global {
 export type $BlendModeAccessor_ = $BlendModeAccessor$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/$MultiblockMachineDefinition" {
+import {$ConfigRecipeLogicSettings, $ConfigRecipeLogicSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigRecipeLogicSettings"
+import {$MBDMachineDefinition, $MBDMachineDefinition$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition"
+import {$IMultiPart, $IMultiPart$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMultiPart"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$MBDMultiblockMachine, $MBDMultiblockMachine$Type} from "packages/com/lowdragmc/mbd2/common/machine/$MBDMultiblockMachine"
+import {$ConfigMachineEvents, $ConfigMachineEvents$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineEvents"
+import {$MultiblockMachineDefinition$Builder, $MultiblockMachineDefinition$Builder$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MultiblockMachineDefinition$Builder"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$ConfigMultiblockSettings, $ConfigMultiblockSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMultiblockSettings"
+import {$MultiblockMachineDefinition$ConfigMultiblockSettingsFactory, $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MultiblockMachineDefinition$ConfigMultiblockSettingsFactory"
+import {$BlockPattern, $BlockPattern$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$BlockPattern"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$ConfigItemProperties, $ConfigItemProperties$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigItemProperties"
+import {$MBDMachineDefinition$ConfigMachineSettingsFactory, $MBDMachineDefinition$ConfigMachineSettingsFactory$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition$ConfigMachineSettingsFactory"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$MultiblockShapeInfo, $MultiblockShapeInfo$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockShapeInfo"
+import {$ConfigBlockProperties, $ConfigBlockProperties$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigBlockProperties"
+import {$MachineState, $MachineState$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$MachineState"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+
+export class $MultiblockMachineDefinition extends $MBDMachineDefinition {
+static readonly "CATALYST_CANDIDATES": $Map<($Block), ($Set<($MultiblockMachineDefinition)>)>
+
+constructor(arg0: $ResourceLocation$Type, arg1: $MachineState$Type, arg2: $ConfigBlockProperties$Type, arg3: $ConfigItemProperties$Type, arg4: $MBDMachineDefinition$ConfigMachineSettingsFactory$Type, arg5: $ConfigRecipeLogicSettings$Type, arg6: $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory$Type)
+
+public "getPattern"(arg0: $MBDMultiblockMachine$Type): $BlockPattern
+public static "builder"(): $MultiblockMachineDefinition$Builder
+public "blockPatternFactory"(): $Function<($MBDMultiblockMachine), ($BlockPattern)>
+public "blockPatternFactory"(arg0: $Function$Type<($MBDMultiblockMachine$Type), ($BlockPattern$Type)>): $MultiblockMachineDefinition
+public "multiblockSettingsFactory"(): $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory
+public static "createDefault"(): $MultiblockMachineDefinition
+public "loadFactory"(): void
+public "createMachineEvents"(): $ConfigMachineEvents
+public "allowPartSettings"(): boolean
+public "sortParts"(arg0: $List$Type<($IMultiPart$Type)>): void
+public "shapeInfoFactory"(): $Function<($MultiblockMachineDefinition), (($MultiblockShapeInfo)[])>
+public "shapeInfoFactory"(arg0: $Function$Type<($MultiblockMachineDefinition$Type), (($MultiblockShapeInfo$Type)[])>): $MultiblockMachineDefinition
+public "multiblockSettings"(): $ConfigMultiblockSettings
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MultiblockMachineDefinition$Type = ($MultiblockMachineDefinition);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MultiblockMachineDefinition_ = $MultiblockMachineDefinition$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/graphprocessor/processor/$GraphProcessor" {
 import {$BaseGraph, $BaseGraph$Type} from "packages/com/lowdragmc/lowdraglib/gui/graphprocessor/data/$BaseGraph"
@@ -1289,11 +1435,11 @@ export class $CreateMachineState extends $MachineState {
 constructor(arg0: string, arg1: $List$Type<($MachineState$Type)>, arg2: $IRenderer$Type, arg3: $VoxelShape$Type, arg4: integer, arg5: $AABB$Type, arg6: $IRenderer$Type)
 
 public static "builder"(): $CreateMachineState$Builder
-public "getRotationRenderer"(): $IRenderer
 public "getRealRenderer"(): $IRenderer
+public "getRotationRenderer"(): $IRenderer
 public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
-get "rotationRenderer"(): $IRenderer
 get "realRenderer"(): $IRenderer
+get "rotationRenderer"(): $IRenderer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1330,9 +1476,10 @@ constructor()
 
 public "setColor"(color: integer): void
 public "setText"(text: string): void
-public "handleDragging"(dragging: any): boolean
-public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "updateScreen"(): void
+public "setComponent"(component: $Component$Type): void
 public "setTextSupplier"(textSupplier: $Supplier$Type<(string)>): void
 public "setTextProvider"(textProvider: $Supplier$Type<(string)>): void
 /**
@@ -1340,45 +1487,44 @@ public "setTextProvider"(textProvider: $Supplier$Type<(string)>): void
  * @deprecated
  */
 public "setTextColor"(color: integer): $LabelWidget
-public "detectAndSendChanges"(): void
+public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
 /**
  * 
  * @deprecated
  */
 public "setDropShadow"(dropShadow: boolean): $LabelWidget
-public "setComponent"(component: $Component$Type): void
-public "updateScreen"(): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "widget"(): $Widget
+public "detectAndSendChanges"(): void
+public "handleDragging"(dragging: any): boolean
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public "initTemplate"(): void
-public "serializeWrapper"(): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "serializeWrapper"(): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 set "color"(value: integer)
 set "text"(value: string)
+set "component"(value: $Component$Type)
 set "textSupplier"(value: $Supplier$Type<(string)>)
 set "textProvider"(value: $Supplier$Type<(string)>)
 set "textColor"(value: integer)
 set "dropShadow"(value: boolean)
-set "component"(value: $Component$Type)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1410,26 +1556,26 @@ constructor(color: integer)
 constructor()
 
 public "setColor"(color: integer): $ColorRectTexture
-public "setTopRadius"(radius: float): $ColorRectTexture
-public "setRadiusLB"(radiusLB: float): $ColorRectTexture
-public "setRightRadius"(radius: float): $ColorRectTexture
-public "setBottomRadius"(radius: float): $ColorRectTexture
-public "setRadiusLT"(radiusLT: float): $ColorRectTexture
 public "setLeftRadius"(radius: float): $ColorRectTexture
-public "setRadiusRT"(radiusRT: float): $ColorRectTexture
+public "setRightRadius"(radius: float): $ColorRectTexture
+public "setTopRadius"(radius: float): $ColorRectTexture
+public "setBottomRadius"(radius: float): $ColorRectTexture
+public "setRadiusLB"(radiusLB: float): $ColorRectTexture
+public "setRadiusLT"(radiusLT: float): $ColorRectTexture
 public "setRadiusRB"(radiusRB: float): $ColorRectTexture
+public "setRadiusRT"(radiusRT: float): $ColorRectTexture
 public "setRadius"(radius: float): $ColorRectTexture
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 set "color"(value: integer)
-set "topRadius"(value: float)
-set "radiusLB"(value: float)
-set "rightRadius"(value: float)
-set "bottomRadius"(value: float)
-set "radiusLT"(value: float)
 set "leftRadius"(value: float)
-set "radiusRT"(value: float)
+set "rightRadius"(value: float)
+set "topRadius"(value: float)
+set "bottomRadius"(value: float)
+set "radiusLB"(value: float)
+set "radiusLT"(value: float)
 set "radiusRB"(value: float)
+set "radiusRT"(value: float)
 set "radius"(value: float)
 }
 /**
@@ -1447,6 +1593,7 @@ export type $ColorRectTexture_ = $ColorRectTexture$Type;
 declare module "packages/com/lowdragmc/lowdraglib/gui/texture/$ResourceTexture" {
 import {$TransformTexture, $TransformTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$TransformTexture"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntSupplier"
 import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
 import {$IGuiTexture, $IGuiTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$IGuiTexture"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
@@ -1464,12 +1611,14 @@ constructor(imageLocation: string)
 constructor(imageLocation: $ResourceLocation$Type, offsetX: float, offsetY: float, width: float, height: float)
 
 public "copy"(): $ResourceTexture
-public static "fromSpirit"(texture: $ResourceLocation$Type): $ResourceTexture
-public "getSubTexture"(offsetX: double, offsetY: double, width: double, height: double): $ResourceTexture
 public "getSubTexture"(offsetX: float, offsetY: float, width: float, height: float): $ResourceTexture
+public "getSubTexture"(offsetX: double, offsetY: double, width: double, height: double): $ResourceTexture
 public "createPreview"(father: $ConfiguratorGroup$Type): void
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+public "setDynamicColor"(color: $IntSupplier$Type): $ResourceTexture
+public static "fromSpirit"(texture: $ResourceLocation$Type): $ResourceTexture
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+set "dynamicColor"(value: $IntSupplier$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1536,8 +1685,8 @@ declare module "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachin
 import {$ConfigRecipeLogicSettings, $ConfigRecipeLogicSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigRecipeLogicSettings"
 import {$MBDMachineDefinition, $MBDMachineDefinition$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition"
 import {$ConfigItemProperties, $ConfigItemProperties$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigItemProperties"
-import {$MBDMachineDefinition$ConfigPartSettingsFactory, $MBDMachineDefinition$ConfigPartSettingsFactory$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition$ConfigPartSettingsFactory"
 import {$MBDMachineDefinition$ConfigMachineSettingsFactory, $MBDMachineDefinition$ConfigMachineSettingsFactory$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition$ConfigMachineSettingsFactory"
+import {$MBDMachineDefinition$ConfigPartSettingsFactory, $MBDMachineDefinition$ConfigPartSettingsFactory$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition$ConfigPartSettingsFactory"
 import {$ConfigBlockProperties, $ConfigBlockProperties$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigBlockProperties"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$MachineState, $MachineState$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$MachineState"
@@ -1549,10 +1698,10 @@ public "id"(arg0: $ResourceLocation$Type): $MBDMachineDefinition$Builder
 public "build"(): $MBDMachineDefinition
 public "itemProperties"(arg0: $ConfigItemProperties$Type): $MBDMachineDefinition$Builder
 public "recipeLogicSettings"(arg0: $ConfigRecipeLogicSettings$Type): $MBDMachineDefinition$Builder
-public "partSettings"(arg0: $MBDMachineDefinition$ConfigPartSettingsFactory$Type): $MBDMachineDefinition$Builder
-public "machineSettings"(arg0: $MBDMachineDefinition$ConfigMachineSettingsFactory$Type): $MBDMachineDefinition$Builder
-public "blockProperties"(arg0: $ConfigBlockProperties$Type): $MBDMachineDefinition$Builder
 public "rootState"(arg0: $MachineState$Type): $MBDMachineDefinition$Builder
+public "machineSettings"(arg0: $MBDMachineDefinition$ConfigMachineSettingsFactory$Type): $MBDMachineDefinition$Builder
+public "partSettings"(arg0: $MBDMachineDefinition$ConfigPartSettingsFactory$Type): $MBDMachineDefinition$Builder
+public "blockProperties"(arg0: $ConfigBlockProperties$Type): $MBDMachineDefinition$Builder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1574,35 +1723,35 @@ export class $AutoIO {
 
 constructor()
 
-public "setInterval"(arg0: integer): void
-public "getIO"(arg0: $Direction$Type, arg1: $Direction$Type): $IO
 public "getInterval"(): integer
-public "setTopIO"(arg0: $IO$Type): void
+public "getFrontIO"(): $IO
+public "getBackIO"(): $IO
+public "setRightIO"(arg0: $IO$Type): void
 public "setBottomIO"(arg0: $IO$Type): void
-public "getBottomIO"(): $IO
 public "getLeftIO"(): $IO
+public "getBottomIO"(): $IO
 public "getRightIO"(): $IO
 public "setFrontIO"(arg0: $IO$Type): void
-public "getFrontIO"(): $IO
-public "setRightIO"(arg0: $IO$Type): void
-public "getTopIO"(): $IO
-public "setLeftIO"(arg0: $IO$Type): void
-public "getBackIO"(): $IO
 public "setBackIO"(arg0: $IO$Type): void
-set "interval"(value: integer)
+public "setLeftIO"(arg0: $IO$Type): void
+public "getTopIO"(): $IO
+public "setTopIO"(arg0: $IO$Type): void
+public "getIO"(arg0: $Direction$Type, arg1: $Direction$Type): $IO
+public "setInterval"(arg0: integer): void
 get "interval"(): integer
-set "topIO"(value: $IO$Type)
+get "frontIO"(): $IO
+get "backIO"(): $IO
+set "rightIO"(value: $IO$Type)
 set "bottomIO"(value: $IO$Type)
-get "bottomIO"(): $IO
 get "leftIO"(): $IO
+get "bottomIO"(): $IO
 get "rightIO"(): $IO
 set "frontIO"(value: $IO$Type)
-get "frontIO"(): $IO
-set "rightIO"(value: $IO$Type)
-get "topIO"(): $IO
-set "leftIO"(value: $IO$Type)
-get "backIO"(): $IO
 set "backIO"(value: $IO$Type)
+set "leftIO"(value: $IO$Type)
+get "topIO"(): $IO
+set "topIO"(value: $IO$Type)
+set "interval"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1616,10 +1765,80 @@ export type $AutoIO$Type = ($AutoIO);
 declare global {
 export type $AutoIO_ = $AutoIO$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/$TraceabilityPredicate" {
+import {$BlockInfo, $BlockInfo$Type} from "packages/com/lowdragmc/lowdraglib/utils/$BlockInfo"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$MultiblockState, $MultiblockState$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockState"
+import {$SimplePredicate, $SimplePredicate$Type} from "packages/com/lowdragmc/mbd2/api/pattern/predicates/$SimplePredicate"
+import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
+import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
+
+export class $TraceabilityPredicate {
+ "common": $List<($SimplePredicate)>
+ "limited": $List<($SimplePredicate)>
+ "isController": boolean
+
+constructor(arg0: $SimplePredicate$Type)
+constructor(arg0: $Predicate$Type<($MultiblockState$Type)>, arg1: $Supplier$Type<(($BlockInfo$Type)[])>)
+constructor(arg0: $TraceabilityPredicate$Type)
+constructor()
+
+public "test"(arg0: $MultiblockState$Type): boolean
+public "setIO"(arg0: $IO$Type): $TraceabilityPredicate
+public "sort"(): $TraceabilityPredicate
+public "or"(arg0: $TraceabilityPredicate$Type): $TraceabilityPredicate
+public "setPreviewCount"(arg0: integer): $TraceabilityPredicate
+public "addTooltips"(...arg0: ($Component$Type)[]): $TraceabilityPredicate
+public "setMinLayerLimited"(arg0: integer): $TraceabilityPredicate
+public "setMinLayerLimited"(arg0: integer, arg1: integer): $TraceabilityPredicate
+public "addCache"(): boolean
+public "setSlotName"(arg0: string): $TraceabilityPredicate
+public "setMaxLayerLimited"(arg0: integer, arg1: integer): $TraceabilityPredicate
+public "setMaxLayerLimited"(arg0: integer): $TraceabilityPredicate
+public "setExactLimit"(arg0: integer): $TraceabilityPredicate
+public "setNBT"(arg0: $CompoundTag$Type): $TraceabilityPredicate
+public "isSingle"(): boolean
+public "hasAir"(): boolean
+public "setMaxGlobalLimited"(arg0: integer): $TraceabilityPredicate
+public "setMaxGlobalLimited"(arg0: integer, arg1: integer): $TraceabilityPredicate
+public "setMinGlobalLimited"(arg0: integer, arg1: integer): $TraceabilityPredicate
+public "setMinGlobalLimited"(arg0: integer): $TraceabilityPredicate
+public "disableRenderFormed"(): $TraceabilityPredicate
+public "isAny"(): boolean
+public "isAir"(): boolean
+public "setController"(): $TraceabilityPredicate
+set "iO"(value: $IO$Type)
+set "previewCount"(value: integer)
+set "minLayerLimited"(value: integer)
+set "slotName"(value: string)
+set "maxLayerLimited"(value: integer)
+set "exactLimit"(value: integer)
+set "nBT"(value: $CompoundTag$Type)
+get "single"(): boolean
+set "maxGlobalLimited"(value: integer)
+set "minGlobalLimited"(value: integer)
+get "any"(): boolean
+get "air"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TraceabilityPredicate$Type = ($TraceabilityPredicate);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $TraceabilityPredicate_ = $TraceabilityPredicate$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/api/registry/$MBDRegistry$RL" {
 import {$MBDRegistry, $MBDRegistry$Type} from "packages/com/lowdragmc/mbd2/api/registry/$MBDRegistry"
-import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
+import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -1629,10 +1848,10 @@ static readonly "REGISTERED": $Map<($ResourceLocation), ($MBDRegistry<(any), (an
 
 constructor(arg0: $ResourceLocation$Type)
 
-public "saveToNBT"(arg0: V): $Tag
 public "readBuf"(arg0: $FriendlyByteBuf$Type): V
-public "loadFromNBT"(arg0: $Tag$Type): V
 public "writeBuf"(arg0: V, arg1: $FriendlyByteBuf$Type): void
+public "saveToNBT"(arg0: V): $Tag
+public "loadFromNBT"(arg0: $Tag$Type): V
 public "codec"(): $Codec<(V)>
 }
 /**
@@ -1702,17 +1921,17 @@ declare global {
 export type $BaseGraphProcessor_ = $BaseGraphProcessor$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/common/trait/$ICapabilityProviderTrait" {
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$List, $List$Type} from "packages/java/util/$List"
 import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/capabilities/$Capability"
 import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
 
 export interface $ICapabilityProviderTrait<T> {
 
  "getCapability"(): $Capability<(any)>
+ "getCapabilityIO"(arg0: $Direction$Type): $IO
  "getCapContent"(arg0: $IO$Type): T
  "mergeContents"(arg0: $List$Type<(T)>): T
- "getCapabilityIO"(arg0: $Direction$Type): $IO
 }
 
 export namespace $ICapabilityProviderTrait {
@@ -1765,18 +1984,18 @@ import {$IManagedStorage, $IManagedStorage$Type} from "packages/com/lowdragmc/lo
 
 export interface $IAutoSyncBlockEntity extends $IManagedBlockEntity {
 
+ "defaultServerTick"(): void
  "readCustomSyncData"(tag: $CompoundTag$Type): void
+ "getSyncTag"(): string
  "writeCustomSyncData"(tag: $CompoundTag$Type): void
  "syncNow"(force: boolean): void
- "defaultServerTick"(): void
- "getSyncTag"(): string
  "getCurrentPos"(): $BlockPos
+ "getSelf"(): $BlockEntity
+ "getRootStorage"(): $IManagedStorage
  "getBlockEntityType"(): $BlockEntityType<(any)>
  "getNonLazyFields"(): ($IRef)[]
- "getRootStorage"(): $IManagedStorage
- "getSelf"(): $BlockEntity
 
-(tag: $CompoundTag$Type): void
+(): void
 }
 
 export namespace $IAutoSyncBlockEntity {
@@ -1810,25 +2029,26 @@ export class $ConfigPartSettings implements $IToggleConfigurable, $IPersistedSer
 
 
 public static "builder"(): $ConfigPartSettings$ConfigPartSettingsBuilder
-public "enable"(): boolean
 public "enable"(arg0: boolean): $ConfigPartSettings
-public "proxyControllerCapabilities"(): $List<($ConfigPartSettings$ProxyCapability)>
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "enable"(): boolean
 public "isEnable"(): boolean
+public "proxyControllerCapabilities"(): $List<($ConfigPartSettings$ProxyCapability)>
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "setEnable"(arg0: boolean): void
 public "recipeModifiers"(): $RecipeModifier$RecipeModifiers
 public "canShare"(): boolean
-public "setEnable"(arg0: boolean): void
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1889,16 +2109,16 @@ export class $FluidTransferHelperImpl extends $FluidTransferHelper {
 
 constructor()
 
-public static "getFluidTransfer"(itemTransfer: $IItemTransfer$Type, slot: integer): $IFluidTransfer
-public static "getFluidTransfer"(player: $Player$Type, screenHandler: $AbstractContainerMenu$Type): $IFluidTransfer
-public static "getFluidTransfer"(player: $Player$Type, hand: $InteractionHand$Type): $IFluidTransfer
-public static "getFluidTransfer"(player: $Player$Type, slot: integer): $IFluidTransfer
-public static "getFluidTransfer"(level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): $IFluidTransfer
-public static "getContainerItem"(copyContainer: $ItemStackTransfer$Type, handler: $IFluidTransfer$Type): $ItemStack
-public static "exportToTarget"(source: $IFluidTransfer$Type, maxAmount: integer, filter: $Predicate$Type<($FluidStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
 public static "importToTarget"(target: $IFluidTransfer$Type, maxAmount: integer, filter: $Predicate$Type<($FluidStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
-public static "toFluidHandler"(fluidTransfer: $IFluidTransfer$Type): $IFluidHandler
+public static "exportToTarget"(source: $IFluidTransfer$Type, maxAmount: integer, filter: $Predicate$Type<($FluidStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
+public static "getContainerItem"(copyContainer: $ItemStackTransfer$Type, handler: $IFluidTransfer$Type): $ItemStack
 public static "toFluidTransfer"(handler: $IFluidHandler$Type): $IFluidTransfer
+public static "toFluidHandler"(fluidTransfer: $IFluidTransfer$Type): $IFluidHandler
+public static "getFluidTransfer"(player: $Player$Type, screenHandler: $AbstractContainerMenu$Type): $IFluidTransfer
+public static "getFluidTransfer"(player: $Player$Type, slot: integer): $IFluidTransfer
+public static "getFluidTransfer"(player: $Player$Type, hand: $InteractionHand$Type): $IFluidTransfer
+public static "getFluidTransfer"(itemTransfer: $IItemTransfer$Type, slot: integer): $IFluidTransfer
+public static "getFluidTransfer"(level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): $IFluidTransfer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1931,8 +2151,8 @@ public "getAccessor"(): $ExposedParameter$ParameterAccessor
 public "getDisplayName"(): string
 public "setDisplayName"(displayName: string): $ExposedParameter<(T)>
 public "setAccessor"(accessor: $ExposedParameter$ParameterAccessor$Type): $ExposedParameter<(T)>
-public "setTips"(tips: $List$Type<(string)>): $ExposedParameter<(T)>
 public "getTips"(): $List<(string)>
+public "setTips"(tips: $List$Type<(string)>): $ExposedParameter<(T)>
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 get "value"(): T
 set "value"(value: any)
@@ -1940,8 +2160,8 @@ get "accessor"(): $ExposedParameter$ParameterAccessor
 get "displayName"(): string
 set "displayName"(value: string)
 set "accessor"(value: $ExposedParameter$ParameterAccessor$Type)
-set "tips"(value: $List$Type<(string)>)
 get "tips"(): $List<(string)>
+set "tips"(value: $List$Type<(string)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1954,6 +2174,37 @@ export type $ExposedParameter$Type<T> = ($ExposedParameter<(T)>);
  */
 declare global {
 export type $ExposedParameter_<T> = $ExposedParameter$Type<(T)>;
+}}
+declare module "packages/com/lowdragmc/mbd2/integration/photon/$MachineFX" {
+import {$FX, $FX$Type} from "packages/com/lowdragmc/photon/client/fx/$FX"
+import {$FXEffect, $FXEffect$Type} from "packages/com/lowdragmc/photon/client/fx/$FXEffect"
+import {$MBDMachine, $MBDMachine$Type} from "packages/com/lowdragmc/mbd2/common/machine/$MBDMachine"
+import {$IParticleEmitter, $IParticleEmitter$Type} from "packages/com/lowdragmc/photon/client/gameobject/emitter/$IParticleEmitter"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+
+export class $MachineFX extends $FXEffect {
+readonly "identifier": string
+readonly "machine": $MBDMachine
+readonly "fx": $FX
+readonly "level": $Level
+
+constructor(arg0: $FX$Type, arg1: string, arg2: $MBDMachine$Type)
+
+public "start"(): void
+public "kill"(arg0: boolean): void
+public "updateEmitter"(arg0: $IParticleEmitter$Type): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MachineFX$Type = ($MachineFX);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MachineFX_ = $MachineFX$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/common/gui/editor/$MachineEditor" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
@@ -1983,21 +2234,21 @@ public "initEditorViews"(): void
 public "loadProject"(arg0: $IProject$Type): void
 public "name"(): string
 public "group"(): string
+public "getRegisterUIClient"(): $LDLRegisterClient
 public "isLDLRegister"(): boolean
 /**
  * 
  * @deprecated
  */
 public "getRegisterUI"(): $LDLRegister
-public "getRegisterUIClient"(): $LDLRegisterClient
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+get "registerUIClient"(): $LDLRegisterClient
 get "lDLRegister"(): boolean
 get "registerUI"(): $LDLRegister
-get "registerUIClient"(): $LDLRegisterClient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2081,9 +2332,9 @@ import {$File, $File$Type} from "packages/java/io/$File"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$ConfigItemProperties, $ConfigItemProperties$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigItemProperties"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$ConfigPartSettings, $ConfigPartSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigPartSettings"
-import {$BlockEntityRendererProvider, $BlockEntityRendererProvider$Type} from "packages/net/minecraft/client/renderer/blockentity/$BlockEntityRendererProvider"
 import {$EntityRenderersEvent$RegisterRenderers, $EntityRenderersEvent$RegisterRenderers$Type} from "packages/net/minecraftforge/client/event/$EntityRenderersEvent$RegisterRenderers"
+import {$BlockEntityRendererProvider, $BlockEntityRendererProvider$Type} from "packages/net/minecraft/client/renderer/blockentity/$BlockEntityRendererProvider"
+import {$ConfigPartSettings, $ConfigPartSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigPartSettings"
 import {$ConfigMachineSettings, $ConfigMachineSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineSettings"
 import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
 import {$MachineState, $MachineState$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$MachineState"
@@ -2095,8 +2346,8 @@ import {$MBDMachineDefinition$ConfigPartSettingsFactory, $MBDMachineDefinition$C
 import {$WidgetGroup, $WidgetGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$WidgetGroup"
 import {$Deque, $Deque$Type} from "packages/java/util/$Deque"
 import {$RegisterEvent, $RegisterEvent$Type} from "packages/net/minecraftforge/registries/$RegisterEvent"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$MBDMachineDefinition$ConfigMachineSettingsFactory, $MBDMachineDefinition$ConfigMachineSettingsFactory$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition$ConfigMachineSettingsFactory"
 import {$ConfigBlockProperties, $ConfigBlockProperties$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigBlockProperties"
@@ -2112,55 +2363,56 @@ public static "set"(arg0: $MBDMachineDefinition$Type): void
 public "getState"(arg0: string): $MachineState
 public "block"(): $Block
 public "item"(): $Item
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "itemProperties"(): $ConfigItemProperties
-public "loadFactory"(): void
 public "onRegistry"(arg0: $RegisterEvent$Type): void
-public "loadProductiveTag"(arg0: $File$Type, arg1: $CompoundTag$Type, arg2: $Deque$Type<($Runnable$Type)>): $MBDMachineDefinition
 public static "createDefault"(): $MBDMachineDefinition
+public "loadProductiveTag"(arg0: $File$Type, arg1: $CompoundTag$Type, arg2: $Deque$Type<($Runnable$Type)>): $MBDMachineDefinition
+public "loadFactory"(): void
 public "projectFile"(): $File
-public "blockEntityType"(): $BlockEntityType<(any)>
-public "recipeLogicSettings"(): $ConfigRecipeLogicSettings
-public "machineSettingsFactory"(): $MBDMachineDefinition$ConfigMachineSettingsFactory
-public "partSettingsFactory"(): $MBDMachineDefinition$ConfigPartSettingsFactory
+public "createItem"(arg0: $Block$Type): $Item
+public "createBlock"(): $Block
+public "initRenderer"(arg0: $EntityRenderersEvent$RegisterRenderers$Type): void
+public "createItemRenderer"(): $IRenderer
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "createBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "createMachine"(arg0: $IMachineBlockEntity$Type): $MBDMachine
+public "createBESRR"(): $BlockEntityRendererProvider<($BlockEntity)>
+public "asStack"(): $ItemStack
+public "asStack"(arg0: integer): $ItemStack
 public "createDefaultRootState"(): $MachineState
 public "createMachineEvents"(): $ConfigMachineEvents
+public "machineSettingsFactory"(): $MBDMachineDefinition$ConfigMachineSettingsFactory
+public "partSettingsFactory"(): $MBDMachineDefinition$ConfigPartSettingsFactory
+public "recipeLogicSettings"(): $ConfigRecipeLogicSettings
+public "blockEntityType"(): $BlockEntityType<(any)>
+public "isCreatedFromProjectFile"(): boolean
 public "createBlockRenderer"(): $IRenderer
 public "reloadFromProjectFile"(): void
-public "isCreatedFromProjectFile"(): boolean
 public "itemRenderer"(): $IRenderer
-public "stateMachine"(): $StateMachine<(any)>
-public "partSettings"(): $ConfigPartSettings
-public "machineSettings"(): $ConfigMachineSettings
-public "blockProperties"(): $ConfigBlockProperties
-public "machineEvents"(): $ConfigMachineEvents
-public "blockRenderer"(): $IRenderer
 public "uiCreator"(): $Function<($MBDMachine), ($WidgetGroup)>
+public "machineEvents"(): $ConfigMachineEvents
 public "allowPartSettings"(): boolean
-public "createItem"(arg0: $Block$Type): $Item
-public "createMachine"(arg0: $IMachineBlockEntity$Type): $MBDMachine
-public "createBlock"(): $Block
-public "createBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "createItemRenderer"(): $IRenderer
-public "createBESRR"(): $BlockEntityRendererProvider<($BlockEntity)>
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "machineSettings"(): $ConfigMachineSettings
+public "partSettings"(): $ConfigPartSettings
+public "stateMachine"(): $StateMachine<(any)>
+public "blockProperties"(): $ConfigBlockProperties
 public "getDescriptionId"(): string
-public "initRenderer"(arg0: $EntityRenderersEvent$RegisterRenderers$Type): void
-public "asStack"(arg0: integer): $ItemStack
-public "asStack"(): $ItemStack
+public "blockRenderer"(): $IRenderer
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "createdFromProjectFile"(): boolean
 get "descriptionId"(): string
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2183,8 +2435,8 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 export interface $ShaderInstanceAccessor {
 
  "getSamplerNames"(): $List<(string)>
- "getBlend"(): $BlendMode
  "getUniformMap"(): $Map<(string), ($Uniform)>
+ "getBlend"(): $BlendMode
 }
 
 export namespace $ShaderInstanceAccessor {
@@ -2216,21 +2468,21 @@ export class $ConfigPartSettings$ProxyCapability implements $IConfigurable, $IPe
 
 constructor()
 
-public "traitNameFilter"(): string
 public "capabilityIO"(): $CapabilityIO
 public "autoIO"(): $ToggleAutoIO
+public "traitNameFilter"(): string
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2257,16 +2509,16 @@ export class $ItemTransferHelper {
 
 constructor()
 
-public static "getItemTransfer"(level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): $IItemTransfer
-public static "canItemStacksStackRelaxed"(a: $ItemStack$Type, b: $ItemStack$Type): boolean
-public static "insertItemStacked"(inventory: $IItemTransfer$Type, stack: $ItemStack$Type, simulate: boolean): $ItemStack
 public static "insertItem"(dest: $IItemTransfer$Type, stack: $ItemStack$Type, simulate: boolean): $ItemStack
-public static "copyStackWithSize"(stack: $ItemStack$Type, size: integer): $ItemStack
-public static "giveItemToPlayer"(player: $Player$Type, stack: $ItemStack$Type, preferredSlot: integer): void
-public static "giveItemToPlayer"(player: $Player$Type, stack: $ItemStack$Type): void
-public static "canItemStacksStack"(first: $ItemStack$Type, second: $ItemStack$Type): boolean
-public static "exportToTarget"(source: $IItemTransfer$Type, maxAmount: integer, predicate: $Predicate$Type<($ItemStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
 public static "importToTarget"(target: $IItemTransfer$Type, maxAmount: integer, predicate: $Predicate$Type<($ItemStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
+public static "exportToTarget"(source: $IItemTransfer$Type, maxAmount: integer, predicate: $Predicate$Type<($ItemStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
+public static "giveItemToPlayer"(player: $Player$Type, stack: $ItemStack$Type): void
+public static "giveItemToPlayer"(player: $Player$Type, stack: $ItemStack$Type, preferredSlot: integer): void
+public static "getItemTransfer"(level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): $IItemTransfer
+public static "canItemStacksStack"(first: $ItemStack$Type, second: $ItemStack$Type): boolean
+public static "canItemStacksStackRelaxed"(a: $ItemStack$Type, b: $ItemStack$Type): boolean
+public static "copyStackWithSize"(stack: $ItemStack$Type, size: integer): $ItemStack
+public static "insertItemStacked"(inventory: $IItemTransfer$Type, stack: $ItemStack$Type, simulate: boolean): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2333,63 +2585,63 @@ public "build"(): $FinishedRecipe
 public "output"<T>(arg0: $RecipeCapability$Type<(T)>, ...arg1: (T)[]): $MBDRecipeBuilder
 public "copyFrom"(arg0: $MBDRecipeBuilder$Type): $MBDRecipeBuilder
 public "duration"(arg0: integer): $MBDRecipeBuilder
-public "uiName"(arg0: string): $MBDRecipeBuilder
-public "tierChanceBoost"(arg0: float): $MBDRecipeBuilder
-public "isFuel"(arg0: boolean): $MBDRecipeBuilder
-public "outputFluids"(...arg0: ($FluidStack$Type)[]): $MBDRecipeBuilder
-public "outputFluids"(...arg0: ($FluidIngredient$Type)[]): $MBDRecipeBuilder
-public "addCondition"(arg0: $RecipeCondition$Type): $MBDRecipeBuilder
-public "addData"(arg0: string, arg1: boolean): $MBDRecipeBuilder
-public "addData"(arg0: string, arg1: $Tag$Type): $MBDRecipeBuilder
-public "addData"(arg0: string, arg1: integer): $MBDRecipeBuilder
-public "addData"(arg0: string, arg1: long): $MBDRecipeBuilder
-public "addData"(arg0: string, arg1: float): $MBDRecipeBuilder
-public "addData"(arg0: string, arg1: string): $MBDRecipeBuilder
-public "dimension"(arg0: $ResourceLocation$Type, arg1: boolean): $MBDRecipeBuilder
-public "dimension"(arg0: $ResourceLocation$Type): $MBDRecipeBuilder
-public "onSave"(arg0: $BiConsumer$Type<($MBDRecipeBuilder$Type), ($Consumer$Type<($FinishedRecipe$Type)>)>): $MBDRecipeBuilder
-public "buildRawRecipe"(): $MBDRecipe
-public "inputItems"(arg0: $TagKey$Type<($Item$Type)>, arg1: integer): $MBDRecipeBuilder
-public "inputItems"(...arg0: ($ItemStack$Type)[]): $MBDRecipeBuilder
-public "inputItems"(...arg0: ($Ingredient$Type)[]): $MBDRecipeBuilder
-public "inputItems"(arg0: $Supplier$Type<(any)>, arg1: integer): $MBDRecipeBuilder
-public "inputItems"(arg0: $Supplier$Type<(any)>): $MBDRecipeBuilder
-public "inputItems"(arg0: $Item$Type): $MBDRecipeBuilder
-public "inputItems"(arg0: $Item$Type, arg1: integer): $MBDRecipeBuilder
-public "inputItems"(arg0: $TagKey$Type<($Item$Type)>): $MBDRecipeBuilder
-public "outputItems"(arg0: $Item$Type, arg1: integer): $MBDRecipeBuilder
-public "outputItems"(arg0: $Supplier$Type<(any)>): $MBDRecipeBuilder
-public "outputItems"(arg0: $Supplier$Type<(any)>, arg1: integer): $MBDRecipeBuilder
-public "outputItems"(arg0: $Item$Type): $MBDRecipeBuilder
-public "outputItems"(...arg0: ($ItemStack$Type)[]): $MBDRecipeBuilder
-public "posY"(arg0: integer, arg1: integer, arg2: boolean): $MBDRecipeBuilder
-public "posY"(arg0: integer, arg1: integer): $MBDRecipeBuilder
-public "inputs"<T>(arg0: $RecipeCapability$Type<(T)>, ...arg1: (any)[]): $MBDRecipeBuilder
-public "slotName"(arg0: string): $MBDRecipeBuilder
-public "biome"(arg0: $ResourceLocation$Type): $MBDRecipeBuilder
-public "biome"(arg0: $ResourceLocation$Type, arg1: boolean): $MBDRecipeBuilder
-public "perTick"(arg0: boolean): $MBDRecipeBuilder
-public "rain"(arg0: float, arg1: float, arg2: boolean): $MBDRecipeBuilder
-public "rain"(arg0: float, arg1: float): $MBDRecipeBuilder
-public "saveAsBuiltinRecipe"(): $MBDRecipe
-public "disableDistilleryRecipes"(arg0: boolean): $MBDRecipeBuilder
-public "outputs"<T>(arg0: $RecipeCapability$Type<(T)>, ...arg1: (any)[]): $MBDRecipeBuilder
-public "itemOutputs"(...arg0: ($ItemStack$Type)[]): $MBDRecipeBuilder
-public static "ofRaw"(): $MBDRecipeBuilder
-public "inputFluids"(...arg0: ($FluidIngredient$Type)[]): $MBDRecipeBuilder
-public "inputFluids"(...arg0: ($FluidStack$Type)[]): $MBDRecipeBuilder
-public "notConsumable"(arg0: $ItemStack$Type): $MBDRecipeBuilder
-public "notConsumable"(arg0: $Item$Type): $MBDRecipeBuilder
-public "notConsumable"(arg0: $Supplier$Type<(any)>): $MBDRecipeBuilder
-public "explosivesAmount"(arg0: integer): $MBDRecipeBuilder
-public "blastFurnaceTemp"(arg0: integer): $MBDRecipeBuilder
-public "explosivesType"(arg0: $ItemStack$Type): $MBDRecipeBuilder
-public "solderMultiplier"(arg0: integer): $MBDRecipeBuilder
-public "fusionStartEU"(arg0: long): $MBDRecipeBuilder
 public "chance"(arg0: float): $MBDRecipeBuilder
 public "recipeType"(arg0: $MBDRecipeType$Type): $MBDRecipeBuilder
+public "addCondition"(arg0: $RecipeCondition$Type): $MBDRecipeBuilder
+public "slotName"(arg0: string): $MBDRecipeBuilder
+public "dimension"(arg0: $ResourceLocation$Type, arg1: boolean): $MBDRecipeBuilder
+public "dimension"(arg0: $ResourceLocation$Type): $MBDRecipeBuilder
 public "thunder"(arg0: float, arg1: float): $MBDRecipeBuilder
 public "thunder"(arg0: float, arg1: float, arg2: boolean): $MBDRecipeBuilder
+public "inputs"<T>(arg0: $RecipeCapability$Type<(T)>, ...arg1: (any)[]): $MBDRecipeBuilder
+public "uiName"(arg0: string): $MBDRecipeBuilder
+public "isFuel"(arg0: boolean): $MBDRecipeBuilder
+public "biome"(arg0: $ResourceLocation$Type, arg1: boolean): $MBDRecipeBuilder
+public "biome"(arg0: $ResourceLocation$Type): $MBDRecipeBuilder
+public "posY"(arg0: integer, arg1: integer): $MBDRecipeBuilder
+public "posY"(arg0: integer, arg1: integer, arg2: boolean): $MBDRecipeBuilder
+public "onSave"(arg0: $BiConsumer$Type<($MBDRecipeBuilder$Type), ($Consumer$Type<($FinishedRecipe$Type)>)>): $MBDRecipeBuilder
+public "buildRawRecipe"(): $MBDRecipe
+public "inputItems"(arg0: $TagKey$Type<($Item$Type)>): $MBDRecipeBuilder
+public "inputItems"(arg0: $Item$Type, arg1: integer): $MBDRecipeBuilder
+public "inputItems"(arg0: $Item$Type): $MBDRecipeBuilder
+public "inputItems"(arg0: $Supplier$Type<(any)>): $MBDRecipeBuilder
+public "inputItems"(...arg0: ($Ingredient$Type)[]): $MBDRecipeBuilder
+public "inputItems"(...arg0: ($ItemStack$Type)[]): $MBDRecipeBuilder
+public "inputItems"(arg0: $TagKey$Type<($Item$Type)>, arg1: integer): $MBDRecipeBuilder
+public "inputItems"(arg0: $Supplier$Type<(any)>, arg1: integer): $MBDRecipeBuilder
+public "outputItems"(arg0: $Supplier$Type<(any)>): $MBDRecipeBuilder
+public "outputItems"(...arg0: ($ItemStack$Type)[]): $MBDRecipeBuilder
+public "outputItems"(arg0: $Supplier$Type<(any)>, arg1: integer): $MBDRecipeBuilder
+public "outputItems"(arg0: $Item$Type, arg1: integer): $MBDRecipeBuilder
+public "outputItems"(arg0: $Item$Type): $MBDRecipeBuilder
+public "tierChanceBoost"(arg0: float): $MBDRecipeBuilder
+public "outputFluids"(...arg0: ($FluidStack$Type)[]): $MBDRecipeBuilder
+public "outputFluids"(...arg0: ($FluidIngredient$Type)[]): $MBDRecipeBuilder
+public "perTick"(arg0: boolean): $MBDRecipeBuilder
+public "outputs"<T>(arg0: $RecipeCapability$Type<(T)>, ...arg1: (any)[]): $MBDRecipeBuilder
+public "saveAsBuiltinRecipe"(): $MBDRecipe
+public "disableDistilleryRecipes"(arg0: boolean): $MBDRecipeBuilder
+public "rain"(arg0: float, arg1: float): $MBDRecipeBuilder
+public "rain"(arg0: float, arg1: float, arg2: boolean): $MBDRecipeBuilder
+public "addData"(arg0: string, arg1: string): $MBDRecipeBuilder
+public "addData"(arg0: string, arg1: long): $MBDRecipeBuilder
+public "addData"(arg0: string, arg1: float): $MBDRecipeBuilder
+public "addData"(arg0: string, arg1: integer): $MBDRecipeBuilder
+public "addData"(arg0: string, arg1: $Tag$Type): $MBDRecipeBuilder
+public "addData"(arg0: string, arg1: boolean): $MBDRecipeBuilder
+public static "ofRaw"(): $MBDRecipeBuilder
+public "fusionStartEU"(arg0: long): $MBDRecipeBuilder
+public "explosivesAmount"(arg0: integer): $MBDRecipeBuilder
+public "itemOutputs"(...arg0: ($ItemStack$Type)[]): $MBDRecipeBuilder
+public "blastFurnaceTemp"(arg0: integer): $MBDRecipeBuilder
+public "explosivesType"(arg0: $ItemStack$Type): $MBDRecipeBuilder
+public "notConsumable"(arg0: $ItemStack$Type): $MBDRecipeBuilder
+public "notConsumable"(arg0: $Supplier$Type<(any)>): $MBDRecipeBuilder
+public "notConsumable"(arg0: $Item$Type): $MBDRecipeBuilder
+public "inputFluids"(...arg0: ($FluidStack$Type)[]): $MBDRecipeBuilder
+public "inputFluids"(...arg0: ($FluidIngredient$Type)[]): $MBDRecipeBuilder
+public "solderMultiplier"(arg0: integer): $MBDRecipeBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2497,42 +2749,42 @@ constructor(xPosition: integer, yPosition: integer, width: integer, height: inte
 constructor(xPosition: integer, yPosition: integer, width: integer, height: integer, area: $IGuiTexture$Type)
 constructor()
 
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "updateScreen"(): void
+public "getImage"(): $IGuiTexture
 public "getBorderColor"(): integer
 public "getBorder"(): integer
-public "getImage"(): $IGuiTexture
 public "setBorder"(border: integer, color: integer): $ImageWidget
 public "setImage"(textureSupplier: $Supplier$Type<($IGuiTexture$Type)>): $ImageWidget
 public "setImage"(area: $IGuiTexture$Type): $ImageWidget
-public "updateScreen"(): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "widget"(): $Widget
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public "initTemplate"(): void
-public "serializeWrapper"(): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
+public "serializeWrapper"(): $CompoundTag
 public "handleDragging"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
+get "image"(): $IGuiTexture
 get "borderColor"(): integer
 get "border"(): integer
-get "image"(): $IGuiTexture
 set "image"(value: $Supplier$Type<($IGuiTexture$Type)>)
 set "image"(value: $IGuiTexture$Type)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2565,18 +2817,18 @@ readonly "widgets": $List<($Widget)>
 
 constructor(editor: $Editor$Type)
 
-public "saveMenuData"(): void
-public "initWidget"(): void
-public "getTabs"(): $Map<(string), ($MenuTab)>
 public "getTab"<T extends $MenuTab>(name: string): T
+public "initWidget"(): void
 public "getEditor"(): $Editor
+public "getTabs"(): $Map<(string), ($MenuTab)>
+public "saveMenuData"(): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-get "tabs"(): $Map<(string), ($MenuTab)>
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "editor"(): $Editor
+get "tabs"(): $Map<(string), ($MenuTab)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2639,85 +2891,85 @@ public "priority"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
 public "data"(): $CompoundTag
 public "duration"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
 public "duration"(): integer
-public "uiName"(): string
-public "uiName"(arg0: string, arg1: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
-public "uiName"(arg0: string): $MBDRecipeSchema$MBDRecipeJS
-public "positionY"(arg0: integer, arg1: integer): $MBDRecipeSchema$MBDRecipeJS
-public "serialize"(): void
-public "deserialize"(arg0: boolean): void
-public "tierChanceBoost"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
-public "tierChanceBoost"(): float
-public "tierChanceBoost"(arg0: float, arg1: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
-public "isFuel"(arg0: boolean): $MBDRecipeSchema$MBDRecipeJS
-public "isFuel"(): boolean
-public "outputFluids"(...arg0: ($MBDRecipeSchema$FluidIngredientJS$Type)[]): $MBDRecipeSchema$MBDRecipeJS
-public "addCondition"(arg0: $RecipeCondition$Type): $MBDRecipeSchema$MBDRecipeJS
-public "blocksInStructure"(arg0: integer, arg1: integer, ...arg2: ($Block$Type)[]): $MBDRecipeSchema$MBDRecipeJS
-public "inputPigments"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
-public "rotationCondition"(arg0: float, arg1: float, arg2: float, arg3: float): $MBDRecipeSchema$MBDRecipeJS
-public "dayLight"(arg0: boolean): $MBDRecipeSchema$MBDRecipeJS
-public "outputPigments"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
-public "addDataNumber"(arg0: string, arg1: double): $MBDRecipeSchema$MBDRecipeJS
-public "addDataBoolean"(arg0: string, arg1: boolean): $MBDRecipeSchema$MBDRecipeJS
-public "addDataString"(arg0: string, arg1: string): $MBDRecipeSchema$MBDRecipeJS
-public "outputMana"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "inputEmber"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
-public "outputEmber"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
-public "inputEU"(arg0: long): $MBDRecipeSchema$MBDRecipeJS
-public "outputHeat"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
-public "inputRPM"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
-public "inputMana"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "inputHeat"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
-public "inputPNCAir"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "inputFE"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "outputEntities"(...arg0: ($MBDRecipeSchema$EntityIngredientJS$Type)[]): $MBDRecipeSchema$MBDRecipeJS
-public "outputPNCPressure"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
-public "outputPNCHeat"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
-public "outputAura"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "inputPNCPressure"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
-public "inputEntities"(...arg0: ($MBDRecipeSchema$EntityIngredientJS$Type)[]): $MBDRecipeSchema$MBDRecipeJS
-public "inputPNCHeat"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
-public "outputFE"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "inputAura"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "outputPNCAir"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "outputEU"(arg0: long): $MBDRecipeSchema$MBDRecipeJS
-public "inputStress"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
-public "outputStress"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
-public "inputSlurries"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
-public "inputInfusions"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
-public "outputGases"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
-public "outputInfusions"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
-public "outputSlurries"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
-public "outputRPM"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
-public "inputGases"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
-public "conditions"(): $List<($RecipeCondition)>
-public "addData"(arg0: string, arg1: $Tag$Type): $MBDRecipeSchema$MBDRecipeJS
-public "machineData"(arg0: $CompoundTag$Type, arg1: boolean): $MBDRecipeSchema$MBDRecipeJS
-public "redstoneSignal"(arg0: integer, arg1: integer): $MBDRecipeSchema$MBDRecipeJS
-public "dimension"(arg0: $ResourceLocation$Type): $MBDRecipeSchema$MBDRecipeJS
-public "inputItems"(...arg0: ($InputItem$Type)[]): $MBDRecipeSchema$MBDRecipeJS
-public "outputItems"(...arg0: ($InputItem$Type)[]): $MBDRecipeSchema$MBDRecipeJS
-public "inputs"(): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
-public "inputs"(arg0: $RecipeCapability$Type<(any)>, ...arg1: (any)[]): $MBDRecipeSchema$MBDRecipeJS
-public "machineLevel"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
-public "slotName"(arg0: string, arg1: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
-public "slotName"(): string
-public "slotName"(arg0: string): $MBDRecipeSchema$MBDRecipeJS
-public "biome"(arg0: $ResourceLocation$Type): $MBDRecipeSchema$MBDRecipeJS
-public "perTick"(): boolean
-public "perTick"(arg0: boolean): $MBDRecipeSchema$MBDRecipeJS
-public "perTick"(arg0: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
-public "outputs"(): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
-public "outputs"(arg0: $RecipeCapability$Type<(any)>, ...arg1: (any)[]): $MBDRecipeSchema$MBDRecipeJS
-public "inputFluids"(...arg0: ($MBDRecipeSchema$FluidIngredientJS$Type)[]): $MBDRecipeSchema$MBDRecipeJS
-public "raining"(arg0: integer, arg1: integer): $MBDRecipeSchema$MBDRecipeJS
-public "thundering"(arg0: integer, arg1: integer): $MBDRecipeSchema$MBDRecipeJS
+public "chance"(): float
 public "chance"(arg0: float, arg1: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
 public "chance"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
-public "chance"(): float
-public "inputItemsDurability"(...arg0: ($InputItem$Type)[]): $MBDRecipeSchema$MBDRecipeJS
+public "deserialize"(arg0: boolean): void
+public "addCondition"(arg0: $RecipeCondition$Type): $MBDRecipeSchema$MBDRecipeJS
+public "redstoneSignal"(arg0: integer, arg1: integer): $MBDRecipeSchema$MBDRecipeJS
+public "machineLevel"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "slotName"(): string
+public "slotName"(arg0: string, arg1: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
+public "slotName"(arg0: string): $MBDRecipeSchema$MBDRecipeJS
+public "dimension"(arg0: $ResourceLocation$Type): $MBDRecipeSchema$MBDRecipeJS
+public "conditions"(): $List<($RecipeCondition)>
+public "inputs"(): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
+public "inputs"(arg0: $RecipeCapability$Type<(any)>, ...arg1: (any)[]): $MBDRecipeSchema$MBDRecipeJS
+public "uiName"(arg0: string): $MBDRecipeSchema$MBDRecipeJS
+public "uiName"(arg0: string, arg1: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
+public "uiName"(): string
+public "thundering"(arg0: integer, arg1: integer): $MBDRecipeSchema$MBDRecipeJS
+public "raining"(arg0: integer, arg1: integer): $MBDRecipeSchema$MBDRecipeJS
+public "isFuel"(arg0: boolean): $MBDRecipeSchema$MBDRecipeJS
+public "isFuel"(): boolean
+public "serialize"(): void
+public "machineData"(arg0: $CompoundTag$Type, arg1: boolean): $MBDRecipeSchema$MBDRecipeJS
+public "biome"(arg0: $ResourceLocation$Type): $MBDRecipeSchema$MBDRecipeJS
+public "positionY"(arg0: integer, arg1: integer): $MBDRecipeSchema$MBDRecipeJS
+public "inputItems"(...arg0: ($InputItem$Type)[]): $MBDRecipeSchema$MBDRecipeJS
+public "outputItems"(...arg0: ($InputItem$Type)[]): $MBDRecipeSchema$MBDRecipeJS
+public "tierChanceBoost"(): float
+public "tierChanceBoost"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
+public "tierChanceBoost"(arg0: float, arg1: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
+public "outputFluids"(...arg0: ($MBDRecipeSchema$FluidIngredientJS$Type)[]): $MBDRecipeSchema$MBDRecipeJS
+public "perTick"(arg0: $MBDRecipeSchema$MBDRecipeJS$RecipeBuilder$Type): $MBDRecipeSchema$MBDRecipeJS
+public "perTick"(arg0: boolean): $MBDRecipeSchema$MBDRecipeJS
+public "perTick"(): boolean
+public "outputs"(arg0: $RecipeCapability$Type<(any)>, ...arg1: (any)[]): $MBDRecipeSchema$MBDRecipeJS
+public "outputs"(): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
+public "inputEntities"(...arg0: ($MBDRecipeSchema$EntityIngredientJS$Type)[]): $MBDRecipeSchema$MBDRecipeJS
+public "outputFE"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "inputFE"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "inputMana"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "addDataNumber"(arg0: string, arg1: double): $MBDRecipeSchema$MBDRecipeJS
+public "outputEntities"(...arg0: ($MBDRecipeSchema$EntityIngredientJS$Type)[]): $MBDRecipeSchema$MBDRecipeJS
+public "addDataString"(arg0: string, arg1: string): $MBDRecipeSchema$MBDRecipeJS
+public "addDataBoolean"(arg0: string, arg1: boolean): $MBDRecipeSchema$MBDRecipeJS
+public "inputSlurries"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
+public "outputRPM"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
+public "outputSlurries"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
+public "inputInfusions"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
+public "inputAura"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "outputAura"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "inputEmber"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
+public "outputStress"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
+public "outputPNCAir"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "outputMana"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "outputPNCHeat"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
+public "inputHeat"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
+public "inputPNCPressure"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
+public "outputEU"(arg0: long): $MBDRecipeSchema$MBDRecipeJS
+public "inputPNCHeat"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
+public "inputPNCAir"(arg0: integer): $MBDRecipeSchema$MBDRecipeJS
+public "outputHeat"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
+public "inputEU"(arg0: long): $MBDRecipeSchema$MBDRecipeJS
+public "inputRPM"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
+public "outputEmber"(arg0: double): $MBDRecipeSchema$MBDRecipeJS
+public "outputPNCPressure"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
+public "inputGases"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
+public "inputStress"(arg0: float): $MBDRecipeSchema$MBDRecipeJS
+public "outputGases"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
+public "dayLight"(arg0: boolean): $MBDRecipeSchema$MBDRecipeJS
+public "rotationCondition"(arg0: float, arg1: float, arg2: float, arg3: float): $MBDRecipeSchema$MBDRecipeJS
+public "inputPigments"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
+public "outputPigments"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
+public "outputInfusions"(...arg0: (string)[]): $MBDRecipeSchema$MBDRecipeJS
+public "blocksInStructure"(arg0: integer, arg1: integer, ...arg2: ($Block$Type)[]): $MBDRecipeSchema$MBDRecipeJS
+public "addData"(arg0: string, arg1: $Tag$Type): $MBDRecipeSchema$MBDRecipeJS
+public "inputFluids"(...arg0: ($MBDRecipeSchema$FluidIngredientJS$Type)[]): $MBDRecipeSchema$MBDRecipeJS
 public "pncTemperatureCondition"(arg0: float, arg1: float): $MBDRecipeSchema$MBDRecipeJS
 public "mekTemperatureCondition"(arg0: double, arg1: double): $MBDRecipeSchema$MBDRecipeJS
+public "inputItemsDurability"(...arg0: ($InputItem$Type)[]): $MBDRecipeSchema$MBDRecipeJS
 public "outputItemsDurability"(...arg0: ($InputItem$Type)[]): $MBDRecipeSchema$MBDRecipeJS
 get "fuel"(): boolean
 }
@@ -2762,15 +3014,15 @@ public static "of"(arg0: $TagKey$Type<($Fluid$Type)>, arg1: long, arg2: $Compoun
 public "copy"(): $FluidIngredient
 public "copy"(arg0: long): $FluidIngredient
 public "toJson"(): $JsonElement
-public static "fromJson"(arg0: $JsonElement$Type): $FluidIngredient
 public static "fromJson"(arg0: $JsonElement$Type, arg1: boolean): $FluidIngredient
-public "toNetwork"(arg0: $FriendlyByteBuf$Type): void
-public "getNbt"(): $CompoundTag
+public static "fromJson"(arg0: $JsonElement$Type): $FluidIngredient
 public "setNbt"(arg0: $CompoundTag$Type): void
+public "getNbt"(): $CompoundTag
 public "getStacks"(): ($FluidStack)[]
-public "setAmount"(arg0: long): void
 public "getAmount"(): long
+public "setAmount"(arg0: long): void
 public static "fromNetwork"(arg0: $FriendlyByteBuf$Type): $FluidIngredient
+public "toNetwork"(arg0: $FriendlyByteBuf$Type): void
 public static "fromValues"(arg0: $Stream$Type<(any)>, arg1: long, arg2: $CompoundTag$Type): $FluidIngredient
 public "or"(arg0: $Predicate$Type<(any)>): $Predicate<($FluidStack)>
 public "negate"(): $Predicate<($FluidStack)>
@@ -2778,11 +3030,11 @@ public "and"(arg0: $Predicate$Type<(any)>): $Predicate<($FluidStack)>
 public static "isEqual"<T>(arg0: any): $Predicate<($FluidStack)>
 public static "not"<T>(arg0: $Predicate$Type<(any)>): $Predicate<($FluidStack)>
 get "empty"(): boolean
-get "nbt"(): $CompoundTag
 set "nbt"(value: $CompoundTag$Type)
+get "nbt"(): $CompoundTag
 get "stacks"(): ($FluidStack)[]
-set "amount"(value: long)
 get "amount"(): long
+set "amount"(value: long)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2814,49 +3066,49 @@ export class $ConfigBlockProperties$BlockSound implements $IPersistedSerializabl
 
 constructor()
 
+public "createSoundType"(): $ForgeSoundType
+public "fallSoundEvent"(): $SoundEvent
+public "fallSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
+public "stepSoundEvent"(): $SoundEvent
+public "stepSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
+public "getFallSoundEvent"(): $SoundEvent
+public "getBreakSoundEvent"(): $SoundEvent
+public "getStepSoundEvent"(): $SoundEvent
+public "getPlaceSoundEvent"(): $SoundEvent
+public "getHitSoundEvent"(): $SoundEvent
+public "hitSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
+public "hitSoundEvent"(): $SoundEvent
+public "breakSoundEvent"(): $SoundEvent
+public "breakSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
+public "placeSoundEvent"(): $SoundEvent
+public "placeSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
 public "createSoundConfigurator"(arg0: string, arg1: $Consumer$Type<($ResourceLocation$Type)>, arg2: $Supplier$Type<($ResourceLocation$Type)>): $Configurator
-public "hitSound"(arg0: $ResourceLocation$Type): $ConfigBlockProperties$BlockSound
-public "hitSound"(): $ResourceLocation
-public "volumeIn"(): float
-public "volumeIn"(arg0: float): $ConfigBlockProperties$BlockSound
-public "stepSound"(): $ResourceLocation
-public "stepSound"(arg0: $ResourceLocation$Type): $ConfigBlockProperties$BlockSound
 public "placeSound"(): $ResourceLocation
 public "placeSound"(arg0: $ResourceLocation$Type): $ConfigBlockProperties$BlockSound
+public "pitchIn"(): float
+public "pitchIn"(arg0: float): $ConfigBlockProperties$BlockSound
 public "fallSound"(arg0: $ResourceLocation$Type): $ConfigBlockProperties$BlockSound
 public "fallSound"(): $ResourceLocation
 public "breakSound"(): $ResourceLocation
 public "breakSound"(arg0: $ResourceLocation$Type): $ConfigBlockProperties$BlockSound
-public "pitchIn"(): float
-public "pitchIn"(arg0: float): $ConfigBlockProperties$BlockSound
-public "createSoundType"(): $ForgeSoundType
-public "stepSoundEvent"(): $SoundEvent
-public "stepSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
-public "placeSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
-public "placeSoundEvent"(): $SoundEvent
-public "fallSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
-public "fallSoundEvent"(): $SoundEvent
-public "hitSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
-public "hitSoundEvent"(): $SoundEvent
-public "breakSoundEvent"(arg0: $SoundEvent$Type): $ConfigBlockProperties$BlockSound
-public "breakSoundEvent"(): $SoundEvent
-public "getFallSoundEvent"(): $SoundEvent
-public "getPlaceSoundEvent"(): $SoundEvent
-public "getHitSoundEvent"(): $SoundEvent
-public "getStepSoundEvent"(): $SoundEvent
-public "getBreakSoundEvent"(): $SoundEvent
+public "hitSound"(): $ResourceLocation
+public "hitSound"(arg0: $ResourceLocation$Type): $ConfigBlockProperties$BlockSound
+public "stepSound"(arg0: $ResourceLocation$Type): $ConfigBlockProperties$BlockSound
+public "stepSound"(): $ResourceLocation
+public "volumeIn"(): float
+public "volumeIn"(arg0: float): $ConfigBlockProperties$BlockSound
 public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2892,24 +3144,24 @@ constructor(position: $Position$Type, size: $Size$Type)
 constructor(position: $Position$Type)
 constructor(x: integer, y: integer, width: integer, height: integer)
 
-public "setOnSelected"(onSelected: $Consumer$Type<($SelectableWidgetGroup$Type)>): $SelectableWidgetGroup
-public "setSelectedTexture"(selectedTexture: $IGuiTexture$Type): $SelectableWidgetGroup
-public "setSelectedTexture"(border: integer, color: integer): $SelectableWidgetGroup
-public "allowSelected"(mouseX: double, mouseY: double, button: integer): boolean
-public "onUnSelected"(): void
-public "onSelected"(): void
-public "setOnUnSelected"(onUnSelected: $Consumer$Type<($SelectableWidgetGroup$Type)>): $SelectableWidgetGroup
 public "isSelected"(): boolean
 public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "setOnSelected"(onSelected: $Consumer$Type<($SelectableWidgetGroup$Type)>): $SelectableWidgetGroup
+public "setSelectedTexture"(border: integer, color: integer): $SelectableWidgetGroup
+public "setSelectedTexture"(selectedTexture: $IGuiTexture$Type): $SelectableWidgetGroup
+public "onSelected"(): void
+public "onUnSelected"(): void
+public "allowSelected"(mouseX: double, mouseY: double, button: integer): boolean
+public "setOnUnSelected"(onUnSelected: $Consumer$Type<($SelectableWidgetGroup$Type)>): $SelectableWidgetGroup
 public "setPrefab"(prefab: any): void
 public "getPrefab"<T>(): T
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-set "selectedTexture"(value: $IGuiTexture$Type)
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "selected"(): boolean
+set "selectedTexture"(value: $IGuiTexture$Type)
 set "prefab"(value: any)
 get "prefab"(): T
 }
@@ -2948,94 +3200,94 @@ constructor(arg0: $IMachine$Type)
 
 public "isActive"(): boolean
 public "getDuration"(): integer
-public "getStatus"(): $RecipeLogic$Status
-public "isWorking"(): boolean
+public "getRecipeManager"(): $RecipeManager
 public "onChanged"(): void
-public "setStatus"(arg0: $RecipeLogic$Status$Type): void
-public "getMaxProgress"(): integer
-public "resetRecipeLogic"(): void
-public "getLastRecipe"(): $MBDRecipe
-public "inValid"(): void
-public "isIdle"(): boolean
 public "setDuration"(arg0: integer): void
-public "getMachine"(): $IMachine
+public "scheduleRenderUpdate"(): void
+public "inValid"(): void
+public "getLastRecipe"(): $MBDRecipe
+public "isWorking"(): boolean
+public "handleTickRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe$ActionResult
+public "setupRecipe"(arg0: $MBDRecipe$Type): void
+public "setWaiting"(arg0: $Component$Type): void
+public "handleFuelRecipe"(): boolean
+public "onRecipeFinish"(): void
+public "isSuspend"(): boolean
+public "interruptRecipe"(): void
+public "setLastFuelRecipe"(arg0: $MBDRecipe$Type): void
+public "isRecipeDirty"(): boolean
+public "setLastRecipe"(arg0: $MBDRecipe$Type): void
+public "getLastFuelRecipe"(): $MBDRecipe
+public "setWorkingEnabled"(arg0: boolean): void
+public "setFuelTime"(arg0: integer): void
+public "setFuelMaxTime"(arg0: integer): void
+public "getFuelProgressPercent"(): double
+public "getStatus"(): $RecipeLogic$Status
+public "serverTick"(): void
 public "getProgress"(): integer
-public "findAndHandleRecipe"(): void
+public "getMachine"(): $IMachine
+public "isIdle"(): boolean
+public "setStatus"(arg0: $RecipeLogic$Status$Type): void
+public "getFuelMaxTime"(): integer
+public "getWaitingReason"(): $Component
+public "isWaiting"(): boolean
+public "needFuel"(): boolean
+public "getFuelTime"(): integer
+public "getProgressPercent"(): double
+public "setProgress"(arg0: integer): void
+public "getMaxProgress"(): integer
+public "getFieldHolder"(): $ManagedFieldHolder
+public "resetRecipeLogic"(): void
 public "handleRecipeWorking"(): void
-public "getTotalContinuousRunningTime"(): long
-public "setTotalContinuousRunningTime"(arg0: long): void
-public "markLastRecipeDirty"(): void
 /**
  * 
  * @deprecated
  */
 public "isHasNotEnoughEnergy"(): boolean
+public "findAndHandleRecipe"(): void
 public "getLastOriginRecipe"(): $MBDRecipe
-public "getRecipeManager"(): $RecipeManager
-public "getFuelTime"(): integer
-public "getFuelMaxTime"(): integer
-public "isWaiting"(): boolean
-public "needFuel"(): boolean
-public "getWaitingReason"(): $Component
-public "setProgress"(arg0: integer): void
-public "getFuelProgressPercent"(): double
-public "getProgressPercent"(): double
-public "getFieldHolder"(): $ManagedFieldHolder
-public "scheduleRenderUpdate"(): void
-public "isSuspend"(): boolean
-public "onRecipeFinish"(): void
-public "setupRecipe"(arg0: $MBDRecipe$Type): void
-public "interruptRecipe"(): void
-public "handleTickRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe$ActionResult
-public "handleFuelRecipe"(): boolean
-public "setWaiting"(arg0: $Component$Type): void
-public "setWorkingEnabled"(arg0: boolean): void
-public "setFuelTime"(arg0: integer): void
-public "setLastFuelRecipe"(arg0: $MBDRecipe$Type): void
-public "isRecipeDirty"(): boolean
-public "setLastRecipe"(arg0: $MBDRecipe$Type): void
-public "getLastFuelRecipe"(): $MBDRecipe
-public "setFuelMaxTime"(arg0: integer): void
-public "serverTick"(): void
+public "markLastRecipeDirty"(): void
+public "getTotalContinuousRunningTime"(): long
+public "setTotalContinuousRunningTime"(arg0: long): void
 public "scheduleRender"(fieldName: string, newValue: any, oldValue: any): void
+public "markDirty"(name: string): void
 public "addSyncUpdateListener"<T>(name: string, listener: $IFieldUpdateListener$Type<(T)>): $ISubscription
 public "onPersistedChanged"(ref: $IRef$Type, isDirty: boolean): void
 public "onSyncChanged"(ref: $IRef$Type, isDirty: boolean): void
-public "markDirty"(name: string): void
 get "active"(): boolean
 get "duration"(): integer
-get "status"(): $RecipeLogic$Status
-get "working"(): boolean
-set "status"(value: $RecipeLogic$Status$Type)
-get "maxProgress"(): integer
-get "lastRecipe"(): $MBDRecipe
-get "idle"(): boolean
-set "duration"(value: integer)
-get "machine"(): $IMachine
-get "progress"(): integer
-get "totalContinuousRunningTime"(): long
-set "totalContinuousRunningTime"(value: long)
-get "hasNotEnoughEnergy"(): boolean
-get "lastOriginRecipe"(): $MBDRecipe
 get "recipeManager"(): $RecipeManager
-get "fuelTime"(): integer
-get "fuelMaxTime"(): integer
-get "waiting"(): boolean
-get "waitingReason"(): $Component
-set "progress"(value: integer)
-get "fuelProgressPercent"(): double
-get "progressPercent"(): double
-get "fieldHolder"(): $ManagedFieldHolder
-get "suspend"(): boolean
+set "duration"(value: integer)
+get "lastRecipe"(): $MBDRecipe
+get "working"(): boolean
 set "upRecipe"(value: $MBDRecipe$Type)
 set "waiting"(value: $Component$Type)
-set "workingEnabled"(value: boolean)
-set "fuelTime"(value: integer)
+get "suspend"(): boolean
 set "lastFuelRecipe"(value: $MBDRecipe$Type)
 get "recipeDirty"(): boolean
 set "lastRecipe"(value: $MBDRecipe$Type)
 get "lastFuelRecipe"(): $MBDRecipe
+set "workingEnabled"(value: boolean)
+set "fuelTime"(value: integer)
 set "fuelMaxTime"(value: integer)
+get "fuelProgressPercent"(): double
+get "status"(): $RecipeLogic$Status
+get "progress"(): integer
+get "machine"(): $IMachine
+get "idle"(): boolean
+set "status"(value: $RecipeLogic$Status$Type)
+get "fuelMaxTime"(): integer
+get "waitingReason"(): $Component
+get "waiting"(): boolean
+get "fuelTime"(): integer
+get "progressPercent"(): double
+set "progress"(value: integer)
+get "maxProgress"(): integer
+get "fieldHolder"(): $ManagedFieldHolder
+get "hasNotEnoughEnergy"(): boolean
+get "lastOriginRecipe"(): $MBDRecipe
+get "totalContinuousRunningTime"(): long
+set "totalContinuousRunningTime"(value: long)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3060,13 +3312,18 @@ readonly "resources": $Map<(string), ($Resource<(any)>)>
 constructor(resources: $Map$Type<(string), ($Resource$Type<(any)>)>)
 
 public "load"(): void
+public static "of"(...resources: ($Resource$Type<(any)>)[]): $Resources
 public "merge"(resources: $Resources$Type): void
 public "dispose"(): void
+/**
+ * 
+ * @deprecated
+ */
+public static "defaultResource"(): $Resources
+public static "fromNBT"(tag: $CompoundTag$Type): $Resources
+public static "emptyResource"(): $Resources
 public "serializeNBT"(): $CompoundTag
 public "deserializeNBT"(nbt: $CompoundTag$Type): void
-public static "defaultResource"(): $Resources
-public static "emptyResource"(): $Resources
-public static "fromNBT"(tag: $CompoundTag$Type): $Resources
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3096,29 +3353,29 @@ export class $ConfigRecipeLogicSettings implements $IToggleConfigurable, $IPersi
 
 
 public static "builder"(): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
-public "serializeNBT"(): $CompoundTag
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "recipeType"(): $ResourceLocation
 public "isEnable"(): boolean
+public "getRecipeType"(): $MBDRecipeType
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "setEnable"(arg0: boolean): void
 public "recipeModifiers"(): $RecipeModifier$RecipeModifiers
+public "alwaysModifyRecipe"(): boolean
 public "alwaysSearchRecipe"(): boolean
 public "recipeDampingValue"(): integer
-public "alwaysModifyRecipe"(): boolean
-public "getRecipeType"(): $MBDRecipeType
-public "setEnable"(arg0: boolean): void
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
-public "recipeType"(): $ResourceLocation
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "enable"(): boolean
 set "enable"(value: boolean)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3201,19 +3458,19 @@ import {$IRef, $IRef$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/mana
 export interface $IManagedStorage {
 
  "init"(): void
- "getSyncFields"(): ($IRef)[]
+ "markAllDirty"(): void
  "getManaged"(): ($IManaged)[]
+ "getSyncFields"(): ($IRef)[]
+ "hasDirtyPersistedFields"(): boolean
+ "removeAllSyncUpdateListener"(arg0: $ManagedKey$Type): void
+ "markDirty"(key: $ManagedKey$Type): void
  "addSyncUpdateListener"<T>(arg0: $ManagedKey$Type, arg1: $IFieldUpdateListener$Type<(T)>): $ISubscription
  "getPersistedFields"(): ($IRef)[]
- "notifyFieldUpdate"<T>(arg0: $ManagedKey$Type, arg1: T, arg2: T): void
  "hasSyncListener"(arg0: $ManagedKey$Type): boolean
+ "notifyFieldUpdate"<T>(arg0: $ManagedKey$Type, arg1: T, arg2: T): void
  "hasDirtySyncFields"(): boolean
  "getNonLazyFields"(): ($IRef)[]
  "getFieldByKey"(arg0: $ManagedKey$Type): $IRef
- "hasDirtyPersistedFields"(): boolean
- "removeAllSyncUpdateListener"(arg0: $ManagedKey$Type): void
- "markAllDirty"(): void
- "markDirty"(key: $ManagedKey$Type): void
 }
 
 export namespace $IManagedStorage {
@@ -3238,11 +3495,11 @@ import {$IConfigurableWidget, $IConfigurableWidget$Type} from "packages/com/lowd
 import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$IItemHandlerModifiable, $IItemHandlerModifiable$Type} from "packages/net/minecraftforge/items/$IItemHandlerModifiable"
-import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$IngredientIO, $IngredientIO$Type} from "packages/com/lowdragmc/lowdraglib/jei/$IngredientIO"
+import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$ClickType, $ClickType$Type} from "packages/net/minecraft/world/inventory/$ClickType"
+import {$IngredientIO, $IngredientIO$Type} from "packages/com/lowdragmc/lowdraglib/jei/$IngredientIO"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
@@ -3267,103 +3524,103 @@ static readonly "ITEM_SLOT_TEXTURE": $ResourceBorderTexture
  "drawHoverOverlay": boolean
  "drawHoverTips": boolean
 
+constructor(inventory: $Container$Type, slotIndex: integer, xPosition: integer, yPosition: integer)
 constructor(itemHandler: $IItemTransfer$Type, slotIndex: integer, xPosition: integer, yPosition: integer)
 constructor(itemHandler: $IItemTransfer$Type, slotIndex: integer, xPosition: integer, yPosition: integer, canTakeItems: boolean, canPutItems: boolean)
 constructor(inventory: $Container$Type, slotIndex: integer, xPosition: integer, yPosition: integer, canTakeItems: boolean, canPutItems: boolean)
-constructor(inventory: $Container$Type, slotIndex: integer, xPosition: integer, yPosition: integer)
 constructor()
 
 public "getHandler"(): $Slot
 public "getItem"(): $ItemStack
 public "setSize"(size: $Size$Type): void
 public "isEnabled"(): boolean
-public "getTooltipTexts"(): $List<($Component)>
-public "initTemplate"(): void
-public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
-public "setCanPutItems"(canPutItems: boolean): $SlotWidget
-public "getXEIChance"(): float
-public "getXEIIngredients"(): $List<(any)>
-public "setDrawHoverTips"(drawHoverTips: boolean): $SlotWidget
-public "setChangeListener"(changeListener: $Runnable$Type): $SlotWidget
-public "setCanTakeItems"(canTakeItems: boolean): $SlotWidget
-public "setItemHook"(itemHook: $Function$Type<($ItemStack$Type), ($ItemStack$Type)>): $SlotWidget
-public "setOnAddedTooltips"(onAddedTooltips: $BiConsumer$Type<($SlotWidget$Type), ($List$Type<($Component$Type)>)>): $SlotWidget
-public "setIngredientIO"(ingredientIO: $IngredientIO$Type): $SlotWidget
-public "setHandlerSlot"(itemHandler: $IItemHandlerModifiable$Type, slot: integer): void
-public "setXEIChance"(XEIChance: float): $SlotWidget
-public "getLastItem"(): $ItemStack
-public "getIngredientIO"(): $IngredientIO
-public "setHandlerSlot"(itemHandler: $IItemTransfer$Type, slotIndex: integer): $SlotWidget
-public "getRealStack"(itemStack: $ItemStack$Type): $ItemStack
-public "canPutStack"(stack: $ItemStack$Type): boolean
-public "setContainerSlot"(inventory: $Container$Type, slotIndex: integer): $SlotWidget
-public "canTakeStack"(player: $Player$Type): boolean
-public "onSlotChanged"(): void
-public "setLocationInfo"(isPlayerContainer: boolean, isPlayerHotBar: boolean): $SlotWidget
-public "detectAndSendChanges"(): void
-public "setGui"(gui: $ModularUI$Type): void
-public "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
-public "setBackgroundTexture"(backgroundTexture: $IGuiTexture$Type): $SlotWidget
-public "setDrawHoverOverlay"(drawHoverOverlay: boolean): $SlotWidget
-public "getFullTooltipTexts"(): $List<($Component)>
-public "getXEICurrentIngredient"(): any
-public "getAdditionalToolTips"(list: $List$Type<($Component$Type)>): $List<($Component)>
-public "setItem"(stack: $ItemStack$Type, notify: boolean): void
-public "setItem"(stack: $ItemStack$Type): void
-public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
-public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "slotClick"(dragType: integer, clickTypeIn: $ClickType$Type, player: $Player$Type): $ItemStack
-public "canMergeSlot"(stack: $ItemStack$Type): boolean
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "updateScreen"(): void
 public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "setBackgroundTexture"(backgroundTexture: $IGuiTexture$Type): $SlotWidget
+public "getFullTooltipTexts"(): $List<($Component)>
+public "setDrawHoverOverlay"(drawHoverOverlay: boolean): $SlotWidget
+public "getAdditionalToolTips"(list: $List$Type<($Component$Type)>): $List<($Component)>
+public "getXEICurrentIngredient"(): any
+public "slotClick"(dragType: integer, clickTypeIn: $ClickType$Type, player: $Player$Type): $ItemStack
+public "canMergeSlot"(stack: $ItemStack$Type): boolean
+public "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
+public "detectAndSendChanges"(): void
+public "setItem"(stack: $ItemStack$Type, notify: boolean): void
+public "setItem"(stack: $ItemStack$Type): void
+public "setGui"(gui: $ModularUI$Type): void
+public "getTooltipTexts"(): $List<($Component)>
+public "initTemplate"(): void
+public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
+public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "setHandlerSlot"(itemHandler: $IItemTransfer$Type, slotIndex: integer): $SlotWidget
+public "canPutStack"(stack: $ItemStack$Type): boolean
+public "setContainerSlot"(inventory: $Container$Type, slotIndex: integer): $SlotWidget
+public "setLocationInfo"(isPlayerContainer: boolean, isPlayerHotBar: boolean): $SlotWidget
+public "getIngredientIO"(): $IngredientIO
+public "canTakeStack"(player: $Player$Type): boolean
+public "onSlotChanged"(): void
+public "getRealStack"(itemStack: $ItemStack$Type): $ItemStack
+public "getXEIIngredients"(): $List<(any)>
+public "getXEIChance"(): float
+public "setChangeListener"(changeListener: $Runnable$Type): $SlotWidget
+public "setOnAddedTooltips"(onAddedTooltips: $BiConsumer$Type<($SlotWidget$Type), ($List$Type<($Component$Type)>)>): $SlotWidget
+public "setCanPutItems"(canPutItems: boolean): $SlotWidget
+public "setDrawHoverTips"(drawHoverTips: boolean): $SlotWidget
+public "setCanTakeItems"(canTakeItems: boolean): $SlotWidget
+public "setItemHook"(itemHook: $Function$Type<($ItemStack$Type), ($ItemStack$Type)>): $SlotWidget
+public "setIngredientIO"(ingredientIO: $IngredientIO$Type): $SlotWidget
+public "setHandlerSlot"(itemHandler: $IItemHandlerModifiable$Type, slot: integer): void
+public "getLastItem"(): $ItemStack
+public "setXEIChance"(XEIChance: float): $SlotWidget
 public "self"(): $Widget
-public "widget"(): $Widget
-public "serializeWrapper"(): $CompoundTag
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
+public "serializeWrapper"(): $CompoundTag
 public "handleDragging"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "kjs$self"(): $SlotWidget
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "handler"(): $Slot
 get "item"(): $ItemStack
 set "size"(value: $Size$Type)
 get "enabled"(): boolean
-get "tooltipTexts"(): $List<($Component)>
-set "canPutItems"(value: boolean)
-get "xEIChance"(): float
-get "xEIIngredients"(): $List<(any)>
-set "drawHoverTips"(value: boolean)
-set "changeListener"(value: $Runnable$Type)
-set "canTakeItems"(value: boolean)
-set "itemHook"(value: $Function$Type<($ItemStack$Type), ($ItemStack$Type)>)
-set "onAddedTooltips"(value: $BiConsumer$Type<($SlotWidget$Type), ($List$Type<($Component$Type)>)>)
-set "ingredientIO"(value: $IngredientIO$Type)
-set "xEIChance"(value: float)
-get "lastItem"(): $ItemStack
-get "ingredientIO"(): $IngredientIO
-set "gui"(value: $ModularUI$Type)
 set "backgroundTexture"(value: $IGuiTexture$Type)
-set "drawHoverOverlay"(value: boolean)
 get "fullTooltipTexts"(): $List<($Component)>
+set "drawHoverOverlay"(value: boolean)
 get "xEICurrentIngredient"(): any
 set "item"(value: $ItemStack$Type)
+set "gui"(value: $ModularUI$Type)
+get "tooltipTexts"(): $List<($Component)>
+get "ingredientIO"(): $IngredientIO
+get "xEIIngredients"(): $List<(any)>
+get "xEIChance"(): float
+set "changeListener"(value: $Runnable$Type)
+set "onAddedTooltips"(value: $BiConsumer$Type<($SlotWidget$Type), ($List$Type<($Component$Type)>)>)
+set "canPutItems"(value: boolean)
+set "drawHoverTips"(value: boolean)
+set "canTakeItems"(value: boolean)
+set "itemHook"(value: $Function$Type<($ItemStack$Type), ($ItemStack$Type)>)
+set "ingredientIO"(value: $IngredientIO$Type)
+get "lastItem"(): $ItemStack
+set "xEIChance"(value: float)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3386,9 +3643,9 @@ export class $MBDRecipeTypeRegistryEventJS extends $StartupEventJS {
 
 constructor()
 
-public "removeRecipeType"(arg0: $ResourceLocation$Type): void
-public "createRecipeType"(arg0: $ResourceLocation$Type): $MBDRecipeType
 public "getRecipeType"(arg0: $ResourceLocation$Type): $MBDRecipeType
+public "createRecipeType"(arg0: $ResourceLocation$Type): $MBDRecipeType
+public "removeRecipeType"(arg0: $ResourceLocation$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3416,35 +3673,35 @@ static readonly "WAIT": string
 
 constructor()
 
-public "getAdditionalTicks"(): integer
 public "isWait"(): boolean
-public "getAnimationName"(): string
-public "getLoopType"(): $AnimationStage$LoopType
-public "setWait"(arg0: boolean): $AnimationStage
-public "setAnimationName"(arg0: string): $AnimationStage
-public "setAdditionalTicks"(arg0: integer): $AnimationStage
 public "setLoopType"(arg0: $AnimationStage$LoopType$Type): $AnimationStage
+public "setAnimationName"(arg0: string): $AnimationStage
+public "getLoopType"(): $AnimationStage$LoopType
+public "getAnimationName"(): string
+public "getAdditionalTicks"(): integer
+public "setWait"(arg0: boolean): $AnimationStage
+public "setAdditionalTicks"(arg0: integer): $AnimationStage
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
 public "serializeNBT"(): $CompoundTag
 public "deserializeNBT"(arg0: $CompoundTag$Type): void
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
-get "additionalTicks"(): integer
+public "getChatComponent"(): $Component
 get "wait"(): boolean
-get "animationName"(): string
-get "loopType"(): $AnimationStage$LoopType
-set "wait"(value: boolean)
-set "animationName"(value: string)
-set "additionalTicks"(value: integer)
 set "loopType"(value: $AnimationStage$LoopType$Type)
+set "animationName"(value: string)
+get "loopType"(): $AnimationStage$LoopType
+get "animationName"(): string
+get "additionalTicks"(): integer
+set "wait"(value: boolean)
+set "additionalTicks"(value: integer)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3483,10 +3740,10 @@ static readonly "SELECTED": $ResourceBorderTexture
 constructor()
 constructor(imageLocation: string, imageWidth: integer, imageHeight: integer, cornerWidth: integer, cornerHeight: integer)
 
-public "setBorderSize"(width: integer, height: integer): $ResourceBorderTexture
 public "setImageSize"(width: integer, height: integer): $ResourceBorderTexture
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+public "setBorderSize"(width: integer, height: integer): $ResourceBorderTexture
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3508,19 +3765,19 @@ export class $PositionedRect {
 readonly "position": $Position
 readonly "size": $Size
 
-constructor(pos1: $Position$Type, pos2: $Position$Type)
-constructor(position: $Position$Type, size: $Size$Type)
 constructor(x: integer, y: integer, width: integer, height: integer)
+constructor(position: $Position$Type, size: $Size$Type)
+constructor(pos1: $Position$Type, pos2: $Position$Type)
 
+public "intersects"(other: $Position$Type): boolean
+public "intersects"(other: $PositionedRect$Type): boolean
+public "getPosition"(): $Position
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "getSize"(): $Size
-public "intersects"(other: $Position$Type): boolean
-public "intersects"(other: $PositionedRect$Type): boolean
-public "getPosition"(): $Position
-get "size"(): $Size
 get "position"(): $Position
+get "size"(): $Size
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3540,8 +3797,8 @@ import {$AbstractContainerMenu, $AbstractContainerMenu$Type} from "packages/net/
 export interface $ServerPlayerAccessor {
 
  "callInitMenu"(arg0: $AbstractContainerMenu$Type): void
- "getContainerCounter"(): integer
  "callNextContainerCounter"(): void
+ "getContainerCounter"(): integer
 }
 
 export namespace $ServerPlayerAccessor {
@@ -3568,9 +3825,9 @@ export interface $ILDLRegister {
  "name"(): string
  "group"(): string
  "isLDLRegister"(): boolean
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
  "getRegisterUI"(): $LDLRegister
+ "getChatComponent"(): $Component
 }
 
 export namespace $ILDLRegister {
@@ -3592,27 +3849,27 @@ declare module "packages/com/lowdragmc/mbd2/api/recipe/content/$IContentSerializ
 import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Content, $Content$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$Content"
+import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$ContentModifier, $ContentModifier$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$ContentModifier"
-import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 
 export interface $IContentSerializer<T> {
 
  "of"(arg0: any): T
  "toJson"(arg0: T): $JsonElement
  "fromJson"(arg0: $JsonElement$Type): T
- "fromJsonContent"(arg0: $JsonElement$Type): $Content
- "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: T): void
- "toNetworkContent"(arg0: $FriendlyByteBuf$Type, arg1: $Content$Type): void
+ "toNBT"(arg0: $Content$Type): $CompoundTag
+ "toNBT"(arg0: T): $Tag
+ "toJsonContent"(arg0: $Content$Type): $JsonElement
+ "fromNetwork"(arg0: $FriendlyByteBuf$Type): T
  "fromNetworkContent"(arg0: $FriendlyByteBuf$Type): $Content
+ "toNetworkContent"(arg0: $FriendlyByteBuf$Type, arg1: $Content$Type): void
+ "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: T): void
+ "fromJsonContent"(arg0: $JsonElement$Type): $Content
  "copyInner"(arg0: T): T
  "copyWithModifier"(arg0: T, arg1: $ContentModifier$Type): T
  "fromNBT"(arg0: $CompoundTag$Type): $Content
  "fromNBT"(arg0: $Tag$Type): T
- "fromNetwork"(arg0: $FriendlyByteBuf$Type): T
- "toJsonContent"(arg0: $Content$Type): $JsonElement
- "toNBT"(arg0: T): $Tag
- "toNBT"(arg0: $Content$Type): $CompoundTag
 }
 
 export namespace $IContentSerializer {
@@ -3816,13 +4073,13 @@ readonly "block": $Block
 readonly "fromPos": $BlockPos
 readonly "machine": $MBDMachine
 
-constructor(arg0: $MBDMachine$Type, arg1: $Block$Type, arg2: $BlockPos$Type)
 constructor()
+constructor(arg0: $MBDMachine$Type, arg1: $Block$Type, arg2: $BlockPos$Type)
 
 public "getBlock"(): $Block
 public "getListenerList"(): $ListenerList
-public "getFromPos"(): $BlockPos
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
+public "getFromPos"(): $BlockPos
 get "block"(): $Block
 get "listenerList"(): $ListenerList
 get "fromPos"(): $BlockPos
@@ -3838,6 +4095,115 @@ export type $MachineNeighborChangedEvent$Type = ($MachineNeighborChangedEvent);
  */
 declare global {
 export type $MachineNeighborChangedEvent_ = $MachineNeighborChangedEvent$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/util/$PatternMatchContext" {
+import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
+import {$Map$Entry, $Map$Entry$Type} from "packages/java/util/$Map$Entry"
+
+export class $PatternMatchContext {
+
+constructor()
+
+public "getOrCreate"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+public "get"<T>(arg0: string): T
+public "getInt"(arg0: string): integer
+public "entrySet"(): $Set<($Map$Entry<(string), (any)>)>
+public "increment"(arg0: string, arg1: integer): void
+public "set"(arg0: string, arg1: any): void
+public "containsKey"(arg0: string): boolean
+public "getOrDefault"<T>(arg0: string, arg1: T): T
+public "reset"(): void
+public "getOrPut"<T>(arg0: string, arg1: T): T
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PatternMatchContext$Type = ($PatternMatchContext);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $PatternMatchContext_ = $PatternMatchContext$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/predicates/$SimplePredicate" {
+import {$IAutoPersistedSerializable, $IAutoPersistedSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$IAutoPersistedSerializable"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
+import {$MultiblockState, $MultiblockState$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockState"
+import {$ToggleDirection, $ToggleDirection$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleDirection"
+import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
+import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$TraceabilityPredicate, $TraceabilityPredicate$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$TraceabilityPredicate"
+import {$BlockInfo, $BlockInfo$Type} from "packages/com/lowdragmc/lowdraglib/utils/$BlockInfo"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$IGuiTexture, $IGuiTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$IGuiTexture"
+import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
+
+export class $SimplePredicate implements $IAutoPersistedSerializable, $IConfigurable {
+static "ANY": $SimplePredicate
+static "AIR": $SimplePredicate
+ "candidates": $Supplier<(($BlockInfo)[])>
+ "predicate": $Predicate<($MultiblockState)>
+ "previewTexture": $Supplier<($IGuiTexture)>
+ "minCount": integer
+ "maxCount": integer
+ "minLayerCount": integer
+ "maxLayerCount": integer
+ "previewCount": integer
+ "disableRenderFormed": boolean
+ "io": $IO
+ "slotName": string
+ "nbt": $CompoundTag
+ "controllerNbt": $CompoundTag
+ "controllerFront": $ToggleDirection
+readonly "toolTips": $List<($Component)>
+ "allowOpenUI": boolean
+
+constructor(arg0: $Predicate$Type<($MultiblockState$Type)>, arg1: $Supplier$Type<(($BlockInfo$Type)[])>)
+
+public "name"(): string
+public "test"(arg0: $MultiblockState$Type): boolean
+public "getCandidates"(): $List<($ItemStack)>
+public "getPreviewTexture"(): $IGuiTexture
+public "buildPredicate"(): $SimplePredicate
+public "testGlobal"(arg0: $MultiblockState$Type): boolean
+public "testLimited"(arg0: $MultiblockState$Type): boolean
+public "testLayer"(arg0: $MultiblockState$Type): boolean
+public "getToolTips"(arg0: $TraceabilityPredicate$Type): $List<($Component)>
+public static "deserializeWrapper"(arg0: $CompoundTag$Type): $SimplePredicate
+public static "serializeWrapper"(arg0: $SimplePredicate$Type): $CompoundTag
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "getTranslateKey"(): string
+public "deserializeNBT"(tag: $CompoundTag$Type): void
+public "group"(): string
+public "isLDLRegister"(): boolean
+public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
+get "candidates"(): $List<($ItemStack)>
+get "previewTexture"(): $IGuiTexture
+get "translateKey"(): string
+get "lDLRegister"(): boolean
+get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SimplePredicate$Type = ($SimplePredicate);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $SimplePredicate_ = $SimplePredicate$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/client/renderer/block/$RendererBlock" {
 import {$EntityBlock, $EntityBlock$Type} from "packages/net/minecraft/world/level/block/$EntityBlock"
@@ -3898,6 +4264,32 @@ export type $RendererBlock$Type = ($RendererBlock);
  */
 declare global {
 export type $RendererBlock_ = $RendererBlock$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleCatalyst$CatalystType" {
+import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
+
+export class $ToggleCatalyst$CatalystType extends $Enum<($ToggleCatalyst$CatalystType)> {
+static readonly "CONSUME_ITEM": $ToggleCatalyst$CatalystType
+static readonly "CONSUME_DURABILITY": $ToggleCatalyst$CatalystType
+readonly "translateKey": string
+
+
+public static "values"(): ($ToggleCatalyst$CatalystType)[]
+public static "valueOf"(arg0: string): $ToggleCatalyst$CatalystType
+public "getTranslateKey"(): string
+get "translateKey"(): string
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ToggleCatalyst$CatalystType$Type = (("consume_durability") | ("consume_item")) | ($ToggleCatalyst$CatalystType);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ToggleCatalyst$CatalystType_ = $ToggleCatalyst$CatalystType$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/ingredient/$Target" {
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
@@ -3961,9 +4353,9 @@ import {$ModularUI, $ModularUI$Type} from "packages/com/lowdragmc/lowdraglib/gui
 export interface $IUIHolder {
 
  "isInvalid"(): boolean
- "markAsDirty"(): void
- "createUI"(arg0: $Player$Type): $ModularUI
  "isRemote"(): boolean
+ "createUI"(arg0: $Player$Type): $ModularUI
+ "markAsDirty"(): void
 }
 
 export namespace $IUIHolder {
@@ -3994,22 +4386,22 @@ export class $FieldManagedStorage implements $IManagedStorage {
 constructor(owner: $IManaged$Type)
 
 public "init"(): void
-public "getSyncFields"(): ($IRef)[]
 public "getManaged"(): ($IManaged)[]
+public "getSyncFields"(): ($IRef)[]
+public "hasDirtyPersistedFields"(): boolean
+public "removeAllSyncUpdateListener"(key: $ManagedKey$Type): void
+public "initEnhancedFeature"(): void
 public "addSyncUpdateListener"<T>(key: $ManagedKey$Type, listener: $IFieldUpdateListener$Type<(T)>): $ISubscription
 public "getPersistedFields"(): ($IRef)[]
-public "notifyFieldUpdate"<T>(key: $ManagedKey$Type, newVal: T, oldVal: T): void
 public "hasSyncListener"(key: $ManagedKey$Type): boolean
+public "notifyFieldUpdate"<T>(key: $ManagedKey$Type, newVal: T, oldVal: T): void
 public "hasDirtySyncFields"(): boolean
 public "getNonLazyFields"(): ($IRef)[]
 public "getFieldByKey"(key: $ManagedKey$Type): $IRef
-public "initEnhancedFeature"(): void
-public "hasDirtyPersistedFields"(): boolean
-public "removeAllSyncUpdateListener"(key: $ManagedKey$Type): void
 public "markAllDirty"(): void
 public "markDirty"(key: $ManagedKey$Type): void
-get "syncFields"(): ($IRef)[]
 get "managed"(): ($IManaged)[]
+get "syncFields"(): ($IRef)[]
 get "persistedFields"(): ($IRef)[]
 get "nonLazyFields"(): ($IRef)[]
 }
@@ -4043,20 +4435,20 @@ readonly "serializer": $IContentSerializer<(T)>
 
 
 public "of"(arg0: any): T
-public "copyContent"(arg0: any, arg1: $ContentModifier$Type): T
-public "copyContent"(arg0: any): T
-public "getLeftErrorInfo"(arg0: $List$Type<(T)>): $Component
 public "createDefaultContent"(): T
-public "createPreviewWidget"(arg0: T): $Widget
-public "createContentConfigurator"(arg0: $ConfiguratorGroup$Type, arg1: $Supplier$Type<(T)>, arg2: $Consumer$Type<(T)>): void
-public "getTraslateComponent"(): $Component
-public "bindXEIWidget"(arg0: $Widget$Type, arg1: $Content$Type, arg2: $IngredientIO$Type): void
 public "copyInner"(arg0: T): T
-public "copyWithModifier"(arg0: T, arg1: $ContentModifier$Type): T
 public "deepCopyContent"(arg0: any): T
 public "deepCopyContent"(arg0: any, arg1: $ContentModifier$Type): T
+public "copyWithModifier"(arg0: T, arg1: $ContentModifier$Type): T
 public "createXEITemplate"(): $Widget
 public "calculateAmount"(arg0: $List$Type<(T)>): double
+public "createContentConfigurator"(arg0: $ConfiguratorGroup$Type, arg1: $Supplier$Type<(T)>, arg2: $Consumer$Type<(T)>): void
+public "createPreviewWidget"(arg0: T): $Widget
+public "getTraslateComponent"(): $Component
+public "bindXEIWidget"(arg0: $Widget$Type, arg1: $Content$Type, arg2: $IngredientIO$Type): void
+public "copyContent"(arg0: any): T
+public "copyContent"(arg0: any, arg1: $ContentModifier$Type): T
+public "getLeftErrorInfo"(arg0: $List$Type<(T)>): $Component
 get "traslateComponent"(): $Component
 }
 /**
@@ -4074,8 +4466,8 @@ export type $RecipeCapability_<T> = $RecipeCapability$Type<(T)>;
 declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/$RecipeModifier$RecipeModifiers" {
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
-import {$ListTag, $ListTag$Type} from "packages/net/minecraft/nbt/$ListTag"
 import {$ContentModifier, $ContentModifier$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$ContentModifier"
+import {$ListTag, $ListTag$Type} from "packages/net/minecraft/nbt/$ListTag"
 import {$ITagSerializable, $ITagSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$ITagSerializable"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$RecipeLogic, $RecipeLogic$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$RecipeLogic"
@@ -4089,20 +4481,20 @@ readonly "recipeModifiers": $List<($RecipeModifier)>
 
 constructor()
 
-public "deserializeNBT"(arg0: $ListTag$Type): void
-public "applyModifiers"(arg0: $RecipeLogic$Type, arg1: $MBDRecipe$Type): $MBDRecipe
 public "getMaxParallel"(arg0: $RecipeLogic$Type, arg1: $MBDRecipe$Type): $ContentModifier
 public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "applyModifiers"(arg0: $RecipeLogic$Type, arg1: $MBDRecipe$Type): $MBDRecipe
+public "deserializeNBT"(arg0: $ListTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4167,6 +4559,117 @@ export type $ParticleEngineAccessor$Type = ($ParticleEngineAccessor);
 declare global {
 export type $ParticleEngineAccessor_ = $ParticleEngineAccessor$Type;
 }}
+declare module "packages/com/lowdragmc/photon/client/gameobject/emitter/$IParticleEmitter" {
+import {$Emitter, $Emitter$Type} from "packages/com/lowdragmc/photon/client/gameobject/emitter/$Emitter"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
+import {$Vector4f, $Vector4f$Type} from "packages/org/joml/$Vector4f"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
+import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$IFXObject, $IFXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$IFXObject"
+import {$Transform, $Transform$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/data/$Transform"
+import {$IEffect, $IEffect$Type} from "packages/com/lowdragmc/photon/client/fx/$IEffect"
+import {$IScene, $IScene$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$IScene"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$Quaternionf, $Quaternionf$Type} from "packages/org/joml/$Quaternionf"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$AABB, $AABB$Type} from "packages/net/minecraft/world/phys/$AABB"
+import {$LDLRegisterClient, $LDLRegisterClient$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegisterClient"
+import {$ISceneObject, $ISceneObject$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$ISceneObject"
+
+export interface $IParticleEmitter extends $IFXObject, $IConfigurable {
+
+ "self"(): $Emitter
+ "getVelocity"(): $Vector3f
+ "setAge"(arg0: integer): void
+ "getRandomSource"(): $RandomSource
+ "setRGBAColor"(arg0: $Vector4f$Type): void
+ "getMemRandom"(arg0: any): float
+ "getMemRandom"(arg0: any, arg1: $Function$Type<($RandomSource$Type), (float)>): float
+ "getAge"(): integer
+ "getT"(arg0: float): float
+ "getT"(): float
+ "isLooping"(): boolean
+ "getCullBox"(partialTicks: float): $AABB
+ "getLightColor"(arg0: $BlockPos$Type): integer
+ "getRGBAColor"(): $Vector4f
+ "getParticleAmount"(): integer
+ "isDev"(): boolean
+ "getName"(): string
+ "remove"(arg0: boolean): void
+ "setName"(arg0: string): void
+ "copy"(deep: boolean): $IFXObject
+ "reset"(): void
+ "getLevel"(): $Level
+ "setLevel"(arg0: $Level$Type): void
+ "deepCopy"(): $IFXObject
+ "m_107276_"(): boolean
+ "getEffect"(): $IEffect
+ "updatePos"(newPos: $Vector3f$Type): void
+ "emmit"(effect: $IEffect$Type): void
+ "emmit"(effect: $IEffect$Type, position: $Vector3f$Type, rotation: $Quaternionf$Type, scale: $Vector3f$Type): void
+ "updateRotation"(newRot: $Vector3f$Type): void
+ "updateRotation"(newRot: $Quaternionf$Type): void
+ "updateScale"(newScale: $Vector3f$Type): void
+ "copyTransformFrom"(fxObject: $IFXObject$Type): void
+ "copyTransformFrom"(fxObject: $IFXObject$Type, local: boolean, copyParent: boolean): void
+ "shallowCopy"(): $IFXObject
+ "setEffect"(arg0: $IEffect$Type): void
+ "setVisible"(arg0: boolean): void
+ "isVisible"(): boolean
+ "deserializeNBT"(tag: $CompoundTag$Type): void
+ "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+ "transform"(): $Transform
+ "id"(): $UUID
+ "destroy"(): void
+ "children"(): $List<($ISceneObject)>
+ "updateTick"(): void
+ "getScene"(): $IScene
+ "setSceneInternal"(arg0: $IScene$Type): void
+ "onParentChanged"(): void
+ "executeAll"(consumer: $Consumer$Type<($ISceneObject$Type)>, before: $Consumer$Type<($ISceneObject$Type)>, after: $Consumer$Type<($ISceneObject$Type)>): void
+ "executeAll"(consumer: $Consumer$Type<($ISceneObject$Type)>): void
+ "updateFrame"(partialTicks: float): void
+ "setScene"(scene: $IScene$Type): void
+ "onTransformChanged"(): void
+ "onChildChanged"(): void
+ "setTransform"(transform: $Transform$Type): void
+ "awake"(): void
+ "name"(): string
+ "group"(): string
+ "getRegisterUIClient"(): $LDLRegisterClient
+ "isLDLRegister"(): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getRegisterUI"(): $LDLRegister
+ "getTranslateKey"(): string
+ "getChatComponent"(): $Component
+}
+
+export namespace $IParticleEmitter {
+function deserializeWrapper(tag: $CompoundTag$Type): $IFXObject
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IParticleEmitter$Type = ($IParticleEmitter);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IParticleEmitter_ = $IParticleEmitter$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/ingredient/$IGhostIngredientTarget" {
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Target, $Target$Type} from "packages/com/lowdragmc/lowdraglib/gui/ingredient/$Target"
@@ -4194,15 +4697,15 @@ declare global {
 export type $IGhostIngredientTarget_ = $IGhostIngredientTarget$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/api/recipe/ingredient/$FluidIngredient$Value" {
-import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$Fluid, $Fluid$Type} from "packages/net/minecraft/world/level/material/$Fluid"
+import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 
 export interface $FluidIngredient$Value {
 
  "copy"(): $FluidIngredient$Value
- "serialize"(): $JsonObject
  "getStacks"(): $Collection<($Fluid)>
+ "serialize"(): $JsonObject
 }
 
 export namespace $FluidIngredient$Value {
@@ -4226,14 +4729,14 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $AbstractContainerScreenAccessor {
 
- "getSnapbackStartY"(): integer
- "getSnapbackTime"(): long
  "getDraggingItem"(): $ItemStack
- "getSnapbackEnd"(): $Slot
- "getSnapbackStartX"(): integer
- "isSplittingStack"(): boolean
- "getSnapbackItem"(): $ItemStack
  "setSnapbackItem"(arg0: $ItemStack$Type): void
+ "getSnapbackItem"(): $ItemStack
+ "isSplittingStack"(): boolean
+ "getSnapbackTime"(): long
+ "getSnapbackEnd"(): $Slot
+ "getSnapbackStartY"(): integer
+ "getSnapbackStartX"(): integer
  "getQuickCraftingRemainder"(): integer
 }
 
@@ -4252,6 +4755,36 @@ export type $AbstractContainerScreenAccessor$Type = ($AbstractContainerScreenAcc
 declare global {
 export type $AbstractContainerScreenAccessor_ = $AbstractContainerScreenAccessor$Type;
 }}
+declare module "packages/com/lowdragmc/photon/client/fx/$FXData" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Record, $Record$Type} from "packages/java/lang/$Record"
+import {$ITagSerializable, $ITagSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$ITagSerializable"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$IFXObject, $IFXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$IFXObject"
+
+export class $FXData extends $Record implements $ITagSerializable<($CompoundTag)> {
+
+constructor()
+constructor(objects: $List$Type<($IFXObject$Type)>)
+
+public "equals"(o: any): boolean
+public "toString"(): string
+public "hashCode"(): integer
+public "objects"(): $List<($IFXObject)>
+public "deserializeNBT"(tag: $CompoundTag$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FXData$Type = ($FXData);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $FXData_ = $FXData$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/texture/$ShaderTexture" {
 import {$TransformTexture, $TransformTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$TransformTexture"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
@@ -4266,25 +4799,23 @@ export class $ShaderTexture extends $TransformTexture {
 constructor()
 
 public "dispose"(): void
-public "setColor"(color: integer): $ShaderTexture
 public static "clearCache"(): void
-public "updateRawShader"(rawShader: string): void
-public "updateShader"(location: $ResourceLocation$Type): void
-public "setUniformCache"(uniformCache: $Consumer$Type<($UniformCache$Type)>): $ShaderTexture
+public static "createRawShader"(rawShader: string): $ShaderTexture
 public "getRawShader"(): string
 public static "createShader"(location: $ResourceLocation$Type): $ShaderTexture
-public static "createRawShader"(rawShader: string): $ShaderTexture
 public "setResolution"(resolution: float): $ShaderTexture
 public "getResolution"(): float
+public "updateShader"(location: $ResourceLocation$Type): void
+public "setUniformCache"(uniformCache: $Consumer$Type<($UniformCache$Type)>): $ShaderTexture
+public "updateRawShader"(rawShader: string): void
 public "bindTexture"(samplerName: string, location: $ResourceLocation$Type): void
 public "bindTexture"(samplerName: string, id: integer): void
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
-set "color"(value: integer)
-set "uniformCache"(value: $Consumer$Type<($UniformCache$Type)>)
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 get "rawShader"(): string
 set "resolution"(value: float)
 get "resolution"(): float
+set "uniformCache"(value: $Consumer$Type<($UniformCache$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4341,12 +4872,11 @@ public static "start"(): $TreeBuilder$Menu
 public static "handle"(node: $TreeNode$Type<($Tuple$Type<($IGuiTexture$Type), (string)>), ($Runnable$Type)>): void
 public "branch"(icon: $IGuiTexture$Type, name: string, menuConsumer: $Consumer$Type<($TreeBuilder$Menu$Type)>): $TreeBuilder$Menu
 public "branch"(name: string, menuConsumer: $Consumer$Type<($TreeBuilder$Menu$Type)>): $TreeBuilder$Menu
+public static "getIcon"(key: $Tuple$Type<($IGuiTexture$Type), (string)>): $IGuiTexture
 public static "isCrossLine"(key: $Tuple$Type<($IGuiTexture$Type), (string)>): boolean
+public "crossLine"(): $TreeBuilder$Menu
 public "leaf"(name: string, runnable: $Runnable$Type): $TreeBuilder$Menu
 public "leaf"(icon: $IGuiTexture$Type, name: string, runnable: $Runnable$Type): $TreeBuilder$Menu
-public static "getIcon"(key: $Tuple$Type<($IGuiTexture$Type), (string)>): $IGuiTexture
-public "crossLine"(): $TreeBuilder$Menu
-public "endBranch"(): $TreeBuilder$Menu
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4359,6 +4889,83 @@ export type $TreeBuilder$Menu$Type = ($TreeBuilder$Menu);
  */
 declare global {
 export type $TreeBuilder$Menu_ = $TreeBuilder$Menu$Type;
+}}
+declare module "packages/com/lowdragmc/photon/client/gameobject/emitter/$Emitter" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Vector4f, $Vector4f$Type} from "packages/org/joml/$Vector4f"
+import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
+import {$ConcurrentHashMap, $ConcurrentHashMap$Type} from "packages/java/util/concurrent/$ConcurrentHashMap"
+import {$PhotonParticleRenderType, $PhotonParticleRenderType$Type} from "packages/com/lowdragmc/photon/client/gameobject/emitter/$PhotonParticleRenderType"
+import {$IFXObject, $IFXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$IFXObject"
+import {$Transform, $Transform$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/data/$Transform"
+import {$FXObject, $FXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$FXObject"
+import {$ParticleRenderType, $ParticleRenderType$Type} from "packages/net/minecraft/client/particle/$ParticleRenderType"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$IParticleEmitter, $IParticleEmitter$Type} from "packages/com/lowdragmc/photon/client/gameobject/emitter/$IParticleEmitter"
+import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$AABB, $AABB$Type} from "packages/net/minecraft/world/phys/$AABB"
+
+export class $Emitter extends $FXObject implements $IParticleEmitter {
+ "name": string
+readonly "transform": $Transform
+static "NO_RENDER_RENDER_TYPE": $ParticleRenderType
+
+
+public "reset"(): void
+public "setDelay"(delay: integer): void
+public "isAlive"(): boolean
+public "tick"(): void
+public "getVelocity"(): $Vector3f
+public "setAge"(age: integer): void
+public "getRandomSource"(): $RandomSource
+public "setRGBAColor"(color: $Vector4f$Type): void
+public "getMemRandom"(object: any, randomFunc: $Function$Type<($RandomSource$Type), (float)>): float
+public "getMemRandom"(object: any): float
+public "getMemRandom"(): $ConcurrentHashMap<(any), (float)>
+public "getAge"(): integer
+public "getDelay"(): integer
+public "getThreadSafeRandomSource"(): $RandomSource
+public "getT"(): float
+public "getT"(partialTicks: float): float
+public "isLooping"(): boolean
+public "setPos"(x: double, y: double, z: double): void
+public "getLightColor"(pos: $BlockPos$Type): integer
+public "getRGBAColor"(): $Vector4f
+public "getRenderType"(): $PhotonParticleRenderType
+public "self"(): $Emitter
+public "getCullBox"(partialTicks: float): $AABB
+public "getParticleAmount"(): integer
+public "isDev"(): boolean
+public static "deserializeWrapper"(tag: $CompoundTag$Type): $IFXObject
+set "delay"(value: integer)
+get "alive"(): boolean
+get "velocity"(): $Vector3f
+set "age"(value: integer)
+get "randomSource"(): $RandomSource
+set "rGBAColor"(value: $Vector4f$Type)
+get "memRandom"(): $ConcurrentHashMap<(any), (float)>
+get "age"(): integer
+get "delay"(): integer
+get "threadSafeRandomSource"(): $RandomSource
+get "t"(): float
+get "looping"(): boolean
+get "rGBAColor"(): $Vector4f
+get "renderType"(): $PhotonParticleRenderType
+get "particleAmount"(): integer
+get "dev"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Emitter$Type = ($Emitter);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $Emitter_ = $Emitter$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineRemovedEventJS" {
 import {$MBDMachineEvents$MachineEventJS, $MBDMachineEvents$MachineEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineEventJS"
@@ -4384,8 +4991,8 @@ declare global {
 export type $MBDMachineEvents$MachineRemovedEventJS_ = $MBDMachineEvents$MachineRemovedEventJS$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/widget/$Widget" {
-import {$Rect, $Rect$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Rect"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$Rect, $Rect$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Rect"
 import {$Position, $Position$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Position"
 import {$Size, $Size$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Size"
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
@@ -4408,139 +5015,139 @@ export class $Widget {
 constructor(selfPosition: $Position$Type, size: $Size$Type)
 constructor(x: integer, y: integer, width: integer, height: integer)
 
+public "getPosition"(): $Position
 public "getParent"(): $WidgetGroup
 public "getId"(): string
 public "getSize"(): $Size
 public "isActive"(): boolean
-public "setSize"(size: $Size$Type): void
 public "setSize"(width: integer, height: integer): void
-public "getPosition"(): $Position
-public "isVisible"(): boolean
-public "animation"(animation: $Animation$Type): void
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "getSizeHeight"(): integer
-public "getSelfPositionY"(): integer
-public "addSelfPosition"(addX: integer, addY: integer): $Position
-public "getSelfPosition"(): $Position
-public "getSizeWidth"(): integer
-public "setSizeWidth"(width: integer): void
-public "getPositionY"(): integer
-public "setSizeHeight"(height: integer): void
-public "getPositionX"(): integer
-public "getHoverElement"(mouseX: double, mouseY: double): $Widget
-public "getSelfPositionX"(): integer
-public "isParent"(widgetGroup: $WidgetGroup$Type): boolean
-public "setSelfPositionY"(y: integer): void
-public "setSelfPositionX"(x: integer): void
-public "getRect"(): $Rect
-public "setSelfPosition"(selfPosition: $Position$Type): void
-public "setSelfPosition"(x: integer, y: integer): void
-public "isMouseOverElement"(mouseX: double, mouseY: double): boolean
-public "initWidget"(): void
-public "getAlign"(): $Align
-public static "isShiftDown"(): boolean
-public "onScreenSizeUpdate"(screenWidth: integer, screenHeight: integer): void
-public "getParentPosition"(): $Position
-public "drawOverlay"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public static "isCtrlDown"(): boolean
-public "getAnimation"(): $Animation
-public "onFocusChanged"(lastFocus: $Widget$Type, focus: $Widget$Type): void
-public "getTooltipTexts"(): $List<($Component)>
-public static "isAltDown"(): boolean
-public "setAlign"(align: $Align$Type): $Widget
-public "isMouseDown"(button: integer): boolean
-public "charTyped"(codePoint: character, modifiers: integer): boolean
-public "keyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "getGui"(): $ModularUI
-public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
-public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "isInitialized"(): boolean
-public "detectAndSendChanges"(): void
-public "setVisible"(isVisible: boolean): $Widget
-public "isFocus"(): boolean
-public "inAnimate"(): boolean
-public "setHoverTexture"(...hoverTexture: ($IGuiTexture$Type)[]): $Widget
-public "setGui"(gui: $ModularUI$Type): void
-public "setParentPosition"(parentPosition: $Position$Type): void
-public "setDrawBackgroundWhenHover"(drawBackgroundWhenHover: boolean): $Widget
-public "setHoverTooltips"(...tooltipText: ($Component$Type)[]): $Widget
-public "setDraggingProvider"<T>(draggingProvider: $Supplier$Type<(T)>, draggingRenderer: $BiFunction$Type<(T), ($Position$Type), ($IGuiTexture$Type)>): $Widget
-public "setClientSideWidget"(): $Widget
-public "appendHoverTooltips"(...tooltipText: (string)[]): $Widget
-public "appendHoverTooltips"(...tooltipText: ($Component$Type)[]): $Widget
-public "appendHoverTooltips"(tooltipText: $List$Type<($Component$Type)>): $Widget
-public static "playButtonClickSound"(): void
-public "getBackgroundTexture"(): $IGuiTexture
-public "setDraggingConsumer"(draggingAccept: $Predicate$Type<(any)>, draggingIn: $Consumer$Type<(any)>, draggingOut: $Consumer$Type<(any)>, draggingSuccess: $Consumer$Type<(any)>): $Widget
-public "setActive"(isActive: boolean): $Widget
-public "setOverlay"(overlay: $IGuiTexture$Type): $Widget
-public "setId"(id: string): $Widget
-public static "isMouseOver"(x: integer, y: integer, width: integer, height: integer, mouseX: double, mouseY: double): boolean
-public static "isKeyDown"(keyCode: integer): boolean
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
-public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "isRemote"(): boolean
-public "setBackground"(...backgroundTexture: ($IGuiTexture$Type)[]): $Widget
-public "getGuiExtraAreas"(guiRect: $Rect2i$Type, list: $List$Type<($Rect2i$Type)>): $List<($Rect2i)>
-public "mouseMoved"(mouseX: double, mouseY: double): boolean
-public "toRectangleBox"(): $Rect2i
-public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "setUiAccess"(uiAccess: $WidgetUIAccess$Type): $Widget
-public "updateScreen"(): void
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "setFocus"(focus: boolean): void
+public "setSize"(size: $Size$Type): void
 public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "updateScreen"(): void
+public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "mouseMoved"(mouseX: double, mouseY: double): boolean
+public "setFocus"(focus: boolean): void
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "isClientSideWidget"(): boolean
+public "setUiAccess"(uiAccess: $WidgetUIAccess$Type): $Widget
+public "getGuiExtraAreas"(guiRect: $Rect2i$Type, list: $List$Type<($Rect2i$Type)>): $List<($Rect2i)>
+public "toRectangleBox"(): $Rect2i
+public "setId"(id: string): $Widget
 public "getOverlay"(): $IGuiTexture
+public "getGui"(): $ModularUI
+public "isInitialized"(): boolean
+public "animation"(animation: $Animation$Type): void
+public "isRemote"(): boolean
+public "setDraggingProvider"<T>(draggingProvider: $Supplier$Type<(T)>, draggingRenderer: $BiFunction$Type<(T), ($Position$Type), ($IGuiTexture$Type)>): $Widget
+public "setDraggingConsumer"(draggingAccept: $Predicate$Type<(any)>, draggingIn: $Consumer$Type<(any)>, draggingOut: $Consumer$Type<(any)>, draggingSuccess: $Consumer$Type<(any)>): $Widget
+public static "playButtonClickSound"(): void
+public "setHoverTooltips"(...tooltipText: ($Component$Type)[]): $Widget
+public "appendHoverTooltips"(...tooltipText: ($Component$Type)[]): $Widget
+public "appendHoverTooltips"(...tooltipText: (string)[]): $Widget
+public "appendHoverTooltips"(tooltipText: $List$Type<($Component$Type)>): $Widget
+public "setDrawBackgroundWhenHover"(drawBackgroundWhenHover: boolean): $Widget
+public "setClientSideWidget"(): $Widget
+public "getBackgroundTexture"(): $IGuiTexture
+public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "setActive"(isActive: boolean): $Widget
+public "detectAndSendChanges"(): void
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "isFocus"(): boolean
+public "inAnimate"(): boolean
+public "setSelfPosition"(x: integer, y: integer): void
+public "setSelfPosition"(selfPosition: $Position$Type): void
+public "setHoverTexture"(...hoverTexture: ($IGuiTexture$Type)[]): $Widget
+public "setGui"(gui: $ModularUI$Type): void
+public "isParent"(widgetGroup: $WidgetGroup$Type): boolean
+public "setParentPosition"(parentPosition: $Position$Type): void
+public "getPositionY"(): integer
+public "getSizeWidth"(): integer
+public "getSizeHeight"(): integer
+public "getSelfPosition"(): $Position
+public "getSelfPositionY"(): integer
+public "setSizeHeight"(height: integer): void
+public static "isMouseOver"(x: integer, y: integer, width: integer, height: integer, mouseX: double, mouseY: double): boolean
+public "getPositionX"(): integer
+public "setSizeWidth"(width: integer): void
+public "getHoverElement"(mouseX: double, mouseY: double): $Widget
+public "initWidget"(): void
+public "addSelfPosition"(addX: integer, addY: integer): $Position
+public "drawOverlay"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "setSelfPositionX"(x: integer): void
+public "setSelfPositionY"(y: integer): void
+public "getRect"(): $Rect
+public "isMouseOverElement"(mouseX: double, mouseY: double): boolean
+public "getSelfPositionX"(): integer
+public static "isKeyDown"(keyCode: integer): boolean
+public "setAlign"(align: $Align$Type): $Widget
+public "getTooltipTexts"(): $List<($Component)>
+public "getAnimation"(): $Animation
+public "getAlign"(): $Align
+public "getParentPosition"(): $Position
+public static "isShiftDown"(): boolean
+public static "isAltDown"(): boolean
+public "onScreenSizeUpdate"(screenWidth: integer, screenHeight: integer): void
+public static "isCtrlDown"(): boolean
+public "onFocusChanged"(lastFocus: $Widget$Type, focus: $Widget$Type): void
+public "isMouseDown"(button: integer): boolean
+public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public "charTyped"(codePoint: character, modifiers: integer): boolean
+public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "keyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
+public "setOverlay"(overlay: $IGuiTexture$Type): $Widget
+public "setVisible"(isVisible: boolean): $Widget
+public "setBackground"(...backgroundTexture: ($IGuiTexture$Type)[]): $Widget
+public "isVisible"(): boolean
+get "position"(): $Position
 get "parent"(): $WidgetGroup
 get "id"(): string
 get "size"(): $Size
 get "active"(): boolean
 set "size"(value: $Size$Type)
-get "position"(): $Position
-get "visible"(): boolean
-get "sizeHeight"(): integer
-get "selfPositionY"(): integer
-get "selfPosition"(): $Position
-get "sizeWidth"(): integer
-set "sizeWidth"(value: integer)
-get "positionY"(): integer
-set "sizeHeight"(value: integer)
-get "positionX"(): integer
-get "selfPositionX"(): integer
-set "selfPositionY"(value: integer)
-set "selfPositionX"(value: integer)
-get "rect"(): $Rect
-set "selfPosition"(value: $Position$Type)
-get "align"(): $Align
-get "shiftDown"(): boolean
-get "parentPosition"(): $Position
-get "ctrlDown"(): boolean
-get "tooltipTexts"(): $List<($Component)>
-get "altDown"(): boolean
-set "align"(value: $Align$Type)
+set "focus"(value: boolean)
+get "clientSideWidget"(): boolean
+set "uiAccess"(value: $WidgetUIAccess$Type)
+set "id"(value: string)
+get "overlay"(): $IGuiTexture
 get "gui"(): $ModularUI
 get "initialized"(): boolean
-set "visible"(value: boolean)
+get "remote"(): boolean
+set "hoverTooltips"(value: ($Component$Type)[])
+set "drawBackgroundWhenHover"(value: boolean)
+get "backgroundTexture"(): $IGuiTexture
+set "active"(value: boolean)
 get "focus"(): boolean
+set "selfPosition"(value: $Position$Type)
 set "hoverTexture"(value: ($IGuiTexture$Type)[])
 set "gui"(value: $ModularUI$Type)
 set "parentPosition"(value: $Position$Type)
-set "drawBackgroundWhenHover"(value: boolean)
-set "hoverTooltips"(value: ($Component$Type)[])
-get "backgroundTexture"(): $IGuiTexture
-set "active"(value: boolean)
+get "positionY"(): integer
+get "sizeWidth"(): integer
+get "sizeHeight"(): integer
+get "selfPosition"(): $Position
+get "selfPositionY"(): integer
+set "sizeHeight"(value: integer)
+get "positionX"(): integer
+set "sizeWidth"(value: integer)
+set "selfPositionX"(value: integer)
+set "selfPositionY"(value: integer)
+get "rect"(): $Rect
+get "selfPositionX"(): integer
+set "align"(value: $Align$Type)
+get "tooltipTexts"(): $List<($Component)>
+get "align"(): $Align
+get "parentPosition"(): $Position
+get "shiftDown"(): boolean
+get "altDown"(): boolean
+get "ctrlDown"(): boolean
 set "overlay"(value: $IGuiTexture$Type)
-set "id"(value: string)
-get "remote"(): boolean
+set "visible"(value: boolean)
 set "background"(value: ($IGuiTexture$Type)[])
-set "uiAccess"(value: $WidgetUIAccess$Type)
-set "focus"(value: boolean)
-get "clientSideWidget"(): boolean
-get "overlay"(): $IGuiTexture
+get "visible"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4598,10 +5205,10 @@ public "toString"(): string
 public "hashCode"(): integer
 public static "of"(width: integer, height: integer): $Size
 public "subtract"(other: $Size$Type): $Size
-public "addWidth"(width: integer): $Size
-public "addHeight"(height: integer): $Size
 public "getWidth"(): integer
 public "getHeight"(): integer
+public "addHeight"(height: integer): $Size
+public "addWidth"(width: integer): $Size
 get "width"(): integer
 get "height"(): integer
 }
@@ -4634,14 +5241,14 @@ readonly "widgets": $List<($Widget)>
 
 constructor(arg0: $MachineEditor$Type)
 
-public "renderAfterWorld"(arg0: $SceneWidget$Type): void
-public "onPanelSelected"(): void
 public "onPanelDeselected"(): void
+public "onPanelSelected"(): void
+public "renderAfterWorld"(arg0: $SceneWidget$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4655,6 +5262,47 @@ export type $MachineTraitPanel$Type = ($MachineTraitPanel);
 declare global {
 export type $MachineTraitPanel_ = $MachineTraitPanel$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/event/$MachineClientSetupEvent" {
+import {$ListenerList, $ListenerList$Type} from "packages/net/minecraftforge/eventbus/$ListenerList"
+import {$MBDMachine, $MBDMachine$Type} from "packages/com/lowdragmc/mbd2/common/machine/$MBDMachine"
+import {$MachineEvent, $MachineEvent$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/event/$MachineEvent"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+
+export class $MachineClientSetupEvent extends $MachineEvent {
+readonly "machine": $MBDMachine
+readonly "pos": $BlockPos
+readonly "blockState": $BlockState
+ "instruction": string
+
+constructor()
+constructor(arg0: $MBDMachine$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type)
+
+public "getBlockState"(): $BlockState
+public "getListenerList"(): $ListenerList
+public "getPos"(): $BlockPos
+public "getMachine"(): $MBDMachine
+public "getInstruction"(): string
+public "setInstruction"(arg0: string): void
+get "blockState"(): $BlockState
+get "listenerList"(): $ListenerList
+get "pos"(): $BlockPos
+get "machine"(): $MBDMachine
+get "instruction"(): string
+set "instruction"(value: string)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MachineClientSetupEvent$Type = ($MachineClientSetupEvent);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MachineClientSetupEvent_ = $MachineClientSetupEvent$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/integration/create/machine/$CreateKineticMachineDefinition" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$MBDMachineDefinition, $MBDMachineDefinition$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition"
@@ -4667,20 +5315,20 @@ import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/leve
 import {$CreateKineticMachineDefinition$Builder, $CreateKineticMachineDefinition$Builder$Type} from "packages/com/lowdragmc/mbd2/integration/create/machine/$CreateKineticMachineDefinition$Builder"
 import {$EntityRenderersEvent$RegisterRenderers, $EntityRenderersEvent$RegisterRenderers$Type} from "packages/net/minecraftforge/client/event/$EntityRenderersEvent$RegisterRenderers"
 import {$ConfigKineticMachineSettings, $ConfigKineticMachineSettings$Type} from "packages/com/lowdragmc/mbd2/integration/create/machine/$ConfigKineticMachineSettings"
-import {$MachineState, $MachineState$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$MachineState"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$MachineState, $MachineState$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$MachineState"
 
 export class $CreateKineticMachineDefinition extends $MBDMachineDefinition {
 
 
 public static "builder"(): $CreateKineticMachineDefinition$Builder
-public "kineticMachineSettings"(): $ConfigKineticMachineSettings
-public "loadProductiveTag"(arg0: $File$Type, arg1: $CompoundTag$Type, arg2: $Deque$Type<($Runnable$Type)>): $MBDMachineDefinition
 public static "createDefault"(): $CreateKineticMachineDefinition
-public "createDefaultRootState"(): $MachineState
+public "loadProductiveTag"(arg0: $File$Type, arg1: $CompoundTag$Type, arg2: $Deque$Type<($Runnable$Type)>): $MBDMachineDefinition
 public "createBlock"(): $Block
-public "createBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "initRenderer"(arg0: $EntityRenderersEvent$RegisterRenderers$Type): void
+public "createBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "createDefaultRootState"(): $MachineState
+public "kineticMachineSettings"(): $ConfigKineticMachineSettings
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4765,10 +5413,10 @@ constructor(...itemStacks: ($ItemStack$Type)[])
 constructor()
 
 public "setItems"(...itemStack: ($ItemStack$Type)[]): $ItemStackTexture
-public "getColor"(): integer
 public "updateTick"(): void
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+public "getColor"(): integer
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 set "items"(value: ($ItemStack$Type)[])
 get "color"(): integer
 }
@@ -4867,6 +5515,111 @@ export type $BaseNode$PortUpdate$Type = ($BaseNode$PortUpdate);
 declare global {
 export type $BaseNode$PortUpdate_ = $BaseNode$PortUpdate$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/common/machine/$MBDMultiblockMachine" {
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IMachine, $IMachine$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMachine"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$MBDRecipe, $MBDRecipe$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipe"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$MBDMachine, $MBDMachine$Type} from "packages/com/lowdragmc/mbd2/common/machine/$MBDMachine"
+import {$BlockPattern, $BlockPattern$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$BlockPattern"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$MultiblockState, $MultiblockState$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockState"
+import {$IMachineBlockEntity, $IMachineBlockEntity$Type} from "packages/com/lowdragmc/mbd2/api/blockentity/$IMachineBlockEntity"
+import {$IMultiPart, $IMultiPart$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMultiPart"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Lock, $Lock$Type} from "packages/java/util/concurrent/locks/$Lock"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$IMultiController, $IMultiController$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMultiController"
+import {$ManagedFieldHolder, $ManagedFieldHolder$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/field/$ManagedFieldHolder"
+import {$ContentModifier, $ContentModifier$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$ContentModifier"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$RecipeLogic$Status, $RecipeLogic$Status$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$RecipeLogic$Status"
+import {$MultiblockMachineDefinition, $MultiblockMachineDefinition$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MultiblockMachineDefinition"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+
+export class $MBDMultiblockMachine extends $MBDMachine implements $IMultiController {
+
+constructor(arg0: $IMachineBlockEntity$Type, arg1: $MultiblockMachineDefinition$Type, ...arg2: (any)[])
+
+public "getPattern"(): $BlockPattern
+public "getDefinition"(): $MultiblockMachineDefinition
+public "alwaysTryModifyRecipe"(): boolean
+public "notifyRecipeStatusChanged"(arg0: $RecipeLogic$Status$Type, arg1: $RecipeLogic$Status$Type): void
+public "onStructureInvalid"(arg0: boolean): void
+public "isFormedValid"(): boolean
+public "getMaxParallel"(arg0: $MBDRecipe$Type): $ContentModifier
+public "setOriginalBlock"(arg0: $BlockState$Type): void
+public "getModifiedRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+public "onCatalystUsed"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $ItemStack$Type): boolean
+public "onStructureFormed"(): void
+public "getPatternLock"(): $Lock
+public "onRotated"(arg0: $Direction$Type, arg1: $Direction$Type): void
+public "onWaiting"(): void
+public "onWorking"(): boolean
+public "onPartUnload"(): void
+public "afterWorking"(): void
+public "beforeWorking"(arg0: $MBDRecipe$Type): boolean
+public "runRecipeLogic"(): boolean
+public "onUnload"(): void
+public "onLoad"(): void
+public "serverTick"(): void
+public "getOriginalBlock"(): $BlockState
+public "getRenderingDisabledPositions"(): $Set<($BlockPos)>
+public "initCapabilitiesProxy"(): void
+public "getMultiblockState"(): $MultiblockState
+public "isFormed"(): boolean
+public "onUse"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "getParts"(): $List<($IMultiPart)>
+public "shouldOpenUI"(arg0: $InteractionHand$Type, arg1: $BlockHitResult$Type): boolean
+public "getFieldHolder"(): $ManagedFieldHolder
+public "getDropItem"(): $ItemStack
+public "setFormed"(arg0: boolean): void
+public "getPartPositions"(): ($BlockPos)[]
+public "checkPattern"(): boolean
+public "checkPatternWithLock"(): boolean
+public "shouldAddPartToController"(arg0: $IMultiPart$Type): boolean
+public "checkPatternWithTryLock"(): boolean
+public "onStructureInvalid"(): void
+public "asyncCheckPattern"(arg0: long): void
+public "getPartAppearance"(arg0: $IMultiPart$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $BlockPos$Type): $BlockState
+public static "ofController"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMultiController)>
+public static "ofController"(arg0: $BlockEntity$Type): $Optional<($IMultiController)>
+public static "ofMachine"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMachine)>
+public static "ofMachine"(arg0: $BlockEntity$Type): $Optional<($IMachine)>
+get "pattern"(): $BlockPattern
+get "definition"(): $MultiblockMachineDefinition
+get "formedValid"(): boolean
+set "originalBlock"(value: $BlockState$Type)
+get "patternLock"(): $Lock
+get "originalBlock"(): $BlockState
+get "renderingDisabledPositions"(): $Set<($BlockPos)>
+get "multiblockState"(): $MultiblockState
+get "formed"(): boolean
+get "parts"(): $List<($IMultiPart)>
+get "fieldHolder"(): $ManagedFieldHolder
+get "dropItem"(): $ItemStack
+set "formed"(value: boolean)
+get "partPositions"(): ($BlockPos)[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MBDMultiblockMachine$Type = ($MBDMultiblockMachine);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MBDMultiblockMachine_ = $MBDMultiblockMachine$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$Configurator" {
 import {$ConfigPanel, $ConfigPanel$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/$ConfigPanel"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
@@ -4890,51 +5643,51 @@ constructor()
 
 public "getName"(): string
 public "init"(width: integer): void
-public "getConfiguratorContainer"(): $IConfiguratorContainer
 public "setConfiguratorContainer"(configuratorContainer: $IConfiguratorContainer$Type): void
-public "addListener"(listener: $Consumer$Type<($Configurator$Type)>): void
-public "getWidth"(): integer
-public "getListeners"(): $List<($Consumer<($Configurator)>)>
+public "getConfiguratorContainer"(): $IConfiguratorContainer
 /**
  * 
  * @deprecated
  */
 public "getTab"(): $ConfigPanel$Tab
+public "addListener"(listener: $Consumer$Type<($Configurator$Type)>): void
+public "getListeners"(): $List<($Consumer<($Configurator)>)>
+public "getWidth"(): integer
 /**
  * 
  * @deprecated
  */
 public "getConfigPanel"(): $ConfigPanel
-public "computeLayout"(): void
-public "getRightWidth"(): integer
 /**
  * 
  * @deprecated
  */
 public "setConfigPanel"(configPanel: $ConfigPanel$Type, tab: $ConfigPanel$Tab$Type): void
-public "setTips"(...tips: (string)[]): void
-public "getLeftWidth"(): integer
-public "computeHeight"(): void
+public "getNameWidget"(): $LabelWidget
 public "notifyChanges"(source: $Configurator$Type): void
 public "notifyChanges"(): void
+public "computeLayout"(): void
+public "getLeftWidth"(): integer
+public "getRightWidth"(): integer
+public "computeHeight"(): void
 public "isInit"(): boolean
-public "getNameWidget"(): $LabelWidget
+public "setTips"(...tips: (string)[]): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "name"(): string
-get "configuratorContainer"(): $IConfiguratorContainer
 set "configuratorContainer"(value: $IConfiguratorContainer$Type)
-get "width"(): integer
-get "listeners"(): $List<($Consumer<($Configurator)>)>
+get "configuratorContainer"(): $IConfiguratorContainer
 get "tab"(): $ConfigPanel$Tab
+get "listeners"(): $List<($Consumer<($Configurator)>)>
+get "width"(): integer
 get "configPanel"(): $ConfigPanel
+get "nameWidget"(): $LabelWidget
+get "leftWidth"(): integer
 get "rightWidth"(): integer
 set "tips"(value: (string)[])
-get "leftWidth"(): integer
-get "nameWidget"(): $LabelWidget
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5000,29 +5753,27 @@ static readonly "FLUID_SLOT_TEXTURE": $ResourceBorderTexture
 constructor(fluidTank: $IFluidTransfer$Type, tank: integer, x: integer, y: integer, width: integer, height: integer, phantomFluidGetter: $Supplier$Type<($FluidStack$Type)>, phantomFluidSetter: $Consumer$Type<($FluidStack$Type)>)
 constructor()
 
-public static "checkJEIIngredient"(ingredient: any): any
-public static "drainFrom"(ingredient: any): $FluidStack
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "setPhantomFluidSetter"(phantomFluidSetter: $Consumer$Type<($FluidStack$Type)>): void
-public "getLastPhantomStack"(): $FluidStack
-public "setPhantomFluidGetter"(phantomFluidGetter: $Supplier$Type<($FluidStack$Type)>): void
-public "getPhantomTargets"(ingredient: any): $List<($Target)>
-public "detectAndSendChanges"(): void
-public "setAllowClickFilled"(v: boolean): $PhantomFluidWidget
-public "setAllowClickDrained"(v: boolean): $PhantomFluidWidget
-public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
 public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public static "drainFrom"(ingredient: any): $FluidStack
+public static "checkJEIIngredient"(ingredient: any): any
+public "setAllowClickDrained"(v: boolean): $PhantomFluidWidget
+public "setPhantomFluidGetter"(phantomFluidGetter: $Supplier$Type<($FluidStack$Type)>): void
+public "getLastPhantomStack"(): $FluidStack
+public "setPhantomFluidSetter"(phantomFluidSetter: $Consumer$Type<($FluidStack$Type)>): void
+public "detectAndSendChanges"(): void
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "getPhantomTargets"(ingredient: any): $List<($Target)>
+public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
 public "initTemplate"(): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-set "phantomFluidSetter"(value: $Consumer$Type<($FluidStack$Type)>)
-get "lastPhantomStack"(): $FluidStack
-set "phantomFluidGetter"(value: $Supplier$Type<($FluidStack$Type)>)
-set "allowClickFilled"(value: boolean)
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 set "allowClickDrained"(value: boolean)
+set "phantomFluidGetter"(value: $Supplier$Type<($FluidStack$Type)>)
+get "lastPhantomStack"(): $FluidStack
+set "phantomFluidSetter"(value: $Consumer$Type<($FluidStack$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5072,40 +5823,40 @@ export class $ManagedKey {
 
 constructor(name: string, isDestSync: boolean, isPersist: boolean, isDrop: boolean, isLazy: boolean, contentType: $Type$Type, rawField: $Field$Type)
 
+public "getContentType"(): $Type
 public "getName"(): string
 public "getAccessor"(): $IAccessor
-public "getContentType"(): $Type
-public "readSyncedField"(field: $IRef$Type, force: boolean): $ITypedPayload<(any)>
-public "readPersistedField"(field: $IRef$Type): $Tag
-public "writeSyncedField"(field: $IRef$Type, payload: $ITypedPayload$Type<(any)>): void
-public "getOnDirtyMethod"(): $Method
-public "getPersistentKey"(): string
-public "getRawField"(): $Field
-public "getSerializeMethod"(): $Method
-public "isDrop"(): boolean
-public "createRef"(instance: any): $IRef
-public "setRedOnlyManaged"(onDirtyMethod: $Method$Type, serializeMethod: $Method$Type, deserializeMethod: $Method$Type): void
-public "isDestSync"(): boolean
 public "setPersistentKey"(persistentKey: string): void
+public "setRedOnlyManaged"(onDirtyMethod: $Method$Type, serializeMethod: $Method$Type, deserializeMethod: $Method$Type): void
 public "isPersist"(): boolean
 public "isReadOnlyManaged"(): boolean
-public "getDeserializeMethod"(): $Method
-public "writePersistedField"(field: $IRef$Type, nbt: $Tag$Type): void
+public "isDestSync"(): boolean
+public "getOnDirtyMethod"(): $Method
+public "getRawField"(): $Field
+public "getPersistentKey"(): string
+public "getSerializeMethod"(): $Method
 public "isLazy"(): boolean
+public "readSyncedField"(field: $IRef$Type, force: boolean): $ITypedPayload<(any)>
+public "writePersistedField"(field: $IRef$Type, nbt: $Tag$Type): void
+public "readPersistedField"(field: $IRef$Type): $Tag
+public "writeSyncedField"(field: $IRef$Type, payload: $ITypedPayload$Type<(any)>): void
+public "getDeserializeMethod"(): $Method
+public "createRef"(instance: any): $IRef
+public "isDrop"(): boolean
+get "contentType"(): $Type
 get "name"(): string
 get "accessor"(): $IAccessor
-get "contentType"(): $Type
-get "onDirtyMethod"(): $Method
-get "persistentKey"(): string
-get "rawField"(): $Field
-get "serializeMethod"(): $Method
-get "drop"(): boolean
-get "destSync"(): boolean
 set "persistentKey"(value: string)
 get "persist"(): boolean
 get "readOnlyManaged"(): boolean
-get "deserializeMethod"(): $Method
+get "destSync"(): boolean
+get "onDirtyMethod"(): $Method
+get "rawField"(): $Field
+get "persistentKey"(): string
+get "serializeMethod"(): $Method
 get "lazy"(): boolean
+get "deserializeMethod"(): $Method
+get "drop"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5158,10 +5909,14 @@ import {$Resource, $Resource$Type} from "packages/com/lowdragmc/lowdraglib/gui/e
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
 import {$WidgetGroup, $WidgetGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$WidgetGroup"
 import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$Widget"
+import {$Either, $Either$Type} from "packages/com/mojang/datafixers/util/$Either"
+import {$TreeBuilder$Menu, $TreeBuilder$Menu$Type} from "packages/com/lowdragmc/lowdraglib/gui/util/$TreeBuilder$Menu"
 import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/$Resources"
+import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
 import {$ResourcePanel, $ResourcePanel$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/$ResourcePanel"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$File, $File$Type} from "packages/java/io/$File"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$TriFunction, $TriFunction$Type} from "packages/org/apache/commons/lang3/function/$TriFunction"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -5174,37 +5929,48 @@ readonly "widgets": $List<($Widget)>
 constructor(resource: $Resource$Type<(T)>, panel: $ResourcePanel$Type)
 
 public "getResource"(): $Resource<(T)>
+public "updateScreen"(): void
 public "getPanel"(): $ResourcePanel
-public "initWidget"(): void
-public "setOnRemove"(onRemove: $Predicate$Type<(string)>): $ResourceContainer<(T), (C)>
 public "setOnAdd"(onAdd: $Function$Type<(string), (T)>): $ResourceContainer<(T), (C)>
-public "getWidgets"(): $Map<(string), (C)>
+public "getWidgets"(): $Map<($Either<(string), ($File)>), (C)>
+public "initWidget"(): void
+public "setOnRemove"(onRemove: $Consumer$Type<($Either$Type<(string), ($File$Type)>)>): $ResourceContainer<(T), (C)>
 public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "setOnEdit"(onEdit: $Consumer$Type<(string)>): $ResourceContainer<(T), (C)>
-public "setWidgetSupplier"(widgetSupplier: $Function$Type<(string), (C)>): $ResourceContainer<(T), (C)>
-public "setDragging"<D>(draggingMapping: $Function$Type<(string), (D)>, draggingRenderer: $TriFunction$Type<(string), (D), ($Position$Type), ($IGuiTexture$Type)>): $ResourceContainer<(T), (C)>
-public "setDragging"<D>(draggingMapping: $Function$Type<(string), (D)>, draggingRenderer: $Function$Type<(D), ($IGuiTexture$Type)>): $ResourceContainer<(T), (C)>
+public "setOnEdit"(onEdit: $Consumer$Type<($Either$Type<(string), ($File$Type)>)>): $ResourceContainer<(T), (C)>
+public "setDragging"<D>(draggingMapping: $Function$Type<($Either$Type<(string), ($File$Type)>), (D)>, draggingRenderer: $Function$Type<(D), ($IGuiTexture$Type)>): $ResourceContainer<(T), (C)>
+public "setDragging"<D>(draggingMapping: $Function$Type<($Either$Type<(string), ($File$Type)>), (D)>, draggingRenderer: $TriFunction$Type<($Either$Type<(string), ($File$Type)>), (D), ($Position$Type), ($IGuiTexture$Type)>): $ResourceContainer<(T), (C)>
+public "setWidgetSupplier"(widgetSupplier: $Function$Type<($Either$Type<(string), ($File$Type)>), (C)>): $ResourceContainer<(T), (C)>
 public "reBuild"(): void
-public "getWidgetSupplier"(): $Function<(string), (C)>
-public "setNameSupplier"(nameSupplier: $Supplier$Type<(string)>): $ResourceContainer<(T), (C)>
+public "getWidgetSupplier"(): $Function<($Either<(string), ($File)>), (C)>
 public "setRenamePredicate"(renamePredicate: $Predicate$Type<(string)>): $ResourceContainer<(T), (C)>
-public "getSelected"(): string
+public "setNameSupplier"(nameSupplier: $Supplier$Type<(string)>): $ResourceContainer<(T), (C)>
+public "getSelected"(): $Either<(string), ($File)>
+public "setOnGlobalChange"(onGlobalChange: $Consumer$Type<($Either$Type<(string), ($File$Type)>)>): $ResourceContainer<(T), (C)>
+public "setOnMenu"(onMenu: $BiConsumer$Type<($Either$Type<(string), ($File$Type)>), ($TreeBuilder$Menu$Type)>): $ResourceContainer<(T), (C)>
+public "setCanRemove"(canRemove: $Predicate$Type<($Either$Type<(string), ($File$Type)>)>): $ResourceContainer<(T), (C)>
+public "setCanGlobalChange"(canGlobalChange: $Predicate$Type<($Either$Type<(string), ($File$Type)>)>): $ResourceContainer<(T), (C)>
+public "setCanEdit"(canEdit: $Predicate$Type<($Either$Type<(string), ($File$Type)>)>): $ResourceContainer<(T), (C)>
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "resource"(): $Resource<(T)>
 get "panel"(): $ResourcePanel
-set "onRemove"(value: $Predicate$Type<(string)>)
 set "onAdd"(value: $Function$Type<(string), (T)>)
-get "widgets"(): $Map<(string), (C)>
-set "onEdit"(value: $Consumer$Type<(string)>)
-set "widgetSupplier"(value: $Function$Type<(string), (C)>)
-get "widgetSupplier"(): $Function<(string), (C)>
-set "nameSupplier"(value: $Supplier$Type<(string)>)
+get "widgets"(): $Map<($Either<(string), ($File)>), (C)>
+set "onRemove"(value: $Consumer$Type<($Either$Type<(string), ($File$Type)>)>)
+set "onEdit"(value: $Consumer$Type<($Either$Type<(string), ($File$Type)>)>)
+set "widgetSupplier"(value: $Function$Type<($Either$Type<(string), ($File$Type)>), (C)>)
+get "widgetSupplier"(): $Function<($Either<(string), ($File)>), (C)>
 set "renamePredicate"(value: $Predicate$Type<(string)>)
-get "selected"(): string
+set "nameSupplier"(value: $Supplier$Type<(string)>)
+get "selected"(): $Either<(string), ($File)>
+set "onGlobalChange"(value: $Consumer$Type<($Either$Type<(string), ($File$Type)>)>)
+set "onMenu"(value: $BiConsumer$Type<($Either$Type<(string), ($File$Type)>), ($TreeBuilder$Menu$Type)>)
+set "canRemove"(value: $Predicate$Type<($Either$Type<(string), ($File$Type)>)>)
+set "canGlobalChange"(value: $Predicate$Type<($Either$Type<(string), ($File$Type)>)>)
+set "canEdit"(value: $Predicate$Type<($Either$Type<(string), ($File$Type)>)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5231,6 +5997,7 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 import {$AbstractContainerScreen, $AbstractContainerScreen$Type} from "packages/net/minecraft/client/gui/screens/inventory/$AbstractContainerScreen"
 import {$TooltipComponent, $TooltipComponent$Type} from "packages/net/minecraft/world/inventory/tooltip/$TooltipComponent"
 import {$Font, $Font$Type} from "packages/net/minecraft/client/gui/$Font"
+import {$GuiEventListener, $GuiEventListener$Type} from "packages/net/minecraft/client/gui/components/events/$GuiEventListener"
 import {$Renderable, $Renderable$Type} from "packages/net/minecraft/client/gui/components/$Renderable"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$List, $List$Type} from "packages/java/util/$List"
@@ -5252,6 +6019,7 @@ static readonly "INVENTORY_LOCATION": $ResourceLocation
 static readonly "SLOT_ITEM_BLIT_OFFSET": integer
  "hoveredSlot": $Slot
 static readonly "BACKGROUND_LOCATION": $ResourceLocation
+readonly "children": $List<($GuiEventListener)>
 readonly "narratables": $List<($NarratableEntry)>
  "width": integer
  "height": integer
@@ -5259,42 +6027,42 @@ readonly "renderables": $List<($Renderable)>
 
 constructor(modularUI: $ModularUI$Type, windowId: integer)
 
-public "handleWidgetUpdate"(packet: $SPacketUIWidgetUpdate$Type): void
-public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "m_7856_"(): void
+public "render"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "mouseMoved"(mouseX: double, mouseY: double): void
 public "mouseScrolled"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "mouseDragged"(mouseX: double, mouseY: double, pButton: integer, pDragX: double, pDragY: double): boolean
 public "mouseClicked"(mouseX: double, mouseY: double, pButton: integer): boolean
 public "mouseReleased"(mouseX: double, mouseY: double, pButton: integer): boolean
-public "keyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "mouseDragged"(mouseX: double, mouseY: double, pButton: integer, pDragX: double, pDragY: double): boolean
 public "charTyped"(codePoint: character, modifiers: integer): boolean
-public "mouseMoved"(mouseX: double, mouseY: double): void
-public "m_181908_"(): void
-public "render"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "superMouseDragged"(pMouseX: double, pMouseY: double, pButton: integer, pDragX: double, pDragY: double): void
-public "superKeyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "superMouseClicked"(mouseX: double, mouseY: double, mouseButton: integer): void
-public "getGuiExtraAreas"(): $List<($Rect2i)>
-public "superMouseMoved"(mouseX: double, mouseY: double): void
-public "superKeyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "superCharTyped"(codePoint: character, modifiers: integer): boolean
-public "superMouseScrolled"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "superMouseReleased"(mouseX: double, mouseY: double, state: integer): void
-public "isButtonPressed"(button: integer): boolean
+public "keyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "m_7856_"(): void
 public "setHoverTooltip"(tooltipTexts: $List$Type<($Component$Type)>, tooltipStack: $ItemStack$Type, tooltipFont: $Font$Type, tooltipComponent: $TooltipComponent$Type): void
-public "getQuickCraftSlots"(): $Set<($Slot)>
-public "renderFloatingItem"(graphics: $GuiGraphics$Type, stack: $ItemStack$Type, x: integer, y: integer, amountText: string): void
-public "setHoveredSlot"(hoveredSlot: $Slot$Type): void
-public "switchFocus"(widget: $Widget$Type): boolean
-public "getQuickCrafting"(): boolean
-public "setDraggingElement"(element: any, renderer: $IGuiTexture$Type): boolean
 public "getDraggingElement"(): any
+public "setDraggingElement"(element: any, renderer: $IGuiTexture$Type): boolean
+public "renderFloatingItem"(graphics: $GuiGraphics$Type, stack: $ItemStack$Type, x: integer, y: integer, amountText: string): void
+public "superMouseClicked"(mouseX: double, mouseY: double, mouseButton: integer): void
+public "setHoveredSlot"(hoveredSlot: $Slot$Type): void
+public "isButtonPressed"(button: integer): boolean
+public "superMouseDragged"(pMouseX: double, pMouseY: double, pButton: integer, pDragX: double, pDragY: double): void
+public "getQuickCrafting"(): boolean
+public "switchFocus"(widget: $Widget$Type): boolean
+public "getQuickCraftSlots"(): $Set<($Slot)>
+public "getGuiExtraAreas"(): $List<($Rect2i)>
+public "superMouseScrolled"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "superKeyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "superMouseMoved"(mouseX: double, mouseY: double): void
+public "superKeyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "superCharTyped"(codePoint: character, modifiers: integer): boolean
+public "superMouseReleased"(mouseX: double, mouseY: double, state: integer): void
 public "removed"(): void
-get "guiExtraAreas"(): $List<($Rect2i)>
-get "quickCraftSlots"(): $Set<($Slot)>
+public "handleWidgetUpdate"(packet: $SPacketUIWidgetUpdate$Type): void
+public "m_181908_"(): void
+get "draggingElement"(): any
 set "hoveredSlot"(value: $Slot$Type)
 get "quickCrafting"(): boolean
-get "draggingElement"(): any
+get "quickCraftSlots"(): $Set<($Slot)>
+get "guiExtraAreas"(): $List<($Rect2i)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5308,6 +6076,32 @@ export type $ModularUIGuiContainer$Type = ($ModularUIGuiContainer);
 declare global {
 export type $ModularUIGuiContainer_ = $ModularUIGuiContainer$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleCatalyst$ToggleCandidates" {
+import {$ToggleObject, $ToggleObject$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleObject"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+
+export class $ToggleCatalyst$ToggleCandidates extends $ToggleObject<(($Block)[])> {
+
+constructor()
+constructor(arg0: boolean)
+constructor(arg0: ($Block$Type)[])
+constructor(arg0: ($Block$Type)[], arg1: boolean)
+
+public "setValue"(arg0: ($Block$Type)[]): void
+set "value"(value: ($Block$Type)[])
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ToggleCatalyst$ToggleCandidates$Type = ($ToggleCatalyst$ToggleCandidates);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ToggleCatalyst$ToggleCandidates_ = $ToggleCatalyst$ToggleCandidates$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/syncdata/$IEnhancedManaged" {
 import {$ISubscription, $ISubscription$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$ISubscription"
 import {$ManagedFieldHolder, $ManagedFieldHolder$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/field/$ManagedFieldHolder"
@@ -5318,15 +6112,15 @@ import {$IManagedStorage, $IManagedStorage$Type} from "packages/com/lowdragmc/lo
 
 export interface $IEnhancedManaged extends $IManaged {
 
- "scheduleRender"(fieldName: string, newValue: any, oldValue: any): void
  "scheduleRenderUpdate"(): void
+ "scheduleRender"(fieldName: string, newValue: any, oldValue: any): void
+ "onChanged"(): void
+ "markDirty"(name: string): void
  "addSyncUpdateListener"<T>(name: string, listener: $IFieldUpdateListener$Type<(T)>): $ISubscription
  "getSyncStorage"(): $IManagedStorage
- "onChanged"(): void
+ "getFieldHolder"(): $ManagedFieldHolder
  "onPersistedChanged"(ref: $IRef$Type, isDirty: boolean): void
  "onSyncChanged"(ref: $IRef$Type, isDirty: boolean): void
- "getFieldHolder"(): $ManagedFieldHolder
- "markDirty"(name: string): void
 }
 
 export namespace $IEnhancedManaged {
@@ -5400,14 +6194,14 @@ export class $UIEvents$BlockUIEventJS extends $EventJS {
 
 constructor(level: $Level$Type, pos: $BlockPos$Type, block: $BlockContainerJS$Type, player: $Player$Type)
 
-public "getLevel"(): $Level
 public "getBlock"(): $BlockContainerJS
-public "getPos"(): $BlockPos
+public "getLevel"(): $Level
 public "getPlayer"(): $Player
-get "level"(): $Level
+public "getPos"(): $BlockPos
 get "block"(): $BlockContainerJS
-get "pos"(): $BlockPos
+get "level"(): $Level
 get "player"(): $Player
+get "pos"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5454,10 +6248,10 @@ import {$IManagedStorage, $IManagedStorage$Type} from "packages/com/lowdragmc/lo
 export interface $IManagedBlockEntity {
 
  "getCurrentPos"(): $BlockPos
+ "getSelf"(): $BlockEntity
+ "getRootStorage"(): $IManagedStorage
  "getBlockEntityType"(): $BlockEntityType<(any)>
  "getNonLazyFields"(): ($IRef)[]
- "getRootStorage"(): $IManagedStorage
- "getSelf"(): $BlockEntity
 
 (): $BlockPos
 }
@@ -5491,8 +6285,8 @@ static readonly "BUILDERS": $Map<(string), ($Supplier<(any)>)>
 constructor()
 
 public "create"(arg0: string, arg1: $ResourceLocation$Type): $MBDMachineDefinition$Builder
-public "removeMachine"(arg0: $ResourceLocation$Type): void
 public "getMachine"(arg0: $ResourceLocation$Type): $MBDMachineDefinition
+public "removeMachine"(arg0: $ResourceLocation$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5529,22 +6323,22 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $Player$Type, arg2: $InteractionHand$Type, arg3: $BlockHitResult$Type)
 
-public "getInteractionResult"(): $InteractionResult
 public "setInteractionResult"(arg0: $InteractionResult$Type): void
-public "getHit"(): $BlockHitResult
-public "getHeldItem"(): $ItemStack
+public "getInteractionResult"(): $InteractionResult
+public "getHand"(): $InteractionHand
+public "getPlayer"(): $Player
 public "getListenerList"(): $ListenerList
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "gatherParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-public "getPlayer"(): $Player
-public "getHand"(): $InteractionHand
-get "interactionResult"(): $InteractionResult
+public "getHeldItem"(): $ItemStack
+public "getHit"(): $BlockHitResult
 set "interactionResult"(value: $InteractionResult$Type)
-get "hit"(): $BlockHitResult
-get "heldItem"(): $ItemStack
-get "listenerList"(): $ListenerList
-get "player"(): $Player
+get "interactionResult"(): $InteractionResult
 get "hand"(): $InteractionHand
+get "player"(): $Player
+get "listenerList"(): $ListenerList
+get "heldItem"(): $ItemStack
+get "hit"(): $BlockHitResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5624,8 +6418,8 @@ import {$SlotWidget, $SlotWidget$Type} from "packages/com/lowdragmc/lowdraglib/g
 import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$IUIHolder, $IUIHolder$Type} from "packages/com/lowdragmc/lowdraglib/gui/modular/$IUIHolder"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$Rectangle, $Rectangle$Type} from "packages/java/awt/$Rectangle"
+import {$List, $List$Type} from "packages/java/util/$List"
 import {$IGuiTexture, $IGuiTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$IGuiTexture"
 import {$ModularUIGuiContainer, $ModularUIGuiContainer$Type} from "packages/com/lowdragmc/lowdraglib/gui/modular/$ModularUIGuiContainer"
 
@@ -5640,48 +6434,48 @@ constructor(width: integer, height: integer, holder: $IUIHolder$Type, entityPlay
 constructor(size: $Size$Type, holder: $IUIHolder$Type, entityPlayer: $Player$Type)
 
 public "setSize"(width: integer, height: integer): void
-public "widget"(widget: $Widget$Type): $ModularUI
-public "getFlatVisibleWidgetCollection"(): $List<($Widget)>
-public "getFlatWidgetCollection"(): $List<($Widget)>
-public "getModularUIGui"(): $ModularUIGuiContainer
-public "getWidgetsById"(regex: string): $List<($Widget)>
-public "getFirstWidgetById"(regex: string): $Widget
+public "updateScreenSize"(screenWidth: integer, screenHeight: integer): void
+public "setModularUIGui"(modularUIGuiContainer: $ModularUIGuiContainer$Type): void
+public "getModularUIContainer"(): $ModularUIContainer
+public "toScreenCoords"(widgetRect: $Rectangle$Type): $Rectangle
+public "setFullScreen"(): void
+public "isFullScreen"(): boolean
+public "getSlotMap"(): $HashMap<($Slot), ($SlotWidget)>
+public "registerCloseListener"(runnable: $Runnable$Type): void
 public "initWidgets"(): void
-public "removeNativeSlot"(slotHandle: $Slot$Type): void
-public "addNativeSlot"(slotHandle: $Slot$Type, slotWidget: $SlotWidget$Type): void
+public "background"(...textures: ($IGuiTexture$Type)[]): $ModularUI
 public "triggerCloseListeners"(): void
 public "setModularUIContainer"(container: $ModularUIContainer$Type): void
 public "getWidth"(): integer
 public "getHeight"(): integer
-public "getGuiTop"(): integer
+public "getModularUIGui"(): $ModularUIGuiContainer
+public "getFirstWidgetById"(regex: string): $Widget
+public "getWidgetsById"(regex: string): $List<($Widget)>
+public "getFlatVisibleWidgetCollection"(): $List<($Widget)>
+public "getFlatWidgetCollection"(): $List<($Widget)>
 public "getGuiLeft"(): integer
-public "background"(...textures: ($IGuiTexture$Type)[]): $ModularUI
-public "registerCloseListener"(runnable: $Runnable$Type): void
-public "getModularUIContainer"(): $ModularUIContainer
+public "getGuiTop"(): integer
+public "widget"(widget: $Widget$Type): $ModularUI
+public "getTickCount"(): long
 public "getScreenWidth"(): integer
 public "getScreenHeight"(): integer
-public "getSlotMap"(): $HashMap<($Slot), ($SlotWidget)>
-public "setModularUIGui"(modularUIGuiContainer: $ModularUIGuiContainer$Type): void
-public "updateScreenSize"(screenWidth: integer, screenHeight: integer): void
-public "getTickCount"(): long
-public "setFullScreen"(): void
-public "isFullScreen"(): boolean
-public "toScreenCoords"(widgetRect: $Rectangle$Type): $Rectangle
-get "flatVisibleWidgetCollection"(): $List<($Widget)>
-get "flatWidgetCollection"(): $List<($Widget)>
-get "modularUIGui"(): $ModularUIGuiContainer
+public "addNativeSlot"(slotHandle: $Slot$Type, slotWidget: $SlotWidget$Type): void
+public "removeNativeSlot"(slotHandle: $Slot$Type): void
+set "modularUIGui"(value: $ModularUIGuiContainer$Type)
+get "modularUIContainer"(): $ModularUIContainer
+get "fullScreen"(): boolean
+get "slotMap"(): $HashMap<($Slot), ($SlotWidget)>
 set "modularUIContainer"(value: $ModularUIContainer$Type)
 get "width"(): integer
 get "height"(): integer
-get "guiTop"(): integer
+get "modularUIGui"(): $ModularUIGuiContainer
+get "flatVisibleWidgetCollection"(): $List<($Widget)>
+get "flatWidgetCollection"(): $List<($Widget)>
 get "guiLeft"(): integer
-get "modularUIContainer"(): $ModularUIContainer
+get "guiTop"(): integer
+get "tickCount"(): long
 get "screenWidth"(): integer
 get "screenHeight"(): integer
-get "slotMap"(): $HashMap<($Slot), ($SlotWidget)>
-set "modularUIGui"(value: $ModularUIGuiContainer$Type)
-get "tickCount"(): long
-get "fullScreen"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5694,6 +6488,70 @@ export type $ModularUI$Type = ($ModularUI);
  */
 declare global {
 export type $ModularUI_ = $ModularUI$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/common/trait/item/$ItemFilterSettings" {
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
+import {$IToggleConfigurable, $IToggleConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IToggleConfigurable"
+
+export class $ItemFilterSettings implements $IToggleConfigurable, $Predicate<($ItemStack)> {
+
+constructor()
+
+public "test"(arg0: $ItemStack$Type): boolean
+public "setMatchNBT"(arg0: boolean): void
+public "isMatchNBT"(): boolean
+public "isEnable"(): boolean
+public "getFilterItems"(): $List<($ItemStack)>
+public "getFilterTags"(): $List<($ResourceLocation)>
+public "setWhitelist"(arg0: boolean): void
+public "setFilterItems"(arg0: $List$Type<($ItemStack$Type)>): void
+public "isWhitelist"(): boolean
+public "setFilterTags"(arg0: $List$Type<($ResourceLocation$Type)>): void
+public "setEnable"(arg0: boolean): void
+public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "or"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
+public "negate"(): $Predicate<($ItemStack)>
+public "and"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
+public static "isEqual"<T>(arg0: any): $Predicate<($ItemStack)>
+public static "not"<T>(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
+public "name"(): string
+public "group"(): string
+public "isLDLRegister"(): boolean
+public "getTranslateKey"(): string
+public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
+set "matchNBT"(value: boolean)
+get "matchNBT"(): boolean
+get "enable"(): boolean
+get "filterItems"(): $List<($ItemStack)>
+get "filterTags"(): $List<($ResourceLocation)>
+set "whitelist"(value: boolean)
+set "filterItems"(value: $List$Type<($ItemStack$Type)>)
+get "whitelist"(): boolean
+set "filterTags"(value: $List$Type<($ResourceLocation$Type)>)
+set "enable"(value: boolean)
+get "lDLRegister"(): boolean
+get "translateKey"(): string
+get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ItemFilterSettings$Type = ($ItemFilterSettings);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ItemFilterSettings_ = $ItemFilterSettings$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/integration/create/machine/$ConfigKineticMachineSettings$RotationFacing" {
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
@@ -5760,12 +6618,12 @@ export class $UIEvents$ItemUIEventJS extends $EventJS {
 
 constructor(player: $Player$Type, hand: $InteractionHand$Type, held: $ItemStack$Type)
 
-public "getHeld"(): $ItemStack
-public "getPlayer"(): $Player
 public "getHand"(): $InteractionHand
-get "held"(): $ItemStack
-get "player"(): $Player
+public "getPlayer"(): $Player
+public "getHeld"(): $ItemStack
 get "hand"(): $InteractionHand
+get "player"(): $Player
+get "held"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5778,6 +6636,96 @@ export type $UIEvents$ItemUIEventJS$Type = ($UIEvents$ItemUIEventJS);
  */
 declare global {
 export type $UIEvents$ItemUIEventJS_ = $UIEvents$ItemUIEventJS$Type;
+}}
+declare module "packages/com/lowdragmc/photon/client/gameobject/$IFXObject" {
+import {$IAutoPersistedSerializable, $IAutoPersistedSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$IAutoPersistedSerializable"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
+import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ILDLRegisterClient, $ILDLRegisterClient$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/$ILDLRegisterClient"
+import {$Transform, $Transform$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/data/$Transform"
+import {$IEffect, $IEffect$Type} from "packages/com/lowdragmc/photon/client/fx/$IEffect"
+import {$IScene, $IScene$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$IScene"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$Quaternionf, $Quaternionf$Type} from "packages/org/joml/$Quaternionf"
+import {$LDLRegisterClient, $LDLRegisterClient$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegisterClient"
+import {$ISceneObject, $ISceneObject$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$ISceneObject"
+
+export interface $IFXObject extends $ISceneObject, $IAutoPersistedSerializable, $IConfigurable, $ILDLRegisterClient {
+
+ "getName"(): string
+ "remove"(arg0: boolean): void
+ "setName"(arg0: string): void
+ "copy"(deep: boolean): $IFXObject
+ "reset"(): void
+ "getLevel"(): $Level
+ "setLevel"(arg0: $Level$Type): void
+ "deepCopy"(): $IFXObject
+ "m_107276_"(): boolean
+ "getEffect"(): $IEffect
+ "updatePos"(newPos: $Vector3f$Type): void
+ "emmit"(effect: $IEffect$Type): void
+ "emmit"(effect: $IEffect$Type, position: $Vector3f$Type, rotation: $Quaternionf$Type, scale: $Vector3f$Type): void
+ "updateRotation"(newRot: $Vector3f$Type): void
+ "updateRotation"(newRot: $Quaternionf$Type): void
+ "updateScale"(newScale: $Vector3f$Type): void
+ "copyTransformFrom"(fxObject: $IFXObject$Type): void
+ "copyTransformFrom"(fxObject: $IFXObject$Type, local: boolean, copyParent: boolean): void
+ "shallowCopy"(): $IFXObject
+ "setEffect"(arg0: $IEffect$Type): void
+ "setVisible"(arg0: boolean): void
+ "isVisible"(): boolean
+ "deserializeNBT"(tag: $CompoundTag$Type): void
+ "transform"(): $Transform
+ "id"(): $UUID
+ "destroy"(): void
+ "children"(): $List<($ISceneObject)>
+ "updateTick"(): void
+ "getScene"(): $IScene
+ "setSceneInternal"(arg0: $IScene$Type): void
+ "onParentChanged"(): void
+ "executeAll"(consumer: $Consumer$Type<($ISceneObject$Type)>, before: $Consumer$Type<($ISceneObject$Type)>, after: $Consumer$Type<($ISceneObject$Type)>): void
+ "executeAll"(consumer: $Consumer$Type<($ISceneObject$Type)>): void
+ "updateFrame"(partialTicks: float): void
+ "setScene"(scene: $IScene$Type): void
+ "onTransformChanged"(): void
+ "onChildChanged"(): void
+ "setTransform"(transform: $Transform$Type): void
+ "awake"(): void
+ "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+ "name"(): string
+ "group"(): string
+ "getRegisterUIClient"(): $LDLRegisterClient
+ "isLDLRegister"(): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getRegisterUI"(): $LDLRegister
+ "getTranslateKey"(): string
+ "getChatComponent"(): $Component
+}
+
+export namespace $IFXObject {
+function deserializeWrapper(tag: $CompoundTag$Type): $IFXObject
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IFXObject$Type = ($IFXObject);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IFXObject_ = $IFXObject$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/kjs/ui/$ItemUIJSFactory" {
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -5807,6 +6755,63 @@ export type $ItemUIJSFactory$Type = ($ItemUIJSFactory);
 declare global {
 export type $ItemUIJSFactory_ = $ItemUIJSFactory$Type;
 }}
+declare module "packages/com/lowdragmc/photon/client/fx/$FXRuntime" {
+import {$FX, $FX$Type} from "packages/com/lowdragmc/photon/client/fx/$FX"
+import {$IScene, $IScene$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$IScene"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$FXData, $FXData$Type} from "packages/com/lowdragmc/photon/client/fx/$FXData"
+import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$IFXObject, $IFXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$IFXObject"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+import {$IEffect, $IEffect$Type} from "packages/com/lowdragmc/photon/client/fx/$IEffect"
+import {$ISceneObject, $ISceneObject$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$ISceneObject"
+
+export class $FXRuntime implements $IScene {
+readonly "fx": $FX
+readonly "fxData": $FXData
+readonly "objects": $Map<($UUID), ($IFXObject)>
+readonly "root": $IFXObject
+
+constructor(fx: $FX$Type, fxData: $FXData$Type, copy: boolean, deepCopy: boolean)
+
+public "isAlive"(): boolean
+public "destroy"(force: boolean): void
+public "getRoot"(): $IFXObject
+public "isCopy"(): boolean
+public "getFx"(): $FX
+public "getObjects"(): $Map<($UUID), ($IFXObject)>
+public "emmit"(effect: $IEffect$Type): void
+public "removeSceneObjectInternal"(sceneObject: $ISceneObject$Type): void
+public "getFxData"(): $FXData
+public "addSceneObject"(sceneObject: $ISceneObject$Type): void
+public "addSceneObjectInternal"(sceneObject: $ISceneObject$Type): void
+public "findObject"(name: string): $IFXObject
+public "findObjects"(name: string): $List<($IFXObject)>
+public "getSceneObject"(uuid: $UUID$Type): $ISceneObject
+public "removeSceneObject"(sceneObject: $ISceneObject$Type): void
+public "getAllSceneObjects"(): $Collection<($ISceneObject)>
+public "awake"(): void
+get "alive"(): boolean
+get "root"(): $IFXObject
+get "copy"(): boolean
+get "fx"(): $FX
+get "objects"(): $Map<($UUID), ($IFXObject)>
+get "fxData"(): $FXData
+get "allSceneObjects"(): $Collection<($ISceneObject)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FXRuntime$Type = ($FXRuntime);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $FXRuntime_ = $FXRuntime$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/utils/$Rect" {
 import {$Position, $Position$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Position"
 import {$Size, $Size$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Size"
@@ -5819,49 +6824,49 @@ readonly "down": integer
 
 
 public static "of"(position: $Position$Type, size: $Size$Type): $Rect
-public "expand"(expand: integer): $Rect
 public "expand"(x: integer, y: integer): $Rect
-public static "ofRelative"(left: integer, width: integer, up: integer, height: integer): $Rect
+public "expand"(expand: integer): $Rect
 public "withDownFixedHeight"(height: integer): $Rect
 public "withRightFixedWidth"(width: integer): $Rect
+public static "ofRelative"(left: integer, width: integer, up: integer, height: integer): $Rect
+public "withLeft"(left: integer): $Rect
+public "withRight"(right: integer): $Rect
 public "getWidth"(): integer
 public "getHeight"(): integer
-public "getWidthCenter"(): integer
-public "getHeightCenter"(): integer
-public "withLeft"(left: integer): $Rect
-public "expandLeft"(expand: integer): $Rect
-public "toDownCenter"(): $Position
-public "toLeftCenter"(): $Position
-public "withUp"(up: integer): $Rect
-public "toUpCenter"(): $Position
-public "horizontalExpand"(left: integer, right: integer): $Rect
-public "horizontalExpand"(x: integer): $Rect
-public "expandUp"(expand: integer): $Rect
-public "toLeftUp"(): $Position
-public "withRight"(right: integer): $Rect
-public "toLeftDown"(): $Position
-public "verticalExpand"(y: integer): $Rect
-public "verticalExpand"(up: integer, down: integer): $Rect
-public "expandDown"(expand: integer): $Rect
-public "withLeftFixedWidth"(width: integer): $Rect
-public "withUpFixedHeight"(height: integer): $Rect
-public "expandRight"(expand: integer): $Rect
-public "withDown"(down: integer): $Rect
-public "moveHorizontal"(delta: integer): $Rect
-public "moveVertical"(delta: integer): $Rect
-public "toRightCenter"(): $Position
-public "upAnd"(x: integer): $Position
-public "leftAnd"(y: integer): $Position
 public static "ofAbsolute"(left: integer, right: integer, up: integer, down: integer): $Rect
-public "toRightUp"(): $Position
-public "toRightDown"(): $Position
-public "rightAnd"(y: integer): $Position
-public "downAnd"(x: integer): $Position
+public "toLeftUp"(): $Position
+public "toLeftCenter"(): $Position
+public "verticalExpand"(up: integer, down: integer): $Rect
+public "verticalExpand"(y: integer): $Rect
+public "withUpFixedHeight"(height: integer): $Rect
+public "expandLeft"(expand: integer): $Rect
+public "expandRight"(expand: integer): $Rect
 public "isCollide"(rect: $Rect$Type): boolean
+public "leftAnd"(y: integer): $Position
+public "withLeftFixedWidth"(width: integer): $Rect
+public "toLeftDown"(): $Position
+public "moveHorizontal"(delta: integer): $Rect
+public "horizontalExpand"(x: integer): $Rect
+public "horizontalExpand"(left: integer, right: integer): $Rect
+public "downAnd"(x: integer): $Position
+public "toUpCenter"(): $Position
+public "expandDown"(expand: integer): $Rect
+public "withDown"(down: integer): $Rect
+public "toRightDown"(): $Position
+public "expandUp"(expand: integer): $Rect
+public "upAnd"(x: integer): $Position
+public "toDownCenter"(): $Position
+public "rightAnd"(y: integer): $Position
+public "toRightUp"(): $Position
+public "withUp"(up: integer): $Rect
+public "toRightCenter"(): $Position
+public "moveVertical"(delta: integer): $Rect
+public "getHeightCenter"(): integer
+public "getWidthCenter"(): integer
 get "width"(): integer
 get "height"(): integer
-get "widthCenter"(): integer
 get "heightCenter"(): integer
+get "widthCenter"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5926,50 +6931,50 @@ constructor(progressSupplier: $DoubleSupplier$Type, x: integer, y: integer, widt
 constructor(progressSupplier: $DoubleSupplier$Type, x: integer, y: integer, width: integer, height: integer, fullImage: $ResourceTexture$Type)
 constructor()
 
-public "setProgressTexture"(progressTexture: $IGuiTexture$Type): $ProgressWidget
-public "setProgressTexture"(emptyBarArea: $IGuiTexture$Type, filledBarArea: $IGuiTexture$Type): $ProgressWidget
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "updateScreen"(): void
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "setOverlayTexture"(overlayTexture: $IGuiTexture$Type): $ProgressWidget
+public "setProgressTexture"(emptyBarArea: $IGuiTexture$Type, filledBarArea: $IGuiTexture$Type): $ProgressWidget
+public "setProgressTexture"(progressTexture: $IGuiTexture$Type): $ProgressWidget
+public "setFillDirection"(fillDirection: $ProgressTexture$FillDirection$Type): $ProgressWidget
+public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "setProgressSupplier"(progressSupplier: $DoubleSupplier$Type): $ProgressWidget
+public "setDynamicHoverTips"(dynamicHoverTips: $Function$Type<(double), (string)>): $ProgressWidget
+public "detectAndSendChanges"(): void
 public "initWidget"(): void
 public "canDragIn"(dragging: any): boolean
 public "handleDragging"(dragging: any): boolean
-public "getLastProgressValue"(): double
-public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "detectAndSendChanges"(): void
-public "setDynamicHoverTips"(dynamicHoverTips: $Function$Type<(double), (string)>): $ProgressWidget
-public "setFillDirection"(fillDirection: $ProgressTexture$FillDirection$Type): $ProgressWidget
-public "setProgressSupplier"(progressSupplier: $DoubleSupplier$Type): $ProgressWidget
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
-public "updateScreen"(): void
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "widget"(): $Widget
+public "getLastProgressValue"(): double
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public "initTemplate"(): void
-public "serializeWrapper"(): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "serializeWrapper"(): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
-set "progressTexture"(value: $IGuiTexture$Type)
+public "getChatComponent"(): $Component
 set "overlayTexture"(value: $IGuiTexture$Type)
-get "lastProgressValue"(): double
-set "dynamicHoverTips"(value: $Function$Type<(double), (string)>)
+set "progressTexture"(value: $IGuiTexture$Type)
 set "fillDirection"(value: $ProgressTexture$FillDirection$Type)
 set "progressSupplier"(value: $DoubleSupplier$Type)
+set "dynamicHoverTips"(value: $Function$Type<(double), (string)>)
+get "lastProgressValue"(): double
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5993,20 +6998,20 @@ export class $UniformCache {
 constructor(programId: integer)
 
 public "invalidate"(): void
-public "glUniform2F"(location: string, v0: float, v1: float): void
-public "glUniformMatrix4F"(location: string, matrix4f: $Matrix4f$Type): void
-public "glUniform1F"(location: string, v0: float): void
-public "glUniformMatrix4"(location: string, transpose: boolean, matrix: $FloatBuffer$Type): void
-public "glUniformMatrix2"(location: string, transpose: boolean, matrix: $FloatBuffer$Type): void
-public "glUniform2I"(location: string, v0: integer, v1: integer): void
-public "glUniform4I"(location: string, v0: integer, v1: integer, v2: integer, v3: integer): void
-public "fillRGBAColor"(location: string, color: integer): void
+public "glUniformBoolean"(location: string, value: boolean): void
 public "glUniform1I"(location: string, v0: integer): void
 public "glUniform4F"(location: string, v0: float, v1: float, v2: float, v3: float): void
-public "glUniform3I"(location: string, v0: integer, v1: integer, v2: integer): void
+public "glUniform4I"(location: string, v0: integer, v1: integer, v2: integer, v3: integer): void
 public "glUniform3F"(location: string, v0: float, v1: float, v2: float): void
+public "fillRGBAColor"(location: string, color: integer): void
 public "glUniformMatrix"(location: string, callback: $IntConsumer$Type, transpose: boolean, matrix: $FloatBuffer$Type): void
-public "glUniformBoolean"(location: string, value: boolean): void
+public "glUniform3I"(location: string, v0: integer, v1: integer, v2: integer): void
+public "glUniform2I"(location: string, v0: integer, v1: integer): void
+public "glUniformMatrix4F"(location: string, matrix4f: $Matrix4f$Type): void
+public "glUniform1F"(location: string, v0: float): void
+public "glUniform2F"(location: string, v0: float, v1: float): void
+public "glUniformMatrix2"(location: string, transpose: boolean, matrix: $FloatBuffer$Type): void
+public "glUniformMatrix4"(location: string, transpose: boolean, matrix: $FloatBuffer$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6023,34 +7028,61 @@ export type $UniformCache_ = $UniformCache$Type;
 declare module "packages/com/lowdragmc/lowdraglib/gui/editor/data/resource/$Resource" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$ResourcePanel, $ResourcePanel$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/$ResourcePanel"
+import {$File, $File$Type} from "packages/java/io/$File"
 import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
+import {$Either, $Either$Type} from "packages/com/mojang/datafixers/util/$Either"
 import {$ResourceContainer, $ResourceContainer$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/resource/$ResourceContainer"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
+import {$StaticResource, $StaticResource$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/resource/$StaticResource"
 import {$Map$Entry, $Map$Entry$Type} from "packages/java/util/$Map$Entry"
 
 export class $Resource<T> {
 
 constructor()
+constructor(staticLocation: $File$Type)
 
 public "name"(): string
-public "getResource"(key: string): T
+public "toString"(): string
+public "getResource"(key: $Either$Type<(string), ($File$Type)>): T
 public "merge"(resource: $Resource$Type<(T)>): void
-public "getData"(): $Map<(string), (T)>
-public "serialize"(arg0: T): $Tag
+public "getStaticResourceFile"(name: string): $File
+public "getStaticResourceSuffix"(): string
+public "getBuiltinResources"(): $Map<(string), (T)>
+public "getStaticResourceName"(file: $File$Type): string
+public "loadAndUpdateStaticResource"(): boolean
+public "supportStaticResource"(): boolean
+public "supportBuiltInResource"(): boolean
+public "getStaticResourceOrDefault"(file: $File$Type, defaultValue: T): T
+public "getBuiltinResourceOrDefault"(key: string, defaultValue: T): T
+public "removeStaticResource"(file: $File$Type): T
+public "getResourceOrDefault"(key: $Either$Type<(string), ($File$Type)>, defaultValue: T): T
+public "removeBuiltinResource"(key: string): T
 public "deserialize"(arg0: $Tag$Type): T
 public "onLoad"(): void
-public "addResource"(key: string, resource: T): void
+public "addResource"(key: $Either$Type<(string), ($File$Type)>, resource: T): void
+public "serialize"(arg0: T): $Tag
+public "getResourceName"(key: $Either$Type<(string), ($File$Type)>): string
+public "buildDefault"(): void
+public "hasResource"(key: $Either$Type<(string), ($File$Type)>): boolean
+public "hasStaticResource"(file: $File$Type): boolean
+public "addBuiltinResource"(key: string, resource: T): void
+public "removeResource"(key: $Either$Type<(string), ($File$Type)>): T
+public "hasBuiltinResource"(key: string): boolean
+public "unLoad"(): void
+public "getStaticResource"(file: $File$Type): T
+public "getStaticResource"(): $StaticResource<(T)>
+public "addStaticResource"(file: $File$Type, resource: T): void
+public "getStaticLocation"(): $File
+public "createContainer"(arg0: $ResourcePanel$Type): $ResourceContainer<(T), (any)>
+public "getBuiltinResource"(key: string): T
+public "allResources"(): $Stream<($Map$Entry<($Either<(string), ($File)>), (T)>)>
 public "serializeNBT"(): $CompoundTag
 public "deserializeNBT"(nbt: $CompoundTag$Type): void
-public "allResources"(): $Set<($Map$Entry<(string), (T)>)>
-public "getResourceOrDefault"(key: string, defaultValue: T): T
-public "buildDefault"(): void
-public "unLoad"(): void
-public "hasResource"(key: string): boolean
-public "createContainer"(arg0: $ResourcePanel$Type): $ResourceContainer<(T), (any)>
-public "removeResource"(key: string): T
-get "data"(): $Map<(string), (T)>
+get "staticResourceSuffix"(): string
+get "builtinResources"(): $Map<(string), (T)>
+get "staticResource"(): $StaticResource<(T)>
+get "staticLocation"(): $File
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6101,24 +7133,24 @@ import {$IManagedStorage, $IManagedStorage$Type} from "packages/com/lowdragmc/lo
 
 export interface $IAsyncAutoSyncBlockEntity extends $IAutoSyncBlockEntity, $IAsyncLogic {
 
- "asyncTick"(periodID: long): void
- "useAsyncThread"(): boolean
- "onInValid"(): void
- "onValid"(): void
  "isAsyncSyncing"(): boolean
  "setAsyncSyncing"(syncing: boolean): void
+ "onInValid"(): void
+ "onValid"(): void
+ "useAsyncThread"(): boolean
+ "asyncTick"(periodID: long): void
+ "defaultServerTick"(): void
  "readCustomSyncData"(tag: $CompoundTag$Type): void
+ "getSyncTag"(): string
  "writeCustomSyncData"(tag: $CompoundTag$Type): void
  "syncNow"(force: boolean): void
- "defaultServerTick"(): void
- "getSyncTag"(): string
  "getCurrentPos"(): $BlockPos
+ "getSelf"(): $BlockEntity
+ "getRootStorage"(): $IManagedStorage
  "getBlockEntityType"(): $BlockEntityType<(any)>
  "getNonLazyFields"(): ($IRef)[]
- "getRootStorage"(): $IManagedStorage
- "getSelf"(): $BlockEntity
 
-(periodID: long): void
+(): boolean
 }
 
 export namespace $IAsyncAutoSyncBlockEntity {
@@ -6151,29 +7183,29 @@ import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui
 
 export interface $IConfigurableWidget extends $IConfigurable {
 
- "widget"(): $Widget
+ "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
  "initTemplate"(): void
- "serializeWrapper"(): $CompoundTag
  "serializeInnerNBT"(): $CompoundTag
  "canDragIn"(dragging: any): boolean
+ "serializeWrapper"(): $CompoundTag
  "handleDragging"(dragging: any): boolean
- "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+ "widget"(): $Widget
  "buildConfigurator"(father: $ConfiguratorGroup$Type): void
  "name"(): string
  "group"(): string
  "isLDLRegister"(): boolean
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
  "getRegisterUI"(): $LDLRegister
+ "getChatComponent"(): $Component
 }
 
 export namespace $IConfigurableWidget {
 const CACHE: $Function<(string), ($AnnotationDetector$Wrapper<($LDLRegister), ($IConfigurableWidget)>)>
 function deserializeWrapper(tag: $CompoundTag$Type): $IConfigurableWidget
-function serializeNBT(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 function serializeNBT(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-function deserializeNBT(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+function serializeNBT(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 function deserializeNBT(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+function deserializeNBT(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6223,21 +7255,21 @@ import {$TreeBuilder$Menu, $TreeBuilder$Menu$Type} from "packages/com/lowdragmc/
 export class $MenuTab implements $ILDLRegister {
 
 
-public "serializeNBT"(): $CompoundTag
-public "deserializeNBT"(nbt: $CompoundTag$Type): void
+public "appendMenu"(menu: $TreeBuilder$Menu$Type): $TreeBuilder$Menu
 public "createTabWidget"(): $Widget
 public static "registerMenuHook"(menuName: string, consumer: $BiConsumer$Type<($MenuTab$Type), ($TreeBuilder$Menu$Type)>): void
-public "appendMenu"(menu: $TreeBuilder$Menu$Type): $TreeBuilder$Menu
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(nbt: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6274,33 +7306,33 @@ constructor(position: $Position$Type)
 constructor(x: integer, y: integer, width: integer, height: integer)
 constructor()
 
-public "setOnSelected"(onSelected: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
-public "setSelectedTexture"(selectedTexture: $IGuiTexture$Type): $DraggableWidgetGroup
-public "setSelectedTexture"(border: integer, color: integer): $DraggableWidgetGroup
-public "startDrag"(mouseX: double, mouseY: double): void
-public "allowSelected"(mouseX: double, mouseY: double, button: integer): boolean
-public "onUnSelected"(): void
-public "setOnStartDrag"(onStartDrag: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
-public "endDrag"(mouseX: double, mouseY: double): void
-public "onSelected"(): void
-public "setOnUnSelected"(onUnSelected: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
-public "setOnDragging"(onDragging: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
-public "setOnEndDrag"(onEndDrag: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
-public "dragging"(mouseX: double, mouseY: double, deltaX: double, deltaY: double): boolean
 public "isSelected"(): boolean
 public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "canDragOutRange"(): boolean
+public "setOnSelected"(onSelected: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
+public "setSelectedTexture"(border: integer, color: integer): $DraggableWidgetGroup
+public "setSelectedTexture"(selectedTexture: $IGuiTexture$Type): $DraggableWidgetGroup
+public "onSelected"(): void
+public "onUnSelected"(): void
+public "endDrag"(mouseX: double, mouseY: double): void
+public "startDrag"(mouseX: double, mouseY: double): void
+public "allowSelected"(mouseX: double, mouseY: double, button: integer): boolean
+public "setOnDragging"(onDragging: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
+public "setOnUnSelected"(onUnSelected: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
+public "setOnEndDrag"(onEndDrag: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
+public "setOnStartDrag"(onStartDrag: $Consumer$Type<($DraggableWidgetGroup$Type)>): $DraggableWidgetGroup
+public "dragging"(mouseX: double, mouseY: double, deltaX: double, deltaY: double): boolean
 public "allowDrag"(mouseX: double, mouseY: double, button: integer): boolean
+public "canDragOutRange"(): boolean
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+get "selected"(): boolean
 set "selectedTexture"(value: $IGuiTexture$Type)
-set "onStartDrag"(value: $Consumer$Type<($DraggableWidgetGroup$Type)>)
 set "onDragging"(value: $Consumer$Type<($DraggableWidgetGroup$Type)>)
 set "onEndDrag"(value: $Consumer$Type<($DraggableWidgetGroup$Type)>)
-get "selected"(): boolean
+set "onStartDrag"(value: $Consumer$Type<($DraggableWidgetGroup$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6337,6 +7369,77 @@ export type $MBDMachineEvents$MachineOnRecipeWaitingEventJS$Type = ($MBDMachineE
 declare global {
 export type $MBDMachineEvents$MachineOnRecipeWaitingEventJS_ = $MBDMachineEvents$MachineOnRecipeWaitingEventJS$Type;
 }}
+declare module "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/data/$Transform" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$IPersistedSerializable, $IPersistedSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$IPersistedSerializable"
+import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
+import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
+import {$Matrix4f, $Matrix4f$Type} from "packages/org/joml/$Matrix4f"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$Quaternionf, $Quaternionf$Type} from "packages/org/joml/$Quaternionf"
+import {$ISceneObject, $ISceneObject$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$ISceneObject"
+
+export class $Transform implements $IPersistedSerializable, $IConfigurable {
+
+constructor(sceneObject: $ISceneObject$Type)
+
+public "parent"(): $Transform
+public "parent"(parent: $Transform$Type, keepWorldTransform: boolean): void
+public "parent"(parent: $Transform$Type): void
+public "scale"(): $Vector3f
+public "scale"(scale: $Vector3f$Type): void
+public "position"(): $Vector3f
+public "position"(position: $Vector3f$Type): void
+public "id"(): $UUID
+public "set"(transform: $Transform$Type, local: boolean): $Transform
+public "set"(transform: $Transform$Type): $Transform
+public "children"(): $List<($Transform)>
+public "rotation"(): $Quaternionf
+public "rotation"(rotation: $Quaternionf$Type): void
+public "sceneObject"(): $ISceneObject
+public "awake"(): void
+public "_setInternalParentID"(uuid: $UUID$Type): void
+public "localTransformMatrix"(): $Matrix4f
+public "worldToLocalMatrix"(): $Matrix4f
+public "localRotation"(localRotation: $Quaternionf$Type): void
+public "localRotation"(): $Quaternionf
+public "localPosition"(): $Vector3f
+public "localPosition"(localPosition: $Vector3f$Type): void
+public "localScale"(): $Vector3f
+public "localScale"(localScale: $Vector3f$Type): void
+public "_refreshInternalID"(): void
+public "isInheritedParent"(parent: $Transform$Type): boolean
+public "_setInternalID"(uuid: $UUID$Type): void
+public "localToWorldMatrix"(): $Matrix4f
+public "deserializeNBT"(tag: $CompoundTag$Type): void
+public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "name"(): string
+public "group"(): string
+public "isLDLRegister"(): boolean
+public "getTranslateKey"(): string
+public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
+get "lDLRegister"(): boolean
+get "translateKey"(): string
+get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Transform$Type = ($Transform);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $Transform_ = $Transform$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/event/$MachineAfterRecipeWorkingEvent" {
 import {$ListenerList, $ListenerList$Type} from "packages/net/minecraftforge/eventbus/$ListenerList"
 import {$MBDMachine, $MBDMachine$Type} from "packages/com/lowdragmc/mbd2/common/machine/$MBDMachine"
@@ -6352,11 +7455,11 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type)
 
-public "getRecipe"(): $MBDRecipe
 public "getListenerList"(): $ListenerList
+public "getRecipe"(): $MBDRecipe
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-get "recipe"(): $MBDRecipe
 get "listenerList"(): $ListenerList
+get "recipe"(): $MBDRecipe
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6416,59 +7519,59 @@ public "copy"(arg0: $ContentModifier$Type): $MBDRecipe
 public "copy"(arg0: $ContentModifier$Type, arg1: boolean): $MBDRecipe
 public "copy"(arg0: $ContentModifier$Type, arg1: boolean, arg2: $IO$Type): $MBDRecipe
 public "copy"(arg0: $ResourceLocation$Type): $MBDRecipe
-public "checkConditions"(arg0: $RecipeLogic$Type): $MBDRecipe$ActionResult
-public "matchRecipe"(arg0: $IRecipeCapabilityHolder$Type): $MBDRecipe$ActionResult
-public "matchRecipe"(arg0: boolean, arg1: $IO$Type, arg2: $IRecipeCapabilityHolder$Type, arg3: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>, arg4: boolean): $MBDRecipe$ActionResult
-public "matchTickRecipe"(arg0: $IRecipeCapabilityHolder$Type): $MBDRecipe$ActionResult
-public "copyContents"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>, arg1: boolean, arg2: $ContentModifier$Type): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
-public "deepCopied"(arg0: $ResourceLocation$Type): $MBDRecipe
-public "hasTick"(): boolean
-public "handleRecipeIO"(arg0: $IO$Type, arg1: $IRecipeCapabilityHolder$Type): boolean
-public "getOutputContents"(arg0: $RecipeCapability$Type<(any)>): $List<($Content)>
-public "handleRecipe"(arg0: boolean, arg1: $IO$Type, arg2: $IRecipeCapabilityHolder$Type, arg3: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>): boolean
-public "getInputContents"(arg0: $RecipeCapability$Type<(any)>): $List<($Content)>
-public "handleTickRecipeIO"(arg0: $IO$Type, arg1: $IRecipeCapabilityHolder$Type): boolean
-public "handlePre"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>, arg1: $IRecipeCapabilityHolder$Type, arg2: $IO$Type): void
-public "postWorking"(arg0: $IRecipeCapabilityHolder$Type): void
-public "preWorking"(arg0: $IRecipeCapabilityHolder$Type): void
-public "handlePost"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>, arg1: $IRecipeCapabilityHolder$Type, arg2: $IO$Type): void
-public "isFuel"(): boolean
-public static "accurateParallel"(arg0: $IRecipeCapabilityHolder$Type, arg1: $MBDRecipe$Type, arg2: integer, arg3: boolean): $Pair<($MBDRecipe), (integer)>
-public "getId"(): $ResourceLocation
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public static "accurateParallel"(arg0: $IRecipeCapabilityHolder$Type, arg1: $MBDRecipe$Type, arg2: integer, arg3: boolean): $Pair<($MBDRecipe), (integer)>
+public "isFuel"(): boolean
+public "matchRecipe"(arg0: boolean, arg1: $IO$Type, arg2: $IRecipeCapabilityHolder$Type, arg3: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>, arg4: boolean): $MBDRecipe$ActionResult
+public "matchRecipe"(arg0: $IRecipeCapabilityHolder$Type): $MBDRecipe$ActionResult
+public "checkConditions"(arg0: $RecipeLogic$Type): $MBDRecipe$ActionResult
+public "matchTickRecipe"(arg0: $IRecipeCapabilityHolder$Type): $MBDRecipe$ActionResult
+public "getId"(): $ResourceLocation
+public "hasTick"(): boolean
+public "deepCopied"(arg0: $ResourceLocation$Type): $MBDRecipe
+public "getInputContents"(arg0: $RecipeCapability$Type<(any)>): $List<($Content)>
+public "handlePre"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>, arg1: $IRecipeCapabilityHolder$Type, arg2: $IO$Type): void
+public "handleTickRecipeIO"(arg0: $IO$Type, arg1: $IRecipeCapabilityHolder$Type): boolean
+public "postWorking"(arg0: $IRecipeCapabilityHolder$Type): void
+public "getOutputContents"(arg0: $RecipeCapability$Type<(any)>): $List<($Content)>
+public "handleRecipeIO"(arg0: $IO$Type, arg1: $IRecipeCapabilityHolder$Type): boolean
+public "preWorking"(arg0: $IRecipeCapabilityHolder$Type): void
+public "handleRecipe"(arg0: boolean, arg1: $IO$Type, arg2: $IRecipeCapabilityHolder$Type, arg3: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>): boolean
+public "handlePost"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>, arg1: $IRecipeCapabilityHolder$Type, arg2: $IO$Type): void
+public "copyContents"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>, arg1: boolean, arg2: $ContentModifier$Type): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "isSpecial"(): boolean
-public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
+public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
+public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
-public "isIncomplete"(): boolean
 public "getMod"(): string
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "getOrCreateId"(): $ResourceLocation
-public "setGroup"(group: string): void
-public "getSchema"(): $RecipeSchema
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "getGroup"(): string
 public "getType"(): $ResourceLocation
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getSchema"(): $RecipeSchema
+public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getGroup"(): string
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
 get "fuel"(): boolean
 get "id"(): $ResourceLocation
 get "serializer"(): $RecipeSerializer<(any)>
 get "special"(): boolean
 get "ingredients"(): $NonNullList<($Ingredient)>
-get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
+get "toastSymbol"(): $ItemStack
 get "mod"(): string
-get "orCreateId"(): $ResourceLocation
+get "type"(): $ResourceLocation
 set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
 get "group"(): string
-get "type"(): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6484,8 +7587,8 @@ export type $MBDRecipe_ = $MBDRecipe$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/client/renderer/$IRenderer" {
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$BakedModel, $BakedModel$Type} from "packages/net/minecraft/client/resources/model/$BakedModel"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
@@ -6504,24 +7607,24 @@ import {$BakedQuad, $BakedQuad$Type} from "packages/net/minecraft/client/rendere
 
 export interface $IRenderer {
 
- "reBakeCustomQuadsOffset"(): float
- "onPrepareTextureAtlas"(atlasName: $ResourceLocation$Type, register: $Consumer$Type<($ResourceLocation$Type)>): void
- "onAdditionalModel"(registry: $Consumer$Type<($ResourceLocation$Type)>): void
  "isRaw"(): boolean
- "render"(blockEntity: $BlockEntity$Type, partialTicks: float, stack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer): void
- "shouldRender"(blockEntity: $BlockEntity$Type, cameraPos: $Vec3$Type): boolean
+ "onPrepareTextureAtlas"(atlasName: $ResourceLocation$Type, register: $Consumer$Type<($ResourceLocation$Type)>): void
+ "reBakeCustomQuadsOffset"(): float
+ "renderItem"(stack: $ItemStack$Type, transformType: $ItemDisplayContext$Type, leftHand: boolean, poseStack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer, model: $BakedModel$Type): void
+ "hasTESR"(blockEntity: $BlockEntity$Type): boolean
+ "getViewDistance"(): integer
+ "isGlobalRenderer"(blockEntity: $BlockEntity$Type): boolean
+ "getParticleTexture"(): $TextureAtlasSprite
+ "reBakeCustomQuads"(): boolean
  "isGui3d"(): boolean
  "useBlockLight"(stack: $ItemStack$Type): boolean
  "useAO"(): boolean
  "useAO"(state: $BlockState$Type): boolean
- "getParticleTexture"(): $TextureAtlasSprite
- "isGlobalRenderer"(blockEntity: $BlockEntity$Type): boolean
- "getViewDistance"(): integer
- "reBakeCustomQuads"(): boolean
- "renderItem"(stack: $ItemStack$Type, transformType: $ItemDisplayContext$Type, leftHand: boolean, poseStack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer, model: $BakedModel$Type): void
- "hasTESR"(blockEntity: $BlockEntity$Type): boolean
- "renderModel"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
+ "onAdditionalModel"(registry: $Consumer$Type<($ResourceLocation$Type)>): void
  "registerEvent"(): void
+ "render"(blockEntity: $BlockEntity$Type, partialTicks: float, stack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer): void
+ "renderModel"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
+ "shouldRender"(blockEntity: $BlockEntity$Type, cameraPos: $Vec3$Type): boolean
 }
 
 export namespace $IRenderer {
@@ -6541,7 +7644,6 @@ declare global {
 export type $IRenderer_ = $IRenderer$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/animation/$Transform" {
-import {$FloatConsumer, $FloatConsumer$Type} from "packages/it/unimi/dsi/fastutil/floats/$FloatConsumer"
 import {$Position, $Position$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Position"
 import {$IEase, $IEase$Type} from "packages/com/lowdragmc/lowdraglib/utils/interpolate/$IEase"
 import {$Size, $Size$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Size"
@@ -6563,15 +7665,14 @@ public "delay"(delay: long): $Transform
 public "pre"(graphics: $GuiGraphics$Type): void
 public "post"(graphics: $GuiGraphics$Type): void
 public "setScale"(scale: float): $Transform
-public "isIn"(): boolean
-public "onUpdate"(onUpdate: $FloatConsumer$Type): $Transform
 public "onFinish"(onFinish: $Runnable$Type): $Animation
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "ease"(ease: $IEase$Type): $Transform
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "isOut"(): boolean
-get "in"(): boolean
+public "ease"(ease: $IEase$Type): $Transform
+public "isIn"(): boolean
 get "out"(): boolean
+get "in"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6616,6 +7717,45 @@ export type $LDLRegisterClient$Type = ($LDLRegisterClient);
 declare global {
 export type $LDLRegisterClient_ = $LDLRegisterClient$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleCatalyst" {
+import {$ToggleCatalyst$CatalystType, $ToggleCatalyst$CatalystType$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleCatalyst$CatalystType"
+import {$ToggleCatalyst$ToggleCandidates, $ToggleCatalyst$ToggleCandidates$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleCatalyst$ToggleCandidates"
+import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$ItemFilterSettings, $ItemFilterSettings$Type} from "packages/com/lowdragmc/mbd2/common/trait/item/$ItemFilterSettings"
+
+export class $ToggleCatalyst extends $ItemFilterSettings {
+
+constructor()
+
+public "getCandidates"(): $ToggleCatalyst$ToggleCandidates
+public "isEnable"(): boolean
+public "getConsumeItemAmount"(): integer
+public "getConsumeDurabilityValue"(): integer
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "setEnable"(arg0: boolean): void
+public "getCatalystType"(): $ToggleCatalyst$CatalystType
+public static "isEqual"<T>(arg0: any): $Predicate<(T)>
+public static "not"<T>(arg0: $Predicate$Type<(any)>): $Predicate<(T)>
+get "candidates"(): $ToggleCatalyst$ToggleCandidates
+get "enable"(): boolean
+get "consumeItemAmount"(): integer
+get "consumeDurabilityValue"(): integer
+set "enable"(value: boolean)
+get "catalystType"(): $ToggleCatalyst$CatalystType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ToggleCatalyst$Type = ($ToggleCatalyst);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ToggleCatalyst_ = $ToggleCatalyst$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/integration/create/machine/$ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder" {
 import {$ConfigKineticMachineSettings, $ConfigKineticMachineSettings$Type} from "packages/com/lowdragmc/mbd2/integration/create/machine/$ConfigKineticMachineSettings"
 import {$ConfigKineticMachineSettings$RotationFacing, $ConfigKineticMachineSettings$RotationFacing$Type} from "packages/com/lowdragmc/mbd2/integration/create/machine/$ConfigKineticMachineSettings$RotationFacing"
@@ -6625,12 +7765,12 @@ export class $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder {
 
 public "toString"(): string
 public "build"(): $ConfigKineticMachineSettings
-public "frontRotation"(arg0: $ConfigKineticMachineSettings$RotationFacing$Type): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
-public "hasBackRotation"(arg0: boolean): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
+public "useFlywheel"(arg0: boolean): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
+public "isGenerator"(arg0: boolean): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
 public "maxRPM"(arg0: integer): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
 public "torque"(arg0: float): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
-public "isGenerator"(arg0: boolean): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
-public "useFlywheel"(arg0: boolean): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
+public "hasBackRotation"(arg0: boolean): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
+public "frontRotation"(arg0: $ConfigKineticMachineSettings$RotationFacing$Type): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6643,6 +7783,41 @@ export type $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder$Ty
  */
 declare global {
 export type $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder_ = $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/util/$RelativeDirection" {
+import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
+
+export class $RelativeDirection extends $Enum<($RelativeDirection)> {
+static readonly "UP": $RelativeDirection
+static readonly "DOWN": $RelativeDirection
+static readonly "LEFT": $RelativeDirection
+static readonly "RIGHT": $RelativeDirection
+static readonly "FRONT": $RelativeDirection
+static readonly "BACK": $RelativeDirection
+readonly "axis": $Direction$Axis
+
+
+public static "values"(): ($RelativeDirection)[]
+public static "valueOf"(arg0: string): $RelativeDirection
+public "getActualFacing"(arg0: $Direction$Type): $Direction
+public "isSameAxis"(arg0: $RelativeDirection$Type): boolean
+public static "getSliceXDirection"(arg0: $Direction$Axis$Type, arg1: $Direction$Type): $RelativeDirection
+public static "getSliceYDirection"(arg0: $Direction$Axis$Type, arg1: $Direction$Type): $RelativeDirection
+public static "getAisleDirection"(arg0: $Direction$Axis$Type, arg1: $Direction$Type): $RelativeDirection
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RelativeDirection$Type = (("left") | ("back") | ("up") | ("right") | ("front") | ("down")) | ($RelativeDirection);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $RelativeDirection_ = $RelativeDirection$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/integration/kubejs/recipe/$MBDRecipeSchema$FluidIngredientJS" {
 import {$InputReplacement, $InputReplacement$Type} from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacement"
@@ -6668,9 +7843,8 @@ public "toString"(): string
 public "hashCode"(): integer
 public "matches"(arg0: $FluidLike$Type): boolean
 public static "of"(arg0: any): $MBDRecipeSchema$FluidIngredientJS
-public "getAmount"(): long
-public "copy"(arg0: long): $MBDRecipeSchema$FluidIngredientJS
 public "ingredient"(): $FluidIngredient
+public "getAmount"(): long
 public "replaceInput"(recipe: $RecipeJS$Type, match: $ReplacementMatch$Type, original: $InputReplacement$Type): any
 public "replaceOutput"(recipe: $RecipeJS$Type, match: $ReplacementMatch$Type, original: $OutputReplacement$Type): any
 public "isEmpty"(): boolean
@@ -6736,29 +7910,29 @@ constructor(resources: $Resources$Type, root: $WidgetGroup$Type)
 
 public "getResources"(): $Resources
 public "onLoad"(editor: $Editor$Type): void
-public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "newEmptyProject"(): $UIProject
 public static "loadUIFromFile"(location: $ResourceLocation$Type): $Supplier<($WidgetGroup)>
 public static "loadUIFromTag"(tag: $CompoundTag$Type): $Supplier<($WidgetGroup)>
+public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "getSuffix"(): string
-public "saveProject"(file: $File$Type): void
-public "loadProject"(file: $File$Type): $IProject
 public "getProjectWorkSpace"(editor: $Editor$Type): $File
-public "attachMenu"(editor: $Editor$Type, name: string, menu: $TreeBuilder$Menu$Type): void
+public "loadProject"(file: $File$Type): $IProject
 public "onClosed"(editor: $Editor$Type): void
+public "saveProject"(file: $File$Type): void
+public "attachMenu"(editor: $Editor$Type, name: string, menu: $TreeBuilder$Menu$Type): void
 public "loadResources"(tag: $CompoundTag$Type): $Resources
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "resources"(): $Resources
 get "suffix"(): string
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6771,6 +7945,27 @@ export type $UIProject$Type = ($UIProject);
  */
 declare global {
 export type $UIProject_ = $UIProject$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/$MultiblockMachineDefinition$Builder" {
+import {$MultiblockMachineDefinition$ConfigMultiblockSettingsFactory, $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MultiblockMachineDefinition$ConfigMultiblockSettingsFactory"
+import {$MBDMachineDefinition$Builder, $MBDMachineDefinition$Builder$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MBDMachineDefinition$Builder"
+
+export class $MultiblockMachineDefinition$Builder extends $MBDMachineDefinition$Builder {
+
+
+public "multiblockSettings"(arg0: $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory$Type): $MultiblockMachineDefinition$Builder
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MultiblockMachineDefinition$Builder$Type = ($MultiblockMachineDefinition$Builder);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MultiblockMachineDefinition$Builder_ = $MultiblockMachineDefinition$Builder$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/texture/$GuiTextureGroup" {
 import {$TransformTexture, $TransformTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$TransformTexture"
@@ -6785,14 +7980,14 @@ constructor()
 constructor(...textures: ($IGuiTexture$Type)[])
 
 public "setColor"(color: integer): $GuiTextureGroup
-public "setTextures"(...textures: ($IGuiTexture$Type)[]): $GuiTextureGroup
 public "setUIResource"(texturesResource: $Resource$Type<($IGuiTexture$Type)>): void
+public "setTextures"(...textures: ($IGuiTexture$Type)[]): $GuiTextureGroup
 public "updateTick"(): void
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 set "color"(value: integer)
-set "textures"(value: ($IGuiTexture$Type)[])
 set "uIResource"(value: $Resource$Type<($IGuiTexture$Type)>)
+set "textures"(value: ($IGuiTexture$Type)[])
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6812,8 +8007,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $AbstractContainerMenuAccessor {
 
- "getRemoteSlots"(): $NonNullList<($ItemStack)>
  "getLastSlots"(): $NonNullList<($ItemStack)>
+ "getRemoteSlots"(): $NonNullList<($ItemStack)>
 }
 
 export namespace $AbstractContainerMenuAccessor {
@@ -6835,8 +8030,8 @@ declare module "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeHandle
 import {$RecipeCapability, $RecipeCapability$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$RecipeCapability"
 import {$ISubscription, $ISubscription$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$ISubscription"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$IRecipeCapabilityHolder, $IRecipeCapabilityHolder$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeCapabilityHolder"
+import {$List, $List$Type} from "packages/java/util/$List"
 import {$IRecipeHandler, $IRecipeHandler$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeHandler"
 import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
@@ -6844,16 +8039,16 @@ import {$MBDRecipe, $MBDRecipe$Type} from "packages/com/lowdragmc/mbd2/api/recip
 
 export interface $IRecipeHandlerTrait<K> extends $IRecipeHandler<(K)> {
 
- "addChangedListener"(arg0: $Runnable$Type): $ISubscription
  "getHandlerIO"(): $IO
+ "addChangedListener"(arg0: $Runnable$Type): $ISubscription
  "compatibleWith"(arg0: $IO$Type): boolean
- "copyContent"(arg0: any): K
- "handleRecipe"(arg0: $IO$Type, arg1: $MBDRecipe$Type, arg2: $List$Type<(any)>, arg3: string, arg4: boolean): $List<(K)>
+ "getSlotNames"(): $Set<(string)>
+ "isDistinct"(): boolean
+ "getRecipeCapability"(): $RecipeCapability<(K)>
  "postWorking"(arg0: $IRecipeCapabilityHolder$Type, arg1: $IO$Type, arg2: $MBDRecipe$Type): void
  "preWorking"(arg0: $IRecipeCapabilityHolder$Type, arg1: $IO$Type, arg2: $MBDRecipe$Type): void
- "isDistinct"(): boolean
- "getSlotNames"(): $Set<(string)>
- "getRecipeCapability"(): $RecipeCapability<(K)>
+ "handleRecipe"(arg0: $IO$Type, arg1: $MBDRecipe$Type, arg2: $List$Type<(any)>, arg3: string, arg4: boolean): $List<(K)>
+ "copyContent"(arg0: any): K
  "handleRecipeInner"(arg0: $IO$Type, arg1: $MBDRecipe$Type, arg2: $List$Type<(K)>, arg3: string, arg4: boolean): $List<(K)>
 }
 
@@ -6909,30 +8104,32 @@ export class $TreeListWidget<K, T> extends $Widget {
 
 constructor(xPosition: integer, yPosition: integer, width: integer, height: integer, root: $TreeNode$Type<(K), (T)>, onSelected: $Consumer$Type<($TreeNode$Type<(K), (T)>)>)
 
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "updateScreen"(): void
+public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "setContentIconSupplier"(contentIconSupplier: $Function$Type<(T), ($IGuiTexture$Type)>): $TreeListWidget<(K), (T)>
+public "setOnDoubleClickLeaf"(onDoubleClickLeaf: $Consumer$Type<($TreeNode$Type<(K), (T)>)>): $TreeListWidget<(K), (T)>
 public "setOnSelected"(onSelected: $Consumer$Type<($TreeNode$Type<(K), (T)>)>): $TreeListWidget<(K), (T)>
 public "setContentNameSupplier"(contentNameSupplier: $Function$Type<(T), (string)>): $TreeListWidget<(K), (T)>
-public "setKeyIconSupplier"(keyIconSupplier: $Function$Type<(K), ($IGuiTexture$Type)>): $TreeListWidget<(K), (T)>
-public "setKeyNameSupplier"(keyNameSupplier: $Function$Type<(K), (string)>): $TreeListWidget<(K), (T)>
 public "setNodeTexture"(nodeTexture: $IGuiTexture$Type): $TreeListWidget<(K), (T)>
 public "setLeafTexture"(leafTexture: $IGuiTexture$Type): $TreeListWidget<(K), (T)>
+public "setKeyIconSupplier"(keyIconSupplier: $Function$Type<(K), ($IGuiTexture$Type)>): $TreeListWidget<(K), (T)>
+public "setKeyNameSupplier"(keyNameSupplier: $Function$Type<(K), (string)>): $TreeListWidget<(K), (T)>
 public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "setBackground"(background: $IGuiTexture$Type): $TreeListWidget<(K), (T)>
-public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "updateScreen"(): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "canSelectNode"(canSelectNode: boolean): $TreeListWidget<(K), (T)>
-public "setContentIconSupplier"(contentIconSupplier: $Function$Type<(T), ($IGuiTexture$Type)>): $TreeListWidget<(K), (T)>
-public "setLineHeight"(lineHeight: integer): $TreeListWidget<(K), (T)>
 public "jumpTo"(path: $List$Type<(K)>): $TreeNode<(K), (T)>
+public "setLineHeight"(lineHeight: integer): $TreeListWidget<(K), (T)>
+public "canSelectNode"(canSelectNode: boolean): $TreeListWidget<(K), (T)>
+public "setBackground"(background: $IGuiTexture$Type): $TreeListWidget<(K), (T)>
+set "contentIconSupplier"(value: $Function$Type<(T), ($IGuiTexture$Type)>)
+set "onDoubleClickLeaf"(value: $Consumer$Type<($TreeNode$Type<(K), (T)>)>)
 set "onSelected"(value: $Consumer$Type<($TreeNode$Type<(K), (T)>)>)
 set "contentNameSupplier"(value: $Function$Type<(T), (string)>)
-set "keyIconSupplier"(value: $Function$Type<(K), ($IGuiTexture$Type)>)
-set "keyNameSupplier"(value: $Function$Type<(K), (string)>)
 set "nodeTexture"(value: $IGuiTexture$Type)
 set "leafTexture"(value: $IGuiTexture$Type)
-set "background"(value: $IGuiTexture$Type)
-set "contentIconSupplier"(value: $Function$Type<(T), ($IGuiTexture$Type)>)
+set "keyIconSupplier"(value: $Function$Type<(K), ($IGuiTexture$Type)>)
+set "keyNameSupplier"(value: $Function$Type<(K), (string)>)
 set "lineHeight"(value: integer)
+set "background"(value: $IGuiTexture$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7060,8 +8257,8 @@ static readonly "RECIPE_CONDITIONS": $MBDRegistry$String<($Class<(any)>)>
 
 constructor()
 
-public static "GADGETS_ITEM"(): $MBDGadgetsItem
 public static "FAKE_MACHINE"(): $MBDMachineDefinition
+public static "GADGETS_ITEM"(): $MBDGadgetsItem
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7104,8 +8301,8 @@ import {$StaticAnimatable, $StaticAnimatable$Type} from "packages/com/lowdragmc/
 import {$GeoRenderLayer, $GeoRenderLayer$Type} from "packages/software/bernie/geckolib/renderer/layer/$GeoRenderLayer"
 import {$GeoAnimatable, $GeoAnimatable$Type} from "packages/software/bernie/geckolib/core/animatable/$GeoAnimatable"
 import {$Animation, $Animation$Type} from "packages/com/lowdragmc/mbd2/integration/geckolib/$Animation"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$RawAnimation, $RawAnimation$Type} from "packages/software/bernie/geckolib/core/animation/$RawAnimation"
 import {$GeoBone, $GeoBone$Type} from "packages/software/bernie/geckolib/cache/object/$GeoBone"
 import {$GeckolibRendererModel, $GeckolibRendererModel$Type} from "packages/com/lowdragmc/mbd2/integration/geckolib/$GeckolibRendererModel"
@@ -7116,8 +8313,8 @@ import {$GeoQuad, $GeoQuad$Type} from "packages/software/bernie/geckolib/cache/o
 import {$BakedGeoModel, $BakedGeoModel$Type} from "packages/software/bernie/geckolib/cache/object/$BakedGeoModel"
 import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-import {$Map, $Map$Type} from "packages/java/util/$Map"
 import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $GeckolibRenderer implements $ISerializableRenderer, $GeoRenderer<($GeoAnimatable)> {
 static readonly "DEFAULT_MODEL_PATH": $ResourceLocation
@@ -7128,64 +8325,63 @@ static readonly "DEFAULT_ITEM_TRANSFORM_MODEL": $ResourceLocation
 constructor()
 constructor(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type)
 
-public "getBlockRenderTranslations"(): $Matrix4f
-public "checkTextureAvailable"(): boolean
-public "isUseEntityGuiLighting"(): boolean
-public "doPostRenderCleanup"(): void
-public "firePostRenderEvent"(arg0: $PoseStack$Type, arg1: $BakedGeoModel$Type, arg2: $MultiBufferSource$Type, arg3: float, arg4: integer): void
-public "isScheduleStateAnimation"(): boolean
-public "getStaticAnimatable"(): $StaticAnimatable
-public "getCurrentItemStack"(): $ItemStack
-public "fireCompileRenderLayersEvent"(): void
-public "checkAnimationAvailable"(): boolean
-public "getAnimatableFromMachine"(arg0: $MBDMachine$Type): $GeoAnimatable
-public "getRenderPerspective"(): $ItemDisplayContext
-public "updateAnimatedTextureFrame"(arg0: $GeoAnimatable$Type): void
 public "checkModelAvailable"(): boolean
+public "checkAnimationAvailable"(): boolean
+public "checkTextureAvailable"(): boolean
+public "getAnimatableFromMachine"(arg0: $MBDMachine$Type): $GeoAnimatable
+public "updateAnimatedTextureFrame"(arg0: $GeoAnimatable$Type): void
+public "fireCompileRenderLayersEvent"(): void
+public "setItemTransformModel"(arg0: $ResourceLocation$Type): void
+public "doPostRenderCleanup"(): void
+public "isUseEntityGuiLighting"(): boolean
+public "getCurrentItemStack"(): $ItemStack
+public "getRenderPerspective"(): $ItemDisplayContext
+public "getStaticAnimatable"(): $StaticAnimatable
+public "getBlockRenderTranslations"(): $Matrix4f
 public "getModelRenderTranslations"(): $Matrix4f
+public "isScheduleStateAnimation"(): boolean
+public "firePostRenderEvent"(arg0: $PoseStack$Type, arg1: $BakedGeoModel$Type, arg2: $MultiBufferSource$Type, arg3: float, arg4: integer): void
+public "getModel"(): $GeckolibRendererModel
+public "initRenderer"(): void
 public "onPrepareTextureAtlas"(arg0: $ResourceLocation$Type, arg1: $Consumer$Type<($ResourceLocation$Type)>): void
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "renderItem"(arg0: $ItemStack$Type, arg1: $ItemDisplayContext$Type, arg2: boolean, arg3: $PoseStack$Type, arg4: $MultiBufferSource$Type, arg5: integer, arg6: integer, arg7: $BakedModel$Type): void
+public "hasTESR"(arg0: $BlockEntity$Type): boolean
+public "getParticleTexture"(): $TextureAtlasSprite
+public "render"(arg0: $BlockEntity$Type, arg1: float, arg2: $PoseStack$Type, arg3: $MultiBufferSource$Type, arg4: integer, arg5: integer): void
 public "getTexturePath"(): $ResourceLocation
-public "getModelPath"(): $ResourceLocation
 public "getGeoModel"(): $GeoModel<($GeoAnimatable)>
+public "getAnimationPath"(): $ResourceLocation
+public "preRender"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
+public "getModelPath"(): $ResourceLocation
+public "getInstanceId"(arg0: $GeoAnimatable$Type): long
 public "getRawAnimation"(arg0: string): $RawAnimation
 public "actuallyRender"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
-public "getInstanceId"(arg0: $GeoAnimatable$Type): long
-public "preRender"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
-public "getAnimationPath"(): $ResourceLocation
 public "hasAnimation"(arg0: string): boolean
 public "renderRecursively"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
 public "firePreRenderEvent"(arg0: $PoseStack$Type, arg1: $BakedGeoModel$Type, arg2: $MultiBufferSource$Type, arg3: float, arg4: integer): boolean
-public "getItemModel"(): $BakedModel
-public "setModelPath"(arg0: $ResourceLocation$Type): void
-public "getScaleWidth"(): float
-public "isUseTranslucent"(): boolean
+public "getAnimatable"(): $GeoAnimatable
 public "getScaleHeight"(): float
 public "isUseGlowingLayer"(): boolean
+public "isUseTranslucent"(): boolean
+public "getItemModel"(): $BakedModel
 public "getAnimations"(): $List<($Animation)>
-public "getAnimatable"(): $GeoAnimatable
 public "getAnimationCache"(): $Map<(string), ($RawAnimation)>
+public "setModelPath"(arg0: $ResourceLocation$Type): void
+public "getScaleWidth"(): float
 public "setTexturePath"(arg0: $ResourceLocation$Type): void
 public "setAnimationPath"(arg0: $ResourceLocation$Type): void
-public "render"(arg0: $BlockEntity$Type, arg1: float, arg2: $PoseStack$Type, arg3: $MultiBufferSource$Type, arg4: integer, arg5: integer): void
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
-public "getParticleTexture"(): $TextureAtlasSprite
-public "renderItem"(arg0: $ItemStack$Type, arg1: $ItemDisplayContext$Type, arg2: boolean, arg3: $PoseStack$Type, arg4: $MultiBufferSource$Type, arg5: integer, arg6: integer, arg7: $BakedModel$Type): void
-public "hasTESR"(arg0: $BlockEntity$Type): boolean
 public "getRenderLayers"(): $List<($GeoRenderLayer<($GeoAnimatable)>)>
-public "setItemTransformModel"(arg0: $ResourceLocation$Type): void
-public "initRenderer"(): void
-public "getModel"(): $GeckolibRendererModel
-public static "serializeWrapper"(renderer: $ISerializableRenderer$Type): $CompoundTag
-public static "deserializeWrapper"(tag: $CompoundTag$Type): $ISerializableRenderer
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "createPreview"(father: $ConfiguratorGroup$Type): void
+public static "deserializeWrapper"(tag: $CompoundTag$Type): $ISerializableRenderer
+public static "serializeWrapper"(renderer: $ISerializableRenderer$Type): $CompoundTag
 public "getMotionAnimThreshold"(arg0: $GeoAnimatable$Type): float
+public "createVerticesOfQuad"(arg0: $GeoQuad$Type, arg1: $Matrix4f$Type, arg2: $Vector3f$Type, arg3: $VertexConsumer$Type, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float): void
 public "preApplyRenderLayers"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
 public "applyRenderLayersForBone"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
 public "scaleModelForRender"(arg0: float, arg1: float, arg2: $PoseStack$Type, arg3: $GeoAnimatable$Type, arg4: $BakedGeoModel$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer): void
-public "createVerticesOfQuad"(arg0: $GeoQuad$Type, arg1: $Matrix4f$Type, arg2: $Vector3f$Type, arg3: $VertexConsumer$Type, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float): void
-public "getRenderColor"(arg0: $GeoAnimatable$Type, arg1: float, arg2: integer): $Color
-public "getRenderType"(arg0: $GeoAnimatable$Type, arg1: $ResourceLocation$Type, arg2: $MultiBufferSource$Type, arg3: float): $RenderType
 public "getTextureLocation"(arg0: $GeoAnimatable$Type): $ResourceLocation
 public "defaultRender"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $MultiBufferSource$Type, arg3: $RenderType$Type, arg4: $VertexConsumer$Type, arg5: float, arg6: float, arg7: integer): void
 public "getPackedOverlay"(arg0: $GeoAnimatable$Type, arg1: float, arg2: float): integer
@@ -7194,71 +8390,73 @@ public "getPackedOverlay"(arg0: $GeoAnimatable$Type, arg1: float, arg2: float): 
  * @deprecated
  */
 public "getPackedOverlay"(arg0: $GeoAnimatable$Type, arg1: float): integer
-public "applyRenderLayers"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
+public "renderCube"(arg0: $PoseStack$Type, arg1: $GeoCube$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
 public "renderChildBones"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
 public "renderFinal"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float, arg11: float): void
-public "postRender"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
 public "renderCubesOfBone"(arg0: $PoseStack$Type, arg1: $GeoBone$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
 public "reRender"(arg0: $BakedGeoModel$Type, arg1: $PoseStack$Type, arg2: $MultiBufferSource$Type, arg3: $GeoAnimatable$Type, arg4: $RenderType$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
-public "renderCube"(arg0: $PoseStack$Type, arg1: $GeoCube$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
-public "reBakeCustomQuadsOffset"(): float
-public "onAdditionalModel"(registry: $Consumer$Type<($ResourceLocation$Type)>): void
+public "postRender"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
+public "applyRenderLayers"(arg0: $PoseStack$Type, arg1: $GeoAnimatable$Type, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
+public "getRenderColor"(arg0: $GeoAnimatable$Type, arg1: float, arg2: integer): $Color
+public "getRenderType"(arg0: $GeoAnimatable$Type, arg1: $ResourceLocation$Type, arg2: $MultiBufferSource$Type, arg3: float): $RenderType
 public "isRaw"(): boolean
-public "shouldRender"(blockEntity: $BlockEntity$Type, cameraPos: $Vec3$Type): boolean
+public "reBakeCustomQuadsOffset"(): float
+public "getViewDistance"(): integer
+public "isGlobalRenderer"(blockEntity: $BlockEntity$Type): boolean
+public "reBakeCustomQuads"(): boolean
 public "isGui3d"(): boolean
 public "useBlockLight"(stack: $ItemStack$Type): boolean
 public "useAO"(): boolean
 public "useAO"(state: $BlockState$Type): boolean
-public "isGlobalRenderer"(blockEntity: $BlockEntity$Type): boolean
-public "getViewDistance"(): integer
-public "reBakeCustomQuads"(): boolean
-public "renderModel"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
+public "onAdditionalModel"(registry: $Consumer$Type<($ResourceLocation$Type)>): void
 public "registerEvent"(): void
+public "renderModel"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
+public "shouldRender"(blockEntity: $BlockEntity$Type, cameraPos: $Vec3$Type): boolean
 public "name"(): string
 public "group"(): string
+public "getRegisterUIClient"(): $LDLRegisterClient
 public "isLDLRegister"(): boolean
 /**
  * 
  * @deprecated
  */
 public "getRegisterUI"(): $LDLRegister
-public "getRegisterUIClient"(): $LDLRegisterClient
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
-get "blockRenderTranslations"(): $Matrix4f
+public "getChatComponent"(): $Component
+set "itemTransformModel"(value: $ResourceLocation$Type)
 get "useEntityGuiLighting"(): boolean
-get "scheduleStateAnimation"(): boolean
-get "staticAnimatable"(): $StaticAnimatable
 get "currentItemStack"(): $ItemStack
 get "renderPerspective"(): $ItemDisplayContext
+get "staticAnimatable"(): $StaticAnimatable
+get "blockRenderTranslations"(): $Matrix4f
 get "modelRenderTranslations"(): $Matrix4f
+get "scheduleStateAnimation"(): boolean
+get "model"(): $GeckolibRendererModel
+get "particleTexture"(): $TextureAtlasSprite
 get "texturePath"(): $ResourceLocation
-get "modelPath"(): $ResourceLocation
 get "geoModel"(): $GeoModel<($GeoAnimatable)>
 get "animationPath"(): $ResourceLocation
-get "itemModel"(): $BakedModel
-set "modelPath"(value: $ResourceLocation$Type)
-get "scaleWidth"(): float
-get "useTranslucent"(): boolean
+get "modelPath"(): $ResourceLocation
+get "animatable"(): $GeoAnimatable
 get "scaleHeight"(): float
 get "useGlowingLayer"(): boolean
+get "useTranslucent"(): boolean
+get "itemModel"(): $BakedModel
 get "animations"(): $List<($Animation)>
-get "animatable"(): $GeoAnimatable
 get "animationCache"(): $Map<(string), ($RawAnimation)>
+set "modelPath"(value: $ResourceLocation$Type)
+get "scaleWidth"(): float
 set "texturePath"(value: $ResourceLocation$Type)
 set "animationPath"(value: $ResourceLocation$Type)
-get "particleTexture"(): $TextureAtlasSprite
 get "renderLayers"(): $List<($GeoRenderLayer<($GeoAnimatable)>)>
-set "itemTransformModel"(value: $ResourceLocation$Type)
-get "model"(): $GeckolibRendererModel
 get "raw"(): boolean
-get "gui3d"(): boolean
 get "viewDistance"(): integer
+get "gui3d"(): boolean
+get "registerUIClient"(): $LDLRegisterClient
 get "lDLRegister"(): boolean
 get "registerUI"(): $LDLRegister
-get "registerUIClient"(): $LDLRegisterClient
-get "chatComponent"(): $Component
 get "translateKey"(): string
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7271,6 +8469,46 @@ export type $GeckolibRenderer$Type = ($GeckolibRenderer);
  */
 declare global {
 export type $GeckolibRenderer_ = $GeckolibRenderer$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/common/capability/recipe/$ForgeEnergyRecipeCapability" {
+import {$RecipeCapability, $RecipeCapability$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$RecipeCapability"
+import {$Content, $Content$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$Content"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$Widget"
+import {$ResourceTexture, $ResourceTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$ResourceTexture"
+import {$IngredientIO, $IngredientIO$Type} from "packages/com/lowdragmc/lowdraglib/jei/$IngredientIO"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$ResourceBorderTexture, $ResourceBorderTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$ResourceBorderTexture"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$IContentSerializer, $IContentSerializer$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$IContentSerializer"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
+
+export class $ForgeEnergyRecipeCapability extends $RecipeCapability<(integer)> {
+static readonly "CAP": $ForgeEnergyRecipeCapability
+static readonly "ENERGY_BAR": $ResourceTexture
+static readonly "ENERGY_BASE": $ResourceBorderTexture
+readonly "name": string
+readonly "serializer": $IContentSerializer<(T)>
+
+
+public "createXEITemplate"(): $Widget
+public "createContentConfigurator"(arg0: $ConfiguratorGroup$Type, arg1: $Supplier$Type<(integer)>, arg2: $Consumer$Type<(integer)>): void
+public "createPreviewWidget"(arg0: integer): $Widget
+public "bindXEIWidget"(arg0: $Widget$Type, arg1: $Content$Type, arg2: $IngredientIO$Type): void
+public "getLeftErrorInfo"(arg0: $List$Type<(integer)>): $Component
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ForgeEnergyRecipeCapability$Type = ($ForgeEnergyRecipeCapability);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ForgeEnergyRecipeCapability_ = $ForgeEnergyRecipeCapability$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/syncdata/$IPersistedSerializable" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
@@ -7333,10 +8571,10 @@ static readonly "ALWAYS_FULL": $ProgressTexture$FillDirection
 
 public static "values"(): ($ProgressTexture$FillDirection)[]
 public static "valueOf"(name: string): $ProgressTexture$FillDirection
-public "getDrawnV"(progress: double): double
 public "getDrawnU"(progress: double): double
 public "getDrawnHeight"(progress: double): double
 public "getDrawnWidth"(progress: double): double
+public "getDrawnV"(progress: double): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7384,8 +8622,8 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
-import {$BakedModel, $BakedModel$Type} from "packages/net/minecraft/client/resources/model/$BakedModel"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$BakedModel, $BakedModel$Type} from "packages/net/minecraft/client/resources/model/$BakedModel"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$ItemDisplayContext, $ItemDisplayContext$Type} from "packages/net/minecraft/world/item/$ItemDisplayContext"
@@ -7405,59 +8643,59 @@ export class $IModelRenderer implements $ISerializableRenderer {
 
 constructor(modelLocation: $ResourceLocation$Type)
 
-public "updateModelWithReloadingResource"(modelLocation: $ResourceLocation$Type): void
+public "initRenderer"(): void
 public "onPrepareTextureAtlas"(atlasName: $ResourceLocation$Type, register: $Consumer$Type<($ResourceLocation$Type)>): void
+public "renderItem"(stack: $ItemStack$Type, transformType: $ItemDisplayContext$Type, leftHand: boolean, poseStack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer, model: $BakedModel$Type): void
+public "getParticleTexture"(): $TextureAtlasSprite
+public "isGui3d"(): boolean
+public "useBlockLight"(stack: $ItemStack$Type): boolean
+public "useAO"(): boolean
 public "onAdditionalModel"(registry: $Consumer$Type<($ResourceLocation$Type)>): void
+public "updateModelWithReloadingResource"(modelLocation: $ResourceLocation$Type): void
+public "getModelLocation"(): $ResourceLocation
+public "renderModel"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
 /**
  * 
  * @deprecated
  */
 public "getRotatedModel"(frontFacing: $Direction$Type): $BakedModel
-public "getModelLocation"(): $ResourceLocation
-public "isGui3d"(): boolean
-public "useBlockLight"(stack: $ItemStack$Type): boolean
-public "useAO"(): boolean
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
-public "getParticleTexture"(): $TextureAtlasSprite
-public "renderItem"(stack: $ItemStack$Type, transformType: $ItemDisplayContext$Type, leftHand: boolean, poseStack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer, model: $BakedModel$Type): void
-public "renderModel"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
-public "initRenderer"(): void
 public "updateModelWithoutReloadingResource"(modelLocation: $ResourceLocation$Type): void
-public static "serializeWrapper"(renderer: $ISerializableRenderer$Type): $CompoundTag
-public static "deserializeWrapper"(tag: $CompoundTag$Type): $ISerializableRenderer
 public "createPreview"(father: $ConfiguratorGroup$Type): void
-public "reBakeCustomQuadsOffset"(): float
+public static "deserializeWrapper"(tag: $CompoundTag$Type): $ISerializableRenderer
+public static "serializeWrapper"(renderer: $ISerializableRenderer$Type): $CompoundTag
 public "isRaw"(): boolean
+public "reBakeCustomQuadsOffset"(): float
+public "hasTESR"(blockEntity: $BlockEntity$Type): boolean
+public "getViewDistance"(): integer
+public "isGlobalRenderer"(blockEntity: $BlockEntity$Type): boolean
+public "reBakeCustomQuads"(): boolean
+public "useAO"(state: $BlockState$Type): boolean
+public "registerEvent"(): void
 public "render"(blockEntity: $BlockEntity$Type, partialTicks: float, stack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer): void
 public "shouldRender"(blockEntity: $BlockEntity$Type, cameraPos: $Vec3$Type): boolean
-public "useAO"(state: $BlockState$Type): boolean
-public "isGlobalRenderer"(blockEntity: $BlockEntity$Type): boolean
-public "getViewDistance"(): integer
-public "reBakeCustomQuads"(): boolean
-public "hasTESR"(blockEntity: $BlockEntity$Type): boolean
-public "registerEvent"(): void
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
+public "getRegisterUIClient"(): $LDLRegisterClient
 public "isLDLRegister"(): boolean
 /**
  * 
  * @deprecated
  */
 public "getRegisterUI"(): $LDLRegister
-public "getRegisterUIClient"(): $LDLRegisterClient
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
-get "modelLocation"(): $ResourceLocation
-get "gui3d"(): boolean
+public "getChatComponent"(): $Component
 get "particleTexture"(): $TextureAtlasSprite
+get "gui3d"(): boolean
+get "modelLocation"(): $ResourceLocation
 get "raw"(): boolean
 get "viewDistance"(): integer
+get "registerUIClient"(): $LDLRegisterClient
 get "lDLRegister"(): boolean
 get "registerUI"(): $LDLRegister
-get "registerUIClient"(): $LDLRegisterClient
-get "chatComponent"(): $Component
 get "translateKey"(): string
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7474,20 +8712,20 @@ export type $IModelRenderer_ = $IModelRenderer$Type;
 declare module "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeHandler" {
 import {$RecipeCapability, $RecipeCapability$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$RecipeCapability"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$IRecipeCapabilityHolder, $IRecipeCapabilityHolder$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeCapabilityHolder"
+import {$List, $List$Type} from "packages/java/util/$List"
 import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
 import {$MBDRecipe, $MBDRecipe$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipe"
 
 export interface $IRecipeHandler<K> {
 
- "copyContent"(arg0: any): K
- "handleRecipe"(arg0: $IO$Type, arg1: $MBDRecipe$Type, arg2: $List$Type<(any)>, arg3: string, arg4: boolean): $List<(K)>
+ "getSlotNames"(): $Set<(string)>
+ "isDistinct"(): boolean
+ "getRecipeCapability"(): $RecipeCapability<(K)>
  "postWorking"(arg0: $IRecipeCapabilityHolder$Type, arg1: $IO$Type, arg2: $MBDRecipe$Type): void
  "preWorking"(arg0: $IRecipeCapabilityHolder$Type, arg1: $IO$Type, arg2: $MBDRecipe$Type): void
- "isDistinct"(): boolean
- "getSlotNames"(): $Set<(string)>
- "getRecipeCapability"(): $RecipeCapability<(K)>
+ "handleRecipe"(arg0: $IO$Type, arg1: $MBDRecipe$Type, arg2: $List$Type<(any)>, arg3: string, arg4: boolean): $List<(K)>
+ "copyContent"(arg0: any): K
  "handleRecipeInner"(arg0: $IO$Type, arg1: $MBDRecipe$Type, arg2: $List$Type<(K)>, arg3: string, arg4: boolean): $List<(K)>
 }
 
@@ -7554,24 +8792,24 @@ constructor(arg0: $Stream$Type<(any)>, arg1: integer, arg2: $CompoundTag$Type)
 
 public "test"(arg0: $Collection$Type<($Entity$Type)>): boolean
 public "isEmpty"(): boolean
-public static "of"(arg0: $TagKey$Type<($EntityType$Type<(any)>)>, arg1: integer, arg2: $CompoundTag$Type): $EntityIngredient
 public static "of"(): $EntityIngredient
-public static "of"(arg0: $TagKey$Type<($EntityType$Type<(any)>)>, arg1: integer): $EntityIngredient
 public static "of"(arg0: integer, ...arg1: ($EntityType$Type<(any)>)[]): $EntityIngredient
 public static "of"(arg0: $Stream$Type<($EntityType$Type<(any)>)>, arg1: integer, arg2: $CompoundTag$Type): $EntityIngredient
+public static "of"(arg0: $TagKey$Type<($EntityType$Type<(any)>)>, arg1: integer): $EntityIngredient
+public static "of"(arg0: $TagKey$Type<($EntityType$Type<(any)>)>, arg1: integer, arg2: $CompoundTag$Type): $EntityIngredient
 public "copy"(arg0: integer): $EntityIngredient
 public "copy"(): $EntityIngredient
 public "getCount"(): integer
 public "toJson"(): $JsonElement
 public static "fromJson"(arg0: $JsonElement$Type, arg1: boolean): $EntityIngredient
 public static "fromJson"(arg0: $JsonElement$Type): $EntityIngredient
-public "toNetwork"(arg0: $FriendlyByteBuf$Type): void
-public "getNbt"(): $CompoundTag
 public "setNbt"(arg0: $CompoundTag$Type): void
+public "getNbt"(): $CompoundTag
 public "getTypes"(): ($EntityType<(any)>)[]
 public static "fromNetwork"(arg0: $FriendlyByteBuf$Type): $EntityIngredient
-public "setCount"(arg0: integer): void
+public "toNetwork"(arg0: $FriendlyByteBuf$Type): void
 public static "fromValues"(arg0: $Stream$Type<(any)>, arg1: integer, arg2: $CompoundTag$Type): $EntityIngredient
+public "setCount"(arg0: integer): void
 public "or"(arg0: $Predicate$Type<(any)>): $Predicate<($Collection<($Entity)>)>
 public "negate"(): $Predicate<($Collection<($Entity)>)>
 public "and"(arg0: $Predicate$Type<(any)>): $Predicate<($Collection<($Entity)>)>
@@ -7579,8 +8817,8 @@ public static "isEqual"<T>(arg0: any): $Predicate<($Collection<($Entity)>)>
 public static "not"<T>(arg0: $Predicate$Type<(any)>): $Predicate<($Collection<($Entity)>)>
 get "empty"(): boolean
 get "count"(): integer
-get "nbt"(): $CompoundTag
 set "nbt"(value: $CompoundTag$Type)
+get "nbt"(): $CompoundTag
 get "types"(): ($EntityType<(any)>)[]
 set "count"(value: integer)
 }
@@ -7608,22 +8846,22 @@ export class $ProgressTexture extends $TransformTexture {
 constructor()
 constructor(emptyBarArea: $IGuiTexture$Type, filledBarArea: $IGuiTexture$Type)
 
-public "getEmptyBarArea"(): $IGuiTexture
-public "getFillDirection"(): $ProgressTexture$FillDirection
-public "getFilledBarArea"(): $IGuiTexture
 public "setUIResource"(texturesResource: $Resource$Type<($IGuiTexture$Type)>): void
 public "setFillDirection"(fillDirection: $ProgressTexture$FillDirection$Type): $ProgressTexture
+public "getFillDirection"(): $ProgressTexture$FillDirection
+public "getEmptyBarArea"(): $IGuiTexture
+public "getFilledBarArea"(): $IGuiTexture
 public "setTexture"(emptyBarArea: $IGuiTexture$Type, filledBarArea: $IGuiTexture$Type): $ProgressTexture
+public "updateTick"(): void
 public "getProgress"(): double
 public "setProgress"(progress: double): void
-public "updateTick"(): void
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
-get "emptyBarArea"(): $IGuiTexture
-get "fillDirection"(): $ProgressTexture$FillDirection
-get "filledBarArea"(): $IGuiTexture
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 set "uIResource"(value: $Resource$Type<($IGuiTexture$Type)>)
 set "fillDirection"(value: $ProgressTexture$FillDirection$Type)
+get "fillDirection"(): $ProgressTexture$FillDirection
+get "emptyBarArea"(): $IGuiTexture
+get "filledBarArea"(): $IGuiTexture
 get "progress"(): double
 set "progress"(value: double)
 }
@@ -7644,24 +8882,24 @@ import {$FluidStack, $FluidStack$Type} from "packages/com/lowdragmc/lowdraglib/s
 
 export interface $IFluidTransfer {
 
- "fill"(arg0: integer, arg1: $FluidStack$Type, arg2: boolean, arg3: boolean): long
- "fill"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): long
- "fill"(resource: $FluidStack$Type, simulate: boolean): long
+ "drain"(arg0: integer, arg1: $FluidStack$Type, arg2: boolean, arg3: boolean): $FluidStack
  "drain"(resource: $FluidStack$Type, simulate: boolean): $FluidStack
  "drain"(maxDrain: long, simulate: boolean, notifyChanges: boolean): $FluidStack
- "drain"(arg0: integer, arg1: $FluidStack$Type, arg2: boolean, arg3: boolean): $FluidStack
- "drain"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): $FluidStack
  "drain"(maxDrain: long, simulate: boolean): $FluidStack
- "getTankCapacity"(arg0: integer): long
- "getFluidInTank"(arg0: integer): $FluidStack
+ "drain"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): $FluidStack
+ "fill"(resource: $FluidStack$Type, simulate: boolean, notifyChanges: boolean): long
+ "fill"(resource: $FluidStack$Type, simulate: boolean): long
+ "fill"(arg0: integer, arg1: $FluidStack$Type, arg2: boolean, arg3: boolean): long
+ "restoreFromSnapshot"(arg0: any): void
+ "supportsDrain"(arg0: integer): boolean
+ "supportsFill"(arg0: integer): boolean
+ "createSnapshot"(): any
+ "onContentsChanged"(): void
+ "isFluidValid"(arg0: integer, arg1: $FluidStack$Type): boolean
  "setFluidInTank"(arg0: integer, arg1: $FluidStack$Type): void
  "getTanks"(): integer
- "supportsFill"(arg0: integer): boolean
- "supportsDrain"(arg0: integer): boolean
- "isFluidValid"(arg0: integer, arg1: $FluidStack$Type): boolean
- "onContentsChanged"(): void
- "createSnapshot"(): any
- "restoreFromSnapshot"(arg0: any): void
+ "getFluidInTank"(arg0: integer): $FluidStack
+ "getTankCapacity"(arg0: integer): long
 }
 
 export namespace $IFluidTransfer {
@@ -7694,15 +8932,15 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: string, arg2: string)
 
+public "isCancelable"(): boolean
+public "getListenerList"(): $ListenerList
+public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "getOldState"(): string
 public "getNewState"(): string
-public "getListenerList"(): $ListenerList
-public "isCancelable"(): boolean
-public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
+get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
 get "oldState"(): string
 get "newState"(): string
-get "listenerList"(): $ListenerList
-get "cancelable"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7738,6 +8976,47 @@ export type $MBDMachineEvents$MachineBeforeRecipeWorkingEventJS$Type = ($MBDMach
  */
 declare global {
 export type $MBDMachineEvents$MachineBeforeRecipeWorkingEventJS_ = $MBDMachineEvents$MachineBeforeRecipeWorkingEventJS$Type;
+}}
+declare module "packages/com/lowdragmc/lowdraglib/$Platform" {
+import {$RegistryAccess, $RegistryAccess$Type} from "packages/net/minecraft/core/$RegistryAccess"
+import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
+import {$MinecraftServer, $MinecraftServer$Type} from "packages/net/minecraft/server/$MinecraftServer"
+
+export class $Platform {
+static "FROZEN_REGISTRY_ACCESS": $RegistryAccess
+
+constructor()
+
+public static "getGamePath"(): $Path
+public static "isClient"(): boolean
+public static "isDevEnv"(): boolean
+public static "platformName"(): string
+public static "isDatagen"(): boolean
+public static "getFrozenRegistry"(): $RegistryAccess
+public static "isServerNotSafe"(): boolean
+public static "getMinecraftServer"(): $MinecraftServer
+public static "isForge"(): boolean
+public static "isModLoaded"(modId: string): boolean
+get "gamePath"(): $Path
+get "client"(): boolean
+get "devEnv"(): boolean
+get "datagen"(): boolean
+get "frozenRegistry"(): $RegistryAccess
+get "serverNotSafe"(): boolean
+get "minecraftServer"(): $MinecraftServer
+get "forge"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Platform$Type = ($Platform);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $Platform_ = $Platform$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineUseCatalystEventJS" {
 import {$MBDMachineEvents$MachineEventJS, $MBDMachineEvents$MachineEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineEventJS"
@@ -7777,16 +9056,16 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type)
 
+public "isCancelable"(): boolean
+public "getListenerList"(): $ListenerList
 public "getRecipe"(): $MBDRecipe
 public "setRecipe"(arg0: $MBDRecipe$Type): void
-public "getListenerList"(): $ListenerList
-public "isCancelable"(): boolean
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "gatherParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
+get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
 get "recipe"(): $MBDRecipe
 set "recipe"(value: $MBDRecipe$Type)
-get "listenerList"(): $ListenerList
-get "cancelable"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7811,26 +9090,26 @@ export class $ConfigBlockProperties$ConfigBlockPropertiesBuilder {
 
 public "toString"(): string
 public "build"(): $ConfigBlockProperties
+public "replaceable"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "canOcclude"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "blockSound"(arg0: $ConfigBlockProperties$BlockSound$Type): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "emissive"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "ignitedByLava"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "destroyTime"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "forceSolid"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "noParticleOnBreak"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "rotationState"(arg0: $RotationState$Type): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "useAO"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "renderTypes"(arg0: $ConfigBlockProperties$RenderTypes$Type): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "friction"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "hasCollision"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "jumpFactor"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "speedFactor"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "transparent"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
 public "isSuffocating"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "canBeWaterlogged"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
 public "isAir"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
 public "explosionResistance"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "rotationState"(arg0: $RotationState$Type): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "emissive"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "destroyTime"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "canOcclude"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "ignitedByLava"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "forceSolid"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "blockSound"(arg0: $ConfigBlockProperties$BlockSound$Type): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "noParticleOnBreak"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "speedFactor"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "hasCollision"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "friction"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "jumpFactor"(arg0: float): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "replaceable"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "renderTypes"(arg0: $ConfigBlockProperties$RenderTypes$Type): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "useAO"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "canBeWaterlogged"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
-public "transparent"(arg0: boolean): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7854,15 +9133,15 @@ export interface $ILDLRegisterClient extends $ILDLRegister {
 
  "name"(): string
  "group"(): string
+ "getRegisterUIClient"(): $LDLRegisterClient
  "isLDLRegister"(): boolean
 /**
  * 
  * @deprecated
  */
  "getRegisterUI"(): $LDLRegister
- "getRegisterUIClient"(): $LDLRegisterClient
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
+ "getChatComponent"(): $Component
 }
 
 export namespace $ILDLRegisterClient {
@@ -7929,12 +9208,12 @@ readonly "color": integer
 
 public static "values"(): ($ColorPattern)[]
 public static "valueOf"(name: string): $ColorPattern
-public "borderTexture"(border: integer): $ColorBorderTexture
 public static "generateRainbowColor"(): integer
 public static "generateRainbowColor"(tick: long): integer
-public "rectTexture"(): $ColorRectTexture
 public static "rainbowRectTexture"(border: integer): $ColorBorderTexture
 public static "rainbowRectTexture"(): $ColorRectTexture
+public "rectTexture"(): $ColorRectTexture
+public "borderTexture"(border: integer): $ColorBorderTexture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7991,54 +9270,54 @@ export class $ToggleMachineSound implements $IToggleConfigurable {
 constructor()
 
 public "isLoop"(): boolean
-public "createSoundConfigurator"(arg0: string, arg1: $Consumer$Type<($ResourceLocation$Type)>, arg2: $Supplier$Type<($ResourceLocation$Type)>): $Configurator
-public "getDelay"(): integer
-public "getVolume"(): float
-public "getSoundEvent"(): $SoundEvent
-public "getSound"(): $ResourceLocation
-public "isEnable"(): boolean
-public "getSoundSource"(): $SoundSource
 public "setDelay"(arg0: integer): void
-public "createMachineSound"(arg0: $BlockPos$Type, arg1: $BooleanSupplier$Type): $MachineSound
-public "isLoopWithShuffle"(): boolean
+public "isEnable"(): boolean
+public "getSound"(): $ResourceLocation
 public "setSound"(arg0: $ResourceLocation$Type): void
-public "setSoundSource"(arg0: $SoundSource$Type): void
-public "setLoop"(arg0: boolean): void
-public "setLoopWithShuffle"(arg0: boolean): void
-public "setSoundEvent"(arg0: $SoundEvent$Type): void
-public "setVolume"(arg0: float): void
-public "setEnable"(arg0: boolean): void
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
-public "setPitch"(arg0: float): void
+public "createSoundConfigurator"(arg0: string, arg1: $Consumer$Type<($ResourceLocation$Type)>, arg2: $Supplier$Type<($ResourceLocation$Type)>): $Configurator
 public "getPitch"(): float
+public "setPitch"(arg0: float): void
+public "getDelay"(): integer
+public "getSoundSource"(): $SoundSource
+public "getSoundEvent"(): $SoundEvent
+public "setVolume"(arg0: float): void
+public "getVolume"(): float
+public "createMachineSound"(arg0: $BlockPos$Type, arg1: $BooleanSupplier$Type): $MachineSound
+public "setLoopWithShuffle"(arg0: boolean): void
+public "setSoundSource"(arg0: $SoundSource$Type): void
+public "isLoopWithShuffle"(): boolean
+public "setSoundEvent"(arg0: $SoundEvent$Type): void
+public "setLoop"(arg0: boolean): void
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "setEnable"(arg0: boolean): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "loop"(): boolean
-get "delay"(): integer
-get "volume"(): float
-get "soundEvent"(): $SoundEvent
-get "sound"(): $ResourceLocation
-get "enable"(): boolean
-get "soundSource"(): $SoundSource
 set "delay"(value: integer)
-get "loopWithShuffle"(): boolean
+get "enable"(): boolean
+get "sound"(): $ResourceLocation
 set "sound"(value: $ResourceLocation$Type)
-set "soundSource"(value: $SoundSource$Type)
-set "loop"(value: boolean)
-set "loopWithShuffle"(value: boolean)
-set "soundEvent"(value: $SoundEvent$Type)
-set "volume"(value: float)
-set "enable"(value: boolean)
-set "pitch"(value: float)
 get "pitch"(): float
+set "pitch"(value: float)
+get "delay"(): integer
+get "soundSource"(): $SoundSource
+get "soundEvent"(): $SoundEvent
+set "volume"(value: float)
+get "volume"(): float
+set "loopWithShuffle"(value: boolean)
+set "soundSource"(value: $SoundSource$Type)
+get "loopWithShuffle"(): boolean
+set "soundEvent"(value: $SoundEvent$Type)
+set "loop"(value: boolean)
+set "enable"(value: boolean)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8076,19 +9355,19 @@ constructor()
 
 public "toJson"(arg0: $MBDRecipe$Type): $JsonObject
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $MBDRecipe
-public "capabilitiesToJson"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>): $JsonObject
-public static "tuplesToMap"(arg0: $List$Type<($Tuple$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>)>): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
-public static "conditionReader"(arg0: $FriendlyByteBuf$Type): $RecipeCondition
-public static "conditionWriter"(arg0: $FriendlyByteBuf$Type, arg1: $RecipeCondition$Type): void
-public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $MBDRecipe$Type): void
-public static "entryReader"(arg0: $FriendlyByteBuf$Type): $Tuple<($RecipeCapability<(any)>), ($List<($Content)>)>
+public "toNBT"(arg0: $MBDRecipe$Type): $CompoundTag
 public "capabilitiesToNBT"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>): $CompoundTag
-public static "entryWriter"(arg0: $FriendlyByteBuf$Type, arg1: $Map$Entry$Type<($RecipeCapability$Type<(any)>), (any)>): void
 public "capabilitiesFromNBT"(arg0: $CompoundTag$Type): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
 public "capabilitiesFromJson"(arg0: $JsonObject$Type): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
-public "fromNBT"(arg0: $ResourceLocation$Type, arg1: $CompoundTag$Type): $MBDRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $MBDRecipe
-public "toNBT"(arg0: $MBDRecipe$Type): $CompoundTag
+public static "conditionReader"(arg0: $FriendlyByteBuf$Type): $RecipeCondition
+public static "entryReader"(arg0: $FriendlyByteBuf$Type): $Tuple<($RecipeCapability<(any)>), ($List<($Content)>)>
+public static "entryWriter"(arg0: $FriendlyByteBuf$Type, arg1: $Map$Entry$Type<($RecipeCapability$Type<(any)>), (any)>): void
+public static "conditionWriter"(arg0: $FriendlyByteBuf$Type, arg1: $RecipeCondition$Type): void
+public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $MBDRecipe$Type): void
+public "capabilitiesToJson"(arg0: $Map$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>): $JsonObject
+public static "tuplesToMap"(arg0: $List$Type<($Tuple$Type<($RecipeCapability$Type<(any)>), ($List$Type<($Content$Type)>)>)>): $Map<($RecipeCapability<(any)>), ($List<($Content)>)>
+public "fromNBT"(arg0: $ResourceLocation$Type, arg1: $CompoundTag$Type): $MBDRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $MBDRecipe
 }
@@ -8115,8 +9394,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
 import {$BlockPosFace, $BlockPosFace$Type} from "packages/com/lowdragmc/lowdraglib/utils/$BlockPosFace"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
-import {$PoseStack, $PoseStack$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack"
 import {$TrackedDummyWorld, $TrackedDummyWorld$Type} from "packages/com/lowdragmc/lowdraglib/utils/$TrackedDummyWorld"
+import {$PoseStack, $PoseStack$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
@@ -8140,117 +9419,117 @@ constructor(x: integer, y: integer, width: integer, height: integer, world: $Lev
 constructor(x: integer, y: integer, width: integer, height: integer, world: $Level$Type)
 
 public "getRange"(): float
-public "setOnSelected"(onSelected: $BiConsumer$Type<($BlockPos$Type), ($Direction$Type)>): $SceneWidget
-public "isDraggable"(): boolean
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "setRenderFacing"(renderFacing: boolean): $SceneWidget
-public "createScene"(world: $Level$Type, useFBOSceneRenderer: boolean): void
-public "createScene"(world: $Level$Type): void
-public "setRenderSelect"(renderSelect: boolean): $SceneWidget
-public "setRenderedCore"(blocks: $Collection$Type<($BlockPos$Type)>): $SceneWidget
-public "setRenderedCore"(blocks: $Collection$Type<($BlockPos$Type)>, renderHook: $ISceneBlockRenderHook$Type): $SceneWidget
-public "setBeforeWorldRender"(beforeWorldRender: $Consumer$Type<($SceneWidget$Type)>): $SceneWidget
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "updateScreen"(): void
+public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "getCenter"(): $Vector3f
 public "setCameraYawAndPitchAnima"(rotationYaw: float, rotationPitch: float, dur: integer): void
 public "setCameraYawAndPitch"(rotationYaw: float, rotationPitch: float): $SceneWidget
-public "getRenderer"(): $WorldSceneRenderer
-public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
-public "setOnAddedTooltips"(onAddedTooltips: $BiConsumer$Type<($SceneWidget$Type), ($List$Type<($Component$Type)>)>): $SceneWidget
+public "setBeforeWorldRender"(beforeWorldRender: $Consumer$Type<($SceneWidget$Type)>): $SceneWidget
+public "setAfterWorldRender"(afterWorldRender: $Consumer$Type<($SceneWidget$Type)>): $SceneWidget
 public "setDraggable"(draggable: boolean): $SceneWidget
 public "setIntractable"(intractable: boolean): $SceneWidget
 public "setScalable"(scalable: boolean): $SceneWidget
 public "isDragging"(): boolean
 public "setCenter"(center: $Vector3f$Type): $SceneWidget
-public "setGui"(gui: $ModularUI$Type): void
+public "setOnSelected"(onSelected: $BiConsumer$Type<($BlockPos$Type), ($Direction$Type)>): $SceneWidget
+public "getRenderer"(): $WorldSceneRenderer
+public "setRenderedCore"(blocks: $Collection$Type<($BlockPos$Type)>): $SceneWidget
+public "setRenderedCore"(blocks: $Collection$Type<($BlockPos$Type)>, renderHook: $ISceneBlockRenderHook$Type): $SceneWidget
+public "createScene"(world: $Level$Type): void
+public "createScene"(world: $Level$Type, useFBOSceneRenderer: boolean): void
 public "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
-public "useCacheBuffer"(): $SceneWidget
+public "isDraggable"(): boolean
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "setGui"(gui: $ModularUI$Type): void
+public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public "setRenderFacing"(renderFacing: boolean): $SceneWidget
+public "setRenderSelect"(renderSelect: boolean): $SceneWidget
+public "getParticleManager"(): $ParticleManager
+public "getOnSelected"(): $BiConsumer<($BlockPos), ($Direction)>
 public "useCacheBuffer"(autoReleased: boolean): $SceneWidget
-public "getClickPosFace"(): $BlockPosFace
+public "useCacheBuffer"(): $SceneWidget
 public "getHoverPosFace"(): $BlockPosFace
+public "getClickPosFace"(): $BlockPosFace
 public "getZoom"(): float
 public "setZoom"(zoom: float): $SceneWidget
-public "camZoom"(): float
-public "getRotationPitch"(): float
 public "getRotationYaw"(): float
+public "getRotationPitch"(): float
+public "camZoom"(): float
 public "useOrtho"(): $SceneWidget
 public "useOrtho"(useOrtho: boolean): $SceneWidget
-public "drawFacingBorder"(poseStack: $PoseStack$Type, posFace: $BlockPosFace$Type, color: integer, inner: integer): void
-public "drawFacingBorder"(poseStack: $PoseStack$Type, posFace: $BlockPosFace$Type, color: integer): void
-public "setClearColor"(color: integer): $SceneWidget
-public "needCompileCache"(): void
 public "getDummyWorld"(): $TrackedDummyWorld
 public "setHoverTips"(hoverTips: boolean): $SceneWidget
+public "needCompileCache"(): void
 public "renderBlockOverLay"(renderer: $WorldSceneRenderer$Type): void
+public "setClearColor"(color: integer): $SceneWidget
 public "releaseCacheBuffer"(): void
-public "getSelectedPosFace"(): $BlockPosFace
-public "getCurrentMouseX"(): integer
+public "drawFacingBorder"(poseStack: $PoseStack$Type, posFace: $BlockPosFace$Type, color: integer, inner: integer): void
+public "drawFacingBorder"(poseStack: $PoseStack$Type, posFace: $BlockPosFace$Type, color: integer): void
+public "isHoverTips"(): boolean
 public "getHoverItem"(): $ItemStack
-public "setOrthoRange"(range: float): $SceneWidget
-public "isUseOrtho"(): boolean
-public "isIntractable"(): boolean
-public "isUseCache"(): boolean
 public "isAutoReleased"(): boolean
 public "isRenderFacing"(): boolean
-public "isHoverTips"(): boolean
-public "getCore"(): $Set<($BlockPos)>
 public "isRenderSelect"(): boolean
+public "isUseCache"(): boolean
+public "isUseOrtho"(): boolean
+public "isIntractable"(): boolean
+public "setOrthoRange"(range: float): $SceneWidget
 public "isScalable"(): boolean
+public "getCurrentMouseX"(): integer
 public "getCurrentMouseY"(): integer
-public "getCenter"(): $Vector3f
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
-public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "updateScreen"(): void
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "getOnSelected"(): $BiConsumer<($BlockPos), ($Direction)>
-public "getParticleManager"(): $ParticleManager
-public "setAfterWorldRender"(afterWorldRender: $Consumer$Type<($SceneWidget$Type)>): $SceneWidget
+public "getSelectedPosFace"(): $BlockPosFace
+public "getCore"(): $Set<($BlockPos)>
+public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
+public "setOnAddedTooltips"(onAddedTooltips: $BiConsumer$Type<($SceneWidget$Type), ($List$Type<($Component$Type)>)>): $SceneWidget
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "range"(): float
-set "onSelected"(value: $BiConsumer$Type<($BlockPos$Type), ($Direction$Type)>)
-get "draggable"(): boolean
-set "renderFacing"(value: boolean)
-set "renderSelect"(value: boolean)
-set "renderedCore"(value: $Collection$Type<($BlockPos$Type)>)
+get "center"(): $Vector3f
 set "beforeWorldRender"(value: $Consumer$Type<($SceneWidget$Type)>)
-get "renderer"(): $WorldSceneRenderer
-set "onAddedTooltips"(value: $BiConsumer$Type<($SceneWidget$Type), ($List$Type<($Component$Type)>)>)
+set "afterWorldRender"(value: $Consumer$Type<($SceneWidget$Type)>)
 set "draggable"(value: boolean)
 set "intractable"(value: boolean)
 set "scalable"(value: boolean)
 get "dragging"(): boolean
 set "center"(value: $Vector3f$Type)
+set "onSelected"(value: $BiConsumer$Type<($BlockPos$Type), ($Direction$Type)>)
+get "renderer"(): $WorldSceneRenderer
+set "renderedCore"(value: $Collection$Type<($BlockPos$Type)>)
+get "draggable"(): boolean
 set "gui"(value: $ModularUI$Type)
-get "clickPosFace"(): $BlockPosFace
+set "renderFacing"(value: boolean)
+set "renderSelect"(value: boolean)
+get "particleManager"(): $ParticleManager
+get "onSelected"(): $BiConsumer<($BlockPos), ($Direction)>
 get "hoverPosFace"(): $BlockPosFace
+get "clickPosFace"(): $BlockPosFace
 get "zoom"(): float
 set "zoom"(value: float)
-get "rotationPitch"(): float
 get "rotationYaw"(): float
-set "clearColor"(value: integer)
+get "rotationPitch"(): float
 get "dummyWorld"(): $TrackedDummyWorld
 set "hoverTips"(value: boolean)
-get "selectedPosFace"(): $BlockPosFace
-get "currentMouseX"(): integer
+set "clearColor"(value: integer)
+get "hoverTips"(): boolean
 get "hoverItem"(): $ItemStack
-set "orthoRange"(value: float)
-get "intractable"(): boolean
-get "useCache"(): boolean
 get "autoReleased"(): boolean
 get "renderFacing"(): boolean
-get "hoverTips"(): boolean
-get "core"(): $Set<($BlockPos)>
 get "renderSelect"(): boolean
+get "useCache"(): boolean
+get "intractable"(): boolean
+set "orthoRange"(value: float)
 get "scalable"(): boolean
+get "currentMouseX"(): integer
 get "currentMouseY"(): integer
-get "center"(): $Vector3f
-get "onSelected"(): $BiConsumer<($BlockPos), ($Direction)>
-get "particleManager"(): $ParticleManager
-set "afterWorldRender"(value: $Consumer$Type<($SceneWidget$Type)>)
+get "selectedPosFace"(): $BlockPosFace
+get "core"(): $Set<($BlockPos)>
+set "onAddedTooltips"(value: $BiConsumer$Type<($SceneWidget$Type), ($List$Type<($Component$Type)>)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8330,43 +9609,43 @@ constructor(world: $Level$Type)
 public "clear"(): void
 public "getSize"(): $Vector3f
 public "addBlock"(pos: $BlockPos$Type, blockInfo: $BlockInfo$Type): void
-public "getChunkSource"(): $ChunkSource
-public "getFluidState"(pPos: $BlockPos$Type): $FluidState
-public "setInnerBlockEntity"(pBlockEntity: $BlockEntity$Type): void
-public static "withUnsafeNBTDiscarded"(stack: $ItemStack$Type): $ItemStack
-public "addFreshEntity"(entity: $Entity$Type): boolean
-public "getMaxPos"(): $Vector3f
 public "setBlock"(pos: $BlockPos$Type, state: $BlockState$Type, a: integer, b: integer): boolean
+public "getMaxPos"(): $Vector3f
+public "getRenderedBlocks"(): $Map<($BlockPos), ($BlockInfo)>
+public static "withUnsafeNBTDiscarded"(stack: $ItemStack$Type): $ItemStack
+public "setInnerBlockEntity"(pBlockEntity: $BlockEntity$Type): void
+public "addFreshEntity"(entity: $Entity$Type): boolean
+public "getBlockState"(pos: $BlockPos$Type): $BlockState
+public "getMinPos"(): $Vector3f
 public "setBlockEntity"(pBlockEntity: $BlockEntity$Type): void
 public "getEntity"(id: integer): $Entity
 public "getBlockTint"(blockPos: $BlockPos$Type, colorResolver: $ColorResolver$Type): integer
-public "getMinPos"(): $Vector3f
 public "getParticleManager"(): $ParticleManager
-public "removeBlock"(pos: $BlockPos$Type): $BlockInfo
-public "getRenderedBlocks"(): $Map<($BlockPos), ($BlockInfo)>
-public "getAllEntities"(): $List<($Entity)>
-public "setParticleManager"(particleManager: $ParticleManager$Type): void
-public "tickWorld"(): void
 public "addBlocks"(renderedBlocks: $Map$Type<($BlockPos$Type), ($BlockInfo$Type)>): void
+public "removeBlock"(pos: $BlockPos$Type): $BlockInfo
+public "setParticleManager"(particleManager: $ParticleManager$Type): void
 public static "isUnsafeItemNBTKey"(name: string): boolean
+public "tickWorld"(): void
 public "setRenderFilter"(renderFilter: $Predicate$Type<($BlockPos$Type)>): void
-public "getBlockState"(pos: $BlockPos$Type): $BlockState
+public "getAllEntities"(): $List<($Entity)>
 public "getBlockEntity"(pos: $BlockPos$Type): $BlockEntity
 public "getBiome"(pos: $BlockPos$Type): $Holder<($Biome)>
+public "getChunkSource"(): $ChunkSource
+public "getFluidState"(pPos: $BlockPos$Type): $FluidState
 public static "getAllLoadedEntities"(level: $Level$Type): $Iterable<($Entity)>
 public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
 public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
 get "size"(): $Vector3f
-get "chunkSource"(): $ChunkSource
-set "innerBlockEntity"(value: $BlockEntity$Type)
 get "maxPos"(): $Vector3f
-set "blockEntity"(value: $BlockEntity$Type)
-get "minPos"(): $Vector3f
-get "particleManager"(): $ParticleManager
 get "renderedBlocks"(): $Map<($BlockPos), ($BlockInfo)>
-get "allEntities"(): $List<($Entity)>
+set "innerBlockEntity"(value: $BlockEntity$Type)
+get "minPos"(): $Vector3f
+set "blockEntity"(value: $BlockEntity$Type)
+get "particleManager"(): $ParticleManager
 set "particleManager"(value: $ParticleManager$Type)
 set "renderFilter"(value: $Predicate$Type<($BlockPos$Type)>)
+get "allEntities"(): $List<($Entity)>
+get "chunkSource"(): $ChunkSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8394,12 +9673,12 @@ export class $ConfigItemProperties$ConfigItemPropertiesBuilder {
 public "toString"(): string
 public "build"(): $ConfigItemProperties
 public "maxStackSize"(arg0: integer): $ConfigItemProperties$ConfigItemPropertiesBuilder
+public "rarity"(arg0: $Rarity$Type): $ConfigItemProperties$ConfigItemPropertiesBuilder
 public "creativeTab"(arg0: $ToggleCreativeTab$Type): $ConfigItemProperties$ConfigItemPropertiesBuilder
 public "isGui3d"(arg0: boolean): $ConfigItemProperties$ConfigItemPropertiesBuilder
-public "itemTooltips"(arg0: $List$Type<($Component$Type)>): $ConfigItemProperties$ConfigItemPropertiesBuilder
 public "useBlockLight"(arg0: boolean): $ConfigItemProperties$ConfigItemPropertiesBuilder
+public "itemTooltips"(arg0: $List$Type<($Component$Type)>): $ConfigItemProperties$ConfigItemPropertiesBuilder
 public "renderer"(arg0: $ToggleRenderer$Type): $ConfigItemProperties$ConfigItemPropertiesBuilder
-public "rarity"(arg0: $Rarity$Type): $ConfigItemProperties$ConfigItemPropertiesBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8440,38 +9719,38 @@ constructor(blockState: $BlockState$Type)
 constructor(blockState: $BlockState$Type, hasBlockEntity: boolean)
 
 public "apply"(world: $Level$Type, pos: $BlockPos$Type): void
-public static "fromBlock"(block: $Block$Type): $BlockInfo
-public "getItemStackForm"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): $ItemStack
+public "getBlockState"(): $BlockState
+public "clearBlockEntityCache"(): void
+public "hasBlockEntity"(): boolean
+public "setPostCreate"(postCreate: $Consumer$Type<($BlockEntity$Type)>): void
+public "setHasBlockEntity"(hasBlockEntity: boolean): void
 public "getItemStackForm"(): $ItemStack
+public "getItemStackForm"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): $ItemStack
 public static "fromBlockState"(state: $BlockState$Type): $BlockInfo
 public "setTag"(tag: $CompoundTag$Type): void
 public "setBlockState"(blockState: $BlockState$Type): void
-public "getBlockEntity"(pos: $BlockPos$Type): $BlockEntity
 public "getBlockEntity"(level: $Level$Type, pos: $BlockPos$Type): $BlockEntity
+public "getBlockEntity"(pos: $BlockPos$Type): $BlockEntity
 public "setItemStack"(itemStack: $ItemStack$Type): void
-public "getBlockState"(): $BlockState
-public "clearBlockEntityCache"(): void
-public "setHasBlockEntity"(hasBlockEntity: boolean): void
-public "setPostCreate"(postCreate: $Consumer$Type<($BlockEntity$Type)>): void
-public "hasBlockEntity"(): boolean
+public static "fromBlock"(block: $Block$Type): $BlockInfo
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
+get "blockState"(): $BlockState
+set "postCreate"(value: $Consumer$Type<($BlockEntity$Type)>)
 get "itemStackForm"(): $ItemStack
 set "tag"(value: $CompoundTag$Type)
 set "blockState"(value: $BlockState$Type)
 set "itemStack"(value: $ItemStack$Type)
-get "blockState"(): $BlockState
-set "postCreate"(value: $Consumer$Type<($BlockEntity$Type)>)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8491,8 +9770,8 @@ import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$
 import {$IPersistedSerializable, $IPersistedSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$IPersistedSerializable"
 import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$ConfigMachineSettings$SignalConnection, $ConfigMachineSettings$SignalConnection$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineSettings$SignalConnection"
 import {$TraitDefinition, $TraitDefinition$Type} from "packages/com/lowdragmc/mbd2/common/trait/$TraitDefinition"
+import {$ConfigMachineSettings$SignalConnection, $ConfigMachineSettings$SignalConnection$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineSettings$SignalConnection"
 import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
 import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
 import {$ConfigMachineSettings$ConfigMachineSettingsBuilder, $ConfigMachineSettings$ConfigMachineSettingsBuilder$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineSettings$ConfigMachineSettingsBuilder"
@@ -8501,25 +9780,26 @@ export class $ConfigMachineSettings implements $IPersistedSerializable, $IConfig
 
 
 public static "builder"(): $ConfigMachineSettings$ConfigMachineSettingsBuilder
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
-public "dropMachineItem"(): boolean
-public "signalConnection"(): $ConfigMachineSettings$SignalConnection
-public "addTraitDefinition"(arg0: $TraitDefinition$Type): void
-public "removeTraitDefinition"(arg0: $TraitDefinition$Type): void
 public "machineLevel"(): integer
 public "traitDefinitions"(): $List<($TraitDefinition)>
 public "hasUI"(): boolean
+public "removeTraitDefinition"(arg0: $TraitDefinition$Type): void
+public "signalConnection"(): $ConfigMachineSettings$SignalConnection
+public "dropMachineItem"(): boolean
+public "addTraitDefinition"(arg0: $TraitDefinition$Type): void
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8569,33 +9849,33 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 export class $AnimationTexture extends $TransformTexture {
  "imageLocation": $ResourceLocation
 
+constructor()
 constructor(imageLocation: $ResourceLocation$Type)
 constructor(imageLocation: string)
-constructor()
 
+public "getTo"(): integer
 public "setColor"(color: integer): $AnimationTexture
 public "getFrom"(): integer
-public "setCellSize"(cellSize: integer): $AnimationTexture
-public "setAnimation"(from: integer, to: integer): $AnimationTexture
-public "setAnimation"(animation: integer): $AnimationTexture
-public "getCellSize"(): integer
-public "getAnimation"(): integer
 public "createPreview"(father: $ConfiguratorGroup$Type): void
+public "setCellSize"(cellSize: integer): $AnimationTexture
+public "getCellSize"(): integer
+public "setAnimation"(animation: integer): $AnimationTexture
+public "setAnimation"(from: integer, to: integer): $AnimationTexture
 public "setTexture"(imageLocation: string): $AnimationTexture
-public "getColor"(): integer
-public "getTo"(): integer
 public "updateTick"(): void
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+public "getAnimation"(): integer
+public "getColor"(): integer
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+get "to"(): integer
 set "color"(value: integer)
 get "from"(): integer
 set "cellSize"(value: integer)
-set "animation"(value: integer)
 get "cellSize"(): integer
-get "animation"(): integer
+set "animation"(value: integer)
 set "texture"(value: string)
+get "animation"(): integer
 get "color"(): integer
-get "to"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8621,20 +9901,20 @@ readonly "y": integer
 
 constructor(x: integer, y: integer)
 
+public "getY"(): integer
+public "add"(other: $Position$Type): $Position
 public "add"(size: $Size$Type): $Position
 public "add"(x: integer, y: integer): $Position
-public "add"(other: $Position$Type): $Position
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public static "of"(x: integer, y: integer): $Position
 public "subtract"(other: $Position$Type): $Position
-public "getY"(): integer
-public "vector2f"(): $Vector2f
-public "getX"(): integer
-public "addX"(x: integer): $Position
-public "addY"(y: integer): $Position
 public "vec2"(): $Vec2
+public "getX"(): integer
+public "addY"(y: integer): $Position
+public "addX"(x: integer): $Position
+public "vector2f"(): $Vector2f
 get "y"(): integer
 get "x"(): integer
 }
@@ -8656,9 +9936,9 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IngredientAccessor {
 
- "setValues"(arg0: ($Ingredient$Value$Type)[]): void
- "getValues"(): ($Ingredient$Value)[]
  "setItemStacks"(arg0: ($ItemStack$Type)[]): void
+ "getValues"(): ($Ingredient$Value)[]
+ "setValues"(arg0: ($Ingredient$Value$Type)[]): void
 }
 
 export namespace $IngredientAccessor {
@@ -8692,8 +9972,8 @@ readonly "predicate": $BooleanSupplier
 constructor(arg0: $SoundEvent$Type, arg1: $SoundSource$Type, arg2: $BooleanSupplier$Type, arg3: $BlockPos$Type, arg4: boolean, arg5: boolean, arg6: integer, arg7: float, arg8: float)
 
 public "release"(): void
-public "tick"(): void
 public "play"(): void
+public "tick"(): void
 public static "createUnseededRandom"(): $RandomSource
 }
 /**
@@ -8725,8 +10005,9 @@ constructor(arg0: $VoxelShape$Type)
 constructor(arg0: $VoxelShape$Type, arg1: boolean)
 
 public "setValue"(arg0: $VoxelShape$Type): void
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 set "value"(value: $VoxelShape$Type)
 }
 /**
@@ -8764,34 +10045,34 @@ export interface $IMachineBlockEntity extends $IAsyncAutoSyncBlockEntity, $IRPCB
  "getOffset"(): long
  "self"(): $BlockEntity
  "level"(): $Level
- "getMetaMachine"(): $IMachine
- "getOffsetTimer"(): long
- "scheduleRenderUpdate"(): void
  "loadCustomPersistedData"(arg0: $CompoundTag$Type): void
+ "scheduleRenderUpdate"(): void
  "saveCustomPersistedData"(arg0: $CompoundTag$Type, arg1: boolean): void
+ "getOffsetTimer"(): long
  "notifyBlockUpdate"(): void
- "asyncTick"(periodID: long): void
- "useAsyncThread"(): boolean
- "onInValid"(): void
- "onValid"(): void
+ "getMetaMachine"(): $IMachine
  "isAsyncSyncing"(): boolean
  "setAsyncSyncing"(syncing: boolean): void
+ "onInValid"(): void
+ "onValid"(): void
+ "useAsyncThread"(): boolean
+ "asyncTick"(periodID: long): void
  "getRPCMethod"(managed: $IManaged$Type, methodName: string): $RPCMethodMeta
- "generateRpcPacket"(managed: $IManaged$Type, methodName: string, ...args: (any)[]): $SPacketRPCMethodPayload
  "rpcToTracking"(managed: $IManaged$Type, methodName: string, ...args: (any)[]): void
+ "generateRpcPacket"(managed: $IManaged$Type, methodName: string, ...args: (any)[]): $SPacketRPCMethodPayload
  "rpcToPlayer"(managed: $IManaged$Type, player: $ServerPlayer$Type, methodName: string, ...args: (any)[]): void
  "loadManagedPersistentData"(tag: $CompoundTag$Type): void
  "saveManagedPersistentData"(tag: $CompoundTag$Type, forDrop: boolean): void
+ "defaultServerTick"(): void
  "readCustomSyncData"(tag: $CompoundTag$Type): void
+ "getSyncTag"(): string
  "writeCustomSyncData"(tag: $CompoundTag$Type): void
  "syncNow"(force: boolean): void
- "defaultServerTick"(): void
- "getSyncTag"(): string
  "getCurrentPos"(): $BlockPos
+ "getSelf"(): $BlockEntity
+ "getRootStorage"(): $IManagedStorage
  "getBlockEntityType"(): $BlockEntityType<(any)>
  "getNonLazyFields"(): ($IRef)[]
- "getRootStorage"(): $IManagedStorage
- "getSelf"(): $BlockEntity
 }
 
 export namespace $IMachineBlockEntity {
@@ -8809,6 +10090,30 @@ export type $IMachineBlockEntity$Type = ($IMachineBlockEntity);
 declare global {
 export type $IMachineBlockEntity_ = $IMachineBlockEntity$Type;
 }}
+declare module "packages/com/lowdragmc/photon/client/fx/$FXHelper" {
+import {$FX, $FX$Type} from "packages/com/lowdragmc/photon/client/fx/$FX"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
+
+export class $FXHelper {
+static readonly "FX_PATH": string
+
+constructor()
+
+public static "clearCache"(): integer
+public static "getFX"(fxLocation: $ResourceLocation$Type): $FX
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FXHelper$Type = ($FXHelper);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $FXHelper_ = $FXHelper$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/event/$MachineTickEvent" {
 import {$ListenerList, $ListenerList$Type} from "packages/net/minecraftforge/eventbus/$ListenerList"
 import {$MBDMachine, $MBDMachine$Type} from "packages/com/lowdragmc/mbd2/common/machine/$MBDMachine"
@@ -8820,10 +10125,10 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type)
 
-public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
-get "listenerList"(): $ListenerList
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8867,6 +10172,44 @@ export type $ManagedFieldHolder$Type = ($ManagedFieldHolder);
 declare global {
 export type $ManagedFieldHolder_ = $ManagedFieldHolder$Type;
 }}
+declare module "packages/com/lowdragmc/photon/client/fx/$FX" {
+import {$FXRuntime, $FXRuntime$Type} from "packages/com/lowdragmc/photon/client/fx/$FXRuntime"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$FXData, $FXData$Type} from "packages/com/lowdragmc/photon/client/fx/$FXData"
+import {$ITagSerializable, $ITagSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$ITagSerializable"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+
+export class $FX implements $ITagSerializable<($CompoundTag)> {
+
+constructor()
+
+public "getFxLocation"(): $ResourceLocation
+public "createSubFXRuntime"(name: string): $FXRuntime
+public "getSubFXs"(): $Map<(string), ($FXData)>
+public "getMainFX"(): $FXData
+public "createInternalRuntime"(): $FXRuntime
+public "deserializeNBT"(tag: $CompoundTag$Type): void
+public "createRuntime"(): $FXRuntime
+public "createRuntime"(deepCopy: boolean): $FXRuntime
+public "setFxLocation"(fxLocation: $ResourceLocation$Type): void
+get "fxLocation"(): $ResourceLocation
+get "subFXs"(): $Map<(string), ($FXData)>
+get "mainFX"(): $FXData
+set "fxLocation"(value: $ResourceLocation$Type)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FX$Type = ($FX);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $FX_ = $FX$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/widget/$HsbColorWidget" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
@@ -8888,57 +10231,57 @@ constructor()
 constructor(x: integer, y: integer, width: integer, height: integer)
 
 public "setColor"(argb: integer): $HsbColorWidget
-public "setBarWidth"(barWidth: integer): $HsbColorWidget
-public "isMouseOverMain"(mouseX: double, mouseY: double): boolean
-public "setShowRGB"(showRGB: boolean): $HsbColorWidget
-public "isShowRGB"(): boolean
-public "setGap"(gap: integer): $HsbColorWidget
-public "isShowAlpha"(): boolean
-public "setShowAlpha"(showAlpha: boolean): $HsbColorWidget
-public "setOnChanged"(onChanged: $IntConsumer$Type): $HsbColorWidget
-public "setColorSupplier"(colorSupplier: $IntSupplier$Type): $HsbColorWidget
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "isMouseOverColorSlider"(mouseX: double, mouseY: double): boolean
-public "isMouseOverAlphaSlider"(mouseX: double, mouseY: double): boolean
-public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
-public "detectAndSendChanges"(): void
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
-public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "updateScreen"(): void
 public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "widget"(): $Widget
+public "updateScreen"(): void
+public "setShowAlpha"(showAlpha: boolean): $HsbColorWidget
+public "setGap"(gap: integer): $HsbColorWidget
+public "setShowRGB"(showRGB: boolean): $HsbColorWidget
+public "isShowRGB"(): boolean
+public "setBarWidth"(barWidth: integer): $HsbColorWidget
+public "isMouseOverMain"(mouseX: double, mouseY: double): boolean
+public "isShowAlpha"(): boolean
+public "detectAndSendChanges"(): void
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
+public "setOnChanged"(onChanged: $IntConsumer$Type): $HsbColorWidget
+public "setColorSupplier"(colorSupplier: $IntSupplier$Type): $HsbColorWidget
+public "isMouseOverAlphaSlider"(mouseX: double, mouseY: double): boolean
+public "isMouseOverColorSlider"(mouseX: double, mouseY: double): boolean
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public "initTemplate"(): void
-public "serializeWrapper"(): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
+public "serializeWrapper"(): $CompoundTag
 public "handleDragging"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 set "color"(value: integer)
-set "barWidth"(value: integer)
+set "showAlpha"(value: boolean)
+set "gap"(value: integer)
 set "showRGB"(value: boolean)
 get "showRGB"(): boolean
-set "gap"(value: integer)
+set "barWidth"(value: integer)
 get "showAlpha"(): boolean
-set "showAlpha"(value: boolean)
 set "onChanged"(value: $IntConsumer$Type)
 set "colorSupplier"(value: $IntSupplier$Type)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8953,8 +10296,8 @@ declare global {
 export type $HsbColorWidget_ = $HsbColorWidget$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/ingredient/$IRecipeIngredientSlot" {
-import {$IngredientIO, $IngredientIO$Type} from "packages/com/lowdragmc/lowdraglib/jei/$IngredientIO"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$IngredientIO, $IngredientIO$Type} from "packages/com/lowdragmc/lowdraglib/jei/$IngredientIO"
 import {$IIngredientSlot, $IIngredientSlot$Type} from "packages/com/lowdragmc/lowdraglib/gui/ingredient/$IIngredientSlot"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$Widget"
@@ -8962,12 +10305,12 @@ import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widge
 export interface $IRecipeIngredientSlot extends $IIngredientSlot {
 
  "self"(): $Widget
- "getXEIChance"(): float
- "getXEIIngredients"(): $List<(any)>
- "getIngredientIO"(): $IngredientIO
- "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
  "getFullTooltipTexts"(): $List<($Component)>
  "getXEICurrentIngredient"(): any
+ "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
+ "getIngredientIO"(): $IngredientIO
+ "getXEIIngredients"(): $List<(any)>
+ "getXEIChance"(): float
 
 (): $Widget
 }
@@ -9013,6 +10356,54 @@ export type $MBDMachineDefinition$ConfigPartSettingsFactory$Type = ($MBDMachineD
 declare global {
 export type $MBDMachineDefinition$ConfigPartSettingsFactory_ = $MBDMachineDefinition$ConfigPartSettingsFactory$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/$PatternPreviewWidget" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$IConfigurableWidget, $IConfigurableWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurableWidget"
+import {$Resource, $Resource$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/resource/$Resource"
+import {$WidgetGroup, $WidgetGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$WidgetGroup"
+import {$ImageWidget, $ImageWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$ImageWidget"
+import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$Widget"
+import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
+import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/$Resources"
+import {$MultiblockMachineDefinition, $MultiblockMachineDefinition$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/$MultiblockMachineDefinition"
+import {$PatternPreviewWidget$MBPattern, $PatternPreviewWidget$MBPattern$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$PatternPreviewWidget$MBPattern"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$IGuiTexture, $IGuiTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$IGuiTexture"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+
+export class $PatternPreviewWidget extends $WidgetGroup {
+readonly "controllerDefinition": $MultiblockMachineDefinition
+readonly "descriptionWidget": $ImageWidget
+readonly "patterns": ($PatternPreviewWidget$MBPattern)[]
+ "layer": integer
+ "candidatePage": integer
+readonly "widgets": $List<($Widget)>
+
+
+public "drawInBackground"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: float): void
+public "updateScreen"(): void
+public "setPage"(arg0: integer): void
+public static "getPatternWidget"(arg0: $MultiblockMachineDefinition$Type): $PatternPreviewWidget
+public static "locateNextRegion"(arg0: integer): $BlockPos
+public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+set "page"(value: integer)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PatternPreviewWidget$Type = ($PatternPreviewWidget);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $PatternPreviewWidget_ = $PatternPreviewWidget$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/widget/$MenuWidget" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$IConfigurableWidget, $IConfigurableWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurableWidget"
@@ -9037,31 +10428,31 @@ readonly "widgets": $List<($Widget)>
 constructor(xPosition: integer, yPosition: integer, nodeHeight: integer, root: $TreeNode$Type<(K), (T)>)
 
 public "close"(): void
-public "setOnNodeClicked"(onNodeClicked: $Consumer$Type<($TreeNode$Type<(K), (T)>)>): $MenuWidget<(K), (T)>
-public "setKeyIconSupplier"(keyIconSupplier: $Function$Type<(K), ($IGuiTexture$Type)>): $MenuWidget<(K), (T)>
-public "setKeyNameSupplier"(keyNameSupplier: $Function$Type<(K), (string)>): $MenuWidget<(K), (T)>
+public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "mouseMoved"(mouseX: double, mouseY: double): boolean
+public "setAutoClose"(autoClose: boolean): $MenuWidget<(K), (T)>
+public "setNodeHoverTexture"(nodeHoverTexture: $IGuiTexture$Type): $MenuWidget<(K), (T)>
+public "setCrossLinePredicate"(crossLinePredicate: $Predicate$Type<(K)>): $MenuWidget<(K), (T)>
 public "initWidget"(): void
 public "setNodeTexture"(nodeTexture: $IGuiTexture$Type): $MenuWidget<(K), (T)>
 public "setLeafTexture"(leafTexture: $IGuiTexture$Type): $MenuWidget<(K), (T)>
-public "setNodeHoverTexture"(nodeHoverTexture: $IGuiTexture$Type): $MenuWidget<(K), (T)>
-public "setCrossLinePredicate"(crossLinePredicate: $Predicate$Type<(K)>): $MenuWidget<(K), (T)>
+public "setKeyIconSupplier"(keyIconSupplier: $Function$Type<(K), ($IGuiTexture$Type)>): $MenuWidget<(K), (T)>
+public "setOnNodeClicked"(onNodeClicked: $Consumer$Type<($TreeNode$Type<(K), (T)>)>): $MenuWidget<(K), (T)>
+public "setKeyNameSupplier"(keyNameSupplier: $Function$Type<(K), (string)>): $MenuWidget<(K), (T)>
 public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "mouseMoved"(mouseX: double, mouseY: double): boolean
-public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "setAutoClose"(autoClose: boolean): $MenuWidget<(K), (T)>
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-set "onNodeClicked"(value: $Consumer$Type<($TreeNode$Type<(K), (T)>)>)
-set "keyIconSupplier"(value: $Function$Type<(K), ($IGuiTexture$Type)>)
-set "keyNameSupplier"(value: $Function$Type<(K), (string)>)
-set "nodeTexture"(value: $IGuiTexture$Type)
-set "leafTexture"(value: $IGuiTexture$Type)
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+set "autoClose"(value: boolean)
 set "nodeHoverTexture"(value: $IGuiTexture$Type)
 set "crossLinePredicate"(value: $Predicate$Type<(K)>)
-set "autoClose"(value: boolean)
+set "nodeTexture"(value: $IGuiTexture$Type)
+set "leafTexture"(value: $IGuiTexture$Type)
+set "keyIconSupplier"(value: $Function$Type<(K), ($IGuiTexture$Type)>)
+set "onNodeClicked"(value: $Consumer$Type<($TreeNode$Type<(K), (T)>)>)
+set "keyNameSupplier"(value: $Function$Type<(K), (string)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9090,11 +10481,11 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type)
 
-public "getRecipe"(): $MBDRecipe
 public "getListenerList"(): $ListenerList
+public "getRecipe"(): $MBDRecipe
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-get "recipe"(): $MBDRecipe
 get "listenerList"(): $ListenerList
+get "recipe"(): $MBDRecipe
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9107,6 +10498,31 @@ export type $MachineOnRecipeWaitingEvent$Type = ($MachineOnRecipeWaitingEvent);
  */
 declare global {
 export type $MachineOnRecipeWaitingEvent_ = $MachineOnRecipeWaitingEvent$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder" {
+import {$ToggleCatalyst, $ToggleCatalyst$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleCatalyst"
+import {$ConfigMultiblockSettings, $ConfigMultiblockSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMultiblockSettings"
+
+export class $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder {
+
+
+public "toString"(): string
+public "build"(): $ConfigMultiblockSettings
+public "catalyst"(arg0: $ToggleCatalyst$Type): $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder
+public "showUIWhenClickStructure"(arg0: boolean): $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder
+public "showUIOnlyFormed"(arg0: boolean): $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder$Type = ($ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder_ = $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigBlockProperties" {
 import {$ConfigBlockProperties$BlockSound, $ConfigBlockProperties$BlockSound$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigBlockProperties$BlockSound"
@@ -9127,40 +10543,40 @@ export class $ConfigBlockProperties implements $IPersistedSerializable, $IConfig
 
 public "apply"(arg0: $StateMachine$Type<(any)>, arg1: $BlockBehaviour$Properties$Type): $BlockBehaviour$Properties
 public static "builder"(): $ConfigBlockProperties$ConfigBlockPropertiesBuilder
+public "replaceable"(): boolean
+public "canOcclude"(): boolean
+public "blockSound"(): $ConfigBlockProperties$BlockSound
+public "emissive"(): boolean
+public "ignitedByLava"(): boolean
+public "destroyTime"(): float
+public "forceSolid"(): boolean
+public "noParticleOnBreak"(): boolean
+public "rotationState"(): $RotationState
+public "useAO"(): boolean
+public "renderTypes"(): $ConfigBlockProperties$RenderTypes
+public "friction"(): float
+public "hasCollision"(): boolean
+public "jumpFactor"(): float
+public "speedFactor"(): float
+public "transparent"(): boolean
 public "isSuffocating"(): boolean
+public "canBeWaterlogged"(): boolean
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
 public "isAir"(): boolean
 public "explosionResistance"(): float
-public "rotationState"(): $RotationState
-public "emissive"(): boolean
-public "destroyTime"(): float
-public "canOcclude"(): boolean
-public "ignitedByLava"(): boolean
-public "forceSolid"(): boolean
-public "blockSound"(): $ConfigBlockProperties$BlockSound
-public "noParticleOnBreak"(): boolean
-public "speedFactor"(): float
-public "hasCollision"(): boolean
-public "friction"(): float
-public "jumpFactor"(): float
-public "replaceable"(): boolean
-public "renderTypes"(): $ConfigBlockProperties$RenderTypes
-public "useAO"(): boolean
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
-public "canBeWaterlogged"(): boolean
-public "transparent"(): boolean
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "suffocating"(): boolean
 get "air"(): boolean
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9174,6 +10590,32 @@ export type $ConfigBlockProperties$Type = ($ConfigBlockProperties);
 declare global {
 export type $ConfigBlockProperties_ = $ConfigBlockProperties$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/$MultiblockMachineDefinition$ConfigMultiblockSettingsFactory" {
+import {$ConfigMultiblockSettings, $ConfigMultiblockSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMultiblockSettings"
+import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
+
+export interface $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory extends $Supplier<($ConfigMultiblockSettings)> {
+
+ "get"(): $ConfigMultiblockSettings
+
+(): $ConfigMultiblockSettings
+}
+
+export namespace $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory$Type = ($MultiblockMachineDefinition$ConfigMultiblockSettingsFactory);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory_ = $MultiblockMachineDefinition$ConfigMultiblockSettingsFactory$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/widget/$DialogWidget" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$IConfigurableWidget, $IConfigurableWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurableWidget"
@@ -9184,8 +10626,8 @@ import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widge
 import {$BooleanConsumer, $BooleanConsumer$Type} from "packages/it/unimi/dsi/fastutil/booleans/$BooleanConsumer"
 import {$TreeNode, $TreeNode$Type} from "packages/com/lowdragmc/lowdraglib/gui/util/$TreeNode"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
+import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$TextTexture, $TextTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$TextTexture"
 import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/$Resources"
 import {$TextFieldWidget, $TextFieldWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$TextFieldWidget"
@@ -9204,39 +10646,39 @@ constructor(parent: $WidgetGroup$Type, isClient: boolean)
 constructor(x: integer, y: integer, width: integer, height: integer)
 
 public "close"(): void
-public "setClickClose"(clickClose: boolean): void
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "mouseMoved"(mouseX: double, mouseY: double): boolean
+public static "showStringEditorDialog"(parent: $WidgetGroup$Type, title: string, initial: string, predicate: $Predicate$Type<(string)>, result: $Consumer$Type<(string)>): $DialogWidget
 public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
 public static "showCheckBox"(parent: $WidgetGroup$Type, title: string, info: string, onClosed: $BooleanConsumer$Type): $DialogWidget
 public static "showCheckBox"(parent: $WidgetGroup$Type, title: string, info: string, width: integer, height: integer, onClosed: $BooleanConsumer$Type): $DialogWidget
-public "charTyped"(codePoint: character, modifiers: integer): boolean
-public "keyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
-public static "showStringEditorDialog"(parent: $WidgetGroup$Type, title: string, initial: string, predicate: $Predicate$Type<(string)>, result: $Consumer$Type<(string)>): $DialogWidget
 public static "showNotification"(parent: $WidgetGroup$Type, title: string, info: string): $DialogWidget
 public static "showNotification"(parent: $WidgetGroup$Type, title: string, info: string, width: integer, height: integer, onClosed: $Runnable$Type): $DialogWidget
-public static "showFileDialog"(parent: $WidgetGroup$Type, title: string, dir: $File$Type, isSelector: boolean, valid: $Predicate$Type<($TreeNode$Type<($File$Type), ($File$Type)>)>, result: $Consumer$Type<($File$Type)>): $DialogWidget
 public static "suffixFilter"(...suffixes: (string)[]): $Predicate<($TreeNode<($File), ($File)>)>
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public static "showFileDialog"(parent: $WidgetGroup$Type, title: string, dir: $File$Type, isSelector: boolean, valid: $Predicate$Type<($TreeNode$Type<($File$Type), ($File$Type)>)>, result: $Consumer$Type<($File$Type)>): $DialogWidget
 public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "mouseMoved"(mouseX: double, mouseY: double): boolean
-public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public static "createContainer"(dialog: $DialogWidget$Type, x: integer, y: integer, width: integer, height: integer, titleText: string): $WidgetGroup
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public "charTyped"(codePoint: character, modifiers: integer): boolean
+public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "keyReleased"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
 public static "createContainer"(dialog: $DialogWidget$Type, width: integer, height: integer, titleText: string): $WidgetGroup
-public "setParentInVisible"(): $DialogWidget
-public "setOnClosed"(onClosed: $Runnable$Type): $DialogWidget
-public static "createTextField"(parent: $WidgetGroup$Type, x: integer, y: integer, width: integer, height: integer): $TextFieldWidget
-public static "createButton"(parent: $WidgetGroup$Type, x: integer, y: integer, width: integer, height: integer, text: string, onClick: $Runnable$Type): $ButtonWidget
+public static "createContainer"(dialog: $DialogWidget$Type, x: integer, y: integer, width: integer, height: integer, titleText: string): $WidgetGroup
 public static "showItemSelector"(parent: $WidgetGroup$Type, title: string, init: $ItemStack$Type, itemConsumer: $Consumer$Type<($Item$Type)>): $DialogWidget
+public static "createTextField"(parent: $WidgetGroup$Type, x: integer, y: integer, width: integer, height: integer): $TextFieldWidget
+public "setParentInVisible"(): $DialogWidget
+public static "createButton"(parent: $WidgetGroup$Type, x: integer, y: integer, width: integer, height: integer, text: string, onClick: $Runnable$Type): $ButtonWidget
+public "setOnClosed"(onClosed: $Runnable$Type): $DialogWidget
 public static "createText"(parent: $WidgetGroup$Type, x: integer, y: integer, width: integer, height: integer): $TextTexture
+public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
+public "setClickClose"(clickClose: boolean): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-set "clickClose"(value: boolean)
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 set "onClosed"(value: $Runnable$Type)
+set "clickClose"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9276,33 +10718,33 @@ readonly "widgets": $List<($Widget)>
 constructor(editor: $Editor$Type)
 
 public "setSize"(size: $Size$Type): void
-public "isShow"(): boolean
-public "initWidget"(): void
-public "clearAllWidgets"(): void
-public "setTitle"(title: string): void
 public "hide"(): void
 public "hide"(animate: boolean): void
+public "isShow"(): boolean
+public "setTitle"(title: string): void
+public "show"(): void
+public "show"(animate: boolean): void
+public "initWidget"(): void
+public "clearAllWidgets"(): void
 public "getEditor"(): $Editor
+public "addNewToolBox"(name: string, texture: $ResourceTexture$Type, toolBoxSupplier: $Function$Type<($Size$Type), ($WidgetGroup$Type)>): void
 /**
  * 
  * @deprecated
  */
 public "addNewToolBox"(name: string, texture: $ResourceTexture$Type, toolBox: $WidgetGroup$Type): void
-public "addNewToolBox"(name: string, texture: $ResourceTexture$Type, toolBoxSupplier: $Function$Type<($Size$Type), ($WidgetGroup$Type)>): void
-public "getToolBoxes"(): $List<($Widget)>
 public "getTabContainer"(): $TabContainer
-public "show"(): void
-public "show"(animate: boolean): void
+public "getToolBoxes"(): $List<($Widget)>
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 set "size"(value: $Size$Type)
 set "title"(value: string)
 get "editor"(): $Editor
-get "toolBoxes"(): $List<($Widget)>
 get "tabContainer"(): $TabContainer
+get "toolBoxes"(): $List<($Widget)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9327,17 +10769,17 @@ export class $AnimatableMachine implements $GeoAnimatable {
 
 constructor(arg0: $MBDMachine$Type, arg1: $GeckolibRenderer$Type)
 
-public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
-public "getRenderer"(): $GeckolibRenderer
-public "getTick"(arg0: any): double
-public "getMachine"(): $MBDMachine
 public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getRenderer"(): $GeckolibRenderer
+public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
+public "getMachine"(): $MBDMachine
+public "getTick"(arg0: any): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
 public "getBoneResetTime"(): double
+get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "renderer"(): $GeckolibRenderer
 get "machine"(): $MBDMachine
-get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "boneResetTime"(): double
 }
 /**
@@ -9367,14 +10809,14 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type)
 
+public "getListenerList"(): $ListenerList
 public "getRecipe"(): $MBDRecipe
 public "setRecipe"(arg0: $MBDRecipe$Type): void
-public "getListenerList"(): $ListenerList
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "gatherParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
+get "listenerList"(): $ListenerList
 get "recipe"(): $MBDRecipe
 set "recipe"(value: $MBDRecipe$Type)
-get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9460,14 +10902,14 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $Entity$Type, arg2: $List$Type<($ItemStack$Type)>)
 
-public "getEntity"(): $Entity
+public "getDrops"(): $List<($ItemStack)>
 public "getListenerList"(): $ListenerList
+public "getEntity"(): $Entity
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "gatherParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-public "getDrops"(): $List<($ItemStack)>
-get "entity"(): $Entity
-get "listenerList"(): $ListenerList
 get "drops"(): $List<($ItemStack)>
+get "listenerList"(): $ListenerList
+get "entity"(): $Entity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9535,11 +10977,11 @@ declare module "packages/com/lowdragmc/lowdraglib/gui/widget/$DraggableScrollabl
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DraggableScrollableWidgetGroup$ISelected {
 
- "allowSelected"(arg0: double, arg1: double, arg2: integer): boolean
- "onUnSelected"(): void
  "onSelected"(): void
+ "onUnSelected"(): void
+ "allowSelected"(arg0: double, arg1: double, arg2: integer): boolean
 
-(arg0: double, arg1: double, arg2: integer): boolean
+(): void
 }
 
 export namespace $DraggableScrollableWidgetGroup$ISelected {
@@ -9563,8 +11005,8 @@ import {$IItemHandlerModifiable, $IItemHandlerModifiable$Type} from "packages/ne
 
 export interface $ISlotWidgetKJS {
 
- "kjs$setHandlerSlot"(itemHandler: $IItemHandlerModifiable$Type, slot: integer): void
  "kjs$self"(): $SlotWidget
+ "kjs$setHandlerSlot"(itemHandler: $IItemHandlerModifiable$Type, slot: integer): void
 }
 
 export namespace $ISlotWidgetKJS {
@@ -9650,17 +11092,20 @@ export class $TabButton extends $SwitchWidget {
 constructor()
 constructor(xPosition: integer, yPosition: integer, width: integer, height: integer)
 
-public "setBaseTexture"(...baseTexture: ($IGuiTexture$Type)[]): $TabButton
 public "setContainer"(container: $TabContainer$Type): void
+public "setBaseTexture"(...baseTexture: ($IGuiTexture$Type)[]): $TabButton
 public "onPressed"(clickData: $ClickData$Type, isPressed: boolean): void
+public "setPressedTexture"(...pressedTexture: ($IGuiTexture$Type)[]): $TabButton
+public "setTexture"(baseTexture: $IGuiTexture$Type, pressedTexture: $IGuiTexture$Type): $TabButton
 public "setHoverBorderTexture"(border: integer, color: integer): $TabButton
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-set "baseTexture"(value: ($IGuiTexture$Type)[])
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 set "container"(value: $TabContainer$Type)
+set "baseTexture"(value: ($IGuiTexture$Type)[])
+set "pressedTexture"(value: ($IGuiTexture$Type)[])
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9734,26 +11179,25 @@ constructor()
 constructor(exposedParameters: $List$Type<($ExposedParameter$Type<(any)>)>)
 
 public "initialize"(): void
-public "connect"(inputPort: $NodePort$Type, outputPort: $NodePort$Type, autoDisconnectInputs: boolean): $PortEdge
 public "connect"(inputPort: $NodePort$Type, outputPort: $NodePort$Type): $PortEdge
+public "connect"(inputPort: $NodePort$Type, outputPort: $NodePort$Type, autoDisconnectInputs: boolean): $PortEdge
 public "removeNode"(node: $BaseNode$Type): void
-public "addNode"(node: $BaseNode$Type): $BaseNode
-public "serializeNBT"(): $CompoundTag
-public "deserializeNBT"(tag: $CompoundTag$Type): void
-public "disconnect"(inputNode: $BaseNode$Type, inputFieldName: string, outputNode: $BaseNode$Type, outputFieldName: string): void
-public "disconnect"(edgeGUID: string): void
-public "disconnect"(edge: $PortEdge$Type): void
-public "getDepth"(): integer
-public "getExposedParameterFromIdentifier"(parameterIdentifier: string): $ExposedParameter<(any)>
 public "updateExposedParameter"(identifier: string, input: any): void
-public static "areTypesConnectable"(from: $Class$Type<(any)>, to: $Class$Type<(any)>): boolean
+public "getExposedParameterFromIdentifier"(parameterIdentifier: string): $ExposedParameter<(any)>
+public "addNode"(node: $BaseNode$Type): $BaseNode
 public "newGUID"(): $UUID
 public "addGUID"(guid: $UUID$Type): void
 public "addGUID"(guid: string): void
+public static "areTypesConnectable"(from: $Class$Type<(any)>, to: $Class$Type<(any)>): boolean
+public "getDepth"(): integer
+public "disconnect"(edgeGUID: string): void
+public "disconnect"(inputNode: $BaseNode$Type, inputFieldName: string, outputNode: $BaseNode$Type, outputFieldName: string): void
+public "disconnect"(edge: $PortEdge$Type): void
 public "onAssetDeleted"(): void
 public "resetNodes"(): void
 public "updateComputeOrder"(type: $BaseGraph$ComputeOrderType$Type): void
 public "notifyNodeChanged"(node: $BaseNode$Type): void
+public "deserializeNBT"(tag: $CompoundTag$Type): void
 get "depth"(): integer
 }
 /**
@@ -9791,24 +11235,24 @@ readonly "widgets": $List<($Widget)>
 constructor(editor: $Editor$Type, tabs: $List$Type<($ConfigPanel$Tab$Type)>)
 constructor(editor: $Editor$Type)
 
+public "onConfiguratorChangeUpdate"(tab: $ConfigPanel$Tab$Type, configurator: $Configurator$Type): void
 public "switchTag"(tab: $ConfigPanel$Tab$Type): void
-public "clearAllConfigurators"(): void
 public "clearAllConfigurators"(tab: $ConfigPanel$Tab$Type): void
-public "computeLayout"(tab: $ConfigPanel$Tab$Type): void
+public "clearAllConfigurators"(): void
 public "getEditor"(): $Editor
 public "openConfigurator"(tab: $ConfigPanel$Tab$Type, configurable: $IConfigurable$Type): void
-public "getPalette"(): $HsbColorWidget
 public "getFocus"(): $Map<($ConfigPanel$Tab), ($IConfigurable)>
 public "reloadTabs"(tabs: $List$Type<($ConfigPanel$Tab$Type)>): void
-public "onConfiguratorChangeUpdate"(tab: $ConfigPanel$Tab$Type, configurator: $Configurator$Type): void
+public "getPalette"(): $HsbColorWidget
+public "computeLayout"(tab: $ConfigPanel$Tab$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "editor"(): $Editor
-get "palette"(): $HsbColorWidget
 get "focus"(): $Map<($ConfigPanel$Tab), ($IConfigurable)>
+get "palette"(): $HsbColorWidget
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9824,8 +11268,8 @@ export type $ConfigPanel_ = $ConfigPanel$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/api/registry/$MBDRegistry$String" {
 import {$MBDRegistry, $MBDRegistry$Type} from "packages/com/lowdragmc/mbd2/api/registry/$MBDRegistry"
-import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
+import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -9835,10 +11279,10 @@ static readonly "REGISTERED": $Map<($ResourceLocation), ($MBDRegistry<(any), (an
 
 constructor(arg0: $ResourceLocation$Type)
 
-public "saveToNBT"(arg0: V): $Tag
 public "readBuf"(arg0: $FriendlyByteBuf$Type): V
-public "loadFromNBT"(arg0: $Tag$Type): V
 public "writeBuf"(arg0: V, arg1: $FriendlyByteBuf$Type): void
+public "saveToNBT"(arg0: V): $Tag
+public "loadFromNBT"(arg0: $Tag$Type): V
 public "codec"(): $Codec<(V)>
 }
 /**
@@ -9892,14 +11336,14 @@ import {$IManagedStorage, $IManagedStorage$Type} from "packages/com/lowdragmc/lo
 export interface $IRPCBlockEntity extends $IManagedBlockEntity {
 
  "getRPCMethod"(managed: $IManaged$Type, methodName: string): $RPCMethodMeta
- "generateRpcPacket"(managed: $IManaged$Type, methodName: string, ...args: (any)[]): $SPacketRPCMethodPayload
  "rpcToTracking"(managed: $IManaged$Type, methodName: string, ...args: (any)[]): void
+ "generateRpcPacket"(managed: $IManaged$Type, methodName: string, ...args: (any)[]): $SPacketRPCMethodPayload
  "rpcToPlayer"(managed: $IManaged$Type, player: $ServerPlayer$Type, methodName: string, ...args: (any)[]): void
  "getCurrentPos"(): $BlockPos
+ "getSelf"(): $BlockEntity
+ "getRootStorage"(): $IManagedStorage
  "getBlockEntityType"(): $BlockEntityType<(any)>
  "getNonLazyFields"(): ($IRef)[]
- "getRootStorage"(): $IManagedStorage
- "getSelf"(): $BlockEntity
 
 (managed: $IManaged$Type, methodName: string): $RPCMethodMeta
 }
@@ -9932,14 +11376,13 @@ export class $StateMachine<T extends $MachineState> implements $ITagSerializable
 constructor(arg0: T)
 
 public "getState"(arg0: string): T
-public "serializeNBT"(): $CompoundTag
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public static "createMultiblockDefault"<T extends $MachineState>(arg0: $Supplier$Type<($MachineState$Builder$Type<(T)>)>, arg1: $IRenderer$Type): T
 public static "createDefault"<T extends $MachineState>(arg0: $Supplier$Type<($MachineState$Builder$Type<(T)>)>): T
+public "getRootState"(): T
 public static "createSingleDefault"<T extends $MachineState>(arg0: $Supplier$Type<($MachineState$Builder$Type<(T)>)>, arg1: $IRenderer$Type): T
 public "initStateMachine"(): void
 public "hasState"(arg0: string): boolean
-public "getRootState"(): T
-public static "createMultiblockDefault"<T extends $MachineState>(arg0: $Supplier$Type<($MachineState$Builder$Type<(T)>)>, arg1: $IRenderer$Type): T
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 get "rootState"(): T
 }
 /**
@@ -10064,8 +11507,8 @@ public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Typ
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
 public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
 public "getDestroyProgress"(arg0: $BlockState$Type, arg1: $Player$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type): float
-public static "replaceOriginalBlock"(arg0: $BlockPos$Type, arg1: $Level$Type, arg2: $BlockPos$Type): void
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public static "replaceOriginalBlock"(arg0: $BlockPos$Type, arg1: $Level$Type, arg2: $BlockPos$Type): void
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getLightMap"(world: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): integer
@@ -10169,27 +11612,27 @@ public "setPriority"(arg0: integer): void
 public "getPriority"(): integer
 public "setName"(arg0: string): void
 public "getIcon"(): $IGuiTexture
-public "allowMultiple"(): boolean
-public "renderAfterWorldInTraitPanel"(arg0: $MachineTraitPanel$Type): void
-public static "deserializeDefinition"(arg0: $CompoundTag$Type): $TraitDefinition
 public static "serializeDefinition"(arg0: $TraitDefinition$Type): $CompoundTag
-public "getBESRenderer"(arg0: $IMachine$Type): $IRenderer
+public static "deserializeDefinition"(arg0: $CompoundTag$Type): $TraitDefinition
+public "renderAfterWorldInTraitPanel"(arg0: $MachineTraitPanel$Type): void
+public "allowMultiple"(): boolean
 public "createTrait"(arg0: $MBDMachine$Type): $ITrait
+public "getBESRenderer"(arg0: $IMachine$Type): $IRenderer
 public "getTranslateKey"(): string
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 set "priority"(value: integer)
 get "priority"(): integer
 get "icon"(): $IGuiTexture
 get "translateKey"(): string
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10225,20 +11668,20 @@ constructor(editor: $Editor$Type)
 
 public "clear"(): void
 public "getResources"(): $Resources
-public "isShow"(): boolean
-public "initWidget"(): void
-public "setGui"(gui: $ModularUI$Type): void
-public "loadResource"(resources: $Resources$Type, merge: boolean): void
 public "hide"(): void
-public "getEditor"(): $Editor
-public "getContainerMap"(): $Map<($Resource), ($ResourceContainer)>
-public "rebuildResource"(resourceName: string): void
+public "isShow"(): boolean
 public "show"(): void
+public "setGui"(gui: $ModularUI$Type): void
+public "initWidget"(): void
+public "loadResource"(resources: $Resources$Type, merge: boolean): void
+public "getEditor"(): $Editor
+public "rebuildResource"(resourceName: string): void
+public "getContainerMap"(): $Map<($Resource), ($ResourceContainer)>
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "resources"(): $Resources
 set "gui"(value: $ModularUI$Type)
 get "editor"(): $Editor
@@ -10255,6 +11698,48 @@ export type $ResourcePanel$Type = ($ResourcePanel);
  */
 declare global {
 export type $ResourcePanel_ = $ResourcePanel$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMultiblockSettings" {
+import {$ToggleCatalyst, $ToggleCatalyst$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleCatalyst"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
+import {$IPersistedSerializable, $IPersistedSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$IPersistedSerializable"
+import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder, $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder"
+
+export class $ConfigMultiblockSettings implements $IConfigurable, $IPersistedSerializable {
+
+
+public static "builder"(): $ConfigMultiblockSettings$ConfigMultiblockSettingsBuilder
+public "catalyst"(): $ToggleCatalyst
+public "showUIWhenClickStructure"(): boolean
+public "showUIOnlyFormed"(): boolean
+public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "deserializeNBT"(tag: $CompoundTag$Type): void
+public "name"(): string
+public "group"(): string
+public "isLDLRegister"(): boolean
+public "getTranslateKey"(): string
+public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
+get "lDLRegister"(): boolean
+get "translateKey"(): string
+get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ConfigMultiblockSettings$Type = ($ConfigMultiblockSettings);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ConfigMultiblockSettings_ = $ConfigMultiblockSettings$Type;
 }}
 declare module "packages/com/lowdragmc/photon/core/mixins/accessor/$MinecraftAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
@@ -10303,21 +11788,161 @@ export type $UIFactory$Type<T> = ($UIFactory<(T)>);
 declare global {
 export type $UIFactory_<T> = $UIFactory$Type<(T)>;
 }}
+declare module "packages/com/lowdragmc/lowdraglib/utils/$Builder" {
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+
+export class $Builder<T, B extends $Builder<(T), (B)>> {
+
+constructor()
+
+public "where"(symbol: character, value: T): B
+public "shallowCopy"(): B
+public "aisle"(...data: (string)[]): B
+public "bakeArray"(clazz: $Class$Type<(T)>, defaultValue: T): (((T)[])[])[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Builder$Type<T, B> = ($Builder<(T), (B)>);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $Builder_<T, B> = $Builder$Type<(T), (B)>;
+}}
+declare module "packages/com/lowdragmc/photon/client/gameobject/$FXObject" {
+import {$VertexConsumer, $VertexConsumer$Type} from "packages/com/mojang/blaze3d/vertex/$VertexConsumer"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$Particle, $Particle$Type} from "packages/net/minecraft/client/particle/$Particle"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
+import {$Camera, $Camera$Type} from "packages/net/minecraft/client/$Camera"
+import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$IFXObject, $IFXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$IFXObject"
+import {$Transform, $Transform$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/data/$Transform"
+import {$IEffect, $IEffect$Type} from "packages/com/lowdragmc/photon/client/fx/$IEffect"
+import {$IScene, $IScene$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$IScene"
+import {$ParticleRenderType, $ParticleRenderType$Type} from "packages/net/minecraft/client/particle/$ParticleRenderType"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$Quaternionf, $Quaternionf$Type} from "packages/org/joml/$Quaternionf"
+import {$LDLRegisterClient, $LDLRegisterClient$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegisterClient"
+import {$ISceneObject, $ISceneObject$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$ISceneObject"
+
+export class $FXObject extends $Particle implements $IFXObject {
+ "name": string
+readonly "transform": $Transform
+static "NO_RENDER_RENDER_TYPE": $ParticleRenderType
+
+
+public "getName"(): string
+public "remove"(force: boolean): void
+public "transform"(): $Transform
+public "setName"(name: string): void
+public "copy"(deep: boolean): $IFXObject
+public "getLevel"(): $Level
+public "setLevel"(level: $Level$Type): void
+public "deepCopy"(): $IFXObject
+public "getRenderType"(): $ParticleRenderType
+public "isAlive"(): boolean
+public "tick"(): void
+public "render"(pBuffer: $VertexConsumer$Type, pRenderInfo: $Camera$Type, pPartialTicks: float): void
+public "shouldCull"(): boolean
+public "getEffect"(): $IEffect
+public "updateTick"(): void
+public "getScene"(): $IScene
+public "move"(x: double, y: double, z: double): void
+public "setSceneInternal"(scene: $IScene$Type): void
+public "getRealLevel"(): $Level
+public "updateFrame"(partialTicks: float): void
+public "setEffect"(effect: $IEffect$Type): void
+public "setVisible"(visible: boolean): void
+public "isVisible"(): boolean
+public "reset"(): void
+public "updatePos"(newPos: $Vector3f$Type): void
+public "emmit"(effect: $IEffect$Type): void
+public "emmit"(effect: $IEffect$Type, position: $Vector3f$Type, rotation: $Quaternionf$Type, scale: $Vector3f$Type): void
+public static "deserializeWrapper"(tag: $CompoundTag$Type): $IFXObject
+public "updateRotation"(newRot: $Vector3f$Type): void
+public "updateRotation"(newRot: $Quaternionf$Type): void
+public "updateScale"(newScale: $Vector3f$Type): void
+public "copyTransformFrom"(fxObject: $IFXObject$Type): void
+public "copyTransformFrom"(fxObject: $IFXObject$Type, local: boolean, copyParent: boolean): void
+public "shallowCopy"(): $IFXObject
+public "deserializeNBT"(tag: $CompoundTag$Type): void
+public "id"(): $UUID
+public "destroy"(): void
+public "children"(): $List<($ISceneObject)>
+public "onParentChanged"(): void
+public "executeAll"(consumer: $Consumer$Type<($ISceneObject$Type)>, before: $Consumer$Type<($ISceneObject$Type)>, after: $Consumer$Type<($ISceneObject$Type)>): void
+public "executeAll"(consumer: $Consumer$Type<($ISceneObject$Type)>): void
+public "setScene"(scene: $IScene$Type): void
+public "onTransformChanged"(): void
+public "onChildChanged"(): void
+public "setTransform"(transform: $Transform$Type): void
+public "awake"(): void
+public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "name"(): string
+public "group"(): string
+public "getRegisterUIClient"(): $LDLRegisterClient
+public "isLDLRegister"(): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "getRegisterUI"(): $LDLRegister
+public "getTranslateKey"(): string
+public "getChatComponent"(): $Component
+get "level"(): $Level
+set "level"(value: $Level$Type)
+get "renderType"(): $ParticleRenderType
+get "alive"(): boolean
+get "effect"(): $IEffect
+get "scene"(): $IScene
+set "sceneInternal"(value: $IScene$Type)
+get "realLevel"(): $Level
+set "effect"(value: $IEffect$Type)
+set "visible"(value: boolean)
+get "visible"(): boolean
+set "scene"(value: $IScene$Type)
+get "registerUIClient"(): $LDLRegisterClient
+get "lDLRegister"(): boolean
+get "registerUI"(): $LDLRegister
+get "translateKey"(): string
+get "chatComponent"(): $Component
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FXObject$Type = ($FXObject);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $FXObject_ = $FXObject$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/widget/$DraggableScrollableWidgetGroup$IDraggable" {
 import {$DraggableScrollableWidgetGroup$ISelected, $DraggableScrollableWidgetGroup$ISelected$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$DraggableScrollableWidgetGroup$ISelected"
 
 export interface $DraggableScrollableWidgetGroup$IDraggable extends $DraggableScrollableWidgetGroup$ISelected {
 
- "canDragOutRange"(): boolean
- "startDrag"(mouseX: double, mouseY: double): void
  "allowDrag"(mouseX: double, mouseY: double, button: integer): boolean
  "endDrag"(mouseX: double, mouseY: double): void
+ "startDrag"(mouseX: double, mouseY: double): void
+ "canDragOutRange"(): boolean
  "dragging"(mouseX: double, mouseY: double, deltaX: double, deltaY: double): boolean
- "allowSelected"(arg0: double, arg1: double, arg2: integer): boolean
- "onUnSelected"(): void
  "onSelected"(): void
+ "onUnSelected"(): void
+ "allowSelected"(arg0: double, arg1: double, arg2: integer): boolean
 
-(): boolean
+(mouseX: double, mouseY: double, button: integer): boolean
 }
 
 export namespace $DraggableScrollableWidgetGroup$IDraggable {
@@ -10334,6 +11959,41 @@ export type $DraggableScrollableWidgetGroup$IDraggable$Type = ($DraggableScrolla
  */
 declare global {
 export type $DraggableScrollableWidgetGroup$IDraggable_ = $DraggableScrollableWidgetGroup$IDraggable$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/error/$PatternError" {
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$MultiblockState, $MultiblockState$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockState"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+
+export class $PatternError {
+
+constructor()
+
+public "getCandidates"(): $List<($List<($ItemStack)>)>
+public "getPos"(): $BlockPos
+public "getWorld"(): $Level
+public "getErrorInfo"(): $Component
+public "setWorldState"(arg0: $MultiblockState$Type): void
+get "candidates"(): $List<($List<($ItemStack)>)>
+get "pos"(): $BlockPos
+get "world"(): $Level
+get "errorInfo"(): $Component
+set "worldState"(value: $MultiblockState$Type)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PatternError$Type = ($PatternError);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $PatternError_ = $PatternError$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/common/item/$MBDMachineItem" {
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -10354,14 +12014,15 @@ static readonly "BY_BLOCK": $Map<($Block), ($Item)>
 static readonly "MAX_STACK_SIZE": integer
 static readonly "EAT_DURATION": integer
 static readonly "MAX_BAR_WIDTH": integer
+ "craftingRemainingItem": $Item
 
 constructor(arg0: $MBDMachineBlock$Type, arg1: $Item$Properties$Type)
 
-public "getDefinition"(): $MBDMachineDefinition
 public "getBlock"(): $MBDMachineBlock
+public "getDefinition"(): $MBDMachineDefinition
 public "getRenderer"(arg0: $ItemStack$Type): $IRenderer
-get "definition"(): $MBDMachineDefinition
 get "block"(): $MBDMachineBlock
+get "definition"(): $MBDMachineDefinition
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10385,8 +12046,8 @@ import {$Widget, $Widget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widge
 import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
 import {$IFluidTransfer, $IFluidTransfer$Type} from "packages/com/lowdragmc/lowdraglib/side/fluid/$IFluidTransfer"
 import {$ProgressTexture$FillDirection, $ProgressTexture$FillDirection$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$ProgressTexture$FillDirection"
-import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
+import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/$Resources"
 import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
 import {$FluidStack, $FluidStack$Type} from "packages/com/lowdragmc/lowdraglib/side/fluid/$FluidStack"
@@ -10408,90 +12069,90 @@ constructor(fluidTank: $IFluidStorage$Type, x: integer, y: integer, width: integ
 constructor(fluidTank: $IFluidStorage$Type, x: integer, y: integer, allowClickContainerFilling: boolean, allowClickContainerEmptying: boolean)
 constructor()
 
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "getTooltipTexts"(): $List<($Component)>
-public "initTemplate"(): void
-public "getXEIChance"(): float
-public "getXEIIngredients"(): $List<(any)>
-public "setDrawHoverTips"(drawHoverTips: boolean): $TankWidget
-public "setChangeListener"(changeListener: $Runnable$Type): $TankWidget
-public "setOnAddedTooltips"(onAddedTooltips: $BiConsumer$Type<($TankWidget$Type), ($List$Type<($Component$Type)>)>): $TankWidget
-public "setIngredientIO"(ingredientIO: $IngredientIO$Type): $TankWidget
-public "setXEIChance"(XEIChance: float): $TankWidget
-public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "getIngredientIO"(): $IngredientIO
-public "detectAndSendChanges"(): void
-public "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
-public "setDrawHoverOverlay"(drawHoverOverlay: boolean): $TankWidget
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "getFullTooltipTexts"(): $List<($Component)>
-public "getXEICurrentIngredient"(): any
+public "setDrawHoverOverlay"(drawHoverOverlay: boolean): $TankWidget
 public "getAdditionalToolTips"(list: $List$Type<($Component$Type)>): $List<($Component)>
-public "setAllowClickFilled"(allowClickFilled: boolean): $TankWidget
-public "getLastTankCapacity"(): long
-public "setAllowClickDrained"(allowClickDrained: boolean): $TankWidget
+public "getXEICurrentIngredient"(): any
+public "setFluid"(fluidStack: $FluidStack$Type, notify: boolean): $TankWidget
+public "setFluid"(fluidStack: $FluidStack$Type): $TankWidget
 public "setFillDirection"(fillDirection: $ProgressTexture$FillDirection$Type): $TankWidget
 public "setFluidTank"(fluidTank: $IFluidStorage$Type): $TankWidget
 public "setFluidTank"(fluidTank: $IFluidTransfer$Type, tank: integer): $TankWidget
-public "getFluidTank"(): $IFluidTransfer
-public "getLastFluidInTank"(): $FluidStack
-public "getTank"(): integer
 public "setShowAmount"(showAmount: boolean): $TankWidget
-public "setFluid"(fluidStack: $FluidStack$Type, notify: boolean): $TankWidget
-public "setFluid"(fluidStack: $FluidStack$Type): $TankWidget
-public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "getTank"(): integer
+public "getLastFluidInTank"(): $FluidStack
+public "setAllowClickDrained"(allowClickDrained: boolean): $TankWidget
+public "getLastTankCapacity"(): long
+public "setAllowClickFilled"(allowClickFilled: boolean): $TankWidget
+public "getXEIIngredientOverMouse"(mouseX: double, mouseY: double): any
+public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "detectAndSendChanges"(): void
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "getTooltipTexts"(): $List<($Component)>
+public "initTemplate"(): void
 public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
-public "setBackground"(background: $IGuiTexture$Type): $TankWidget
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
 public "getFluid"(): $FluidStack
+public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "setBackground"(background: $IGuiTexture$Type): $TankWidget
+public "getIngredientIO"(): $IngredientIO
+public "getXEIIngredients"(): $List<(any)>
+public "getXEIChance"(): float
+public "setChangeListener"(changeListener: $Runnable$Type): $TankWidget
+public "setOnAddedTooltips"(onAddedTooltips: $BiConsumer$Type<($TankWidget$Type), ($List$Type<($Component$Type)>)>): $TankWidget
+public "setDrawHoverTips"(drawHoverTips: boolean): $TankWidget
+public "setIngredientIO"(ingredientIO: $IngredientIO$Type): $TankWidget
+public "setXEIChance"(XEIChance: float): $TankWidget
+public "getFluidTank"(): $IFluidTransfer
 public "self"(): $Widget
-public "widget"(): $Widget
-public "serializeWrapper"(): $CompoundTag
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
+public "serializeWrapper"(): $CompoundTag
 public "handleDragging"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
-get "tooltipTexts"(): $List<($Component)>
-get "xEIChance"(): float
-get "xEIIngredients"(): $List<(any)>
-set "drawHoverTips"(value: boolean)
-set "changeListener"(value: $Runnable$Type)
-set "onAddedTooltips"(value: $BiConsumer$Type<($TankWidget$Type), ($List$Type<($Component$Type)>)>)
-set "ingredientIO"(value: $IngredientIO$Type)
-set "xEIChance"(value: float)
-get "ingredientIO"(): $IngredientIO
-set "drawHoverOverlay"(value: boolean)
+public "getChatComponent"(): $Component
 get "fullTooltipTexts"(): $List<($Component)>
+set "drawHoverOverlay"(value: boolean)
 get "xEICurrentIngredient"(): any
-set "allowClickFilled"(value: boolean)
-get "lastTankCapacity"(): long
-set "allowClickDrained"(value: boolean)
+set "fluid"(value: $FluidStack$Type)
 set "fillDirection"(value: $ProgressTexture$FillDirection$Type)
 set "fluidTank"(value: $IFluidStorage$Type)
-get "fluidTank"(): $IFluidTransfer
-get "lastFluidInTank"(): $FluidStack
-get "tank"(): integer
 set "showAmount"(value: boolean)
-set "fluid"(value: $FluidStack$Type)
-set "background"(value: $IGuiTexture$Type)
+get "tank"(): integer
+get "lastFluidInTank"(): $FluidStack
+set "allowClickDrained"(value: boolean)
+get "lastTankCapacity"(): long
+set "allowClickFilled"(value: boolean)
+get "tooltipTexts"(): $List<($Component)>
 get "fluid"(): $FluidStack
+set "background"(value: $IGuiTexture$Type)
+get "ingredientIO"(): $IngredientIO
+get "xEIIngredients"(): $List<(any)>
+get "xEIChance"(): float
+set "changeListener"(value: $Runnable$Type)
+set "onAddedTooltips"(value: $BiConsumer$Type<($TankWidget$Type), ($List$Type<($Component$Type)>)>)
+set "drawHoverTips"(value: boolean)
+set "ingredientIO"(value: $IngredientIO$Type)
+set "xEIChance"(value: float)
+get "fluidTank"(): $IFluidTransfer
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10563,6 +12224,29 @@ export type $ToggleCreativeTab$Type = ($ToggleCreativeTab);
 declare global {
 export type $ToggleCreativeTab_ = $ToggleCreativeTab$Type;
 }}
+declare module "packages/com/lowdragmc/photon/client/gameobject/emitter/data/$RendererSetting$Layer" {
+import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
+
+export class $RendererSetting$Layer extends $Enum<($RendererSetting$Layer)> {
+static readonly "Opaque": $RendererSetting$Layer
+static readonly "Translucent": $RendererSetting$Layer
+
+
+public static "values"(): ($RendererSetting$Layer)[]
+public static "valueOf"(name: string): $RendererSetting$Layer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RendererSetting$Layer$Type = (("translucent") | ("opaque")) | ($RendererSetting$Layer);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $RendererSetting$Layer_ = $RendererSetting$Layer$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/util/$ClickData" {
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 
@@ -10588,6 +12272,57 @@ export type $ClickData$Type = ($ClickData);
  */
 declare global {
 export type $ClickData_ = $ClickData$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockShapeInfo" {
+import {$BlockInfo, $BlockInfo$Type} from "packages/com/lowdragmc/lowdraglib/utils/$BlockInfo"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
+import {$ITagSerializable, $ITagSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$ITagSerializable"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
+import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$ConfiguratorGroup"
+import {$MultiblockShapeInfo$ShapeInfoBuilder, $MultiblockShapeInfo$ShapeInfoBuilder$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockShapeInfo$ShapeInfoBuilder"
+
+export class $MultiblockShapeInfo implements $IConfigurable, $ITagSerializable<($CompoundTag)> {
+
+constructor(arg0: ((($BlockInfo$Type)[])[])[])
+constructor(arg0: ((($BlockInfo$Type)[])[])[], arg1: $List$Type<(string)>)
+
+public "getDescription"(): $List<(string)>
+public static "builder"(): $MultiblockShapeInfo$ShapeInfoBuilder
+public "setDescription"(arg0: $List$Type<(string)>): void
+public "setBlocks"(arg0: ((($BlockInfo$Type)[])[])[]): void
+public "getBlocks"(): ((($BlockInfo)[])[])[]
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public static "loadFromTag"(arg0: $CompoundTag$Type): $MultiblockShapeInfo
+public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "name"(): string
+public "group"(): string
+public "isLDLRegister"(): boolean
+public "getTranslateKey"(): string
+public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
+get "description"(): $List<(string)>
+set "description"(value: $List$Type<(string)>)
+set "blocks"(value: ((($BlockInfo$Type)[])[])[])
+get "blocks"(): ((($BlockInfo)[])[])[]
+get "lDLRegister"(): boolean
+get "translateKey"(): string
+get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MultiblockShapeInfo$Type = ($MultiblockShapeInfo);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MultiblockShapeInfo_ = $MultiblockShapeInfo$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/widget/$TabContainer" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
@@ -10615,21 +12350,21 @@ readonly "widgets": $List<($Widget)>
 constructor()
 constructor(x: integer, y: integer, width: integer, height: integer)
 
-public "setOnChanged"(onChanged: $BiConsumer$Type<($WidgetGroup$Type), ($WidgetGroup$Type)>): $TabContainer
+public "switchTag"(tabWidget: $WidgetGroup$Type): void
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public "getHoverElement"(mouseX: double, mouseY: double): $Widget
 public "initTemplate"(): void
 public "clearAllWidgets"(): void
-public "acceptWidget"(widget: $IConfigurableWidget$Type): void
 public "serializeInnerNBT"(): $CompoundTag
-public "removeTab"(tabButton: $TabButton$Type): void
-public "switchTag"(tabWidget: $WidgetGroup$Type): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public "acceptWidget"(widget: $IConfigurableWidget$Type): void
 public "addTab"(tabButton: $TabButton$Type, tabWidget: $WidgetGroup$Type): void
+public "removeTab"(tabButton: $TabButton$Type): void
+public "setOnChanged"(onChanged: $BiConsumer$Type<($WidgetGroup$Type), ($WidgetGroup$Type)>): $TabContainer
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 set "onChanged"(value: $BiConsumer$Type<($WidgetGroup$Type), ($WidgetGroup$Type)>)
 }
 /**
@@ -10665,17 +12400,17 @@ public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "value"(): T
 set "value"(value: T)
 get "enable"(): boolean
 set "enable"(value: boolean)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10729,19 +12464,19 @@ public "position"(position: $Position$Type): $Animation
 public "size"(size: $Size$Type): $Animation
 public "delay"(delay: long): $Animation
 public "duration"(duration: long): $Animation
-public "appendOnFinish"(onFinish: $Runnable$Type): $Animation
-public "setWidget"(widget: $Widget$Type): $Animation
-public "isFinish"(): boolean
-public "getOnFinish"(): $Runnable
+public "onFinish"(onFinish: $Runnable$Type): $Animation
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "onUpdate"(onUpdate: $FloatConsumer$Type): $Animation
 public "getWidget"(): $Widget
-public "onFinish"(onFinish: $Runnable$Type): $Animation
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "isFinish"(): boolean
+public "setWidget"(widget: $Widget$Type): $Animation
+public "getOnFinish"(): $Runnable
+public "appendOnFinish"(onFinish: $Runnable$Type): $Animation
 public "ease"(ease: $IEase$Type): $Animation
-set "widget"(value: $Widget$Type)
-get "finish"(): boolean
 get "widget"(): $Widget
+get "finish"(): boolean
+set "widget"(value: $Widget$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10772,23 +12507,24 @@ constructor()
 
 public "getName"(): string
 public "setName"(arg0: string): $Animation
-public "setStages"(arg0: $List$Type<($AnimationStage$Type)>): $Animation
 public "getStages"(): $List<($AnimationStage)>
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "setStages"(arg0: $List$Type<($AnimationStage$Type)>): $Animation
 public "toRawAnimation"(): $RawAnimation
 public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
-set "stages"(value: $List$Type<($AnimationStage$Type)>)
+public "getChatComponent"(): $Component
 get "stages"(): $List<($AnimationStage)>
+set "stages"(value: $List$Type<($AnimationStage$Type)>)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10872,6 +12608,110 @@ export type $ExposedParameter$ParameterAccessor$Type = (("set") | ("get")) | ($E
 declare global {
 export type $ExposedParameter$ParameterAccessor_ = $ExposedParameter$ParameterAccessor$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/api/machine/$IMultiController" {
+import {$RecipeCapability, $RecipeCapability$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$RecipeCapability"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$MultiblockState, $MultiblockState$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockState"
+import {$Table, $Table$Type} from "packages/com/google/common/collect/$Table"
+import {$IMultiPart, $IMultiPart$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMultiPart"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IMachine, $IMachine$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMachine"
+import {$IRecipeHandler, $IRecipeHandler$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeHandler"
+import {$Lock, $Lock$Type} from "packages/java/util/concurrent/locks/$Lock"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$MBDRecipe, $MBDRecipe$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipe"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$MBDRecipeType, $MBDRecipeType$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipeType"
+import {$BlockPattern, $BlockPattern$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$BlockPattern"
+import {$ContentModifier, $ContentModifier$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$ContentModifier"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$RecipeLogic$Status, $RecipeLogic$Status$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$RecipeLogic$Status"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$RecipeLogic, $RecipeLogic$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$RecipeLogic"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
+
+export interface $IMultiController extends $IMachine {
+
+ "getPattern"(): $BlockPattern
+ "checkPattern"(): boolean
+ "checkPatternWithLock"(): boolean
+ "alwaysTryModifyRecipe"(): boolean
+ "shouldAddPartToController"(arg0: $IMultiPart$Type): boolean
+ "checkPatternWithTryLock"(): boolean
+ "notifyRecipeStatusChanged"(arg0: $RecipeLogic$Status$Type, arg1: $RecipeLogic$Status$Type): void
+ "onStructureInvalid"(arg0: boolean): void
+ "onStructureInvalid"(): void
+ "isFormedValid"(): boolean
+ "getMaxParallel"(arg0: $MBDRecipe$Type): $ContentModifier
+ "getModifiedRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+ "onStructureFormed"(): void
+ "getPatternLock"(): $Lock
+ "asyncCheckPattern"(arg0: long): void
+ "onWaiting"(): void
+ "onWorking"(): boolean
+ "getPartAppearance"(arg0: $IMultiPart$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $BlockPos$Type): $BlockState
+ "onPartUnload"(): void
+ "afterWorking"(): void
+ "beforeWorking"(arg0: $MBDRecipe$Type): boolean
+ "getMultiblockState"(): $MultiblockState
+ "isFormed"(): boolean
+ "getParts"(): $List<($IMultiPart)>
+ "getOffset"(): long
+ "getLevel"(): $Level
+ "getBlockState"(): $BlockState
+ "loadCustomPersistedData"(arg0: $CompoundTag$Type): void
+ "scheduleRenderUpdate"(): void
+ "getRecipeDampingValue"(): integer
+ "saveCustomPersistedData"(arg0: $CompoundTag$Type, arg1: boolean): void
+ "onFuelBurningFinish"(arg0: $MBDRecipe$Type): void
+ "alwaysReSearchRecipe"(): boolean
+ "getFrontFacing"(): $Optional<($Direction)>
+ "onRotated"(arg0: $Direction$Type, arg1: $Direction$Type): void
+ "hasFrontFacing"(): boolean
+ "isInValid"(): boolean
+ "setFrontFacing"(arg0: $Direction$Type): void
+ "getOffsetTimer"(): long
+ "isFacingValid"(arg0: $Direction$Type): boolean
+ "runRecipeLogic"(): boolean
+ "getChanceTier"(): integer
+ "dampingWhenWaiting"(): boolean
+ "onUnload"(): void
+ "getMachineLevel"(): integer
+ "modifyFuelRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+ "applyParallel"(arg0: $MBDRecipe$Type, arg1: integer): $MBDRecipe
+ "getRecipeLogic"(): $RecipeLogic
+ "getRecipeType"(): $MBDRecipeType
+ "notifyBlockUpdate"(): void
+ "onLoad"(): void
+ "getHolder"(): $BlockEntity
+ "getPos"(): $BlockPos
+ "markDirty"(): void
+ "doModifyRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+ "getRecipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
+ "hasProxies"(): boolean
+}
+
+export namespace $IMultiController {
+function ofController(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMultiController)>
+function ofController(arg0: $BlockEntity$Type): $Optional<($IMultiController)>
+function ofMachine(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMachine)>
+function ofMachine(arg0: $BlockEntity$Type): $Optional<($IMachine)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IMultiController$Type = ($IMultiController);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IMultiController_ = $IMultiController$Type;
+}}
 declare module "packages/com/lowdragmc/lowdraglib/gui/widget/$DraggableScrollableWidgetGroup" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$IConfigurableWidget, $IConfigurableWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurableWidget"
@@ -10885,8 +12725,8 @@ import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiCons
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$IGuiTexture, $IGuiTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$IGuiTexture"
-import {$DraggableScrollableWidgetGroup$ScrollWheelDirection, $DraggableScrollableWidgetGroup$ScrollWheelDirection$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$DraggableScrollableWidgetGroup$ScrollWheelDirection"
 import {$Rect2i, $Rect2i$Type} from "packages/net/minecraft/client/renderer/$Rect2i"
+import {$DraggableScrollableWidgetGroup$ScrollWheelDirection, $DraggableScrollableWidgetGroup$ScrollWheelDirection$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$DraggableScrollableWidgetGroup$ScrollWheelDirection"
 
 export class $DraggableScrollableWidgetGroup extends $WidgetGroup {
 readonly "widgets": $List<($Widget)>
@@ -10895,65 +12735,65 @@ constructor()
 constructor(x: integer, y: integer, width: integer, height: integer)
 
 public "setSize"(size: $Size$Type): void
-public "setScrollYOffset"(scrollYOffset: integer): void
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "getGuiExtraAreas"(guiRect: $Rect2i$Type, list: $List$Type<($Rect2i$Type)>): $List<($Rect2i)>
+public "getWidgetBottomHeight"(): integer
+public "setScrollWheelDirection"(scrollWheelDirection: $DraggableScrollableWidgetGroup$ScrollWheelDirection$Type): $DraggableScrollableWidgetGroup
+public "getScrollWheelDirection"(): $DraggableScrollableWidgetGroup$ScrollWheelDirection
+public "setXScrollBarHeight"(xBar: integer): $DraggableScrollableWidgetGroup
+public "setDraggable"(draggable: boolean): $DraggableScrollableWidgetGroup
 public "setYBarStyle"(background: $IGuiTexture$Type, bar: $IGuiTexture$Type): $DraggableScrollableWidgetGroup
+public "setScrollYOffset"(scrollYOffset: integer): void
 public "setYScrollBarWidth"(yBar: integer): $DraggableScrollableWidgetGroup
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public "setScrollXOffset"(scrollXOffset: integer): void
 public "computeMax"(): void
 public "setXBarStyle"(background: $IGuiTexture$Type, bar: $IGuiTexture$Type): $DraggableScrollableWidgetGroup
+public "setScrollable"(scrollable: boolean): $DraggableScrollableWidgetGroup
 public "getScrollYOffset"(): integer
-public "isUseScissor"(): boolean
-public "isDraggable"(): boolean
 public "getScrollXOffset"(): integer
+public "isDraggable"(): boolean
+public "isScrollable"(): boolean
+public "isUseScissor"(): boolean
 public "setUseScissor"(useScissor: boolean): $DraggableScrollableWidgetGroup
 public "getMoveCallbacks"(): $Set<($BiConsumer<(integer), (integer)>)>
-public "setScrollable"(scrollable: boolean): $DraggableScrollableWidgetGroup
-public "isScrollable"(): boolean
 public "drawOverlay"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
 public "initTemplate"(): void
-public "removeWidget"(widget: $Widget$Type): void
 public "clearAllWidgets"(): void
+public "removeWidget"(widget: $Widget$Type): void
 public "serializeInnerNBT"(): $CompoundTag
-public "addWidget"(index: integer, widget: $Widget$Type): $WidgetGroup
-public "setXScrollBarHeight"(xBar: integer): $DraggableScrollableWidgetGroup
-public "getScrollWheelDirection"(): $DraggableScrollableWidgetGroup$ScrollWheelDirection
-public "getWidgetBottomHeight"(): integer
-public "setScrollWheelDirection"(scrollWheelDirection: $DraggableScrollableWidgetGroup$ScrollWheelDirection$Type): $DraggableScrollableWidgetGroup
-public "mouseDragged"(mouseX: double, mouseY: double, button: integer, deltaX: double, deltaY: double): boolean
-public "setDraggable"(draggable: boolean): $DraggableScrollableWidgetGroup
-public "setSelected"(widget: $Widget$Type): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
 public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public "addWidget"(index: integer, widget: $Widget$Type): $WidgetGroup
+public "mouseDragged"(mouseX: double, mouseY: double, button: integer, deltaX: double, deltaY: double): boolean
 public "setBackground"(background: $IGuiTexture$Type): $DraggableScrollableWidgetGroup
-public "getGuiExtraAreas"(guiRect: $Rect2i$Type, list: $List$Type<($Rect2i$Type)>): $List<($Rect2i)>
-public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "setSelected"(widget: $Widget$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 set "size"(value: $Size$Type)
+get "widgetBottomHeight"(): integer
+set "scrollWheelDirection"(value: $DraggableScrollableWidgetGroup$ScrollWheelDirection$Type)
+get "scrollWheelDirection"(): $DraggableScrollableWidgetGroup$ScrollWheelDirection
+set "xScrollBarHeight"(value: integer)
+set "draggable"(value: boolean)
 set "scrollYOffset"(value: integer)
 set "yScrollBarWidth"(value: integer)
 set "scrollXOffset"(value: integer)
+set "scrollable"(value: boolean)
 get "scrollYOffset"(): integer
-get "useScissor"(): boolean
-get "draggable"(): boolean
 get "scrollXOffset"(): integer
+get "draggable"(): boolean
+get "scrollable"(): boolean
+get "useScissor"(): boolean
 set "useScissor"(value: boolean)
 get "moveCallbacks"(): $Set<($BiConsumer<(integer), (integer)>)>
-set "scrollable"(value: boolean)
-get "scrollable"(): boolean
-set "xScrollBarHeight"(value: integer)
-get "scrollWheelDirection"(): $DraggableScrollableWidgetGroup$ScrollWheelDirection
-get "widgetBottomHeight"(): integer
-set "scrollWheelDirection"(value: $DraggableScrollableWidgetGroup$ScrollWheelDirection$Type)
-set "draggable"(value: boolean)
-set "selected"(value: $Widget$Type)
 set "background"(value: $IGuiTexture$Type)
+set "selected"(value: $Widget$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11020,17 +12860,17 @@ constructor(owner: $BaseNode$Type, fieldOwner: any, fieldName: string, portData:
 
 public "add"(edge: $PortEdge$Type): void
 public "remove"(edge: $PortEdge$Type): void
+public "getPushDataDelegates"(): $Map<($PortEdge), ($NodePort$IPushDataDelegate)>
 public "getEdgeWithRemoteCustomIO"(): $List<($PortEdge)>
 public "getCustomPortIOMethod"(): $ICustomPortIODelegate
-public "getPushDataDelegates"(): $Map<($PortEdge), ($NodePort$IPushDataDelegate)>
 public "resetToDefault"(): void
 public "getEdges"(): $List<($PortEdge)>
-public "PullData"(): void
 public "PushData"(): void
+public "PullData"(): void
 public static "setFieldDefault"(fieldInfo: $Field$Type, fieldOwner: any): void
+get "pushDataDelegates"(): $Map<($PortEdge), ($NodePort$IPushDataDelegate)>
 get "edgeWithRemoteCustomIO"(): $List<($PortEdge)>
 get "customPortIOMethod"(): $ICustomPortIODelegate
-get "pushDataDelegates"(): $Map<($PortEdge), ($NodePort$IPushDataDelegate)>
 get "edges"(): $List<($PortEdge)>
 }
 /**
@@ -11099,52 +12939,52 @@ constructor(border: integer, color: $Color$Type)
 constructor(border: integer, color: integer)
 constructor()
 
-public "setTopRadius"(radius: float): $ColorBorderTexture
-public "setLeftRadiusInner"(radius: float): $ColorBorderTexture
-public "setRightRadius"(radius: float): $ColorBorderTexture
-public "setLeftRadiusOuter"(radius: float): $ColorBorderTexture
-public "setTopRadiusInner"(radius: float): $ColorBorderTexture
-public "setTopRadiusOuter"(radius: float): $ColorBorderTexture
-public "setBottomRadius"(radius: float): $ColorBorderTexture
+public "setRightRadiusInner"(radius: float): $ColorBorderTexture
+public "setBottomRadiusOuter"(radius: float): $ColorBorderTexture
+public "setBottomRadiusInner"(radius: float): $ColorBorderTexture
+public "setRightRadiusOuter"(radius: float): $ColorBorderTexture
 public "setLeftRadius"(radius: float): $ColorBorderTexture
+public "setRightRadius"(radius: float): $ColorBorderTexture
+public "setTopRadius"(radius: float): $ColorBorderTexture
+public "setBottomRadius"(radius: float): $ColorBorderTexture
+public "setLeftRadiusOuter"(radius: float): $ColorBorderTexture
+public "setRadiusLTInner"(radiusLTInner: float): void
+public "setRadiusLBInner"(radiusLBInner: float): void
+public "setRadiusLBOuter"(radiusLBOuter: float): void
+public "setTopRadiusOuter"(radius: float): $ColorBorderTexture
+public "setTopRadiusInner"(radius: float): $ColorBorderTexture
+public "setRadiusRTInner"(radiusRTInner: float): void
+public "setRadiusRTOuter"(radiusRTOuter: float): void
 public "setRadiusRBOuter"(radiusRBOuter: float): void
 public "setRadiusRBInner"(radiusRBInner: float): void
-public "setRadiusLTInner"(radiusLTInner: float): void
-public "setRadiusRTOuter"(radiusRTOuter: float): void
-public "setRadiusRTInner"(radiusRTInner: float): void
 public "setRadiusLTOuter"(radiusLTOuter: float): void
-public "setRadiusLBOuter"(radiusLBOuter: float): void
-public "setRadiusLBInner"(radiusLBInner: float): void
-public "setBorder"(border: integer): $ColorBorderTexture
-public "setBottomRadiusOuter"(radius: float): $ColorBorderTexture
-public "setRightRadiusOuter"(radius: float): $ColorBorderTexture
-public "setRightRadiusInner"(radius: float): $ColorBorderTexture
-public "setBottomRadiusInner"(radius: float): $ColorBorderTexture
+public "setLeftRadiusInner"(radius: float): $ColorBorderTexture
 public "setRadius"(radius: float): $ColorBorderTexture
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+public "setBorder"(border: integer): $ColorBorderTexture
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
-set "topRadius"(value: float)
-set "leftRadiusInner"(value: float)
-set "rightRadius"(value: float)
-set "leftRadiusOuter"(value: float)
-set "topRadiusInner"(value: float)
-set "topRadiusOuter"(value: float)
-set "bottomRadius"(value: float)
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+set "rightRadiusInner"(value: float)
+set "bottomRadiusOuter"(value: float)
+set "bottomRadiusInner"(value: float)
+set "rightRadiusOuter"(value: float)
 set "leftRadius"(value: float)
+set "rightRadius"(value: float)
+set "topRadius"(value: float)
+set "bottomRadius"(value: float)
+set "leftRadiusOuter"(value: float)
+set "radiusLTInner"(value: float)
+set "radiusLBInner"(value: float)
+set "radiusLBOuter"(value: float)
+set "topRadiusOuter"(value: float)
+set "topRadiusInner"(value: float)
+set "radiusRTInner"(value: float)
+set "radiusRTOuter"(value: float)
 set "radiusRBOuter"(value: float)
 set "radiusRBInner"(value: float)
-set "radiusLTInner"(value: float)
-set "radiusRTOuter"(value: float)
-set "radiusRTInner"(value: float)
 set "radiusLTOuter"(value: float)
-set "radiusLBOuter"(value: float)
-set "radiusLBInner"(value: float)
-set "border"(value: integer)
-set "bottomRadiusOuter"(value: float)
-set "rightRadiusOuter"(value: float)
-set "rightRadiusInner"(value: float)
-set "bottomRadiusInner"(value: float)
+set "leftRadiusInner"(value: float)
 set "radius"(value: float)
+set "border"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11180,52 +13020,52 @@ import {$LDLRegisterClient, $LDLRegisterClient$Type} from "packages/com/lowdragm
 import {$BakedQuad, $BakedQuad$Type} from "packages/net/minecraft/client/renderer/block/model/$BakedQuad"
 import {$IAutoPersistedSerializable, $IAutoPersistedSerializable$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$IAutoPersistedSerializable"
 import {$IRenderer, $IRenderer$Type} from "packages/com/lowdragmc/lowdraglib/client/renderer/$IRenderer"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
 
 export interface $ISerializableRenderer extends $IConfigurable, $IRenderer, $IAutoPersistedSerializable, $ILDLRegisterClient {
 
+ "initRenderer"(): void
  "createPreview"(father: $ConfiguratorGroup$Type): void
  "buildConfigurator"(father: $ConfiguratorGroup$Type): void
- "initRenderer"(): void
- "reBakeCustomQuadsOffset"(): float
- "onPrepareTextureAtlas"(atlasName: $ResourceLocation$Type, register: $Consumer$Type<($ResourceLocation$Type)>): void
- "onAdditionalModel"(registry: $Consumer$Type<($ResourceLocation$Type)>): void
  "isRaw"(): boolean
- "render"(blockEntity: $BlockEntity$Type, partialTicks: float, stack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer): void
- "shouldRender"(blockEntity: $BlockEntity$Type, cameraPos: $Vec3$Type): boolean
+ "onPrepareTextureAtlas"(atlasName: $ResourceLocation$Type, register: $Consumer$Type<($ResourceLocation$Type)>): void
+ "reBakeCustomQuadsOffset"(): float
+ "renderItem"(stack: $ItemStack$Type, transformType: $ItemDisplayContext$Type, leftHand: boolean, poseStack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer, model: $BakedModel$Type): void
+ "hasTESR"(blockEntity: $BlockEntity$Type): boolean
+ "getViewDistance"(): integer
+ "isGlobalRenderer"(blockEntity: $BlockEntity$Type): boolean
+ "getParticleTexture"(): $TextureAtlasSprite
+ "reBakeCustomQuads"(): boolean
  "isGui3d"(): boolean
  "useBlockLight"(stack: $ItemStack$Type): boolean
  "useAO"(): boolean
  "useAO"(state: $BlockState$Type): boolean
- "getParticleTexture"(): $TextureAtlasSprite
- "isGlobalRenderer"(blockEntity: $BlockEntity$Type): boolean
- "getViewDistance"(): integer
- "reBakeCustomQuads"(): boolean
- "renderItem"(stack: $ItemStack$Type, transformType: $ItemDisplayContext$Type, leftHand: boolean, poseStack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer, model: $BakedModel$Type): void
- "hasTESR"(blockEntity: $BlockEntity$Type): boolean
- "renderModel"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
+ "onAdditionalModel"(registry: $Consumer$Type<($ResourceLocation$Type)>): void
  "registerEvent"(): void
+ "render"(blockEntity: $BlockEntity$Type, partialTicks: float, stack: $PoseStack$Type, buffer: $MultiBufferSource$Type, combinedLight: integer, combinedOverlay: integer): void
+ "renderModel"(level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
+ "shouldRender"(blockEntity: $BlockEntity$Type, cameraPos: $Vec3$Type): boolean
  "deserializeNBT"(tag: $CompoundTag$Type): void
  "name"(): string
  "group"(): string
+ "getRegisterUIClient"(): $LDLRegisterClient
  "isLDLRegister"(): boolean
 /**
  * 
  * @deprecated
  */
  "getRegisterUI"(): $LDLRegister
- "getRegisterUIClient"(): $LDLRegisterClient
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
+ "getChatComponent"(): $Component
 }
 
 export namespace $ISerializableRenderer {
-function serializeWrapper(renderer: $ISerializableRenderer$Type): $CompoundTag
 function deserializeWrapper(tag: $CompoundTag$Type): $ISerializableRenderer
+function serializeWrapper(renderer: $ISerializableRenderer$Type): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11255,8 +13095,8 @@ import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$ISceneEntityRenderHook, $ISceneEntityRenderHook$Type} from "packages/com/lowdragmc/lowdraglib/client/scene/$ISceneEntityRenderHook"
 import {$PoseStack, $PoseStack$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$ParticleManager, $ParticleManager$Type} from "packages/com/lowdragmc/lowdraglib/client/scene/$ParticleManager"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$ParticleManager, $ParticleManager$Type} from "packages/com/lowdragmc/lowdraglib/client/scene/$ParticleManager"
 import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
@@ -11268,68 +13108,68 @@ readonly "renderedBlocksMap": $Map<($Collection<($BlockPos)>), ($ISceneBlockRend
 
 constructor(world: $Level$Type)
 
-public "setOnLookingAt"(onLookingAt: $Consumer$Type<($BlockHitResult$Type)>): $WorldSceneRenderer
-public "setBeforeWorldRender"(callback: $Consumer$Type<($WorldSceneRenderer$Type)>): $WorldSceneRenderer
-public "getPositionRectRevert"(windowX: integer, windowY: integer, windowWidth: integer, windowHeight: integer): $PositionedRect
-public "setSceneEntityRenderHook"(sceneEntityRenderHook: $ISceneEntityRenderHook$Type): void
-public static "setDefaultRenderLayerState"(layer: $RenderType$Type): void
-public "setEndBatchLast"(endBatchLast: boolean): void
-public "useCacheBuffer"(useCache: boolean): $WorldSceneRenderer
-public "setCameraOrtho"(x: float, y: float, z: float): void
-public "setCameraOrtho"(minX: float, maxX: float, minY: float, maxY: float, minZ: float, maxZ: float): void
-public "unProject"(mouseX: integer, mouseY: integer): $Vector3f
-public "unProject"(mouseX: integer, mouseY: integer, checkDepth: boolean): $Vector3f
-public "setCameraLookAt"(lookAt: $Vector3f$Type, radius: double, rotationPitch: double, rotationYaw: double): void
-public "setCameraLookAt"(eyePos: $Vector3f$Type, lookAt: $Vector3f$Type, worldUp: $Vector3f$Type): void
-public "useOrtho"(ortho: boolean): $WorldSceneRenderer
-public "setClearColor"(clearColor: integer): void
-public "needCompileCache"(): $WorldSceneRenderer
-public "getEyePos"(): $Vector3f
-public "setBeforeBatchEnd"(beforeBatchEnd: $BiConsumer$Type<($MultiBufferSource$Type), (float)>): void
-public "deleteCacheBuffer"(): $WorldSceneRenderer
-public "addRenderedBlocks"(blocks: $Collection$Type<($BlockPos$Type)>, renderHook: $ISceneBlockRenderHook$Type): $WorldSceneRenderer
-public "getLastTraceResult"(): $BlockHitResult
-public "getCompileProgress"(): double
-public "isUseCache"(): boolean
-public "isCompiling"(): boolean
-public "project"(pos: $Vector3f$Type): $Vector3f
-public "render"(poseStack: $PoseStack$Type, x: float, y: float, width: float, height: float, mouseX: integer, mouseY: integer): void
 public "getFov"(): float
-public "getParticleManager"(): $ParticleManager
-public "setParticleManager"(particleManager: $ParticleManager$Type): $WorldSceneRenderer
+public "setBeforeWorldRender"(callback: $Consumer$Type<($WorldSceneRenderer$Type)>): $WorldSceneRenderer
 public "setAfterWorldRender"(callback: $Consumer$Type<($WorldSceneRenderer$Type)>): $WorldSceneRenderer
+public "setOnLookingAt"(onLookingAt: $Consumer$Type<($BlockHitResult$Type)>): $WorldSceneRenderer
+public static "setDefaultRenderLayerState"(layer: $RenderType$Type): void
+public "setSceneEntityRenderHook"(sceneEntityRenderHook: $ISceneEntityRenderHook$Type): void
+public "getPositionRectRevert"(windowX: integer, windowY: integer, windowWidth: integer, windowHeight: integer): $PositionedRect
+public "render"(poseStack: $PoseStack$Type, x: float, y: float, width: float, height: float, mouseX: integer, mouseY: integer): void
 public "rayTrace"(hitPos: $Vector3f$Type): $BlockHitResult
-public "getLookAt"(): $Vector3f
-public "getWorldUp"(): $Vector3f
 public "setBlocked"(blocked: $Set$Type<($BlockPos$Type)>): $WorldSceneRenderer
 public "getPositionedRect"(x: integer, y: integer, width: integer, height: integer): $PositionedRect
+public "getLookAt"(): $Vector3f
+public "getWorldUp"(): $Vector3f
 public "setFov"(fov: float): void
 public "isEndBatchLast"(): boolean
-public "getLastHit"(): $Vector3f
-public static "renderBlocksForge"(blockRenderDispatcher: $BlockRenderDispatcher$Type, state: $BlockState$Type, pos: $BlockPos$Type, level: $BlockAndTintGetter$Type, poseStack: $PoseStack$Type, consumer: $VertexConsumer$Type, random: $RandomSource$Type, renderType: $RenderType$Type): void
 public static "canRenderInLayer"(state: $BlockState$Type, renderType: $RenderType$Type): boolean
-set "onLookingAt"(value: $Consumer$Type<($BlockHitResult$Type)>)
-set "beforeWorldRender"(value: $Consumer$Type<($WorldSceneRenderer$Type)>)
-set "sceneEntityRenderHook"(value: $ISceneEntityRenderHook$Type)
-set "defaultRenderLayerState"(value: $RenderType$Type)
-set "endBatchLast"(value: boolean)
-set "clearColor"(value: integer)
-get "eyePos"(): $Vector3f
-set "beforeBatchEnd"(value: $BiConsumer$Type<($MultiBufferSource$Type), (float)>)
-get "lastTraceResult"(): $BlockHitResult
-get "compileProgress"(): double
-get "useCache"(): boolean
-get "compiling"(): boolean
+public static "renderBlocksForge"(blockRenderDispatcher: $BlockRenderDispatcher$Type, state: $BlockState$Type, pos: $BlockPos$Type, level: $BlockAndTintGetter$Type, poseStack: $PoseStack$Type, consumer: $VertexConsumer$Type, random: $RandomSource$Type, renderType: $RenderType$Type): void
+public "getLastHit"(): $Vector3f
+public "project"(pos: $Vector3f$Type): $Vector3f
+public "getParticleManager"(): $ParticleManager
+public "setParticleManager"(particleManager: $ParticleManager$Type): $WorldSceneRenderer
+public "setEndBatchLast"(endBatchLast: boolean): void
+public "useCacheBuffer"(useCache: boolean): $WorldSceneRenderer
+public "unProject"(mouseX: integer, mouseY: integer, checkDepth: boolean): $Vector3f
+public "unProject"(mouseX: integer, mouseY: integer): $Vector3f
+public "setCameraOrtho"(minX: float, maxX: float, minY: float, maxY: float, minZ: float, maxZ: float): void
+public "setCameraOrtho"(x: float, y: float, z: float): void
+public "setCameraLookAt"(eyePos: $Vector3f$Type, lookAt: $Vector3f$Type, worldUp: $Vector3f$Type): void
+public "setCameraLookAt"(lookAt: $Vector3f$Type, radius: double, rotationPitch: double, rotationYaw: double): void
+public "useOrtho"(ortho: boolean): $WorldSceneRenderer
+public "setBeforeBatchEnd"(beforeBatchEnd: $BiConsumer$Type<($MultiBufferSource$Type), (float)>): void
+public "deleteCacheBuffer"(): $WorldSceneRenderer
+public "needCompileCache"(): $WorldSceneRenderer
+public "addRenderedBlocks"(blocks: $Collection$Type<($BlockPos$Type)>, renderHook: $ISceneBlockRenderHook$Type): $WorldSceneRenderer
+public "setClearColor"(clearColor: integer): void
+public "getEyePos"(): $Vector3f
+public "getLastTraceResult"(): $BlockHitResult
+public "isUseCache"(): boolean
+public "getCompileProgress"(): double
+public "isCompiling"(): boolean
 get "fov"(): float
-get "particleManager"(): $ParticleManager
-set "particleManager"(value: $ParticleManager$Type)
+set "beforeWorldRender"(value: $Consumer$Type<($WorldSceneRenderer$Type)>)
 set "afterWorldRender"(value: $Consumer$Type<($WorldSceneRenderer$Type)>)
+set "onLookingAt"(value: $Consumer$Type<($BlockHitResult$Type)>)
+set "defaultRenderLayerState"(value: $RenderType$Type)
+set "sceneEntityRenderHook"(value: $ISceneEntityRenderHook$Type)
+set "blocked"(value: $Set$Type<($BlockPos$Type)>)
 get "lookAt"(): $Vector3f
 get "worldUp"(): $Vector3f
-set "blocked"(value: $Set$Type<($BlockPos$Type)>)
 set "fov"(value: float)
 get "endBatchLast"(): boolean
 get "lastHit"(): $Vector3f
+get "particleManager"(): $ParticleManager
+set "particleManager"(value: $ParticleManager$Type)
+set "endBatchLast"(value: boolean)
+set "beforeBatchEnd"(value: $BiConsumer$Type<($MultiBufferSource$Type), (float)>)
+set "clearColor"(value: integer)
+get "eyePos"(): $Vector3f
+get "lastTraceResult"(): $BlockHitResult
+get "useCache"(): boolean
+get "compileProgress"(): double
+get "compiling"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11375,9 +13215,9 @@ export class $StaticAnimatable implements $GeoAnimatable {
 
 constructor()
 
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public "getTick"(arg0: any): double
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
 public "getBoneResetTime"(): double
@@ -11416,19 +13256,19 @@ public static "multiplier"(arg0: double): $ContentModifier
 public "getMultiplier"(): double
 public "setMultiplier"(arg0: double): void
 public static "addition"(arg0: double): $ContentModifier
-public "getAddition"(): double
 public "setAddition"(arg0: double): void
+public "getAddition"(): double
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11441,6 +13281,63 @@ export type $ContentModifier$Type = ($ContentModifier);
  */
 declare global {
 export type $ContentModifier_ = $ContentModifier$Type;
+}}
+declare module "packages/com/lowdragmc/photon/client/gameobject/emitter/$PhotonParticleRenderType" {
+import {$Comparator, $Comparator$Type} from "packages/java/util/$Comparator"
+import {$Tesselator, $Tesselator$Type} from "packages/com/mojang/blaze3d/vertex/$Tesselator"
+import {$ParticleRenderType, $ParticleRenderType$Type} from "packages/net/minecraft/client/particle/$ParticleRenderType"
+import {$RendererSetting$Layer, $RendererSetting$Layer$Type} from "packages/com/lowdragmc/photon/client/gameobject/emitter/data/$RendererSetting$Layer"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$BufferBuilder, $BufferBuilder$Type} from "packages/com/mojang/blaze3d/vertex/$BufferBuilder"
+import {$Frustum, $Frustum$Type} from "packages/net/minecraft/client/renderer/culling/$Frustum"
+import {$AABB, $AABB$Type} from "packages/net/minecraft/world/phys/$AABB"
+import {$TextureManager, $TextureManager$Type} from "packages/net/minecraft/client/renderer/texture/$TextureManager"
+
+export class $PhotonParticleRenderType implements $ParticleRenderType {
+static "bloomMark": boolean
+
+constructor()
+
+public "end"(builder: $BufferBuilder$Type): void
+public "begin"(builder: $BufferBuilder$Type): void
+public "isParallel"(): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "end"(tesselator: $Tesselator$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "begin"(builder: $BufferBuilder$Type, textureManager: $TextureManager$Type): void
+public static "getLAYER"(): $RendererSetting$Layer
+public static "finishRender"(): void
+public static "prepareForParticleRendering"(cullingFrustum: $Frustum$Type): void
+public static "makeParticleRenderTypeComparator"(renderOrder: $List$Type<($ParticleRenderType$Type)>): $Comparator<($ParticleRenderType)>
+public static "checkFrustum"(aabb: $AABB$Type): boolean
+public static "checkLayer"(layer: $RendererSetting$Layer$Type): boolean
+public "beginBloom"(): void
+public "prepareStatus"(): void
+public static "getFRUSTUM"(): $Frustum
+public static "renderBloom"(): void
+public "releaseStatus"(): void
+public "endBloom"(): void
+get "parallel"(): boolean
+get "lAYER"(): $RendererSetting$Layer
+get "fRUSTUM"(): $Frustum
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PhotonParticleRenderType$Type = ($PhotonParticleRenderType);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $PhotonParticleRenderType_ = $PhotonParticleRenderType$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineOnLoadEventJS" {
 import {$MBDMachineEvents$MachineEventJS, $MBDMachineEvents$MachineEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineEventJS"
@@ -11474,11 +13371,11 @@ export interface $ITypedPayload<T> {
  "isPrimitive"(): boolean
  "getType"(): byte
  "getPayload"(): T
- "writePayload"(arg0: $FriendlyByteBuf$Type): void
  "readPayload"(arg0: $FriendlyByteBuf$Type): void
+ "writePayload"(arg0: $FriendlyByteBuf$Type): void
+ "copyForManaged"(value: any): any
  "serializeNBT"(): $Tag
  "deserializeNBT"(arg0: $Tag$Type): void
- "copyForManaged"(value: any): any
 }
 
 export namespace $ITypedPayload {
@@ -11495,6 +13392,107 @@ export type $ITypedPayload$Type<T> = ($ITypedPayload<(T)>);
  */
 declare global {
 export type $ITypedPayload_<T> = $ITypedPayload$Type<(T)>;
+}}
+declare module "packages/com/lowdragmc/mbd2/api/machine/$IMultiPart" {
+import {$RecipeCapability, $RecipeCapability$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$RecipeCapability"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$Table, $Table$Type} from "packages/com/google/common/collect/$Table"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IMachine, $IMachine$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMachine"
+import {$IRecipeHandler, $IRecipeHandler$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeHandler"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$IMultiController, $IMultiController$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMultiController"
+import {$MBDRecipe, $MBDRecipe$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipe"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$MBDRecipeType, $MBDRecipeType$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipeType"
+import {$ContentModifier, $ContentModifier$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$ContentModifier"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$RecipeLogic$Status, $RecipeLogic$Status$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$RecipeLogic$Status"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$RecipeLogic, $RecipeLogic$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$RecipeLogic"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$IRecipeHandlerTrait, $IRecipeHandlerTrait$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeHandlerTrait"
+import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
+
+export interface $IMultiPart extends $IMachine {
+
+ "getControllers"(): $List<($IMultiController)>
+ "getMaxControllerParallel"(arg0: $MBDRecipe$Type, arg1: $RecipeLogic$Type): $ContentModifier
+ "modifyControllerRecipe"(arg0: $MBDRecipe$Type, arg1: $RecipeLogic$Type): $MBDRecipe
+ "beforeControllerWorking"(arg0: $IMultiController$Type): boolean
+ "onControllerWaiting"(arg0: $IMultiController$Type): void
+ "afterControllerWorking"(arg0: $IMultiController$Type): void
+ "onControllerWorking"(arg0: $IMultiController$Type): boolean
+ "alwaysTryModifyControllerRecipe"(): boolean
+ "removedFromController"(arg0: $IMultiController$Type): void
+ "notifyControllerRecipeStatusChanged"(arg0: $IMultiController$Type, arg1: $RecipeLogic$Status$Type, arg2: $RecipeLogic$Status$Type): void
+ "isFormed"(): boolean
+ "hasController"(arg0: $BlockPos$Type): boolean
+ "getRecipeHandlers"(): $List<($IRecipeHandlerTrait<(any)>)>
+ "canShared"(): boolean
+ "addedToController"(arg0: $IMultiController$Type): void
+ "getOffset"(): long
+ "getLevel"(): $Level
+ "getBlockState"(): $BlockState
+ "alwaysTryModifyRecipe"(): boolean
+ "notifyRecipeStatusChanged"(arg0: $RecipeLogic$Status$Type, arg1: $RecipeLogic$Status$Type): void
+ "loadCustomPersistedData"(arg0: $CompoundTag$Type): void
+ "scheduleRenderUpdate"(): void
+ "getRecipeDampingValue"(): integer
+ "saveCustomPersistedData"(arg0: $CompoundTag$Type, arg1: boolean): void
+ "onFuelBurningFinish"(arg0: $MBDRecipe$Type): void
+ "alwaysReSearchRecipe"(): boolean
+ "getFrontFacing"(): $Optional<($Direction)>
+ "getMaxParallel"(arg0: $MBDRecipe$Type): $ContentModifier
+ "getModifiedRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+ "onRotated"(arg0: $Direction$Type, arg1: $Direction$Type): void
+ "hasFrontFacing"(): boolean
+ "onWaiting"(): void
+ "isInValid"(): boolean
+ "onWorking"(): boolean
+ "setFrontFacing"(arg0: $Direction$Type): void
+ "afterWorking"(): void
+ "getOffsetTimer"(): long
+ "beforeWorking"(arg0: $MBDRecipe$Type): boolean
+ "isFacingValid"(arg0: $Direction$Type): boolean
+ "runRecipeLogic"(): boolean
+ "getChanceTier"(): integer
+ "dampingWhenWaiting"(): boolean
+ "onUnload"(): void
+ "getMachineLevel"(): integer
+ "modifyFuelRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+ "applyParallel"(arg0: $MBDRecipe$Type, arg1: integer): $MBDRecipe
+ "getRecipeLogic"(): $RecipeLogic
+ "getRecipeType"(): $MBDRecipeType
+ "notifyBlockUpdate"(): void
+ "onLoad"(): void
+ "getHolder"(): $BlockEntity
+ "getPos"(): $BlockPos
+ "markDirty"(): void
+ "doModifyRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+ "getRecipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
+ "hasProxies"(): boolean
+}
+
+export namespace $IMultiPart {
+function ofPart(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMultiPart)>
+function ofPart(arg0: $BlockEntity$Type): $Optional<($IMultiPart)>
+function ofMachine(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMachine)>
+function ofMachine(arg0: $BlockEntity$Type): $Optional<($IMachine)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IMultiPart$Type = ($IMultiPart);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IMultiPart_ = $IMultiPart$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/event/$MachineStructureFormedEvent" {
 import {$ListenerList, $ListenerList$Type} from "packages/net/minecraftforge/eventbus/$ListenerList"
@@ -11548,6 +13546,35 @@ export type $ItemUIJSFactory$ItemAccess$Type = ($ItemUIJSFactory$ItemAccess);
 declare global {
 export type $ItemUIJSFactory$ItemAccess_ = $ItemUIJSFactory$ItemAccess$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockShapeInfo$ShapeInfoBuilder" {
+import {$BlockInfo, $BlockInfo$Type} from "packages/com/lowdragmc/lowdraglib/utils/$BlockInfo"
+import {$MultiblockShapeInfo, $MultiblockShapeInfo$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockShapeInfo"
+import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Builder, $Builder$Type} from "packages/com/lowdragmc/lowdraglib/utils/$Builder"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+
+export class $MultiblockShapeInfo$ShapeInfoBuilder extends $Builder<($BlockInfo), ($MultiblockShapeInfo$ShapeInfoBuilder)> {
+
+constructor()
+
+public "build"(): $MultiblockShapeInfo
+public "where"(arg0: character, arg1: $Block$Type): $MultiblockShapeInfo$ShapeInfoBuilder
+public "where"(arg0: character, arg1: $Supplier$Type<(any)>): $MultiblockShapeInfo$ShapeInfoBuilder
+public "where"(arg0: character, arg1: $BlockState$Type): $MultiblockShapeInfo$ShapeInfoBuilder
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MultiblockShapeInfo$ShapeInfoBuilder$Type = ($MultiblockShapeInfo$ShapeInfoBuilder);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MultiblockShapeInfo$ShapeInfoBuilder_ = $MultiblockShapeInfo$ShapeInfoBuilder$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipeType$UICreator" {
 import {$WidgetGroup, $WidgetGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$WidgetGroup"
 import {$MBDRecipe, $MBDRecipe$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipe"
@@ -11596,8 +13623,8 @@ import {$MBDMachine, $MBDMachine$Type} from "packages/com/lowdragmc/mbd2/common/
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
@@ -11642,58 +13669,58 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $MBDMachineDefinition$Type)
 
 public "getDefinition"(): $MBDMachineDefinition
+public "getLightEmission"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): integer
 public "getRotationState"(): $RotationState
+public "getFrontFacing"(arg0: $BlockState$Type): $Optional<($Direction)>
 public "getRenderer"(arg0: $BlockState$Type): $IRenderer
 public "getLightMap"(arg0: $BlockAndTintGetter$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): integer
-public "getModelState"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ModelState
-public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "getMachine"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($MBDMachine)>
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 public "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
 public "getAppearance"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $BlockState$Type, arg5: $BlockPos$Type): $BlockState
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
-/**
- * 
- * @deprecated
- */
-public "skipRendering"(arg0: $BlockState$Type, arg1: $BlockState$Type, arg2: $Direction$Type): boolean
 /**
  * 
  * @deprecated
  */
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "triggerEvent"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: integer, arg4: integer): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "skipRendering"(arg0: $BlockState$Type, arg1: $BlockState$Type, arg2: $Direction$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
+public "triggerEvent"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: integer, arg4: integer): boolean
 public "getFluidState"(arg0: $BlockState$Type): $FluidState
-public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
 public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
-public "isCollisionShapeFullBlock"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
+/**
+ * 
+ * @deprecated
+ */
+public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 /**
  * 
  * @deprecated
  */
-public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
-/**
- * 
- * @deprecated
- */
 public "getVisualShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getDirectSignal"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
+public "isCollisionShapeFullBlock"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
 public "getSignal"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public "getFrontFacing"(arg0: $BlockState$Type): $Optional<($Direction)>
-public "getLightEmission"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): integer
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "propagatesSkylightDown"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getDirectSignal"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
 public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "getPickupSound"(): $Optional<($SoundEvent)>
+public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "propagatesSkylightDown"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getModelState"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ModelState
+public "getMachine"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($MBDMachine)>
+public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "definition"(): $MBDMachineDefinition
@@ -11728,11 +13755,11 @@ readonly "machine": $MBDMachine
 constructor(arg0: $MBDMachine$Type, arg1: $CompoundTag$Type, arg2: $CompoundTag$Type)
 constructor()
 
-public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
+public "getListenerList"(): $ListenerList
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-get "listenerList"(): $ListenerList
 get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11752,23 +13779,23 @@ import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicat
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$IItemHandler, $IItemHandler$Type} from "packages/net/minecraftforge/items/$IItemHandler"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$ItemTransferHelper, $ItemTransferHelper$Type} from "packages/com/lowdragmc/lowdraglib/side/item/$ItemTransferHelper"
 
 export class $ItemTransferHelperImpl extends $ItemTransferHelper {
 
 constructor()
 
-public static "getItemTransfer"(level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): $IItemTransfer
-public static "toItemTransfer"(handler: $IItemHandler$Type): $IItemTransfer
 public static "insertItem"(handler: $IItemTransfer$Type, stack: $ItemStack$Type, simulate: boolean): $ItemStack
 public static "insertItem"(handler: $IItemHandler$Type, stack: $ItemStack$Type, simulate: boolean): $ItemStack
-public static "exportToTarget"(source: $IItemTransfer$Type, maxAmount: integer, predicate: $Predicate$Type<($ItemStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
 public static "importToTarget"(target: $IItemTransfer$Type, maxAmount: integer, predicate: $Predicate$Type<($ItemStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
+public static "exportToTarget"(source: $IItemTransfer$Type, maxAmount: integer, predicate: $Predicate$Type<($ItemStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
 public static "toItemHandler"(itemTransfer: $IItemTransfer$Type): $IItemHandler
-public static "insertToEmpty"(handler: $IItemHandler$Type, stack: $ItemStack$Type, simulate: boolean): $ItemStack
 public static "insertToEmpty"(handler: $IItemTransfer$Type, stack: $ItemStack$Type, simulate: boolean): $ItemStack
+public static "insertToEmpty"(handler: $IItemHandler$Type, stack: $ItemStack$Type, simulate: boolean): $ItemStack
+public static "getItemTransfer"(level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): $IItemTransfer
+public static "toItemTransfer"(handler: $IItemHandler$Type): $IItemTransfer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11781,6 +13808,77 @@ export type $ItemTransferHelperImpl$Type = ($ItemTransferHelperImpl);
  */
 declare global {
 export type $ItemTransferHelperImpl_ = $ItemTransferHelperImpl$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockState" {
+import {$SimplePredicate, $SimplePredicate$Type} from "packages/com/lowdragmc/mbd2/api/pattern/predicates/$SimplePredicate"
+import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$IMultiController, $IMultiController$Type} from "packages/com/lowdragmc/mbd2/api/machine/$IMultiController"
+import {$TraceabilityPredicate, $TraceabilityPredicate$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$TraceabilityPredicate"
+import {$PatternError, $PatternError$Type} from "packages/com/lowdragmc/mbd2/api/pattern/error/$PatternError"
+import {$LongOpenHashSet, $LongOpenHashSet$Type} from "packages/it/unimi/dsi/fastutil/longs/$LongOpenHashSet"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$PatternMatchContext, $PatternMatchContext$Type} from "packages/com/lowdragmc/mbd2/api/pattern/util/$PatternMatchContext"
+import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+
+export class $MultiblockState {
+static readonly "UNLOAD_ERROR": $PatternError
+static readonly "UNINIT_ERROR": $PatternError
+ "predicate": $TraceabilityPredicate
+ "io": $IO
+ "error": $PatternError
+readonly "world": $Level
+readonly "controllerPos": $BlockPos
+ "lastController": $IMultiController
+ "cache": $LongOpenHashSet
+
+constructor(arg0: $Level$Type, arg1: $BlockPos$Type)
+
+public "setError"(arg0: $PatternError$Type): void
+public "getCache"(): $Collection<($BlockPos)>
+public "getBlockState"(): $BlockState
+public "hasError"(): boolean
+public "addPosCache"(arg0: $BlockPos$Type): void
+public "getOffsetState"(arg0: $Direction$Type): $BlockState
+public "getLayerCount"(): $Map<($SimplePredicate), (integer)>
+public "getGlobalCount"(): $Map<($SimplePredicate), (integer)>
+public "onBlockStateChanged"(arg0: $BlockPos$Type, arg1: $BlockState$Type): void
+public "isPosInCache"(arg0: $BlockPos$Type): boolean
+public "getMatchContext"(): $PatternMatchContext
+public "getController"(): $IMultiController
+public "isInternalStructureForming"(): boolean
+public "isInternalStructureInvaliding"(): boolean
+public "getPos"(): $BlockPos
+public "getWorld"(): $Level
+public "getTileEntity"(): $BlockEntity
+set "error"(value: $PatternError$Type)
+get "cache"(): $Collection<($BlockPos)>
+get "blockState"(): $BlockState
+get "layerCount"(): $Map<($SimplePredicate), (integer)>
+get "globalCount"(): $Map<($SimplePredicate), (integer)>
+get "matchContext"(): $PatternMatchContext
+get "controller"(): $IMultiController
+get "internalStructureForming"(): boolean
+get "internalStructureInvaliding"(): boolean
+get "pos"(): $BlockPos
+get "world"(): $Level
+get "tileEntity"(): $BlockEntity
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MultiblockState$Type = ($MultiblockState);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $MultiblockState_ = $MultiblockState$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO" {
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
@@ -11798,12 +13896,12 @@ readonly "icon": $IGuiTexture
 public "getName"(): string
 public static "values"(): ($IO)[]
 public static "valueOf"(arg0: string): $IO
-public "getTooltip"(): string
 public "getIcon"(): $IGuiTexture
+public "getTooltip"(): string
 public "support"(arg0: $IO$Type): boolean
 get "name"(): string
-get "tooltip"(): string
 get "icon"(): $IGuiTexture
+get "tooltip"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11839,24 +13937,26 @@ constructor(text: string)
 constructor(text: string, color: integer)
 constructor()
 
-public "setColor"(color: integer): $TextTexture
 public "setType"(type: $TextTexture$TextType$Type): $TextTexture
-public "setWidth"(width: integer): $TextTexture
+public "setColor"(color: integer): $TextTexture
 public "updateText"(text: string): void
-public "setRollSpeed"(rollSpeed: float): void
 public "setDropShadow"(dropShadow: boolean): $TextTexture
-public "setSupplier"(supplier: $Supplier$Type<(string)>): $TextTexture
-public "setBackgroundColor"(color: integer): $TextTexture
+public "setRollSpeed"(rollSpeed: float): void
+public "getLines"(): integer
 public "updateTick"(): void
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+public "setBackgroundColor"(color: integer): $TextTexture
+public "setWidth"(width: integer): $TextTexture
+public "setSupplier"(supplier: $Supplier$Type<(string)>): $TextTexture
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
-set "color"(value: integer)
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
 set "type"(value: $TextTexture$TextType$Type)
-set "width"(value: integer)
-set "rollSpeed"(value: float)
+set "color"(value: integer)
 set "dropShadow"(value: boolean)
-set "supplier"(value: $Supplier$Type<(string)>)
+set "rollSpeed"(value: float)
+get "lines"(): integer
 set "backgroundColor"(value: integer)
+set "width"(value: integer)
+set "supplier"(value: $Supplier$Type<(string)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11895,46 +13995,46 @@ readonly "content": $List<(string)>
 constructor()
 constructor(x: integer, y: integer, width: integer, content: $List$Type<(string)>)
 
-public "setSize"(size: $Size$Type): void
 public "setShadow"(shadow: boolean): $TextBoxWidget
-public "initTemplate"(): void
-public "handleDragging"(dragging: any): boolean
+public "setSize"(size: $Size$Type): void
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "setContent"(content: $List$Type<(string)>): $TextBoxWidget
 public "setFontSize"(fontSize: integer): $TextBoxWidget
 public "setCenter"(center: boolean): $TextBoxWidget
-public "getMaxContentWidth"(): integer
 public "setFontColor"(fontColor: integer): $TextBoxWidget
-public "setContent"(content: $List$Type<(string)>): $TextBoxWidget
 public "setSpace"(space: integer): $TextBoxWidget
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "widget"(): $Widget
-public "serializeWrapper"(): $CompoundTag
+public "getMaxContentWidth"(): integer
+public "initTemplate"(): void
+public "handleDragging"(dragging: any): boolean
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "serializeWrapper"(): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
-set "size"(value: $Size$Type)
+public "getChatComponent"(): $Component
 set "shadow"(value: boolean)
+set "size"(value: $Size$Type)
+set "content"(value: $List$Type<(string)>)
 set "fontSize"(value: integer)
 set "center"(value: boolean)
-get "maxContentWidth"(): integer
 set "fontColor"(value: integer)
-set "content"(value: $List$Type<(string)>)
 set "space"(value: integer)
+get "maxContentWidth"(): integer
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11974,8 +14074,8 @@ declare global {
 export type $LevelRendererAccessor_ = $LevelRendererAccessor$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/api/recipe/$RecipeCondition" {
-import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$IConfigurable, $IConfigurable$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/configurator/$IConfigurable"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
@@ -11994,36 +14094,36 @@ public "test"(arg0: $MBDRecipe$Type, arg1: $RecipeLogic$Type): boolean
 public "getType"(): string
 public "copy"(): $RecipeCondition
 public static "create"(arg0: $Class$Type<(any)>): $RecipeCondition
-public "serialize"(): $JsonObject
+public "toNBT"(): $CompoundTag
 public "deserialize"(arg0: $JsonObject$Type): $RecipeCondition
+public "getIcon"(): $IGuiTexture
+public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $RecipeCondition
+public "toNetwork"(arg0: $FriendlyByteBuf$Type): void
+public "serialize"(): $JsonObject
+public "setReverse"(arg0: boolean): $RecipeCondition
+public "fromNBT"(arg0: $CompoundTag$Type): $RecipeCondition
+public "getTooltips"(): $Component
 public "isReverse"(): boolean
 public "isOr"(): boolean
-public "toNetwork"(arg0: $FriendlyByteBuf$Type): void
-public "getTooltips"(): $Component
-public "getIcon"(): $IGuiTexture
-public "fromNBT"(arg0: $CompoundTag$Type): $RecipeCondition
-public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $RecipeCondition
 public "getTranslationKey"(): string
-public "setReverse"(arg0: boolean): $RecipeCondition
-public "toNBT"(): $CompoundTag
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "type"(): string
+get "icon"(): $IGuiTexture
+set "reverse"(value: boolean)
+get "tooltips"(): $Component
 get "reverse"(): boolean
 get "or"(): boolean
-get "tooltips"(): $Component
-get "icon"(): $IGuiTexture
 get "translationKey"(): string
-set "reverse"(value: boolean)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12149,100 +14249,101 @@ readonly "outputPorts": $NodePortContainer$NodeOutputPortContainer
  "onPortsUpdated": $Consumer<(string)>
 
 
+public "getPosition"(): $Position
 public "initialize"(graph: $BaseGraph$Type): void
 public "copy"(): $BaseNode
-public "getPort"(fieldName: string): $NodePort
 public "getPort"(fieldName: string, identifier: string): $NodePort
+public "getPort"(fieldName: string): $NodePort
 public "getDisplayName"(): string
-public "getPosition"(): $Position
-public "getMinWidth"(): integer
 public "setDisplayName"(displayName: string): void
-public "newGuid"(graph: $BaseGraph$Type): void
+public static "createFromTag"(tag: $CompoundTag$Type): $BaseNode
+public static "createFromType"<T extends $BaseNode>(nodeType: $Class$Type<(T)>, position: $Position$Type): T
+public "updateAllPorts"(): boolean
+public "getAllFields"(): ($Field)[]
+public "onEdgeDisconnected"(edge: $PortEdge$Type): void
+public "destroyInternal"(): void
+public "getAllMethods"(): ($Method)[]
+public "disableInternal"(): void
+public "onEdgeConnected"(edge: $PortEdge$Type): void
+public "resetNode"(): void
+public "InitializePorts"(): void
+public "onProcess"(): void
+public "addPort"(input: boolean, fieldName: string, portData: $PortData$Type): void
+public "removePort"(input: boolean, fieldName: string): void
+public "removePort"(input: boolean, port: $NodePort$Type): void
+public "GetOutputNodes"(): $List<($BaseNode)>
+public "findInDependencies"(condition: $Predicate$Type<($BaseNode$Type)>): $BaseNode
+public "isFieldInput"(fieldName: string): boolean
+public "getInputNodes"(): $List<($BaseNode)>
+public "getFieldsToUpdate"(): $Stack<($BaseNode$PortUpdate)>
+public "getOnProcessed"(): $Runnable
+public "isCanBeRemoved"(): boolean
+public "getOutputPorts"(): $NodePortContainer$NodeOutputPortContainer
+public "getComputeOrder"(): integer
+public "getUpdatedFields"(): $HashSet<($BaseNode$PortUpdate)>
+public "setExpanded"(expanded: boolean): void
+public "getOnPortsUpdated"(): $Consumer<(string)>
+public "getInputPorts"(): $NodePortContainer$NodeInputPortContainer
+public "getTitleColor"(): integer
+public "setCanBeRemoved"(canBeRemoved: boolean): void
+public "getAllEdges"(): $List<($PortEdge)>
+public "getGUID"(): string
+public "isCanProcess"(): boolean
+public "getNodeFields"(): $Map<(string), ($BaseNode$NodeFieldInformation)>
+public "setPosition"(position: $Position$Type): void
+public "getAllPorts"(): $List<($NodePort)>
+public "isExpanded"(): boolean
+public "getOnAfterEdgeDisconnected"(): $Consumer<($PortEdge)>
+public "getOnAfterEdgeConnected"(): $Consumer<($PortEdge)>
 public "updatePortsForField"(fieldName: string): boolean
 public "updatePortsForField"(fieldName: string, sendPortUpdatedEvent: boolean): boolean
 public "UpdateAllPortsLocal"(): boolean
 public "updatePortsForFieldLocal"(fieldName: string, sendPortUpdatedEvent: boolean): boolean
 public "updatePortsForFieldLocal"(fieldName: string): boolean
-public "getOnAfterEdgeConnected"(): $Consumer<($PortEdge)>
-public "getOnAfterEdgeDisconnected"(): $Consumer<($PortEdge)>
-public "disableInternal"(): void
-public "getAllFields"(): ($Field)[]
-public static "createFromType"<T extends $BaseNode>(nodeType: $Class$Type<(T)>, position: $Position$Type): T
-public "destroyInternal"(): void
-public "getAllMethods"(): ($Method)[]
-public static "createFromTag"(tag: $CompoundTag$Type): $BaseNode
-public "InitializePorts"(): void
-public "onEdgeConnected"(edge: $PortEdge$Type): void
-public "resetNode"(): void
-public "addPort"(input: boolean, fieldName: string, portData: $PortData$Type): void
-public "onEdgeDisconnected"(edge: $PortEdge$Type): void
-public "updateAllPorts"(): boolean
-public "onProcess"(): void
-public "isFieldInput"(fieldName: string): boolean
-public "removePort"(input: boolean, port: $NodePort$Type): void
-public "removePort"(input: boolean, fieldName: string): void
-public "getAllEdges"(): $List<($PortEdge)>
-public "getInputPorts"(): $NodePortContainer$NodeInputPortContainer
-public "getTitleColor"(): integer
-public "getComputeOrder"(): integer
-public "getOnProcessed"(): $Runnable
-public "getAllPorts"(): $List<($NodePort)>
-public "getOutputPorts"(): $NodePortContainer$NodeOutputPortContainer
-public "getNodeFields"(): $Map<(string), ($BaseNode$NodeFieldInformation)>
-public "getInputNodes"(): $List<($BaseNode)>
-public "findInDependencies"(condition: $Predicate$Type<($BaseNode$Type)>): $BaseNode
-public "GetOutputNodes"(): $List<($BaseNode)>
-public "isExpanded"(): boolean
-public "isCanProcess"(): boolean
-public "isCanBeRemoved"(): boolean
-public "getGUID"(): string
-public "getOnPortsUpdated"(): $Consumer<(string)>
-public "getFieldsToUpdate"(): $Stack<($BaseNode$PortUpdate)>
-public "setCanBeRemoved"(canBeRemoved: boolean): void
-public "setExpanded"(expanded: boolean): void
-public "getUpdatedFields"(): $HashSet<($BaseNode$PortUpdate)>
-public "setPosition"(position: $Position$Type): void
 public "getGraph"(): $BaseGraph
+public "newGuid"(graph: $BaseGraph$Type): void
+public "getMinWidth"(): integer
+public "serializeNBT"(): $CompoundTag
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
-get "displayName"(): string
 get "position"(): $Position
-get "minWidth"(): integer
+get "displayName"(): string
 set "displayName"(value: string)
-get "onAfterEdgeConnected"(): $Consumer<($PortEdge)>
-get "onAfterEdgeDisconnected"(): $Consumer<($PortEdge)>
 get "allFields"(): ($Field)[]
 get "allMethods"(): ($Method)[]
-get "allEdges"(): $List<($PortEdge)>
+get "inputNodes"(): $List<($BaseNode)>
+get "fieldsToUpdate"(): $Stack<($BaseNode$PortUpdate)>
+get "onProcessed"(): $Runnable
+get "canBeRemoved"(): boolean
+get "outputPorts"(): $NodePortContainer$NodeOutputPortContainer
+get "computeOrder"(): integer
+get "updatedFields"(): $HashSet<($BaseNode$PortUpdate)>
+set "expanded"(value: boolean)
+get "onPortsUpdated"(): $Consumer<(string)>
 get "inputPorts"(): $NodePortContainer$NodeInputPortContainer
 get "titleColor"(): integer
-get "computeOrder"(): integer
-get "onProcessed"(): $Runnable
-get "allPorts"(): $List<($NodePort)>
-get "outputPorts"(): $NodePortContainer$NodeOutputPortContainer
-get "nodeFields"(): $Map<(string), ($BaseNode$NodeFieldInformation)>
-get "inputNodes"(): $List<($BaseNode)>
-get "expanded"(): boolean
-get "canProcess"(): boolean
-get "canBeRemoved"(): boolean
-get "gUID"(): string
-get "onPortsUpdated"(): $Consumer<(string)>
-get "fieldsToUpdate"(): $Stack<($BaseNode$PortUpdate)>
 set "canBeRemoved"(value: boolean)
-set "expanded"(value: boolean)
-get "updatedFields"(): $HashSet<($BaseNode$PortUpdate)>
+get "allEdges"(): $List<($PortEdge)>
+get "gUID"(): string
+get "canProcess"(): boolean
+get "nodeFields"(): $Map<(string), ($BaseNode$NodeFieldInformation)>
 set "position"(value: $Position$Type)
+get "allPorts"(): $List<($NodePort)>
+get "expanded"(): boolean
+get "onAfterEdgeDisconnected"(): $Consumer<($PortEdge)>
+get "onAfterEdgeConnected"(): $Consumer<($PortEdge)>
 get "graph"(): $BaseGraph
+get "minWidth"(): integer
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12289,8 +14390,8 @@ import {$LevelHeightAccessor, $LevelHeightAccessor$Type} from "packages/net/mine
 import {$ChunkSource, $ChunkSource$Type} from "packages/net/minecraft/world/level/chunk/$ChunkSource"
 import {$Scoreboard, $Scoreboard$Type} from "packages/net/minecraft/world/scores/$Scoreboard"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BiomeManager, $BiomeManager$Type} from "packages/net/minecraft/world/level/biome/$BiomeManager"
 import {$RegistryAccess, $RegistryAccess$Type} from "packages/net/minecraft/core/$RegistryAccess"
 import {$Holder, $Holder$Type} from "packages/net/minecraft/core/$Holder"
@@ -12326,68 +14427,68 @@ readonly "isClientSide": boolean
 constructor(level: $Level$Type)
 
 public "getLevel"(): $Level
-public "getChunkSource"(): $ChunkSource
-public "getFluidState"(pPos: $BlockPos$Type): $FluidState
+public "getLightEngine"(): $LevelLightEngine
+public "setBlock"(pPos: $BlockPos$Type, pState: $BlockState$Type, pFlags: integer, pRecursionLeft: integer): boolean
+public "sendBlockUpdated"(pos: $BlockPos$Type, oldState: $BlockState$Type, newState: $BlockState$Type, flags: integer): void
+public "getBlockState"(x: integer, y: integer, z: integer): $BlockState
+public "levelEvent"(pPlayer: $Player$Type, pType: integer, pPos: $BlockPos$Type, pData: integer): void
+public "gameEvent"(event: $GameEvent$Type, position: $Vec3$Type, context: $GameEvent$Context$Type): void
 public "getScoreboard"(): $Scoreboard
+public "getBiomeManager"(): $BiomeManager
+public "getBlockState"(pPos: $BlockPos$Type): $BlockState
+public "enabledFeatures"(): $FeatureFlagSet
 public "registryAccess"(): $RegistryAccess
 public "playSound"(pPlayer: $Player$Type, pX: double, pY: double, pZ: double, pSound: $SoundEvent$Type, pCategory: $SoundSource$Type, pVolume: float, pPitch: float): void
 public "addParticle"(particleData: $ParticleOptions$Type, x: double, y: double, z: double, xSpeed: double, ySpeed: double, zSpeed: double): void
-public "gameEvent"(event: $GameEvent$Type, position: $Vec3$Type, context: $GameEvent$Context$Type): void
-public "getBlockState"(x: integer, y: integer, z: integer): $BlockState
-public "destroyBlockProgress"(breakerId: integer, pos: $BlockPos$Type, progress: integer): void
-public "setMapData"(pMapId: string, pData: $MapItemSavedData$Type): void
-public "getFreeMapId"(): integer
-public "getMapData"(mapName: string): $MapItemSavedData
-public "setBlock"(pPos: $BlockPos$Type, pState: $BlockState$Type, pFlags: integer, pRecursionLeft: integer): boolean
-public "sendBlockUpdated"(pos: $BlockPos$Type, oldState: $BlockState$Type, newState: $BlockState$Type, flags: integer): void
-public "getLightEngine"(): $LevelLightEngine
-public "playSeededSound"(player: $Player$Type, x: double, y: double, z: double, sound: $Holder$Type<($SoundEvent$Type)>, source: $SoundSource$Type, volume: float, pitch: float, seed: long): void
 public "playSeededSound"(player: $Player$Type, x: double, y: double, z: double, soundEvent: $SoundEvent$Type, soundSource: $SoundSource$Type, volume: float, pitch: float, seed: long): void
+public "playSeededSound"(player: $Player$Type, x: double, y: double, z: double, sound: $Holder$Type<($SoundEvent$Type)>, source: $SoundSource$Type, volume: float, pitch: float, seed: long): void
 public "playSound"(pPlayer: $Player$Type, pEntity: $Entity$Type, pEvent: $SoundEvent$Type, pCategory: $SoundSource$Type, pVolume: float, pPitch: float): void
 public "playSeededSound"(player: $Player$Type, entity: $Entity$Type, sound: $Holder$Type<($SoundEvent$Type)>, category: $SoundSource$Type, volume: float, pitch: float, seed: long): void
 public "addAlwaysVisibleParticle"(particleData: $ParticleOptions$Type, ignoreRange: boolean, x: double, y: double, z: double, xSpeed: double, ySpeed: double, zSpeed: double): void
-public "addAlwaysVisibleParticle"(particleData: $ParticleOptions$Type, x: double, y: double, z: double, xSpeed: double, ySpeed: double, zSpeed: double): void
 public "addParticle"(particleData: $ParticleOptions$Type, forceAlwaysRender: boolean, x: double, y: double, z: double, xSpeed: double, ySpeed: double, zSpeed: double): void
+public "addAlwaysVisibleParticle"(particleData: $ParticleOptions$Type, x: double, y: double, z: double, xSpeed: double, ySpeed: double, zSpeed: double): void
 public "isLoaded"(p_195588_1_: $BlockPos$Type): boolean
-public "gatherChunkSourceStats"(): string
 public "setBlockEntity"(pBlockEntity: $BlockEntity$Type): void
+public "gatherChunkSourceStats"(): string
 public "getEntity"(id: integer): $Entity
+public "setMapData"(pMapId: string, pData: $MapItemSavedData$Type): void
+public "getMapData"(mapName: string): $MapItemSavedData
 public "canSeeSky"(pos: $BlockPos$Type): boolean
-public "players"(): $List<(any)>
+public "getFreeMapId"(): integer
+public "destroyBlockProgress"(breakerId: integer, pos: $BlockPos$Type, progress: integer): void
 public "getRecipeManager"(): $RecipeManager
+public "players"(): $List<(any)>
 public "getBlockTicks"(): $LevelTickAccess<($Block)>
 public "getFluidTicks"(): $LevelTickAccess<($Fluid)>
 public "gameEvent"(pEntity: $Entity$Type, pEvent: $GameEvent$Type, pPos: $BlockPos$Type): void
-public "getUncachedNoiseBiome"(pX: integer, pY: integer, pZ: integer): $Holder<($Biome)>
 public "getNoiseBiome"(pX: integer, pY: integer, pZ: integer): $Holder<($Biome)>
+public "getUncachedNoiseBiome"(pX: integer, pY: integer, pZ: integer): $Holder<($Biome)>
 public "getRawBrightness"(pos: $BlockPos$Type, p_226659_2_: integer): integer
-public "getBrightness"(pLightType: $LightLayer$Type, pBlockPos: $BlockPos$Type): integer
 public "getShade"(direction: $Direction$Type, b: boolean): float
+public "getBrightness"(pLightType: $LightLayer$Type, pBlockPos: $BlockPos$Type): integer
 public "getParticleManager"(): $ParticleManager
-public "setParticleManager"(particleManager: $ParticleManager$Type): void
 public "getAsClientWorld"(): $Supplier<($ClientLevel)>
-public "levelEvent"(pPlayer: $Player$Type, pType: integer, pPos: $BlockPos$Type, pData: integer): void
-public "getBlockState"(pPos: $BlockPos$Type): $BlockState
-public "enabledFeatures"(): $FeatureFlagSet
+public "setParticleManager"(particleManager: $ParticleManager$Type): void
 public "getBlockEntity"(pPos: $BlockPos$Type): $BlockEntity
 public "getBiome"(pPos: $BlockPos$Type): $Holder<($Biome)>
-public "getBiomeManager"(): $BiomeManager
+public "getChunkSource"(): $ChunkSource
+public "getFluidState"(pPos: $BlockPos$Type): $FluidState
 public static "getAllLoadedEntities"(level: $Level$Type): $Iterable<($Entity)>
 public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
 public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
 get "level"(): $Level
-get "chunkSource"(): $ChunkSource
-get "scoreboard"(): $Scoreboard
-get "freeMapId"(): integer
 get "lightEngine"(): $LevelLightEngine
+get "scoreboard"(): $Scoreboard
+get "biomeManager"(): $BiomeManager
 set "blockEntity"(value: $BlockEntity$Type)
+get "freeMapId"(): integer
 get "recipeManager"(): $RecipeManager
 get "blockTicks"(): $LevelTickAccess<($Block)>
 get "fluidTicks"(): $LevelTickAccess<($Fluid)>
 get "particleManager"(): $ParticleManager
-set "particleManager"(value: $ParticleManager$Type)
 get "asClientWorld"(): $Supplier<($ClientLevel)>
-get "biomeManager"(): $BiomeManager
+set "particleManager"(value: $ParticleManager$Type)
+get "chunkSource"(): $ChunkSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12420,27 +14521,27 @@ readonly "eventGraphs": $Map<($Class<(any)>), ($BaseGraph)>
 
 constructor()
 
+public "registerEventGroup"(arg0: string): $ConfigMachineEvents
+public "postGraphEvent"(arg0: $MachineEvent$Type): void
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "getMachineEvents"(): $Map<(string), ($Class<(any)>)>
+public "getProcessorCache"(): $Map<($Class<(any)>), ($MachineEventGraphProcessor)>
+public "getEventGraphs"(): $Map<($Class<(any)>), ($BaseGraph)>
 public "serializeNBT"(): $CompoundTag
 public "deserializeNBT"(arg0: $CompoundTag$Type): void
-public "getMachineEvents"(): $Map<(string), ($Class<(any)>)>
-public "getEventGraphs"(): $Map<($Class<(any)>), ($BaseGraph)>
-public "getProcessorCache"(): $Map<($Class<(any)>), ($MachineEventGraphProcessor)>
-public "postGraphEvent"(arg0: $MachineEvent$Type): void
-public "registerEventGroup"(arg0: string): $ConfigMachineEvents
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "machineEvents"(): $Map<(string), ($Class<(any)>)>
-get "eventGraphs"(): $Map<($Class<(any)>), ($BaseGraph)>
 get "processorCache"(): $Map<($Class<(any)>), ($MachineEventGraphProcessor)>
+get "eventGraphs"(): $Map<($Class<(any)>), ($BaseGraph)>
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12463,13 +14564,13 @@ import {$IManagedStorage, $IManagedStorage$Type} from "packages/com/lowdragmc/lo
 
 export interface $IManaged {
 
+ "onChanged"(): void
+ "markDirty"(name: string): void
  "addSyncUpdateListener"<T>(name: string, listener: $IFieldUpdateListener$Type<(T)>): $ISubscription
  "getSyncStorage"(): $IManagedStorage
- "onChanged"(): void
+ "getFieldHolder"(): $ManagedFieldHolder
  "onPersistedChanged"(ref: $IRef$Type, isDirty: boolean): void
  "onSyncChanged"(ref: $IRef$Type, isDirty: boolean): void
- "getFieldHolder"(): $ManagedFieldHolder
- "markDirty"(name: string): void
 }
 
 export namespace $IManaged {
@@ -12503,15 +14604,15 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type, arg2: integer)
 
-public "getRecipe"(): $MBDRecipe
-public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
-public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
+public "getListenerList"(): $ListenerList
 public "getProgress"(): integer
-get "recipe"(): $MBDRecipe
-get "listenerList"(): $ListenerList
+public "getRecipe"(): $MBDRecipe
+public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
 get "progress"(): integer
+get "recipe"(): $MBDRecipe
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12559,17 +14660,17 @@ readonly "dimension": integer
 
 constructor(dimension: integer, key: T)
 
+public "getChild"(key: T): $TreeNode<(T), (K)>
 public "toString"(): string
 public "getKey"(): T
 public "getContent"(): K
 public "getChildren"(): $List<($TreeNode<(T), (K)>)>
 public "isLeaf"(): boolean
-public "getChild"(key: T): $TreeNode<(T), (K)>
 public "removeChild"(key: T): void
-public "setValid"(valid: $Predicate$Type<($TreeNode$Type<(T), (K)>)>): $TreeNode<(T), (K)>
 public "getOrCreateChild"(childKey: T): $TreeNode<(T), (K)>
-public "createChild"(childKey: T): $TreeNode<(T), (K)>
 public "addContent"(key: T, content: K): void
+public "createChild"(childKey: T): $TreeNode<(T), (K)>
+public "setValid"(valid: $Predicate$Type<($TreeNode$Type<(T), (K)>)>): $TreeNode<(T), (K)>
 get "key"(): T
 get "content"(): K
 get "children"(): $List<($TreeNode<(T), (K)>)>
@@ -12597,34 +14698,34 @@ export class $CapabilityIO {
 constructor()
 
 public "getInternal"(): $IO
-public "getIO"(arg0: $Direction$Type, arg1: $Direction$Type): $IO
-public "setTopIO"(arg0: $IO$Type): void
+public "getFrontIO"(): $IO
+public "getBackIO"(): $IO
+public "setRightIO"(arg0: $IO$Type): void
 public "setBottomIO"(arg0: $IO$Type): void
-public "getBottomIO"(): $IO
 public "getLeftIO"(): $IO
+public "getBottomIO"(): $IO
 public "getRightIO"(): $IO
 public "setFrontIO"(arg0: $IO$Type): void
-public "getFrontIO"(): $IO
-public "setInternal"(arg0: $IO$Type): void
-public "setRightIO"(arg0: $IO$Type): void
-public "getTopIO"(): $IO
-public "setLeftIO"(arg0: $IO$Type): void
-public "getBackIO"(): $IO
 public "setBackIO"(arg0: $IO$Type): void
+public "setLeftIO"(arg0: $IO$Type): void
+public "getTopIO"(): $IO
+public "setInternal"(arg0: $IO$Type): void
+public "setTopIO"(arg0: $IO$Type): void
+public "getIO"(arg0: $Direction$Type, arg1: $Direction$Type): $IO
 get "internal"(): $IO
-set "topIO"(value: $IO$Type)
+get "frontIO"(): $IO
+get "backIO"(): $IO
+set "rightIO"(value: $IO$Type)
 set "bottomIO"(value: $IO$Type)
-get "bottomIO"(): $IO
 get "leftIO"(): $IO
+get "bottomIO"(): $IO
 get "rightIO"(): $IO
 set "frontIO"(value: $IO$Type)
-get "frontIO"(): $IO
-set "internal"(value: $IO$Type)
-set "rightIO"(value: $IO$Type)
-get "topIO"(): $IO
-set "leftIO"(value: $IO$Type)
-get "backIO"(): $IO
 set "backIO"(value: $IO$Type)
+set "leftIO"(value: $IO$Type)
+get "topIO"(): $IO
+set "internal"(value: $IO$Type)
+set "topIO"(value: $IO$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12652,10 +14753,10 @@ export class $BaseGraph$GraphChanges {
 constructor()
 
 public "removedNode"(removedNode: $BaseNode$Type): $BaseGraph$GraphChanges
-public "addedNode"(addedNode: $BaseNode$Type): $BaseGraph$GraphChanges
 public "addedEdge"(addedEdge: $PortEdge$Type): $BaseGraph$GraphChanges
-public "removedEdge"(removedEdge: $PortEdge$Type): $BaseGraph$GraphChanges
+public "addedNode"(addedNode: $BaseNode$Type): $BaseGraph$GraphChanges
 public "nodeChanged"(nodeChanged: $BaseNode$Type): $BaseGraph$GraphChanges
+public "removedEdge"(removedEdge: $PortEdge$Type): $BaseGraph$GraphChanges
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12702,18 +14803,18 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IItemTransfer {
 
+ "getSlots"(): integer
+ "restoreFromSnapshot"(arg0: any): void
  "getStackInSlot"(arg0: integer): $ItemStack
- "getSlotLimit"(arg0: integer): integer
+ "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean, arg3: boolean): $ItemStack
+ "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean): $ItemStack
  "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
  "extractItem"(arg0: integer, arg1: integer, arg2: boolean, arg3: boolean): $ItemStack
- "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean): $ItemStack
- "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean, arg3: boolean): $ItemStack
+ "getSlotLimit"(arg0: integer): integer
  "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
- "getSlots"(): integer
- "onContentsChanged"(): void
- "createSnapshot"(): any
- "restoreFromSnapshot"(arg0: any): void
  "setStackInSlot"(index: integer, stack: $ItemStack$Type): void
+ "createSnapshot"(): any
+ "onContentsChanged"(): void
 }
 
 export namespace $IItemTransfer {
@@ -12744,10 +14845,10 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type)
 
-public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
-get "listenerList"(): $ListenerList
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12760,6 +14861,37 @@ export type $MachineRecipeModifyEvent$Before$Type = ($MachineRecipeModifyEvent$B
  */
 declare global {
 export type $MachineRecipeModifyEvent$Before_ = $MachineRecipeModifyEvent$Before$Type;
+}}
+declare module "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$IScene" {
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
+import {$ISceneObject, $ISceneObject$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/ui/sceneeditor/sceneobject/$ISceneObject"
+
+export interface $IScene {
+
+ "removeSceneObjectInternal"(arg0: $ISceneObject$Type): void
+ "addSceneObject"(sceneObject: $ISceneObject$Type): void
+ "awake"(): void
+ "addSceneObjectInternal"(arg0: $ISceneObject$Type): void
+ "getSceneObject"(arg0: $UUID$Type): $ISceneObject
+ "removeSceneObject"(sceneObject: $ISceneObject$Type): void
+ "getAllSceneObjects"(): $Collection<($ISceneObject)>
+}
+
+export namespace $IScene {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IScene$Type = ($IScene);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IScene_ = $IScene$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/editor/ui/$Editor" {
 import {$DialogWidget, $DialogWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$DialogWidget"
@@ -12794,61 +14926,61 @@ readonly "widgets": $List<($Widget)>
 constructor(modID: string)
 constructor(workSpace: $File$Type)
 
-public "askToSaveProject"(result: $BooleanConsumer$Type): void
+public "setCurrentProjectFile"(currentProjectFile: $File$Type): void
+public "getCurrentProjectFile"(): $File
+public "isCurrentProjectSaved"(): boolean
+public "getHistory"(): $List<($Editor$HistoryItem)>
+public "setGui"(gui: $ModularUI$Type): void
+public "onScreenSizeUpdate"(screenWidth: integer, screenHeight: integer): void
+public "initEditorViews"(): void
+public "openDialog"(dialog: $DialogWidget$Type): $DialogWidget
+public "loadProject"(project: $IProject$Type): void
+public "isWaitingForSave"(): boolean
+public "ifCopiedPresent"(copyType: string, consumer: $Consumer$Type<(any)>): void
 public "addAutoHistory"(name: string, source: any): void
+public "addRawHistory"(name: string, date: $CompoundTag$Type): void
+public "addRawHistory"(name: string, date: $CompoundTag$Type, source: any): void
 public "saveAsProject"(result: $BooleanConsumer$Type): void
 public "setCopy"(copyType: string, copied: any): void
-public "ifCopiedPresent"(copyType: string, consumer: $Consumer$Type<(any)>): void
 public "jumpToHistory"(historyItem: $Editor$HistoryItem$Type): void
 public "saveProject"(result: $BooleanConsumer$Type): void
-public "addRawHistory"(name: string, date: $CompoundTag$Type, source: any): void
-public "addRawHistory"(name: string, date: $CompoundTag$Type): void
-public "onScreenSizeUpdate"(screenWidth: integer, screenHeight: integer): void
-public "openDialog"(dialog: $DialogWidget$Type): $DialogWidget
-public "openMenu"<T, C>(posX: double, posY: double, menuNode: $TreeNode$Type<(T), (C)>): $MenuWidget<(T), (C)>
-public "openMenu"(posX: double, posY: double, menuBuilder: $TreeBuilder$Menu$Type): void
-public "initEditorViews"(): void
-public "isWaitingForSave"(): boolean
-public "loadProject"(project: $IProject$Type): void
-public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "setGui"(gui: $ModularUI$Type): void
-public "setCurrentProjectFile"(currentProjectFile: $File$Type): void
-public "isCurrentProjectSaved"(): boolean
-public "getCurrentProjectFile"(): $File
-public "getHistory"(): $List<($Editor$HistoryItem)>
-public "getMenuPanel"(): $MenuPanel
-public "getConfigPanel"(): $ConfigPanel
-public "getToolPanel"(): $ToolPanel
-public "getCurrentProject"(): $IProject
-public "getResourcePanel"(): $ResourcePanel
-public "getFloatView"(): $WidgetGroup
-public "getCopied"(): any
-public "getTabPages"(): $StringTabContainer
+public "askToSaveProject"(result: $BooleanConsumer$Type): void
 public "getCopyType"(): string
 public "getCurrentHistory"(): $Editor$HistoryItem
+public "getTabPages"(): $StringTabContainer
+public "getFloatView"(): $WidgetGroup
+public "getCopied"(): any
 public "getWorkSpace"(): $File
+public "getCurrentProject"(): $IProject
+public "getConfigPanel"(): $ConfigPanel
+public "getToolPanel"(): $ToolPanel
+public "getMenuPanel"(): $MenuPanel
+public "getResourcePanel"(): $ResourcePanel
+public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "openMenu"<T, C>(posX: double, posY: double, menuNode: $TreeNode$Type<(T), (C)>): $MenuWidget<(T), (C)>
+public "openMenu"(posX: double, posY: double, menuBuilder: $TreeBuilder$Menu$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-get "waitingForSave"(): boolean
-set "gui"(value: $ModularUI$Type)
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 set "currentProjectFile"(value: $File$Type)
-get "currentProjectSaved"(): boolean
 get "currentProjectFile"(): $File
+get "currentProjectSaved"(): boolean
 get "history"(): $List<($Editor$HistoryItem)>
-get "menuPanel"(): $MenuPanel
-get "configPanel"(): $ConfigPanel
-get "toolPanel"(): $ToolPanel
-get "currentProject"(): $IProject
-get "resourcePanel"(): $ResourcePanel
-get "floatView"(): $WidgetGroup
-get "copied"(): any
-get "tabPages"(): $StringTabContainer
+set "gui"(value: $ModularUI$Type)
+get "waitingForSave"(): boolean
 get "copyType"(): string
 get "currentHistory"(): $Editor$HistoryItem
+get "tabPages"(): $StringTabContainer
+get "floatView"(): $WidgetGroup
+get "copied"(): any
 get "workSpace"(): $File
+get "currentProject"(): $IProject
+get "configPanel"(): $ConfigPanel
+get "toolPanel"(): $ToolPanel
+get "menuPanel"(): $MenuPanel
+get "resourcePanel"(): $ResourcePanel
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12871,17 +15003,22 @@ import {$AnimatableMachine, $AnimatableMachine$Type} from "packages/com/lowdragm
 
 export class $MachineCustomKeyframeEvent extends $MachineEvent {
  "event": $CustomInstructionKeyframeEvent<($AnimatableMachine)>
+ "instruction": string
 readonly "machine": $MBDMachine
 
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $CustomInstructionKeyframeEvent$Type<($AnimatableMachine$Type)>)
 
 public "getListenerList"(): $ListenerList
-public "setEvent"(arg0: $CustomInstructionKeyframeEvent$Type<($AnimatableMachine$Type)>): void
 public "getEvent"(): $CustomInstructionKeyframeEvent<($AnimatableMachine)>
+public "getInstruction"(): string
+public "setEvent"(arg0: $CustomInstructionKeyframeEvent$Type<($AnimatableMachine$Type)>): void
+public "setInstruction"(arg0: string): void
 get "listenerList"(): $ListenerList
-set "event"(value: $CustomInstructionKeyframeEvent$Type<($AnimatableMachine$Type)>)
 get "event"(): $CustomInstructionKeyframeEvent<($AnimatableMachine)>
+get "instruction"(): string
+set "event"(value: $CustomInstructionKeyframeEvent$Type<($AnimatableMachine$Type)>)
+set "instruction"(value: string)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12894,6 +15031,39 @@ export type $MachineCustomKeyframeEvent$Type = ($MachineCustomKeyframeEvent);
  */
 declare global {
 export type $MachineCustomKeyframeEvent_ = $MachineCustomKeyframeEvent$Type;
+}}
+declare module "packages/com/lowdragmc/mbd2/api/pattern/$BlockPattern" {
+import {$TraceabilityPredicate, $TraceabilityPredicate$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$TraceabilityPredicate"
+import {$BlockInfo, $BlockInfo$Type} from "packages/com/lowdragmc/lowdraglib/utils/$BlockInfo"
+import {$MultiblockState, $MultiblockState$Type} from "packages/com/lowdragmc/mbd2/api/pattern/$MultiblockState"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$RelativeDirection, $RelativeDirection$Type} from "packages/com/lowdragmc/mbd2/api/pattern/util/$RelativeDirection"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+
+export class $BlockPattern {
+readonly "aisleRepetitions": ((integer)[])[]
+readonly "structureDir": ($RelativeDirection)[]
+
+constructor(arg0: ((($TraceabilityPredicate$Type)[])[])[], arg1: ($RelativeDirection$Type)[], arg2: ((integer)[])[], arg3: (integer)[])
+
+public "getPreview"(arg0: (integer)[]): ((($BlockInfo)[])[])[]
+public "checkPatternAtWithoutController"(arg0: $MultiblockState$Type, arg1: $Direction$Type): boolean
+public "checkPatternAt"(arg0: $MultiblockState$Type, arg1: boolean): boolean
+public "checkPatternAt"(arg0: $MultiblockState$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: boolean): boolean
+public "autoBuild"(arg0: $Player$Type, arg1: $MultiblockState$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $BlockPattern$Type = ($BlockPattern);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $BlockPattern_ = $BlockPattern$Type;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/factory/$HeldItemUIFactory$HeldItemHolder" {
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -12910,17 +15080,17 @@ export class $HeldItemUIFactory$HeldItemHolder implements $IUIHolder {
 constructor(player: $Player$Type, hand: $InteractionHand$Type)
 
 public "isInvalid"(): boolean
-public "getHeld"(): $ItemStack
-public "markAsDirty"(): void
-public "createUI"(entityPlayer: $Player$Type): $ModularUI
-public "isRemote"(): boolean
-public "getPlayer"(): $Player
 public "getHand"(): $InteractionHand
+public "getPlayer"(): $Player
+public "isRemote"(): boolean
+public "createUI"(entityPlayer: $Player$Type): $ModularUI
+public "markAsDirty"(): void
+public "getHeld"(): $ItemStack
 get "invalid"(): boolean
-get "held"(): $ItemStack
-get "remote"(): boolean
-get "player"(): $Player
 get "hand"(): $InteractionHand
+get "player"(): $Player
+get "remote"(): boolean
+get "held"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12954,18 +15124,19 @@ readonly "recipeConditions": $List<($RecipeCondition)>
 
 constructor()
 
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "serializeNBT"(): $CompoundTag
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13020,38 +15191,38 @@ export class $WorldSceneRenderer$VertexConsumerWrapper implements $VertexConsume
 constructor(builder: $VertexConsumer$Type)
 
 public "setColor"(r: float, g: float, b: float, a: float): void
-public "setOffsetX"(offsetX: double): void
-public "setOffsetY"(offsetY: double): void
-public "setOffsetZ"(offsetZ: double): void
-public "vertex"(x: double, y: double, z: double): $VertexConsumer
-public "endVertex"(): void
 public "uv"(u: float, v: float): $VertexConsumer
+public "endVertex"(): void
+public "vertex"(x: double, y: double, z: double): $VertexConsumer
 public "color"(red: integer, green: integer, blue: integer, alpha: integer): $VertexConsumer
-public "overlayCoords"(u: integer, v: integer): $VertexConsumer
 public "uv2"(u: integer, v: integer): $VertexConsumer
+public "overlayCoords"(u: integer, v: integer): $VertexConsumer
 public "normal"(x: float, y: float, z: float): $VertexConsumer
-public "addOffset"(offsetX: double, offsetY: double, offsetZ: double): void
-public "clearColor"(): void
 public "defaultColor"(defaultR: integer, defaultG: integer, defaultB: integer, defaultA: integer): void
 public "unsetDefaultColor"(): void
 public "clerOffset"(): void
+public "clearColor"(): void
+public "addOffset"(offsetX: double, offsetY: double, offsetZ: double): void
+public "setOffsetY"(offsetY: double): void
+public "setOffsetZ"(offsetZ: double): void
+public "setOffsetX"(offsetX: double): void
 public "color"(arg0: float, arg1: float, arg2: float, arg3: float): $VertexConsumer
 public "vertex"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: integer, arg10: integer, arg11: float, arg12: float, arg13: float): void
-public "color"(arg0: integer): $VertexConsumer
-public "overlayCoords"(arg0: integer): $VertexConsumer
 public "uv2"(arg0: integer): $VertexConsumer
+public "overlayCoords"(arg0: integer): $VertexConsumer
+public "color"(arg0: integer): $VertexConsumer
 public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: float, arg3: float, arg4: float, arg5: integer, arg6: integer): void
-public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: (integer)[], arg7: integer, arg8: boolean): void
 public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
-public "vertex"(arg0: $Matrix4f$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: (integer)[], arg7: integer, arg8: boolean): void
 public "normal"(arg0: $Matrix3f$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+public "vertex"(arg0: $Matrix4f$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
 public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
 public "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$Type): integer
 public "applyBakedNormals"(arg0: $Vector3f$Type, arg1: $ByteBuffer$Type, arg2: $Matrix3f$Type): void
 public "misc"(arg0: $VertexFormatElement$Type, ...arg1: (integer)[]): $VertexConsumer
-set "offsetX"(value: double)
 set "offsetY"(value: double)
 set "offsetZ"(value: double)
+set "offsetX"(value: double)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13081,10 +15252,10 @@ public "build"(): T
 public "child"(arg0: $MachineState$Type): $MachineState$Builder<(T)>
 public "shape"(arg0: $VoxelShape$Type): $MachineState$Builder<(T)>
 public "children"(arg0: $List$Type<($MachineState$Type)>): $MachineState$Builder<(T)>
-public "renderingBox"(arg0: $AABB$Type): $MachineState$Builder<(T)>
-public "modelRenderer"(arg0: $ResourceLocation$Type): $MachineState$Builder<(T)>
-public "lightLevel"(arg0: integer): $MachineState$Builder<(T)>
 public "renderer"(arg0: $IRenderer$Type): $MachineState$Builder<(T)>
+public "modelRenderer"(arg0: $ResourceLocation$Type): $MachineState$Builder<(T)>
+public "renderingBox"(arg0: $AABB$Type): $MachineState$Builder<(T)>
+public "lightLevel"(arg0: integer): $MachineState$Builder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13138,16 +15309,16 @@ import {$IRecipeHandlerTrait, $IRecipeHandlerTrait$Type} from "packages/com/lowd
 export interface $ITrait {
 
  "getDefinition"(): $TraitDefinition
- "onMachineRemoved"(): void
- "getMachine"(): $MBDMachine
- "onNeighborChanged"(arg0: $Block$Type, arg1: $BlockPos$Type, arg2: boolean): void
- "onMachineUnLoad"(): void
- "onMachineLoad"(): void
- "getCapabilityProviderTraits"(): $List<($ICapabilityProviderTrait<(any)>)>
- "getRecipeHandlerTraits"(): $List<($IRecipeHandlerTrait<(any)>)>
  "onLoadingTraitInPreview"(): void
  "clientTick"(): void
+ "onNeighborChanged"(arg0: $Block$Type, arg1: $BlockPos$Type, arg2: boolean): void
  "serverTick"(): void
+ "getCapabilityProviderTraits"(): $List<($ICapabilityProviderTrait<(any)>)>
+ "getRecipeHandlerTraits"(): $List<($IRecipeHandlerTrait<(any)>)>
+ "getMachine"(): $MBDMachine
+ "onMachineRemoved"(): void
+ "onMachineLoad"(): void
+ "onMachineUnLoad"(): void
 }
 
 export namespace $ITrait {
@@ -13186,72 +15357,72 @@ export class $TextFieldWidget extends $Widget implements $IConfigurableWidget {
 constructor()
 constructor(xPosition: integer, yPosition: integer, width: integer, height: integer, textSupplier: $Supplier$Type<(string)>, textResponder: $Consumer$Type<(string)>)
 
-public "setCurrentString"(currentString: any): $TextFieldWidget
-public "setNumbersOnlyFloat"(minValue: float, maxValue: float): $TextFieldWidget
-public "setNumbersOnlyLong"(minValue: long, maxValue: long): $TextFieldWidget
-public "setNumbersOnlyInt"(minValue: integer, maxValue: integer): $TextFieldWidget
-public "setWheelDur"(digits: integer, wheelDur: float): $TextFieldWidget
-public "setWheelDur"(wheelDur: float): $TextFieldWidget
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "onFocusChanged"(lastFocus: $Widget$Type, focus: $Widget$Type): void
-public "charTyped"(codePoint: character, modifiers: integer): boolean
-public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
-public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
-public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
-public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "updateScreen"(): void
+public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
+public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
+public "setResourceLocationOnly"(): $TextFieldWidget
 public "setTextSupplier"(textSupplier: $Supplier$Type<(string)>): $TextFieldWidget
 public "setTextResponder"(textResponder: $Consumer$Type<(string)>): $TextFieldWidget
 public "getCurrentString"(): string
-public "setTextColor"(textColor: integer): $TextFieldWidget
 public "setMaxStringLength"(maxStringLength: integer): $TextFieldWidget
+public "setTextColor"(textColor: integer): $TextFieldWidget
 public "setValidator"(validator: $Function$Type<(string), (string)>): $TextFieldWidget
-public "setResourceLocationOnly"(): $TextFieldWidget
+public "readInitialData"(buffer: $FriendlyByteBuf$Type): void
+public "writeInitialData"(buffer: $FriendlyByteBuf$Type): void
 public "detectAndSendChanges"(): void
-public "setCompoundTagOnly"(): $TextFieldWidget
-public "setBordered"(bordered: boolean): $TextFieldWidget
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "onFocusChanged"(lastFocus: $Widget$Type, focus: $Widget$Type): void
 public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
+public "charTyped"(codePoint: character, modifiers: integer): boolean
+public "keyPressed"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
+public "setCurrentString"(currentString: any): $TextFieldWidget
+public "mouseDragged"(mouseX: double, mouseY: double, button: integer, dragX: double, dragY: double): boolean
 public "setBackground"(background: $IGuiTexture$Type): $TextFieldWidget
-public "mouseWheelMove"(mouseX: double, mouseY: double, wheelDelta: double): boolean
-public "updateScreen"(): void
-public "drawInForeground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "drawInBackground"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, partialTicks: float): void
-public "readUpdateInfo"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "setBordered"(bordered: boolean): $TextFieldWidget
+public "setCompoundTagOnly"(): $TextFieldWidget
+public "setWheelDur"(digits: integer, wheelDur: float): $TextFieldWidget
+public "setWheelDur"(wheelDur: float): $TextFieldWidget
+public "setNumbersOnlyLong"(minValue: long, maxValue: long): $TextFieldWidget
+public "setNumbersOnlyInt"(minValue: integer, maxValue: integer): $TextFieldWidget
+public "setNumbersOnlyFloat"(minValue: float, maxValue: float): $TextFieldWidget
 public "getRawCurrentString"(): string
-public "widget"(): $Widget
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public "initTemplate"(): void
-public "serializeWrapper"(): $CompoundTag
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
+public "serializeWrapper"(): $CompoundTag
 public "handleDragging"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
-set "currentString"(value: any)
-set "wheelDur"(value: float)
+public "getChatComponent"(): $Component
 set "textSupplier"(value: $Supplier$Type<(string)>)
 set "textResponder"(value: $Consumer$Type<(string)>)
 get "currentString"(): string
-set "textColor"(value: integer)
 set "maxStringLength"(value: integer)
+set "textColor"(value: integer)
 set "validator"(value: $Function$Type<(string), (string)>)
-set "bordered"(value: boolean)
+set "currentString"(value: any)
 set "background"(value: $IGuiTexture$Type)
+set "bordered"(value: boolean)
+set "wheelDur"(value: float)
 get "rawCurrentString"(): string
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13277,9 +15448,9 @@ public "remove"(key: K): $TreeBuilder<(K), (V)>
 public static "start"<K, V>(key: K): $TreeBuilder<(K), (V)>
 public "build"(): $TreeNode<(K), (V)>
 public "branch"(key: K, builderConsumer: $Consumer$Type<($TreeBuilder$Type<(K), (V)>)>): $TreeBuilder<(K), (V)>
-public "leaf"(key: K, content: V): $TreeBuilder<(K), (V)>
 public "endBranch"(): $TreeBuilder<(K), (V)>
 public "startBranch"(key: K): $TreeBuilder<(K), (V)>
+public "leaf"(key: K, content: V): $TreeBuilder<(K), (V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13313,32 +15484,32 @@ export class $ConfigKineticMachineSettings implements $IConfigurable, $IPersiste
  "useFlywheel": boolean
 
 
-public static "builder"(): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
 public "getCapacity"(): float
-public "frontRotation"(): $ConfigKineticMachineSettings$RotationFacing
-public "hasBackRotation"(): boolean
-public "getImpact"(): float
-public "maxRPM"(): integer
-public "torque"(): float
-public "isGenerator"(): boolean
+public static "builder"(): $ConfigKineticMachineSettings$ConfigKineticMachineSettingsBuilder
 public "hasShaftTowards"(arg0: $Direction$Type, arg1: $Direction$Type): boolean
 public "getRotationFacing"(arg0: $Direction$Type): $Direction
 public "useFlywheel"(): boolean
+public "getImpact"(): float
+public "isGenerator"(): boolean
+public "maxRPM"(): integer
+public "torque"(): float
+public "hasBackRotation"(): boolean
+public "frontRotation"(): $ConfigKineticMachineSettings$RotationFacing
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "deserializeNBT"(tag: $CompoundTag$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "capacity"(): float
 get "impact"(): float
 get "generator"(): boolean
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13351,6 +15522,57 @@ export type $ConfigKineticMachineSettings$Type = ($ConfigKineticMachineSettings)
  */
 declare global {
 export type $ConfigKineticMachineSettings_ = $ConfigKineticMachineSettings$Type;
+}}
+declare module "packages/com/lowdragmc/photon/client/fx/$FXEffect" {
+import {$FX, $FX$Type} from "packages/com/lowdragmc/photon/client/fx/$FX"
+import {$FXRuntime, $FXRuntime$Type} from "packages/com/lowdragmc/photon/client/fx/$FXRuntime"
+import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
+import {$IFXEffect, $IFXEffect$Type} from "packages/com/lowdragmc/photon/client/fx/$IFXEffect"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Quaternionf, $Quaternionf$Type} from "packages/org/joml/$Quaternionf"
+import {$IFXObject, $IFXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$IFXObject"
+
+export class $FXEffect implements $IFXEffect {
+readonly "fx": $FX
+readonly "level": $Level
+
+
+public "getRuntime"(): $FXRuntime
+public "setOffset"(offset: $Vector3f$Type): void
+public "getLevel"(): $Level
+public "setScale"(scale: $Vector3f$Type): void
+public "setDelay"(delay: integer): void
+public "setForcedDeath"(forcedDeath: boolean): void
+public "setAllowMulti"(allowMulti: boolean): void
+public "setRotation"(rotation: $Quaternionf$Type): void
+public "getFx"(): $FX
+public "start"(): void
+public "setOffset"(x: double, y: double, z: double): void
+public "setScale"(x: double, y: double, z: double): void
+public "setRotation"(x: double, y: double, z: double): void
+public "updateFXObjectFrame"(fxObject: $IFXObject$Type, partialTicks: float): void
+public "updateFXObjectTick"(fxObject: $IFXObject$Type): void
+get "runtime"(): $FXRuntime
+set "offset"(value: $Vector3f$Type)
+get "level"(): $Level
+set "scale"(value: $Vector3f$Type)
+set "delay"(value: integer)
+set "forcedDeath"(value: boolean)
+set "allowMulti"(value: boolean)
+set "rotation"(value: $Quaternionf$Type)
+get "fx"(): $FX
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FXEffect$Type = ($FXEffect);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $FXEffect_ = $FXEffect$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/common/machine/$MBDMachine" {
 import {$RecipeCapability, $RecipeCapability$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$RecipeCapability"
@@ -13390,9 +15612,10 @@ import {$MBDRecipe, $MBDRecipe$Type} from "packages/com/lowdragmc/mbd2/api/recip
 import {$MBDRecipeType, $MBDRecipeType$Type} from "packages/com/lowdragmc/mbd2/api/recipe/$MBDRecipeType"
 import {$IUIHolder, $IUIHolder$Type} from "packages/com/lowdragmc/lowdraglib/gui/modular/$IUIHolder"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$MachineState, $MachineState$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$MachineState"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$ITrait, $ITrait$Type} from "packages/com/lowdragmc/mbd2/common/trait/$ITrait"
+import {$FieldManagedStorage, $FieldManagedStorage$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/field/$FieldManagedStorage"
 import {$ISubscription, $ISubscription$Type} from "packages/com/lowdragmc/lowdraglib/syncdata/$ISubscription"
 import {$IRenderer, $IRenderer$Type} from "packages/com/lowdragmc/lowdraglib/client/renderer/$IRenderer"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
@@ -13410,151 +15633,153 @@ export class $MBDMachine implements $IMachine, $IEnhancedManaged, $ICapabilityPr
 
 constructor(arg0: $IMachineBlockEntity$Type, arg1: $MBDMachineDefinition$Type, ...arg2: (any)[])
 
+public "getShape"(arg0: $CollisionContext$Type): $VoxelShape
 public "getDefinition"(): $MBDMachineDefinition
 public "getOffset"(): long
 public "isInvalid"(): boolean
 public "detach"(): void
-public "getShape"(arg0: $CollisionContext$Type): $VoxelShape
-public "doModifyRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
-public "onDrops"(arg0: $Entity$Type, arg1: $List$Type<($ItemStack$Type)>): void
-public "markAsDirty"(): void
-public "onLoad"(): void
-public "getAnimatableMachine"(): $Map<($IRenderer), (any)>
-public "notifyRecipeStatusChanged"(arg0: $RecipeLogic$Status$Type, arg1: $RecipeLogic$Status$Type): void
-public "alwaysTryModifyRecipe"(): boolean
-public "onUse"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "openUI"(arg0: $Player$Type): $InteractionResult
-public "createUI"(arg0: $Player$Type): $ModularUI
-public "setOutputDirectSignal"(arg0: integer, arg1: $Direction$Type): void
 public "setAnalogOutputSignal"(arg0: integer): void
-public "onChanged"(): void
-public "updateSignal"(): void
+public "setOutputDirectSignal"(arg0: integer, arg1: $Direction$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "getCurrentSound"(): $MachineSound
-public "onMachinePlaced"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type): void
-public "getOutputSignal"(): (byte)[]
-public "getOutputSignal"(arg0: $Direction$Type): integer
-public "onMachineRemoved"(): void
-public "getDropItem"(): $ItemStack
-public "shouldOpenUI"(arg0: $InteractionHand$Type, arg1: $BlockHitResult$Type): boolean
-public "getMachineHolder"(): $IMachineBlockEntity
-public "getPhotonFXs"(): $Map<(string), (any)>
-public "afterWorking"(): void
-public "getModifiedRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
-public "beforeWorking"(arg0: $MBDRecipe$Type): boolean
-public "getMaxParallel"(arg0: $MBDRecipe$Type): $ContentModifier
-public "onWorking"(): boolean
-public "onWaiting"(): void
-public "runRecipeLogic"(): boolean
-public "modifyFuelRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
-public "setFrontFacing"(arg0: $Direction$Type): void
-public "onUnload"(): void
-public "getMachineLevel"(): integer
-public "isFacingValid"(arg0: $Direction$Type): boolean
-public "setOutputSignal"(arg0: integer, arg1: $Direction$Type): void
+public "loadAdditionalTraits"(): void
+public "getAdditionalTraits"(): $List<($ITrait)>
+public "getAnimatableMachine"(): $Map<($IRenderer), (any)>
 public "setMachineState"(arg0: string): void
-public "setCustomData"(arg0: $CompoundTag$Type): void
+public "setOutputSignal"(arg0: integer, arg1: $Direction$Type): void
 public "setMachineLevel"(arg0: integer): void
+public "setCustomData"(arg0: $CompoundTag$Type): void
 public "getMachineState"(): $MachineState
 public "getCustomData"(): $CompoundTag
-public "triggerGeckolibAnim"(arg0: string, arg1: string, arg2: float): void
-public "triggerGeckolibAnim"(arg0: string, arg1: float): void
-public "getRenderBoundingBox"(): $AABB
-public "killPhotonFx"(arg0: string, arg1: boolean): void
-public "emitPhotonFx"(arg0: string, arg1: $ResourceLocation$Type, arg2: $Vector3f$Type, arg3: $Vector3f$Type, arg4: integer, arg5: boolean): void
-public "updateState"(arg0: string, arg1: string): void
-public "onNeighborChanged"(arg0: $Block$Type, arg1: $BlockPos$Type, arg2: boolean): void
+public "onChanged"(): void
+public "onDrops"(arg0: $Entity$Type, arg1: $List$Type<($ItemStack$Type)>): void
+public "alwaysTryModifyRecipe"(): boolean
+public "notifyRecipeStatusChanged"(arg0: $RecipeLogic$Status$Type, arg1: $RecipeLogic$Status$Type): void
+public "scheduleRenderUpdate"(): void
+public "getRecipeDampingValue"(): integer
+public "getRecipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
+public "onFuelBurningFinish"(arg0: $MBDRecipe$Type): void
+public "alwaysReSearchRecipe"(): boolean
+public "getFrontFacing"(): $Optional<($Direction)>
+public "getMaxParallel"(arg0: $MBDRecipe$Type): $ContentModifier
+public "getModifiedRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+public "onWaiting"(): void
+public "onWorking"(): boolean
+public "setFrontFacing"(arg0: $Direction$Type): void
+public "afterWorking"(): void
+public "beforeWorking"(arg0: $MBDRecipe$Type): boolean
+public "isFacingValid"(arg0: $Direction$Type): boolean
+public "runRecipeLogic"(): boolean
+public "onUnload"(): void
+public "getMachineLevel"(): integer
+public "modifyFuelRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+public "getRecipeLogic"(): $RecipeLogic
+public "getRecipeType"(): $MBDRecipeType
 public "canConnectRedstone"(arg0: $Direction$Type): boolean
 public "getAppearance"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $BlockPos$Type): $BlockState
-public "getTraitByDefinition"(arg0: $TraitDefinition$Type): $ITrait
-public "getRecipeType"(): $MBDRecipeType
-public "getRecipeLogic"(): $RecipeLogic
+public "clientTick"(): void
 public "isRemote"(): boolean
-public "isDisableRendering"(): boolean
-public "getFieldHolder"(): $ManagedFieldHolder
-public "getTraitByName"(arg0: string): $ITrait
-public "getTraitByName"<T>(arg0: $Class$Type<(T)>, arg1: string): T
-public "playStateSound"(arg0: string): void
-public "updateCustomData"(arg0: $CompoundTag$Type, arg1: $CompoundTag$Type): void
-public "getFrontFacing"(): $Optional<($Direction)>
-public "onFuelBurningFinish"(arg0: $MBDRecipe$Type): void
-public "getRecipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
-public "scheduleRenderUpdate"(): void
-public "alwaysReSearchRecipe"(): boolean
-public "getRecipeDampingValue"(): integer
+public "onLoad"(): void
+public "createUI"(arg0: $Player$Type): $ModularUI
+public "getHolder"(): $BlockEntity
+public "emitPhotonFx"(arg0: string, arg1: $ResourceLocation$Type, arg2: $Vector3f$Type, arg3: $Vector3f$Type, arg4: integer, arg5: boolean): void
+public "killPhotonFx"(arg0: string, arg1: boolean): void
+public "getTraitByDefinition"(arg0: $TraitDefinition$Type): $ITrait
+public "triggerGeckolibAnim"(arg0: string, arg1: string, arg2: float): void
+public "triggerGeckolibAnim"(arg0: string, arg1: float): void
+public "onNeighborChanged"(arg0: $Block$Type, arg1: $BlockPos$Type, arg2: boolean): void
+public "getRenderBoundingBox"(): $AABB
+public "serverTick"(): void
 public "getOutputDirectSignal"(): (byte)[]
 public "getOutputDirectSignal"(arg0: $Direction$Type): integer
 public "getDynamicMachineLevel"(): integer
-public "getAnalogOutputSignal"(): byte
-public "getMachineStateName"(): string
 public "initCapabilitiesProxy"(): void
-public "getHolder"(): $BlockEntity
-public "loadAdditionalTraits"(): void
-public "getAdditionalTraits"(): $List<($ITrait)>
-public "clientTick"(): void
+public "getMachineStateName"(): string
+public "getAnalogOutputSignal"(): byte
+public "markAsDirty"(): void
+public "updateState"(arg0: string, arg1: string): void
+public "doModifyRecipe"(arg0: $MBDRecipe$Type): $MBDRecipe
+public "openUI"(arg0: $Player$Type): $InteractionResult
+public "getSyncStorage"(): $FieldManagedStorage
+public "onUse"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "updateSignal"(): void
 public "animateTick"(arg0: $RandomSource$Type): void
-public "serverTick"(): void
+public "onMachineRemoved"(): void
+public "shouldOpenUI"(arg0: $InteractionHand$Type, arg1: $BlockHitResult$Type): boolean
+public "onMachinePlaced"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type): void
+public "getOutputSignal"(): (byte)[]
+public "getOutputSignal"(arg0: $Direction$Type): integer
+public "getFieldHolder"(): $ManagedFieldHolder
+public "updateCustomData"(arg0: $CompoundTag$Type, arg1: $CompoundTag$Type): void
+public "playStateSound"(arg0: string): void
+public "isDisableRendering"(): boolean
+public "getCurrentSound"(): $MachineSound
+public "getDropItem"(): $ItemStack
+public "getTraitByName"<T>(arg0: $Class$Type<(T)>, arg1: string): T
+public "getTraitByName"(arg0: string): $ITrait
+public "getMachineHolder"(): $IMachineBlockEntity
+public "getPhotonFXs"(): $Map<(string), (any)>
 public "getLevel"(): $Level
-public static "ofMachine"(arg0: $BlockEntity$Type): $Optional<($IMachine)>
-public static "ofMachine"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMachine)>
-public "hasFrontFacing"(): boolean
-public "getOffsetTimer"(): long
-public "onRotated"(arg0: $Direction$Type, arg1: $Direction$Type): void
-public "isInValid"(): boolean
-public "applyParallel"(arg0: $MBDRecipe$Type, arg1: integer): $MBDRecipe
-public "getChanceTier"(): integer
-public "dampingWhenWaiting"(): boolean
-public "getPos"(): $BlockPos
+public "getBlockState"(): $BlockState
 public "loadCustomPersistedData"(arg0: $CompoundTag$Type): void
 public "saveCustomPersistedData"(arg0: $CompoundTag$Type, arg1: boolean): void
-public "getBlockState"(): $BlockState
+public "onRotated"(arg0: $Direction$Type, arg1: $Direction$Type): void
+public "hasFrontFacing"(): boolean
+public "isInValid"(): boolean
+public "getOffsetTimer"(): long
+public "getChanceTier"(): integer
+public "dampingWhenWaiting"(): boolean
+public "applyParallel"(arg0: $MBDRecipe$Type, arg1: integer): $MBDRecipe
 public "notifyBlockUpdate"(): void
+public static "ofMachine"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($IMachine)>
+public static "ofMachine"(arg0: $BlockEntity$Type): $Optional<($IMachine)>
+public "getPos"(): $BlockPos
 public "markDirty"(): void
 public "scheduleRender"(fieldName: string, newValue: any, oldValue: any): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 public "hasProxies"(): boolean
+public "markDirty"(name: string): void
 public "addSyncUpdateListener"<T>(name: string, listener: $IFieldUpdateListener$Type<(T)>): $ISubscription
 public "onPersistedChanged"(ref: $IRef$Type, isDirty: boolean): void
 public "onSyncChanged"(ref: $IRef$Type, isDirty: boolean): void
-public "markDirty"(name: string): void
 get "definition"(): $MBDMachineDefinition
 get "offset"(): long
 get "invalid"(): boolean
-get "animatableMachine"(): $Map<($IRenderer), (any)>
 set "analogOutputSignal"(value: integer)
-get "currentSound"(): $MachineSound
+get "additionalTraits"(): $List<($ITrait)>
+get "animatableMachine"(): $Map<($IRenderer), (any)>
+set "machineState"(value: string)
+set "machineLevel"(value: integer)
+set "customData"(value: $CompoundTag$Type)
+get "machineState"(): $MachineState
+get "customData"(): $CompoundTag
+get "recipeDampingValue"(): integer
+get "recipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
+get "frontFacing"(): $Optional<($Direction)>
+set "frontFacing"(value: $Direction$Type)
+get "machineLevel"(): integer
+get "recipeLogic"(): $RecipeLogic
+get "recipeType"(): $MBDRecipeType
+get "remote"(): boolean
+get "holder"(): $BlockEntity
+get "renderBoundingBox"(): $AABB
+get "outputDirectSignal"(): (byte)[]
+get "dynamicMachineLevel"(): integer
+get "machineStateName"(): string
+get "analogOutputSignal"(): byte
+get "syncStorage"(): $FieldManagedStorage
 get "outputSignal"(): (byte)[]
+get "fieldHolder"(): $ManagedFieldHolder
+get "disableRendering"(): boolean
+get "currentSound"(): $MachineSound
 get "dropItem"(): $ItemStack
 get "machineHolder"(): $IMachineBlockEntity
 get "photonFXs"(): $Map<(string), (any)>
-set "frontFacing"(value: $Direction$Type)
-get "machineLevel"(): integer
-set "machineState"(value: string)
-set "customData"(value: $CompoundTag$Type)
-set "machineLevel"(value: integer)
-get "machineState"(): $MachineState
-get "customData"(): $CompoundTag
-get "renderBoundingBox"(): $AABB
-get "recipeType"(): $MBDRecipeType
-get "recipeLogic"(): $RecipeLogic
-get "remote"(): boolean
-get "disableRendering"(): boolean
-get "fieldHolder"(): $ManagedFieldHolder
-get "frontFacing"(): $Optional<($Direction)>
-get "recipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
-get "recipeDampingValue"(): integer
-get "outputDirectSignal"(): (byte)[]
-get "dynamicMachineLevel"(): integer
-get "analogOutputSignal"(): byte
-get "machineStateName"(): string
-get "holder"(): $BlockEntity
-get "additionalTraits"(): $List<($ITrait)>
 get "level"(): $Level
-get "offsetTimer"(): long
+get "blockState"(): $BlockState
 get "inValid"(): boolean
+get "offsetTimer"(): long
 get "chanceTier"(): integer
 get "pos"(): $BlockPos
-get "blockState"(): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13577,14 +15802,14 @@ import {$ConfiguratorGroup, $ConfiguratorGroup$Type} from "packages/com/lowdragm
 export interface $IToggleConfigurable extends $IConfigurable {
 
  "isEnable"(): boolean
- "setEnable"(arg0: boolean): void
  "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+ "setEnable"(arg0: boolean): void
  "name"(): string
  "group"(): string
  "isLDLRegister"(): boolean
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
  "getRegisterUI"(): $LDLRegister
+ "getChatComponent"(): $Component
 }
 
 export namespace $IToggleConfigurable {
@@ -13689,26 +15914,28 @@ static readonly "QUICKCRAFT_HEADER_START": integer
 static readonly "QUICKCRAFT_HEADER_CONTINUE": integer
 static readonly "QUICKCRAFT_HEADER_END": integer
 static readonly "CARRIED_SLOT_SIZE": integer
+readonly "lastSlots": $NonNullList<($ItemStack)>
 readonly "slots": $NonNullList<($Slot)>
-readonly "containerId": integer
+ "remoteSlots": $NonNullList<($ItemStack)>
+ "containerId": integer
 
 constructor(modularUI: $ModularUI$Type, windowID: integer)
 
-public "handleClientAction"(packet: $CPacketUIClientAction$Type): void
-public "canTakeItemForPickAll"(stack: $ItemStack$Type, slotIn: $Slot$Type): boolean
-public "stillValid"(playerIn: $Player$Type): boolean
-public "removed"(playerIn: $Player$Type): void
-public "m_38897_"(slotHandle: $Slot$Type): $Slot
-public "quickMoveStack"(player: $Player$Type, index: integer): $ItemStack
-public "clicked"(slotId: integer, dragType: integer, clickTypeIn: $ClickType$Type, player: $Player$Type): void
 public "getModularUI"(): $ModularUI
 public "removeSlot"(slotHandle: $Slot$Type): void
-public "attemptMergeStack"(itemStack: $ItemStack$Type, fromContainer: boolean, simulate: boolean): boolean
 public static "mergeItemStack"(itemStack: $ItemStack$Type, slots: $List$Type<($Slot$Type)>, simulate: boolean): boolean
-public "writeUpdateInfo"(widget: $Widget$Type, updateId: integer, payloadWriter: $Consumer$Type<($FriendlyByteBuf$Type)>): void
+public "attemptMergeStack"(itemStack: $ItemStack$Type, fromContainer: boolean, simulate: boolean): boolean
 public "writeClientAction"(widget: $Widget$Type, updateId: integer, payloadWriter: $Consumer$Type<($FriendlyByteBuf$Type)>): void
-public "addSlotListener"(pListener: $ContainerListener$Type): void
+public "writeUpdateInfo"(widget: $Widget$Type, updateId: integer, payloadWriter: $Consumer$Type<($FriendlyByteBuf$Type)>): void
+public "removed"(playerIn: $Player$Type): void
 public "broadcastChanges"(): void
+public "m_38897_"(slotHandle: $Slot$Type): $Slot
+public "quickMoveStack"(player: $Player$Type, index: integer): $ItemStack
+public "stillValid"(playerIn: $Player$Type): boolean
+public "handleClientAction"(packet: $CPacketUIClientAction$Type): void
+public "canTakeItemForPickAll"(stack: $ItemStack$Type, slotIn: $Slot$Type): boolean
+public "clicked"(slotId: integer, dragType: integer, clickTypeIn: $ClickType$Type, player: $Player$Type): void
+public "addSlotListener"(pListener: $ContainerListener$Type): void
 get "modularUI"(): $ModularUI
 }
 /**
@@ -13742,33 +15969,33 @@ export class $FluidTransferHelper {
 
 constructor()
 
-public static "interactWithFluidHandler"(player: $Player$Type, hand: $InteractionHand$Type, handler: $IFluidTransfer$Type): boolean
-public static "interactWithFluidHandler"(player: $Player$Type, hand: $InteractionHand$Type, level: $Level$Type, pos: $BlockPos$Type, side: $Direction$Type): boolean
-public static "destroyBlockOnFluidPlacement"(level: $Level$Type, pos: $BlockPos$Type): void
-public static "tryEmptyContainerAndStow"(container: $ItemStack$Type, fluidDestination: $IFluidTransfer$Type, inventory: $IItemTransfer$Type, maxAmount: integer, player: $Player$Type, doDrain: boolean): $FluidActionResult
-public static "tryFillContainerAndStow"(container: $ItemStack$Type, fluidSource: $IFluidTransfer$Type, inventory: $IItemTransfer$Type, maxAmount: integer, player: $Player$Type, doFill: boolean): $FluidActionResult
 public static "tryFluidTransfer"(fluidDestination: $IFluidTransfer$Type, fluidSource: $IFluidTransfer$Type, maxAmount: integer, doTransfer: boolean): $FluidStack
 public static "tryFluidTransfer"(fluidDestination: $IFluidTransfer$Type, fluidSource: $IFluidTransfer$Type, resource: $FluidStack$Type, doTransfer: boolean): $FluidStack
-public static "getFluidTransfer"(player: $Player$Type, screenHandler: $AbstractContainerMenu$Type): $IFluidTransfer
+public static "importToTarget"(target: $IFluidTransfer$Type, maxAmount: integer, filter: $Predicate$Type<($FluidStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
+public static "exportToTarget"(source: $IFluidTransfer$Type, maxAmount: integer, filter: $Predicate$Type<($FluidStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
+public static "getContainerItem"(copyContainer: $ItemStackTransfer$Type, handler: $IFluidTransfer$Type): $ItemStack
+public static "transferFluids"(sourceHandler: $IFluidTransfer$Type, destHandler: $IFluidTransfer$Type, transferLimit: long, fluidFilter: $Predicate$Type<($FluidStack$Type)>): long
+public static "tryPickUpFluid"(emptyContainer: $ItemStack$Type, playerIn: $Player$Type, level: $Level$Type, pos: $BlockPos$Type, side: $Direction$Type): $FluidActionResult
+public static "tryPlaceFluid"(player: $Player$Type, level: $Level$Type, hand: $InteractionHand$Type, pos: $BlockPos$Type, fluidSource: $IFluidTransfer$Type, resource: $FluidStack$Type): boolean
+public static "tryPlaceFluid"(player: $Player$Type, level: $Level$Type, hand: $InteractionHand$Type, pos: $BlockPos$Type, container: $ItemStack$Type, resource: $FluidStack$Type): $FluidActionResult
 public static "getFluidTransfer"(itemTransfer: $IItemTransfer$Type, slot: integer): $IFluidTransfer
+public static "getFluidTransfer"(player: $Player$Type, screenHandler: $AbstractContainerMenu$Type): $IFluidTransfer
+public static "getFluidTransfer"(level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): $IFluidTransfer
+public static "getFluidTransfer"(player: $Player$Type, slot: integer): $IFluidTransfer
+public static "getFluidTransfer"(player: $Player$Type, hand: $InteractionHand$Type): $IFluidTransfer
 /**
  * 
  * @deprecated
  */
 public static "getFluidTransfer"(itemStack: $ItemStack$Type): $IFluidTransfer
-public static "getFluidTransfer"(player: $Player$Type, slot: integer): $IFluidTransfer
-public static "getFluidTransfer"(player: $Player$Type, hand: $InteractionHand$Type): $IFluidTransfer
-public static "getFluidTransfer"(level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): $IFluidTransfer
 public static "tryFillContainer"(container: $ItemStack$Type, fluidSource: $IFluidTransfer$Type, maxAmount: integer, player: $Player$Type, doFill: boolean): $FluidActionResult
 public static "tryEmptyContainer"(container: $ItemStack$Type, fluidDestination: $IFluidTransfer$Type, maxAmount: integer, player: $Player$Type, doDrain: boolean): $FluidActionResult
+public static "interactWithFluidHandler"(player: $Player$Type, hand: $InteractionHand$Type, level: $Level$Type, pos: $BlockPos$Type, side: $Direction$Type): boolean
+public static "interactWithFluidHandler"(player: $Player$Type, hand: $InteractionHand$Type, handler: $IFluidTransfer$Type): boolean
+public static "destroyBlockOnFluidPlacement"(level: $Level$Type, pos: $BlockPos$Type): void
+public static "tryFillContainerAndStow"(container: $ItemStack$Type, fluidSource: $IFluidTransfer$Type, inventory: $IItemTransfer$Type, maxAmount: integer, player: $Player$Type, doFill: boolean): $FluidActionResult
+public static "tryEmptyContainerAndStow"(container: $ItemStack$Type, fluidDestination: $IFluidTransfer$Type, inventory: $IItemTransfer$Type, maxAmount: integer, player: $Player$Type, doDrain: boolean): $FluidActionResult
 public static "getFluidContained"(container: $ItemStack$Type): $FluidStack
-public static "getContainerItem"(copyContainer: $ItemStackTransfer$Type, handler: $IFluidTransfer$Type): $ItemStack
-public static "exportToTarget"(source: $IFluidTransfer$Type, maxAmount: integer, filter: $Predicate$Type<($FluidStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
-public static "importToTarget"(target: $IFluidTransfer$Type, maxAmount: integer, filter: $Predicate$Type<($FluidStack$Type)>, level: $Level$Type, pos: $BlockPos$Type, direction: $Direction$Type): void
-public static "tryPlaceFluid"(player: $Player$Type, level: $Level$Type, hand: $InteractionHand$Type, pos: $BlockPos$Type, fluidSource: $IFluidTransfer$Type, resource: $FluidStack$Type): boolean
-public static "tryPlaceFluid"(player: $Player$Type, level: $Level$Type, hand: $InteractionHand$Type, pos: $BlockPos$Type, container: $ItemStack$Type, resource: $FluidStack$Type): $FluidActionResult
-public static "tryPickUpFluid"(emptyContainer: $ItemStack$Type, playerIn: $Player$Type, level: $Level$Type, pos: $BlockPos$Type, side: $Direction$Type): $FluidActionResult
-public static "transferFluids"(sourceHandler: $IFluidTransfer$Type, destHandler: $IFluidTransfer$Type, transferLimit: long, fluidFilter: $Predicate$Type<($FluidStack$Type)>): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13797,13 +16024,13 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $Player$Type)
 
-public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
-public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "getPlayer"(): $Player
-get "listenerList"(): $ListenerList
+public "getListenerList"(): $ListenerList
+public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 get "cancelable"(): boolean
 get "player"(): $Player
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13816,6 +16043,31 @@ export type $MachineOpenUIEvent$Type = ($MachineOpenUIEvent);
  */
 declare global {
 export type $MachineOpenUIEvent_ = $MachineOpenUIEvent$Type;
+}}
+declare module "packages/com/lowdragmc/lowdraglib/gui/editor/data/resource/$StaticResource" {
+import {$Resource, $Resource$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/resource/$Resource"
+
+export class $StaticResource<T> {
+static "EMPTY": $StaticResource<(any)>
+
+constructor(resource: $Resource$Type<(T)>)
+
+public static "empty"<T>(): $StaticResource<(T)>
+public "loadAndUpdateStaticResource"(): boolean
+public "isStaticResourceLoaded"(): boolean
+get "staticResourceLoaded"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $StaticResource$Type<T> = ($StaticResource<(T)>);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $StaticResource_<T> = $StaticResource$Type<(T)>;
 }}
 declare module "packages/com/lowdragmc/lowdraglib/gui/editor/$IConfiguratorContainer" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
@@ -13933,11 +16185,11 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $ItemStack$Type)
 
-public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
+public "getListenerList"(): $ListenerList
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-get "listenerList"(): $ListenerList
 get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -13988,82 +16240,81 @@ constructor(arg0: $ResourceLocation$Type, ...arg1: ($RecipeType$Type<(any)>)[])
 public "toString"(): string
 public "copyFrom"(arg0: $MBDRecipeBuilder$Type): $MBDRecipeBuilder
 public "setIcon"(arg0: $IGuiTexture$Type): $MBDRecipeType
-public "serializeNBT"(): $CompoundTag
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
-public "loadProductiveTag"(arg0: $File$Type, arg1: $CompoundTag$Type, arg2: $Deque$Type<($Runnable$Type)>): $MBDRecipeType
-public static "createDefault"(): $MBDRecipeType
-public "getBuiltinRecipes"(): $Map<($ResourceLocation), ($MBDRecipe)>
-public "recipeBuilder"(arg0: $ItemLike$Type, ...arg1: (any)[]): $MBDRecipeBuilder
-public "recipeBuilder"(arg0: $Supplier$Type<(any)>, ...arg1: (any)[]): $MBDRecipeBuilder
-public "recipeBuilder"(arg0: $ResourceLocation$Type, ...arg1: (any)[]): $MBDRecipeBuilder
-public "recipeBuilder"(arg0: string, ...arg1: (any)[]): $MBDRecipeBuilder
-public "toMBDrecipe"(arg0: $ResourceLocation$Type, arg1: $Recipe$Type<(any)>): $MBDRecipe
-public "prepareBuilder"(arg0: $Consumer$Type<($MBDRecipeBuilder$Type)>): $MBDRecipeType
-public "searchFuelRecipe"(arg0: $RecipeManager$Type, arg1: $IRecipeCapabilityHolder$Type): $List<($MBDRecipe)>
-public "searchRecipe"(arg0: $RecipeManager$Type, arg1: $IRecipeCapabilityHolder$Type): $List<($MBDRecipe)>
-public "onRecipeBuild"(arg0: $BiConsumer$Type<($MBDRecipeBuilder$Type), ($Consumer$Type<($FinishedRecipe$Type)>)>): $MBDRecipeType
-public "setUiCreator"(arg0: $MBDRecipeType$UICreator$Type): $MBDRecipeType
-public "getUiCreator"(): $MBDRecipeType$UICreator
-public "setFuelIcon"(arg0: $IGuiTexture$Type): $MBDRecipeType
-public "setUiSize"(arg0: $Size$Type): $MBDRecipeType
-public "getUiSize"(): $Size
-public "setFuelUICreator"(arg0: $MBDRecipeType$UICreator$Type): $MBDRecipeType
-public "bindXEIRecipeUI"(arg0: $WidgetGroup$Type, arg1: $MBDRecipe$Type): void
-public "setXEIVisible"(arg0: boolean): $MBDRecipeType
-public "getFuelIcon"(): $IGuiTexture
-public "setRecipeBuilder"(arg0: $MBDRecipeBuilder$Type): $MBDRecipeType
-public "getProxyRecipes"(): $Map<($RecipeType<(any)>), ($List<($MBDRecipe)>)>
-public "getFuelUISize"(): $Size
-public "setFuelUISize"(arg0: $Size$Type): $MBDRecipeType
-public "setProjectFile"(arg0: $File$Type): $MBDRecipeType
-public "getFuelUICreator"(): $MBDRecipeType$UICreator
-public "getProjectFile"(): $File
-public "getIcon"(): $IGuiTexture
 public "isRequireFuelForWorking"(): boolean
-public "reloadFromProjectFile"(): void
-public "isCreatedFromProjectFile"(): boolean
-public "isXEIVisible"(): boolean
-public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
-public "getRegistryName"(): $ResourceLocation
-public "setRequireFuelForWorking"(arg0: boolean): $MBDRecipeType
+public static "createDefault"(): $MBDRecipeType
+public "loadProductiveTag"(arg0: $File$Type, arg1: $CompoundTag$Type, arg2: $Deque$Type<($Runnable$Type)>): $MBDRecipeType
+public "getIcon"(): $IGuiTexture
 public "isProxyRecipesLoaded"(): boolean
 public "getFuelRegistryName"(): $ResourceLocation
+public "setRequireFuelForWorking"(arg0: boolean): $MBDRecipeType
+public "getBuiltinRecipes"(): $Map<($ResourceLocation), ($MBDRecipe)>
+public "isXEIVisible"(): boolean
+public "getRegistryName"(): $ResourceLocation
+public "isCreatedFromProjectFile"(): boolean
+public "reloadFromProjectFile"(): void
+public "recipeBuilder"(arg0: $ResourceLocation$Type, ...arg1: (any)[]): $MBDRecipeBuilder
+public "recipeBuilder"(arg0: string, ...arg1: (any)[]): $MBDRecipeBuilder
+public "recipeBuilder"(arg0: $Supplier$Type<(any)>, ...arg1: (any)[]): $MBDRecipeBuilder
+public "recipeBuilder"(arg0: $ItemLike$Type, ...arg1: (any)[]): $MBDRecipeBuilder
+public "toMBDrecipe"(arg0: $ResourceLocation$Type, arg1: $Recipe$Type<(any)>): $MBDRecipe
+public "searchRecipe"(arg0: $RecipeManager$Type, arg1: $IRecipeCapabilityHolder$Type): $List<($MBDRecipe)>
+public "onRecipeBuild"(arg0: $BiConsumer$Type<($MBDRecipeBuilder$Type), ($Consumer$Type<($FinishedRecipe$Type)>)>): $MBDRecipeType
+public "searchFuelRecipe"(arg0: $RecipeManager$Type, arg1: $IRecipeCapabilityHolder$Type): $List<($MBDRecipe)>
+public "prepareBuilder"(arg0: $Consumer$Type<($MBDRecipeBuilder$Type)>): $MBDRecipeType
+public "getFuelIcon"(): $IGuiTexture
+public "setFuelIcon"(arg0: $IGuiTexture$Type): $MBDRecipeType
+public "bindXEIRecipeUI"(arg0: $WidgetGroup$Type, arg1: $MBDRecipe$Type): void
+public "setRecipeBuilder"(arg0: $MBDRecipeBuilder$Type): $MBDRecipeType
+public "setUiCreator"(arg0: $MBDRecipeType$UICreator$Type): $MBDRecipeType
+public "getUiSize"(): $Size
+public "setFuelUICreator"(arg0: $MBDRecipeType$UICreator$Type): $MBDRecipeType
+public "setXEIVisible"(arg0: boolean): $MBDRecipeType
+public "setUiSize"(arg0: $Size$Type): $MBDRecipeType
+public "getProxyRecipes"(): $Map<($RecipeType<(any)>), ($List<($MBDRecipe)>)>
+public "getProjectFile"(): $File
+public "getFuelUICreator"(): $MBDRecipeType$UICreator
+public "setFuelUISize"(arg0: $Size$Type): $MBDRecipeType
+public "setProjectFile"(arg0: $File$Type): $MBDRecipeType
+public "getFuelUISize"(): $Size
+public "getUiCreator"(): $MBDRecipeType$UICreator
+public "buildConfigurator"(arg0: $ConfiguratorGroup$Type): void
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public static "register"<T extends $Recipe<(any)>>(arg0: string): $RecipeType<($MBDRecipe)>
 public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<($MBDRecipe)>
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 set "icon"(value: $IGuiTexture$Type)
+get "requireFuelForWorking"(): boolean
+get "icon"(): $IGuiTexture
+get "proxyRecipesLoaded"(): boolean
+get "fuelRegistryName"(): $ResourceLocation
+set "requireFuelForWorking"(value: boolean)
 get "builtinRecipes"(): $Map<($ResourceLocation), ($MBDRecipe)>
-set "uiCreator"(value: $MBDRecipeType$UICreator$Type)
-get "uiCreator"(): $MBDRecipeType$UICreator
+get "xEIVisible"(): boolean
+get "registryName"(): $ResourceLocation
+get "createdFromProjectFile"(): boolean
+get "fuelIcon"(): $IGuiTexture
 set "fuelIcon"(value: $IGuiTexture$Type)
-set "uiSize"(value: $Size$Type)
+set "uiCreator"(value: $MBDRecipeType$UICreator$Type)
 get "uiSize"(): $Size
 set "fuelUICreator"(value: $MBDRecipeType$UICreator$Type)
 set "xEIVisible"(value: boolean)
-get "fuelIcon"(): $IGuiTexture
+set "uiSize"(value: $Size$Type)
 get "proxyRecipes"(): $Map<($RecipeType<(any)>), ($List<($MBDRecipe)>)>
-get "fuelUISize"(): $Size
+get "projectFile"(): $File
+get "fuelUICreator"(): $MBDRecipeType$UICreator
 set "fuelUISize"(value: $Size$Type)
 set "projectFile"(value: $File$Type)
-get "fuelUICreator"(): $MBDRecipeType$UICreator
-get "projectFile"(): $File
-get "icon"(): $IGuiTexture
-get "requireFuelForWorking"(): boolean
-get "createdFromProjectFile"(): boolean
-get "xEIVisible"(): boolean
-get "registryName"(): $ResourceLocation
-set "requireFuelForWorking"(value: boolean)
-get "proxyRecipesLoaded"(): boolean
-get "fuelRegistryName"(): $ResourceLocation
+get "fuelUISize"(): $Size
+get "uiCreator"(): $MBDRecipeType$UICreator
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14105,8 +16356,8 @@ export type $ToggleLightValue_ = $ToggleLightValue$Type;
 declare module "packages/com/lowdragmc/mbd2/api/registry/$MBDRegistry" {
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
+import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
 import {$Spliterator, $Spliterator$Type} from "packages/java/util/$Spliterator"
@@ -14132,16 +16383,16 @@ public "getOrDefault"(arg0: K, arg1: V): V
 public "entries"(): $Set<($Map$Entry<(K), (V)>)>
 public "isFrozen"(): boolean
 public "freeze"(): void
-public "registry"(): $Map<(K), (V)>
-public "getOrDefaultKey"(arg0: V, arg1: K): K
-public "containKey"(arg0: K): boolean
-public "saveToNBT"(arg0: V): $Tag
-public "containValue"(arg0: V): boolean
-public "readBuf"(arg0: $FriendlyByteBuf$Type): V
-public "loadFromNBT"(arg0: $Tag$Type): V
-public "writeBuf"(arg0: V, arg1: $FriendlyByteBuf$Type): void
-public "registerOrOverride"(arg0: K, arg1: V): V
 public "unfreeze"(): void
+public "containValue"(arg0: V): boolean
+public "containKey"(arg0: K): boolean
+public "readBuf"(arg0: $FriendlyByteBuf$Type): V
+public "registerOrOverride"(arg0: K, arg1: V): V
+public "writeBuf"(arg0: V, arg1: $FriendlyByteBuf$Type): void
+public "saveToNBT"(arg0: V): $Tag
+public "getOrDefaultKey"(arg0: V, arg1: K): K
+public "loadFromNBT"(arg0: $Tag$Type): V
+public "registry"(): $Map<(K), (V)>
 public "getRegistryName"(): $ResourceLocation
 public "codec"(): $Codec<(V)>
 public "spliterator"(): $Spliterator<(V)>
@@ -14225,16 +16476,16 @@ export interface $IAccessor extends $Predicate<($Class<(any)>)> {
 
  "test"(type: $Class$Type<(any)>): boolean
  "readField"(arg0: $AccessorOp$Type, arg1: $IRef$Type): $ITypedPayload<(any)>
- "getDefaultType"(): byte
  "writeToReadonlyField"(op: $AccessorOp$Type, obj: any, payload: $ITypedPayload$Type<(any)>): void
  "readFromReadonlyField"(op: $AccessorOp$Type, obj: any): $ITypedPayload<(any)>
- "hasPredicate"(): boolean
  "operandTypes"(): ($Class<(any)>)[]
  "setDefaultType"(arg0: byte): void
- "copyForManaged"(value: any): any
+ "hasPredicate"(): boolean
  "readManagedField"(op: $AccessorOp$Type, field: $IManagedVar$Type<(any)>): $ITypedPayload<(any)>
+ "copyForManaged"(value: any): any
  "isManaged"(): boolean
  "writeManagedField"(op: $AccessorOp$Type, field: $IManagedVar$Type<(any)>, payload: $ITypedPayload$Type<(any)>): void
+ "getDefaultType"(): byte
  "writeField"(arg0: $AccessorOp$Type, arg1: $IRef$Type, arg2: $ITypedPayload$Type<(any)>): void
  "or"(arg0: $Predicate$Type<(any)>): $Predicate<($Class<(any)>)>
  "negate"(): $Predicate<($Class<(any)>)>
@@ -14269,30 +16520,30 @@ import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui
 
 export interface $IConfigurableWidgetGroup extends $IConfigurableWidget {
 
+ "onWidgetRemoved"(widget: $IConfigurableWidget$Type): void
  "canWidgetAccepted"(widget: $IConfigurableWidget$Type): boolean
  "acceptWidget"(widget: $IConfigurableWidget$Type): void
- "onWidgetRemoved"(widget: $IConfigurableWidget$Type): void
+ "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
  "initTemplate"(): void
- "serializeWrapper"(): $CompoundTag
  "serializeInnerNBT"(): $CompoundTag
  "canDragIn"(dragging: any): boolean
+ "serializeWrapper"(): $CompoundTag
  "handleDragging"(dragging: any): boolean
- "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
  "buildConfigurator"(father: $ConfiguratorGroup$Type): void
  "name"(): string
  "group"(): string
  "isLDLRegister"(): boolean
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
  "getRegisterUI"(): $LDLRegister
+ "getChatComponent"(): $Component
 }
 
 export namespace $IConfigurableWidgetGroup {
 function deserializeWrapper(tag: $CompoundTag$Type): $IConfigurableWidget
-function serializeNBT(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 function serializeNBT(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-function deserializeNBT(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+function serializeNBT(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 function deserializeNBT(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+function deserializeNBT(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14309,21 +16560,21 @@ export type $IConfigurableWidgetGroup_ = $IConfigurableWidgetGroup$Type;
 declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineSettings$ConfigMachineSettingsBuilder" {
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$ConfigMachineSettings, $ConfigMachineSettings$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineSettings"
-import {$ConfigMachineSettings$SignalConnection, $ConfigMachineSettings$SignalConnection$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineSettings$SignalConnection"
 import {$TraitDefinition, $TraitDefinition$Type} from "packages/com/lowdragmc/mbd2/common/trait/$TraitDefinition"
+import {$ConfigMachineSettings$SignalConnection, $ConfigMachineSettings$SignalConnection$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigMachineSettings$SignalConnection"
 
 export class $ConfigMachineSettings$ConfigMachineSettingsBuilder {
 
 
 public "toString"(): string
 public "build"(): $ConfigMachineSettings
-public "dropMachineItem"(arg0: boolean): $ConfigMachineSettings$ConfigMachineSettingsBuilder
-public "signalConnection"(arg0: $ConfigMachineSettings$SignalConnection$Type): $ConfigMachineSettings$ConfigMachineSettingsBuilder
-public "clearTraitDefinitions"(): $ConfigMachineSettings$ConfigMachineSettingsBuilder
 public "machineLevel"(arg0: integer): $ConfigMachineSettings$ConfigMachineSettingsBuilder
 public "traitDefinition"(arg0: $TraitDefinition$Type): $ConfigMachineSettings$ConfigMachineSettingsBuilder
 public "traitDefinitions"(arg0: $Collection$Type<(any)>): $ConfigMachineSettings$ConfigMachineSettingsBuilder
+public "clearTraitDefinitions"(): $ConfigMachineSettings$ConfigMachineSettingsBuilder
 public "hasUI"(arg0: boolean): $ConfigMachineSettings$ConfigMachineSettingsBuilder
+public "signalConnection"(arg0: $ConfigMachineSettings$SignalConnection$Type): $ConfigMachineSettings$ConfigMachineSettingsBuilder
+public "dropMachineItem"(arg0: boolean): $ConfigMachineSettings$ConfigMachineSettingsBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14367,35 +16618,35 @@ readonly "widgets": $List<($Widget)>
 
 constructor(editor: $Editor$Type)
 
-public "setOnChanged"(onChanged: $BiConsumer$Type<($WidgetGroup$Type), ($WidgetGroup$Type)>): $TabContainer
 public "clearAllWidgets"(): void
 public "getTabIndex"(): integer
 public "getTabIndex"(group: $WidgetGroup$Type): integer
 public "switchTabIndex"(index: integer): void
-public "removeTab"(tabButton: $TabButton$Type): void
 public "addTab"(name: string, group: $WidgetGroup$Type, onSelected: $Runnable$Type, onDeselected: $Runnable$Type): void
+public "addTab"(icon: $IGuiTexture$Type, name: string, group: $WidgetGroup$Type, onSelected: $Runnable$Type, onDeselected: $Runnable$Type, onRemoved: $Runnable$Type): void
 public "addTab"(name: string, group: $WidgetGroup$Type, onSelected: $Runnable$Type): void
 public "addTab"(name: string, group: $WidgetGroup$Type): void
-public "addTab"(icon: $IGuiTexture$Type, name: string, group: $WidgetGroup$Type, onSelected: $Runnable$Type, onDeselected: $Runnable$Type, onRemoved: $Runnable$Type): void
 public "addTab"(tabButton: $TabButton$Type, tabWidget: $WidgetGroup$Type): void
 public "getEditor"(): $Editor
-public "calculateTabSize"(): void
-public "getTabGroups"(): $List<($WidgetGroup)>
-public "getOnDeselected"(): $Map<($WidgetGroup), ($Runnable)>
 public "getOnChanged"(): $BiConsumer<($WidgetGroup), ($WidgetGroup)>
+public "getTabGroups"(): $List<($WidgetGroup)>
+public "calculateTabSize"(): void
 public "getOnSelected"(): $Map<($WidgetGroup), ($Runnable)>
+public "getOnDeselected"(): $Map<($WidgetGroup), ($Runnable)>
+public "removeTab"(tabButton: $TabButton$Type): void
+public "setOnChanged"(onChanged: $BiConsumer$Type<($WidgetGroup$Type), ($WidgetGroup$Type)>): $TabContainer
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-set "onChanged"(value: $BiConsumer$Type<($WidgetGroup$Type), ($WidgetGroup$Type)>)
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "tabIndex"(): integer
 get "editor"(): $Editor
-get "tabGroups"(): $List<($WidgetGroup)>
-get "onDeselected"(): $Map<($WidgetGroup), ($Runnable)>
 get "onChanged"(): $BiConsumer<($WidgetGroup), ($WidgetGroup)>
+get "tabGroups"(): $List<($WidgetGroup)>
 get "onSelected"(): $Map<($WidgetGroup), ($Runnable)>
+get "onDeselected"(): $Map<($WidgetGroup), ($Runnable)>
+set "onChanged"(value: $BiConsumer$Type<($WidgetGroup$Type), ($WidgetGroup$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14431,9 +16682,9 @@ constructor(arg0: any, arg1: boolean, arg2: float, arg3: float)
 public "copy"(arg0: $RecipeCapability$Type<(any)>, arg1: $ContentModifier$Type): $Content
 public "getContent"(): any
 public "deepCopy"(arg0: $RecipeCapability$Type<(any)>, arg1: $ContentModifier$Type): $Content
-public "drawSmallString"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: integer, arg4: integer, arg5: integer, arg6: string, arg7: integer): void
-public "appendTooltip"(arg0: $List$Type<($Component$Type)>): void
 public "createOverlay"(): $IGuiTexture
+public "appendTooltip"(arg0: $List$Type<($Component$Type)>): void
+public "drawSmallString"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: integer, arg4: integer, arg5: integer, arg6: string, arg7: integer): void
 get "content"(): any
 }
 /**
@@ -14448,6 +16699,47 @@ export type $Content$Type = ($Content);
 declare global {
 export type $Content_ = $Content$Type;
 }}
+declare module "packages/com/lowdragmc/photon/client/fx/$IFXEffect" {
+import {$FX, $FX$Type} from "packages/com/lowdragmc/photon/client/fx/$FX"
+import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Quaternionf, $Quaternionf$Type} from "packages/org/joml/$Quaternionf"
+import {$IFXObject, $IFXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$IFXObject"
+import {$IEffect, $IEffect$Type} from "packages/com/lowdragmc/photon/client/fx/$IEffect"
+
+export interface $IFXEffect extends $IEffect {
+
+ "start"(): void
+ "setOffset"(arg0: $Vector3f$Type): void
+ "setOffset"(x: double, y: double, z: double): void
+ "setScale"(arg0: $Vector3f$Type): void
+ "setScale"(x: double, y: double, z: double): void
+ "setDelay"(arg0: integer): void
+ "setForcedDeath"(arg0: boolean): void
+ "setAllowMulti"(arg0: boolean): void
+ "setRotation"(arg0: $Quaternionf$Type): void
+ "setRotation"(x: double, y: double, z: double): void
+ "getFx"(): $FX
+ "getLevel"(): $Level
+ "updateFXObjectFrame"(fxObject: $IFXObject$Type, partialTicks: float): void
+ "updateFXObjectTick"(fxObject: $IFXObject$Type): void
+}
+
+export namespace $IFXEffect {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IFXEffect$Type = ($IFXEffect);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IFXEffect_ = $IFXEffect$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/api/recipe/ingredient/$EntityIngredient$Value" {
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
@@ -14456,8 +16748,8 @@ import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 export interface $EntityIngredient$Value {
 
  "copy"(): $EntityIngredient$Value
- "serialize"(): $JsonObject
  "getTypes"(): $Collection<($EntityType<(any)>)>
+ "serialize"(): $JsonObject
 }
 
 export namespace $EntityIngredient$Value {
@@ -14482,12 +16774,12 @@ export interface $RPCSender {
 
  "isServer"(): boolean
 
-(): $RPCSender
+(): boolean
 }
 
 export namespace $RPCSender {
-function ofServer(): $RPCSender
 function ofClient(player: $Player$Type): $RPCSender
+function ofServer(): $RPCSender
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14514,8 +16806,8 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 import {$LDLRegister, $LDLRegister$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/annotation/$LDLRegister"
 import {$ToggleAABB, $ToggleAABB$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleAABB"
 import {$MachineState$Builder, $MachineState$Builder$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$MachineState$Builder"
-import {$MachineSound, $MachineSound$Type} from "packages/com/lowdragmc/mbd2/client/$MachineSound"
 import {$StateMachine, $StateMachine$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$StateMachine"
+import {$MachineSound, $MachineSound$Type} from "packages/com/lowdragmc/mbd2/client/$MachineSound"
 import {$ToggleLightValue, $ToggleLightValue$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleLightValue"
 import {$ToggleRenderer, $ToggleRenderer$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleRenderer"
 import {$List, $List$Type} from "packages/java/util/$List"
@@ -14530,6 +16822,7 @@ export class $MachineState implements $IConfigurable, $IPersistedSerializable, $
 
 constructor(arg0: string, arg1: $List$Type<($MachineState$Type)>, arg2: $IRenderer$Type, arg3: $VoxelShape$Type, arg4: integer, arg5: $AABB$Type)
 
+public "getShape"(arg0: $Direction$Type): $VoxelShape
 public "name"(): string
 public "parent"(): $MachineState
 public "compareTo"(arg0: $MachineState$Type): integer
@@ -14537,36 +16830,35 @@ public static "builder"(): $MachineState$Builder<(any)>
 public "shape"(): $ToggleShape
 public "children"(): $List<($MachineState)>
 public "isRoot"(): boolean
-public "getShape"(arg0: $Direction$Type): $VoxelShape
 public "removeChild"(arg0: $MachineState$Type): void
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "getRealRenderer"(): $IRenderer
 public "getRenderer"(): $IRenderer
+public "renderer"(): $ToggleRenderer
+public "addChild"(arg0: string): $MachineState
 public "getDepth"(): integer
+public "stateMachine"(): $StateMachine<(any)>
 public "getRenderingBox"(arg0: $Direction$Type): $AABB
-public "shapeCache"(): $Map<($Direction), ($VoxelShape)>
 public "renderingBox"(): $ToggleAABB
 public "machineSound"(): $ToggleMachineSound
-public "createMachineSound"(arg0: $BlockPos$Type, arg1: $BooleanSupplier$Type): $MachineSound
 public "renderingBoxCache"(): $Map<($Direction), ($AABB)>
-public "addChild"(arg0: string): $MachineState
-public "stateMachine"(): $StateMachine<(any)>
-public "getRealRenderer"(): $IRenderer
-public "getLightLevel"(): integer
+public "createMachineSound"(arg0: $BlockPos$Type, arg1: $BooleanSupplier$Type): $MachineSound
 public "lightLevel"(): $ToggleLightValue
-public "renderer"(): $ToggleRenderer
+public "getLightLevel"(): integer
+public "shapeCache"(): $Map<($Direction), ($VoxelShape)>
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "root"(): boolean
-get "depth"(): integer
 get "realRenderer"(): $IRenderer
+get "depth"(): integer
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14608,33 +16900,31 @@ static readonly "ITEM_SLOT_TEXTURE": $ResourceBorderTexture
 constructor()
 constructor(itemHandler: $IItemTransfer$Type, slotIndex: integer, xPosition: integer, yPosition: integer)
 
+public "getMaxStackSize"(): integer
+public "areItemsEqual"(itemStack1: $ItemStack$Type, itemStack2: $ItemStack$Type): boolean
 public "setMaxStackSize"(maxStackSize: integer): void
 public "slotClickPhantom"(slot: $Slot$Type, mouseButton: integer, clickTypeIn: $ClickType$Type, stackHeld: $ItemStack$Type): $ItemStack
-public "areItemsEqual"(itemStack1: $ItemStack$Type, itemStack2: $ItemStack$Type): boolean
-public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
-public "getMaxStackSize"(): integer
-public "getPhantomTargets"(ingredient: any): $List<($Target)>
-public "setClearSlotOnRightClick"(clearSlotOnRightClick: boolean): $PhantomSlotWidget
-public "isClearSlotOnRightClick"(): boolean
-public "setCanPutItems"(v: boolean): $PhantomSlotWidget
-public "setCanTakeItems"(v: boolean): $PhantomSlotWidget
-public "canPutStack"(stack: $ItemStack$Type): boolean
-public "canTakeStack"(player: $Player$Type): boolean
-public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
 public "slotClick"(dragType: integer, clickTypeIn: $ClickType$Type, player: $Player$Type): $ItemStack
 public "canMergeSlot"(stack: $ItemStack$Type): boolean
+public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
+public "getPhantomTargets"(ingredient: any): $List<($Target)>
+public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "canPutStack"(stack: $ItemStack$Type): boolean
+public "canTakeStack"(player: $Player$Type): boolean
+public "setCanTakeItems"(v: boolean): $PhantomSlotWidget
+public "isClearSlotOnRightClick"(): boolean
+public "setClearSlotOnRightClick"(clearSlotOnRightClick: boolean): $PhantomSlotWidget
 public "initTemplate"(): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-set "maxStackSize"(value: integer)
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "maxStackSize"(): integer
-set "clearSlotOnRightClick"(value: boolean)
-get "clearSlotOnRightClick"(): boolean
-set "canPutItems"(value: boolean)
+set "maxStackSize"(value: integer)
 set "canTakeItems"(value: boolean)
+get "clearSlotOnRightClick"(): boolean
+set "clearSlotOnRightClick"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14689,11 +16979,11 @@ constructor()
 
 public "setLevel"(level: $Level$Type): void
 public "tick"(): void
-public static "makeParticleRenderTypeComparator"(renderOrder: $List$Type<($ParticleRenderType$Type)>): $Comparator<($ParticleRenderType)>
-public "clearAllParticles"(): void
 public "render"(pMatrixStack: $PoseStack$Type, pActiveRenderInfo: $Camera$Type, pPartialTicks: float): void
-public "getParticleAmount"(): integer
+public static "makeParticleRenderTypeComparator"(renderOrder: $List$Type<($ParticleRenderType$Type)>): $Comparator<($ParticleRenderType)>
 public "addParticle"(particle: $Particle$Type): void
+public "clearAllParticles"(): void
+public "getParticleAmount"(): integer
 set "level"(value: $Level$Type)
 get "particleAmount"(): integer
 }
@@ -14724,11 +17014,11 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $MBDRecipe$Type)
 
-public "getRecipe"(): $MBDRecipe
 public "getListenerList"(): $ListenerList
+public "getRecipe"(): $MBDRecipe
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-get "recipe"(): $MBDRecipe
 get "listenerList"(): $ListenerList
+get "recipe"(): $MBDRecipe
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14789,43 +17079,43 @@ constructor(xPosition: integer, yPosition: integer, width: integer, height: inte
 constructor(xPosition: integer, yPosition: integer, width: integer, height: integer, buttonTexture: $IGuiTexture$Type, onPressed: $Consumer$Type<($ClickData$Type)>)
 constructor()
 
-public "setClickedTexture"(...clickedTexture: ($IGuiTexture$Type)[]): $ButtonWidget
+public "setHoverTexture"(...hoverTexture: ($IGuiTexture$Type)[]): $ButtonWidget
+public "setOnPressCallback"(onPressCallback: $Consumer$Type<($ClickData$Type)>): $ButtonWidget
 public "isClicked"(): boolean
+public "setClickedTexture"(...clickedTexture: ($IGuiTexture$Type)[]): $ButtonWidget
 public "setButtonTexture"(...buttonTexture: ($IGuiTexture$Type)[]): $ButtonWidget
 public "handleClientAction"(id: integer, buffer: $FriendlyByteBuf$Type): void
 public "initTemplate"(): void
-public "setHoverTexture"(...hoverTexture: ($IGuiTexture$Type)[]): $ButtonWidget
-public "setOnPressCallback"(onPressCallback: $Consumer$Type<($ClickData$Type)>): $ButtonWidget
-public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
 public "mouseClicked"(mouseX: double, mouseY: double, button: integer): boolean
+public "mouseReleased"(mouseX: double, mouseY: double, button: integer): boolean
 public "setHoverBorderTexture"(border: integer, color: integer): $ButtonWidget
-public "widget"(): $Widget
-public "serializeWrapper"(): $CompoundTag
+public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
 public "serializeInnerNBT"(): $CompoundTag
 public "canDragIn"(dragging: any): boolean
+public "serializeWrapper"(): $CompoundTag
 public "handleDragging"(dragging: any): boolean
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
+public "widget"(): $Widget
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
-public "deserializeInnerNBT"(nbt: $CompoundTag$Type): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
-set "clickedTexture"(value: ($IGuiTexture$Type)[])
-get "clicked"(): boolean
-set "buttonTexture"(value: ($IGuiTexture$Type)[])
+public "getChatComponent"(): $Component
 set "hoverTexture"(value: ($IGuiTexture$Type)[])
 set "onPressCallback"(value: $Consumer$Type<($ClickData$Type)>)
+get "clicked"(): boolean
+set "clickedTexture"(value: ($IGuiTexture$Type)[])
+set "buttonTexture"(value: ($IGuiTexture$Type)[])
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14854,36 +17144,36 @@ constructor()
 
 public "scale"(scale: float): $TransformTexture
 public "transform"(xOffset: float, yOffset: float): $TransformTexture
+public "drawSubArea"(graphics: $GuiGraphics$Type, x: float, y: float, width: float, height: float, drawnU: float, drawnV: float, drawnWidth: float, drawnHeight: float): void
+public "draw"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, x: float, y: float, width: integer, height: integer): void
 public "getXOffset"(): float
 public "getYOffset"(): float
-public "draw"(graphics: $GuiGraphics$Type, mouseX: integer, mouseY: integer, x: float, y: float, width: integer, height: integer): void
-public "drawSubArea"(graphics: $GuiGraphics$Type, x: float, y: float, width: float, height: float, drawnU: float, drawnV: float, drawnWidth: float, drawnHeight: float): void
 public "getScale"(): float
 public "getRotation"(): float
 public "transform"(xOffset: integer, yOffset: integer): $IGuiTexture
 public "copy"(): $IGuiTexture
 public "setColor"(color: integer): $IGuiTexture
-public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
-public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
-public "setUIResource"(texturesResource: $Resource$Type<($IGuiTexture$Type)>): void
 public "createPreview"(father: $ConfiguratorGroup$Type): void
-public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
+public "setUIResource"(texturesResource: $Resource$Type<($IGuiTexture$Type)>): void
 public "updateTick"(): void
+public static "deserializeWrapper"(tag: $CompoundTag$Type): $IGuiTexture
+public static "serializeWrapper"(texture: $IGuiTexture$Type): $CompoundTag
+public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "xOffset"(): float
 get "yOffset"(): float
 get "rotation"(): float
 set "color"(value: integer)
 set "uIResource"(value: $Resource$Type<($IGuiTexture$Type)>)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14915,16 +17205,16 @@ readonly "widgets": $List<($Widget)>
 constructor(x: integer, y: integer, width: integer, isState: boolean)
 
 public "getBlock"(): $BlockState
-public "setOnBlockStateUpdate"(onBlockStateUpdate: $Consumer$Type<($BlockState$Type)>): $BlockSelectorWidget
 public "setBlock"(blockState: $BlockState$Type): $BlockSelectorWidget
+public "setOnBlockStateUpdate"(onBlockStateUpdate: $Consumer$Type<($BlockState$Type)>): $BlockSelectorWidget
 public static "deserializeWrapper"(tag: $CompoundTag$Type): $IConfigurableWidget
-public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resources$Type, isProject: boolean): $CompoundTag
-public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
+public static "serializeNBT"(widget: $IConfigurableWidget$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): $CompoundTag
 public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resources$Type, isProject: boolean): void
+public static "deserializeNBT"(widget: $IConfigurableWidget$Type, tag: $CompoundTag$Type, resources: $Resource$Type<($IGuiTexture$Type)>, isProject: boolean): void
 get "block"(): $BlockState
-set "onBlockStateUpdate"(value: $Consumer$Type<($BlockState$Type)>)
 set "block"(value: $BlockState$Type)
+set "onBlockStateUpdate"(value: $Consumer$Type<($BlockState$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -14956,28 +17246,28 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type)
 
-public "getListenerList"(): $ListenerList
-public "hasResult"(): boolean
 public "isCancelable"(): boolean
 public static "getExposedParameters"(arg0: $Class$Type<(any)>): $List<($ExposedParameter<(any)>)>
+public "getListenerList"(): $ListenerList
+public "hasResult"(): boolean
 public "postCustomEvent"(): $MachineEvent
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
-public "gatherParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "postKubeJSEvent"(): $MachineEvent
+public "gatherParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
 public "getMachine"(): $MBDMachine
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
-get "listenerList"(): $ListenerList
+public "getChatComponent"(): $Component
 get "cancelable"(): boolean
+get "listenerList"(): $ListenerList
 get "machine"(): $MBDMachine
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -15003,9 +17293,9 @@ export class $GeckolibRendererModel extends $GeoModel<($GeoAnimatable)> {
 constructor(arg0: $GeckolibRenderer$Type)
 
 public "getAnimationResource"(arg0: $GeoAnimatable$Type): $ResourceLocation
-public "getRenderType"(arg0: $GeoAnimatable$Type, arg1: $ResourceLocation$Type): $RenderType
-public "getModelResource"(arg0: $GeoAnimatable$Type): $ResourceLocation
 public "getTextureResource"(arg0: $GeoAnimatable$Type): $ResourceLocation
+public "getModelResource"(arg0: $GeoAnimatable$Type): $ResourceLocation
+public "getRenderType"(arg0: $GeoAnimatable$Type, arg1: $ResourceLocation$Type): $RenderType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -15036,11 +17326,11 @@ constructor()
 public "equals"(otherObject: any): boolean
 public "displayName"(displayName: string): $PortData
 public "displayType"(displayType: $Class$Type<(any)>): $PortData
-public "identifier"(identifier: string): $PortData
 public "tooltip"(tooltip: $List$Type<(string)>): $PortData
-public "acceptMultipleEdges"(acceptMultipleEdges: boolean): $PortData
+public "identifier"(identifier: string): $PortData
 public "portColor"(portColor: integer): $PortData
 public "CopyFrom"(other: $PortData$Type): void
+public "acceptMultipleEdges"(acceptMultipleEdges: boolean): $PortData
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -15067,22 +17357,22 @@ import {$Resources, $Resources$Type} from "packages/com/lowdragmc/lowdraglib/gui
 
 export interface $IProject extends $ILDLRegister, $ITagSerializable<($CompoundTag)> {
 
- "getResources"(): $Resources
  "getSuffix"(): string
- "onLoad"(editor: $Editor$Type): void
- "saveProject"(file: $File$Type): void
- "loadProject"(file: $File$Type): $IProject
+ "getResources"(): $Resources
  "getProjectWorkSpace"(editor: $Editor$Type): $File
+ "onLoad"(editor: $Editor$Type): void
+ "loadProject"(file: $File$Type): $IProject
+ "onClosed"(editor: $Editor$Type): void
+ "saveProject"(file: $File$Type): void
  "newEmptyProject"(): $IProject
  "attachMenu"(editor: $Editor$Type, name: string, menu: $TreeBuilder$Menu$Type): void
- "onClosed"(editor: $Editor$Type): void
  "loadResources"(tag: $CompoundTag$Type): $Resources
  "name"(): string
  "group"(): string
  "isLDLRegister"(): boolean
- "getChatComponent"(): $Component
  "getTranslateKey"(): string
  "getRegisterUI"(): $LDLRegister
+ "getChatComponent"(): $Component
  "serializeNBT"(): $CompoundTag
  "deserializeNBT"(arg0: $CompoundTag$Type): void
 }
@@ -15113,11 +17403,11 @@ export class $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder {
 public "toString"(): string
 public "build"(): $ConfigRecipeLogicSettings
 public "enable"(arg0: boolean): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
+public "recipeType"(arg0: $ResourceLocation$Type): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
 public "recipeModifiers"(arg0: $RecipeModifier$RecipeModifiers$Type): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
+public "alwaysModifyRecipe"(arg0: boolean): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
 public "alwaysSearchRecipe"(arg0: boolean): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
 public "recipeDampingValue"(arg0: integer): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
-public "alwaysModifyRecipe"(arg0: boolean): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
-public "recipeType"(arg0: $ResourceLocation$Type): $ConfigRecipeLogicSettings$ConfigRecipeLogicSettingsBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -15164,8 +17454,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 export interface $WidgetUIAccess {
 
  "attemptMergeStack"(arg0: $ItemStack$Type, arg1: boolean, arg2: boolean): boolean
- "writeUpdateInfo"(arg0: $Widget$Type, arg1: integer, arg2: $Consumer$Type<($FriendlyByteBuf$Type)>): void
  "writeClientAction"(arg0: $Widget$Type, arg1: integer, arg2: $Consumer$Type<($FriendlyByteBuf$Type)>): void
+ "writeUpdateInfo"(arg0: $Widget$Type, arg1: integer, arg2: $Consumer$Type<($FriendlyByteBuf$Type)>): void
 }
 
 export namespace $WidgetUIAccess {
@@ -15183,6 +17473,32 @@ export type $WidgetUIAccess$Type = ($WidgetUIAccess);
 declare global {
 export type $WidgetUIAccess_ = $WidgetUIAccess$Type;
 }}
+declare module "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleDirection" {
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$ToggleObject, $ToggleObject$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/toggle/$ToggleObject"
+
+export class $ToggleDirection extends $ToggleObject<($Direction)> {
+
+constructor()
+constructor(arg0: boolean)
+constructor(arg0: $Direction$Type)
+constructor(arg0: $Direction$Type, arg1: boolean)
+
+public "setValue"(arg0: $Direction$Type): void
+set "value"(value: $Direction$Type)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ToggleDirection$Type = ($ToggleDirection);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ToggleDirection_ = $ToggleDirection$Type;
+}}
 declare module "packages/com/lowdragmc/mbd2/api/capability/recipe/$IRecipeCapabilityHolder" {
 import {$RecipeCapability, $RecipeCapability$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$RecipeCapability"
 import {$Table, $Table$Type} from "packages/com/google/common/collect/$Table"
@@ -15192,11 +17508,11 @@ import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$
 
 export interface $IRecipeCapabilityHolder {
 
+ "getRecipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
  "getChanceTier"(): integer
  "hasProxies"(): boolean
- "getRecipeCapabilitiesProxy"(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
 
-(): integer
+(): $Table<($IO), ($RecipeCapability<(any)>), ($List<($IRecipeHandler<(any)>)>)>
 }
 
 export namespace $IRecipeCapabilityHolder {
@@ -15230,13 +17546,13 @@ readonly "machine": $MBDMachine
 constructor()
 constructor(arg0: $MBDMachine$Type, arg1: $RecipeLogic$Status$Type, arg2: $RecipeLogic$Status$Type)
 
-public "getNewStatus"(): $RecipeLogic$Status
-public "getOldStatus"(): $RecipeLogic$Status
 public "getListenerList"(): $ListenerList
 public "bindParameters"(arg0: $Map$Type<(string), ($ExposedParameter$Type)>): void
+public "getNewStatus"(): $RecipeLogic$Status
+public "getOldStatus"(): $RecipeLogic$Status
+get "listenerList"(): $ListenerList
 get "newStatus"(): $RecipeLogic$Status
 get "oldStatus"(): $RecipeLogic$Status
-get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -15294,20 +17610,20 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $CreateKineticMachineDefinition$Type)
 
-public "areStatesKineticallyEquivalent"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
-public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
+public "getRotationFacing"(arg0: $BlockState$Type): $Direction
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
+public "areStatesKineticallyEquivalent"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
 public "updateIndirectNeighbourShapes"(arg0: $BlockState$Type, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type, arg3: integer, arg4: integer): void
 public "onPlace"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public "getRotationFacing"(arg0: $BlockState$Type): $Direction
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "hideStressImpact"(): boolean
+public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 public "showCapacityWithAnnotation"(): boolean
+public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
@@ -15351,9 +17667,9 @@ constructor()
 public "toString"(): string
 public "initialize"(owner: $BaseGraph$Type): void
 public "copy"(): $PortEdge
-public "deserializeNBT"(tag: $CompoundTag$Type): void
 public static "createNewEdge"(graph: $BaseGraph$Type, inputPort: $NodePort$Type, outputPort: $NodePort$Type): $PortEdge
 public "onBeforeSerialize"(): void
+public "deserializeNBT"(tag: $CompoundTag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -15366,6 +17682,34 @@ export type $PortEdge$Type = ($PortEdge);
  */
 declare global {
 export type $PortEdge_ = $PortEdge$Type;
+}}
+declare module "packages/com/lowdragmc/photon/client/fx/$IEffect" {
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$IFXObject, $IFXObject$Type} from "packages/com/lowdragmc/photon/client/gameobject/$IFXObject"
+
+export interface $IEffect {
+
+ "getLevel"(): $Level
+ "updateFXObjectFrame"(fxObject: $IFXObject$Type, partialTicks: float): void
+ "updateFXObjectTick"(fxObject: $IFXObject$Type): void
+
+(): $Level
+}
+
+export namespace $IEffect {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IEffect$Type = ($IEffect);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IEffect_ = $IEffect$Type;
 }}
 declare module "packages/com/lowdragmc/mbd2/common/trait/$ToggleAutoIO" {
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
@@ -15384,15 +17728,15 @@ public "buildConfigurator"(father: $ConfiguratorGroup$Type): void
 public "name"(): string
 public "group"(): string
 public "isLDLRegister"(): boolean
-public "getChatComponent"(): $Component
 public "getTranslateKey"(): string
 public "getRegisterUI"(): $LDLRegister
+public "getChatComponent"(): $Component
 get "enable"(): boolean
 set "enable"(value: boolean)
 get "lDLRegister"(): boolean
-get "chatComponent"(): $Component
 get "translateKey"(): string
 get "registerUI"(): $LDLRegister
+get "chatComponent"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

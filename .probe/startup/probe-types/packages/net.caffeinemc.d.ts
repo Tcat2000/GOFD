@@ -47,9 +47,9 @@ static readonly "NORMAL": $CommonVertexAttribute
 static readonly "COUNT": integer
 
 
+public "getByteLength"(): integer
 public static "values"(): ($CommonVertexAttribute)[]
 public static "valueOf"(arg0: string): $CommonVertexAttribute
-public "getByteLength"(): integer
 public static "getCommonType"(arg0: $VertexFormatElement$Type): $CommonVertexAttribute
 get "byteLength"(): integer
 }

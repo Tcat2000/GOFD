@@ -10,6 +10,7 @@ import {MemoryModuleType, MemoryModuleType$Type} from "packages/moe/wolfgirl/pro
 import {WorldgenStructurePiece, WorldgenStructurePiece$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenStructurePiece"
 import {WorldgenConfiguredFeature, WorldgenConfiguredFeature$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenConfiguredFeature"
 import {Activity, Activity$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/Activity"
+import {RobitSkinSerializer, RobitSkinSerializer$Type} from "packages/moe/wolfgirl/probejs/generated/registry/mekanism/RobitSkinSerializer"
 import {Instrument, Instrument$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/Instrument"
 import {Potion, Potion$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/Potion"
 import {LootFunctionType, LootFunctionType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/LootFunctionType"
@@ -21,6 +22,7 @@ import {Item, Item$Type} from "packages/moe/wolfgirl/probejs/generated/registry/
 import {Dimension, Dimension$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/Dimension"
 import {WorldgenFeatureSizeType, WorldgenFeatureSizeType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenFeatureSizeType"
 import {LootPoolEntryType, LootPoolEntryType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/LootPoolEntryType"
+import {Brews, Brews$Type} from "packages/moe/wolfgirl/probejs/generated/registry/botania/Brews"
 import {FloatProviderType, FloatProviderType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/FloatProviderType"
 import {EntityDataSerializers, EntityDataSerializers$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/EntityDataSerializers"
 import {WorldgenNoiseSettings, WorldgenNoiseSettings$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenNoiseSettings"
@@ -31,18 +33,22 @@ import {PotatoProjectileBlockHitAction, PotatoProjectileBlockHitAction$Type} fro
 import {WorldgenStructurePoolElement, WorldgenStructurePoolElement$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenStructurePoolElement"
 import {PaintingVariant, PaintingVariant$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/PaintingVariant"
 import {WorldgenMultiNoiseBiomeSourceParameterList, WorldgenMultiNoiseBiomeSourceParameterList$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenMultiNoiseBiomeSourceParameterList"
+import {RitualFactory, RitualFactory$Type} from "packages/moe/wolfgirl/probejs/generated/registry/occultism/RitualFactory"
 import {WorldgenMaterialRule, WorldgenMaterialRule$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenMaterialRule"
+import {InfuseType, InfuseType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/mekanism/InfuseType"
 import {HarvestHandlers, HarvestHandlers$Type} from "packages/moe/wolfgirl/probejs/generated/registry/pneumaticcraft/HarvestHandlers"
 import {RuleBlockEntityModifier, RuleBlockEntityModifier$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/RuleBlockEntityModifier"
 import {VillagerType, VillagerType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/VillagerType"
 import {LootConditionType, LootConditionType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/LootConditionType"
 import {LootNbtProviderType, LootNbtProviderType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/LootNbtProviderType"
+import {Gas, Gas$Type} from "packages/moe/wolfgirl/probejs/generated/registry/mekanism/Gas"
 import {GlobalLootModifierSerializers, GlobalLootModifierSerializers$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/GlobalLootModifierSerializers"
 import {WorldgenBiome, WorldgenBiome$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenBiome"
 import {MountedItemStorageType, MountedItemStorageType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/create/MountedItemStorageType"
 import {Fluid, Fluid$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/Fluid"
 import {Menu, Menu$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/Menu"
 import {WorldgenConfiguredCarver, WorldgenConfiguredCarver$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenConfiguredCarver"
+import {Pigment, Pigment$Type} from "packages/moe/wolfgirl/probejs/generated/registry/mekanism/Pigment"
 import {HoeHandlers, HoeHandlers$Type} from "packages/moe/wolfgirl/probejs/generated/registry/pneumaticcraft/HoeHandlers"
 import {WorldgenDensityFunctionType, WorldgenDensityFunctionType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenDensityFunctionType"
 import {WorldgenTemplatePool, WorldgenTemplatePool$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenTemplatePool"
@@ -61,6 +67,7 @@ import {Schedule, Schedule$Type} from "packages/moe/wolfgirl/probejs/generated/r
 import {ContraptionType, ContraptionType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/create/ContraptionType"
 import {Enchantment, Enchantment$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/Enchantment"
 import {WorldgenPlacementModifierType, WorldgenPlacementModifierType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenPlacementModifierType"
+import {Module, Module$Type} from "packages/moe/wolfgirl/probejs/generated/registry/mekanism/Module"
 import {SensorType, SensorType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/SensorType"
 import {EntityType, EntityType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/EntityType"
 import {PointOfInterestType, PointOfInterestType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/PointOfInterestType"
@@ -78,6 +85,7 @@ import {WorldgenFlatLevelGeneratorPreset, WorldgenFlatLevelGeneratorPreset$Type}
 import {FrogVariant, FrogVariant$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/FrogVariant"
 import {MobEffect, MobEffect$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/MobEffect"
 import {BannerPattern, BannerPattern$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/BannerPattern"
+import {RobitSkin, RobitSkin$Type} from "packages/moe/wolfgirl/probejs/generated/registry/mekanism/RobitSkin"
 import {CatVariant, CatVariant$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/CatVariant"
 import {PosRuleTest, PosRuleTest$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/PosRuleTest"
 import {DisplaySource, DisplaySource$Type} from "packages/moe/wolfgirl/probejs/generated/registry/create/DisplaySource"
@@ -86,6 +94,7 @@ import {WorldgenStructure, WorldgenStructure$Type} from "packages/moe/wolfgirl/p
 import {ParticleType, ParticleType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/ParticleType"
 import {WorldgenStructurePlacement, WorldgenStructurePlacement$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenStructurePlacement"
 import {BiomeModifier, BiomeModifier$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/BiomeModifier"
+import {SpiritJobFactory, SpiritJobFactory$Type} from "packages/moe/wolfgirl/probejs/generated/registry/occultism/SpiritJobFactory"
 import {WorldgenPlacedFeature, WorldgenPlacedFeature$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenPlacedFeature"
 import {PositionSourceType, PositionSourceType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/PositionSourceType"
 import {FluidType, FluidType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/FluidType"
@@ -95,6 +104,7 @@ import {WorldgenBiomeSource, WorldgenBiomeSource$Type} from "packages/moe/wolfgi
 import {IntProviderType, IntProviderType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/IntProviderType"
 import {WorldgenDensityFunction, WorldgenDensityFunction$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenDensityFunction"
 import {WorldgenMaterialCondition, WorldgenMaterialCondition$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenMaterialCondition"
+import {Slurry, Slurry$Type} from "packages/moe/wolfgirl/probejs/generated/registry/mekanism/Slurry"
 import {WorldgenFoliagePlacerType, WorldgenFoliagePlacerType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenFoliagePlacerType"
 import {WorldgenRootPlacerType, WorldgenRootPlacerType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenRootPlacerType"
 import {BlockPredicateType, BlockPredicateType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/BlockPredicateType"
@@ -197,17 +207,19 @@ function registry(extra: "damage_type", handler: (event: DamageType) => void): v
 function registry(extra: "rule_block_entity_modifier", handler: (event: RuleBlockEntityModifier) => void): void
 function registry(extra: "decorated_pot_patterns", handler: (event: DecoratedPotPatterns) => void): void
 function registry(extra: "worldgen/multi_noise_biome_source_parameter_list", handler: (event: WorldgenMultiNoiseBiomeSourceParameterList) => void): void
-function registry(extra: "create:mounted_fluid_storage_type", handler: (event: MountedFluidStorageType) => void): void
-function registry(extra: "create:contraption_type", handler: (event: ContraptionType) => void): void
-function registry(extra: "create:potato_projectile/render_mode", handler: (event: PotatoProjectileRenderMode) => void): void
 function registry(extra: "create:item_attribute_type", handler: (event: ItemAttributeType) => void): void
+function registry(extra: "create:mounted_item_storage_type", handler: (event: MountedItemStorageType) => void): void
+function registry(extra: "create:contraption_type", handler: (event: ContraptionType) => void): void
+function registry(extra: "create:potato_projectile/entity_hit_action", handler: (event: PotatoProjectileEntityHitAction) => void): void
+function registry(extra: "create:mounted_fluid_storage_type", handler: (event: MountedFluidStorageType) => void): void
+function registry(extra: "create:potato_projectile/block_hit_action", handler: (event: PotatoProjectileBlockHitAction) => void): void
 function registry(extra: "create:fan_processing_type", handler: (event: FanProcessingType) => void): void
 function registry(extra: "create:display_target", handler: (event: DisplayTarget) => void): void
-function registry(extra: "create:mounted_item_storage_type", handler: (event: MountedItemStorageType) => void): void
-function registry(extra: "create:display_source", handler: (event: DisplaySource) => void): void
-function registry(extra: "create:potato_projectile/block_hit_action", handler: (event: PotatoProjectileBlockHitAction) => void): void
 function registry(extra: "create:arm_interaction_point_type", handler: (event: ArmInteractionPointType) => void): void
-function registry(extra: "create:potato_projectile/entity_hit_action", handler: (event: PotatoProjectileEntityHitAction) => void): void
+function registry(extra: "create:display_source", handler: (event: DisplaySource) => void): void
+function registry(extra: "create:potato_projectile/render_mode", handler: (event: PotatoProjectileRenderMode) => void): void
+function registry(extra: "mekanism:gas", handler: (event: Gas) => void): void
+function registry(extra: "botania:brews", handler: (event: Brews) => void): void
 function registry(extra: "forge:biome_modifier_serializers", handler: (event: BiomeModifierSerializers) => void): void
 function registry(extra: "forge:display_contexts", handler: (event: DisplayContexts) => void): void
 function registry(extra: "forge:entity_data_serializers", handler: (event: EntityDataSerializers) => void): void
@@ -215,11 +227,19 @@ function registry(extra: "forge:fluid_type", handler: (event: FluidType) => void
 function registry(extra: "forge:global_loot_modifier_serializers", handler: (event: GlobalLootModifierSerializers) => void): void
 function registry(extra: "forge:holder_set_type", handler: (event: HolderSetType) => void): void
 function registry(extra: "forge:structure_modifier_serializers", handler: (event: StructureModifierSerializers) => void): void
+function registry(extra: "mekanism:infuse_type", handler: (event: InfuseType) => void): void
+function registry(extra: "mekanism:module", handler: (event: Module) => void): void
+function registry(extra: "mekanism:pigment", handler: (event: Pigment) => void): void
+function registry(extra: "mekanism:robit_skin_serializer", handler: (event: RobitSkinSerializer) => void): void
+function registry(extra: "mekanism:slurry", handler: (event: Slurry) => void): void
+function registry(extra: "occultism:ritual_factory", handler: (event: RitualFactory) => void): void
+function registry(extra: "occultism:spirit_job_factory", handler: (event: SpiritJobFactory) => void): void
 function registry(extra: "pneumaticcraft:harvest_handlers", handler: (event: HarvestHandlers) => void): void
 function registry(extra: "pneumaticcraft:hoe_handlers", handler: (event: HoeHandlers) => void): void
 function registry(extra: "pneumaticcraft:prog_widgets", handler: (event: ProgWidgets) => void): void
 function registry(extra: "create:potato_projectile/type", handler: (event: PotatoProjectileType) => void): void
 function registry(extra: "forge:structure_modifier", handler: (event: StructureModifier) => void): void
+function registry(extra: "mekanism:robit_skin", handler: (event: RobitSkin) => void): void
 function registry(extra: "forge:biome_modifier", handler: (event: BiomeModifier) => void): void
 }
 }

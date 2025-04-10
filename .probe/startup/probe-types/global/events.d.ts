@@ -1,5 +1,6 @@
 import {$ClientInitEventJS, $ClientInitEventJS$Type} from "packages/dev/latvian/mods/kubejs/client/$ClientInitEventJS"
 import {$ItemModelPropertiesEventJS, $ItemModelPropertiesEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemModelPropertiesEventJS"
+import {$BoilerHeaterHandlerEvent, $BoilerHeaterHandlerEvent$Type} from "packages/dev/latvian/mods/kubejs/create/events/$BoilerHeaterHandlerEvent"
 import {$AddWorldgenEventJS, $AddWorldgenEventJS$Type} from "packages/dev/latvian/mods/kubejs/level/gen/$AddWorldgenEventJS"
 import {$CreativeTabEvent, $CreativeTabEvent$Type} from "packages/dev/latvian/mods/kubejs/item/creativetab/$CreativeTabEvent"
 import {$ItemModificationEventJS, $ItemModificationEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemModificationEventJS"
@@ -7,7 +8,9 @@ import {$RegistryEventJS, $RegistryEventJS$Type} from "packages/dev/latvian/mods
 import {$MBDMachineRegistryEventJS, $MBDMachineRegistryEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineRegistryEventJS"
 import {$StartupEventJS, $StartupEventJS$Type} from "packages/dev/latvian/mods/kubejs/event/$StartupEventJS"
 import {$BlockModificationEventJS, $BlockModificationEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$BlockModificationEventJS"
+import {$SpecialFluidHandlerEvent, $SpecialFluidHandlerEvent$Type} from "packages/dev/latvian/mods/kubejs/create/events/$SpecialFluidHandlerEvent"
 import {$ItemArmorTierRegistryEventJS, $ItemArmorTierRegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/custom/$ItemArmorTierRegistryEventJS"
+import {$SpecialSpoutHandlerEvent, $SpecialSpoutHandlerEvent$Type} from "packages/dev/latvian/mods/kubejs/create/events/$SpecialSpoutHandlerEvent"
 import {$MBDRecipeTypeRegistryEventJS, $MBDRecipeTypeRegistryEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDRecipeTypeRegistryEventJS"
 import {$RecipeSchemaRegistryEventJS, $RecipeSchemaRegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/recipe/$RecipeSchemaRegistryEventJS"
 import {$RemoveWorldgenEventJS, $RemoveWorldgenEventJS$Type} from "packages/dev/latvian/mods/kubejs/level/gen/$RemoveWorldgenEventJS"
@@ -30,6 +33,11 @@ function armorTierRegistry(handler: (event: $ItemArmorTierRegistryEventJS) => vo
 }
 export namespace ClientEvents {
 function init(handler: (event: $ClientInitEventJS) => void): void
+}
+export namespace CreateEvents {
+function boilerHeatHandler(handler: (event: $BoilerHeaterHandlerEvent) => void): void
+function pipeFluidEffect(handler: (event: $SpecialFluidHandlerEvent) => void): void
+function spoutHandler(handler: (event: $SpecialSpoutHandlerEvent) => void): void
 }
 export namespace StartupEvents {
 function init(handler: (event: $StartupEventJS) => void): void

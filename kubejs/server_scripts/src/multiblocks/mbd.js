@@ -1,3 +1,5 @@
+const { $Widget } = require("packages/com/lowdragmc/lowdraglib/gui/widget/$Widget");
+
 MBDMachineEvents.onUseCatalyst("mbd2:centrifuge", e => {
     console.log(Object.keys(e.event.machine.pos));
 
@@ -41,33 +43,19 @@ MBDMachineEvents.onTick("mbd2:su_out", event => {
         else e.getMachine().triggerGeckolibAnim("idle_offset", 1);
     }
 });
-MBDMachineEvents.onStateChanged("mbd2:su_out", event => {
-    var e = event.getEvent();
+// MBDMachineEvents.onStateChanged("mbd2:su_out", event => {
+//     var e = event.getEvent();
     
-    var controller = e.getMachine().getMachineState().getRenderer().getAnimatableFromMachine(e.getMachine()).getAnimatableInstanceCache().getManagerForId(0)
-    .getAnimationControllers()
-    .get("base_controller");
+//     var controller = e.getMachine().getMachineState().getRenderer().getAnimatableFromMachine(e.getMachine()).getAnimatableInstanceCache().getManagerForId(0)
+//     .getAnimationControllers()
+//     .get("base_controller");
 
-    controller.setParticleKeyframeHandler(customEvent => {
-        console.log(customEvent);
+//     controller.setParticleKeyframeHandler(customEvent => {
+//         console.log(customEvent);
         
-    });
-    e.getMachine().fac
+//     });
 
-});
-MBDMachineEvents.onCustomKeyframeTrigger("mbd2:su_out", event => {
-    var level = event.getEvent().getMachine().getLevel();
-    var pos = event.getEvent().getMachine().pos;
-    var machine = event.getEvent().getMachine();
-    if(machine.getFrontFacing().get() == Direction.NORTH || machine.getFrontFacing().get() == Direction.SOUTH) {
-        level.runCommandSilent("summon embers:ember_packet " + (pos.x + 0.7) + " " + (pos.y - 0.5) + " " + (pos.z + 0.5) + " {lifetime:15, destX:" + (pos.x + 1.7) + ",destY:" + (pos.y + 1) + ",destZ:" + (pos.z + 0.5) + ",value:0}")
-        level.runCommandSilent("summon embers:ember_packet " + (pos.x + 0.3) + " " + (pos.y - 0.5) + " " + (pos.z + 0.5) + " {lifetime:15, destX:" + (pos.x - 0.2) + ",destY:" + (pos.y + 1) + ",destZ:" + (pos.z + 0.5) + ",value:0}")
-    }
-    else {
-        machine.getLevel().spawnParticles("minecraft:flame", false, machine.pos.x + 0.5, machine.pos.y - 0.5625, machine.pos.z + 0.3, 0, 0, 0, 10, 0.001);
-        machine.getLevel().spawnParticles("minecraft:flame", false, machine.pos.x + 0.5, machine.pos.y - 0.5625, machine.pos.z + 0.57, 0, 0, 0, 10, 0.001);
-    }
-});
+// });
 
 MBDMachineEvents.onBeforeRecipeModify("mbd2:flywheel", event => {
     console.log("running")
@@ -128,57 +116,35 @@ function test2(event, machine) {
 
 MBDMachineEvents.onTick("mbd2:super_furnace", event => {
     var machine = event.getEvent().getMachine();
-    var dir;
-    if(machine.getFrontFacing().get() == Direction.north) {
-        dir = machine.pos.offset(0,-1,1)
-    }
-    else if(machine.getFrontFacing().get() == Direction.west) {
-        dir = machine.pos.offset(1,-1,0)
-    }
-    else if(machine.getFrontFacing().get() == Direction.south) {
-        dir = machine.pos.offset(0,-1,-1)
-    }
-    else if(machine.getFrontFacing().get() == Direction.east) {
-        dir = machine.pos.offset(-1,-1,0)
-    }
+    var dir = machine.getPos().offset(multiplyVector(machine.getFrontFacing().get().getNormal(), 0,0,-1)).offset(0,-1,0);
     var heat = machine.getLevel().getBlockEntity(dir).saveWithId().get("fuelLevel");
     machine.getCustomData().putInt("heat", heat)
     
 })
+MBDMachineEvents.onRecipeWorking("mbd2:blaze_smelter", event => {
+    var machine = event.getEvent().getMachine();
+    var dir = machine.getPos().offset(multiplyVector(machine.getFrontFacing().get().getNormal(), 0,0,-1)).offset(0,-1,0);
+    var heat = machine.getLevel().getBlockEntity(dir).saveWithId().get("fuelLevel");
+    machine.setMachineLevel(heat);
+});
 
 
-/*
+var HeatExchangerLogicAmbient = Java.loadClass("me.desht.pneumaticcraft.common.heat.HeatExchangerLogicAmbient")
+var ContentModifier = Java.loadClass("com.lowdragmc.mbd2.api.recipe.content.ContentModifier")
+var MBDRecipe = Java.loadClass("com.lowdragmc.mbd2.api.recipe.MBDRecipe")
+var IO = Java.loadClass("com.lowdragmc.mbd2.api.capability.recipe.IO")
 
-[03:24:54] [INFO] src/mbd.js#31: transitionLength
-[03:24:54] [INFO] src/mbd.js#31: getClass
-[03:24:54] [INFO] src/mbd.js#31: triggeredAnimation
-[03:24:54] [INFO] src/mbd.js#31: wait
-[03:24:54] [INFO] src/mbd.js#31: getName
-[03:24:54] [INFO] src/mbd.js#31: setAnimationSpeed
-[03:24:54] [INFO] src/mbd.js#31: receiveTriggeredAnimations
-[03:24:54] [INFO] src/mbd.js#31: notifyAll
-[03:24:54] [INFO] src/mbd.js#31: currentAnimation
-[03:24:54] [INFO] src/mbd.js#31: getBoneAnimationQueues
-[03:24:54] [INFO] src/mbd.js#31: soundKeyframeHandler
-[03:24:54] [INFO] src/mbd.js#31: getAnimationState
-[03:24:54] [INFO] src/mbd.js#31: notify
-[03:24:54] [INFO] src/mbd.js#31: triggerableAnim
-[03:24:54] [INFO] src/mbd.js#31: setSoundKeyframeHandler
-[03:24:54] [INFO] src/mbd.js#31: boneAnimationQueues
-[03:24:54] [INFO] src/mbd.js#31: isPlayingTriggeredAnimation
-[03:24:54] [INFO] src/mbd.js#31: setOverrideEasingTypeFunction
-[03:24:54] [INFO] src/mbd.js#31: hashCode
-[03:24:54] [INFO] src/mbd.js#31: class
-[03:24:54] [INFO] src/mbd.js#31: currentRawAnimation
-[03:24:54] [INFO] src/mbd.js#31: process
-[03:24:54] [INFO] src/mbd.js#31: animationSpeedHandler
-[03:24:54] [INFO] src/mbd.js#31: getCurrentAnimation
-[03:24:54] [INFO] src/mbd.js#31: setAnimationSpeedHandler
-[03:24:54] [INFO] src/mbd.js#31: getTriggeredAnimation
-[03:24:54] [INFO] src/mbd.js#31: hasAnimationFinished
-[03:24:54] [INFO] src/mbd.js#31: particleKeyframeHandler
-[03:24:54] [INFO] src/mbd.js#31: setAnimation
-[03:24:54] [INFO] src/mbd.js#31: setCustomInstructionKeyframeHandler
-[03:24:54] [INFO] src/mbd.js#31: animation
-[03:24:54] [INFO] src/mbd.js#31: animationSpeed
-[03:24:54] [INFO] src/mbd.js#31: customInstructionKeyframeHandler*/
+MBDMachineEvents.onBeforeRecipeModify("mbd2:radiator", event => {
+    var heat = event.getEvent().getMachine().getTraitByName("heat").getHandler().getTemperature();
+    var ambient = HeatExchangerLogicAmbient.atPosition(event.getEvent().getMachine().getLevel(), event.getEvent().getMachine().getPos()).getAmbientTemperature();
+    if(event.getEvent().getRecipe() == null) return;
+    var recipe = event.getEvent().getRecipe().copy();
+    if(heat > ambient) recipe = recipe.copy(ContentModifier.of(heat / ambient, 0), false, IO.IN);
+    if(heat < ambient) recipe = recipe.copy(ContentModifier.of(ambient / heat, 0), false, IO.OUT);
+    
+    event.getEvent().setRecipe(recipe);
+});
+
+function multiplyVector(vec, x, y, z) {
+    return new Vec3i(vec.getX() * x, vec.getY() * y, vec.getZ() * z);
+}

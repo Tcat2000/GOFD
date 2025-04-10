@@ -1,0 +1,11 @@
+B = angle of crank
+a = 1
+c = 10
+
+A = Math.acos((math.pow(Math.sqrt(64*64 + 304*304 - 2*64*304*math.cos(query.anim_time)), 2) + 304*304 - 64*64) / (2*Math.sqrt(64*64 + 304*304 - 2*64*304*math.cos(query.anim_time))*304)) * math.clamp(-(query.anim_time - 180) * 100, -1, 1)
+b = Math.sqrt(64*64 + 304*304 - 2*64*304*math.cos(query.anim_time))
+
+
+(Math.sqrt(64*64 + 304*304 - 2*64*304*math.cos(query.anim_time)) - 9) * 16*4
+
+math.clamp((query.anim_time - 180) * 100, -1, 1)

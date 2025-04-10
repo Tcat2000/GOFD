@@ -50,61 +50,31 @@
 				item: "mbd2:ember_engine"
 				type: "item"
 			}]
-			x: -2.0d
+			x: -4.5d
 			y: 4.5d
 		}
 		{
+			dependencies: ["235E43D5B910D687"]
 			id: "4DD9613A79B2570D"
-			tasks: [
-				{
-					id: "104BBEFE1EF68705"
-					item: "create:mechanical_press"
-					type: "item"
-				}
-				{
-					id: "1D12078786672161"
-					item: "mekanism:bio_fuel"
-					type: "item"
-				}
-			]
+			tasks: [{
+				id: "1D12078786672161"
+				item: "kubejs:bio_mass"
+				type: "item"
+			}]
 			title: "Press -> Bio Mass"
-			x: 1.0d
+			x: 0.0d
 			y: 4.5d
 		}
 		{
+			dependencies: ["4DD9613A79B2570D"]
 			id: "298A3EC4BBDFD02F"
-			tasks: [
-				{
-					id: "100C4DF79F5ED538"
-					item: "mekanism:dust_copper"
-					type: "item"
-				}
-				{
-					id: "39037B178E06191C"
-					item: "mekanism:isotopic_centrifuge"
-					type: "item"
-				}
-			]
-			title: "Centrifuge -> Copper"
-			x: 4.0d
-			y: 4.5d
-		}
-		{
-			id: "58B100C655BAC35B"
-			tasks: [
-				{
-					id: "4121433D06B898E9"
-					item: "create:encased_fan"
-					type: "item"
-				}
-				{
-					id: "4D93E1CE0FBD7E79"
-					item: "embers:ash"
-					type: "item"
-				}
-			]
-			title: "Bulk Blasting -> Ash"
-			x: 2.5d
+			tasks: [{
+				id: "55E1F816AAA1A4FE"
+				item: "create:encased_fan"
+				type: "item"
+			}]
+			title: "Washing"
+			x: 1.5d
 			y: 4.5d
 		}
 		{
@@ -137,10 +107,14 @@
 				}
 			]
 			title: "Organic Matter"
-			x: -0.5d
+			x: -3.0d
 			y: 4.5d
 		}
 		{
+			dependencies: [
+				"0BEC75B508DE57F9"
+				"7AA0E8034655D154"
+			]
 			id: "139DA19409D23AE5"
 			tasks: [{
 				id: "6E79EA640F209889"
@@ -151,10 +125,11 @@
 			y: 0.0d
 		}
 		{
+			dependencies: ["139DA19409D23AE5"]
 			id: "59D6BDAA00B936A6"
 			tasks: [{
 				id: "18AC280752DA7950"
-				item: "embers:caminite_blend"
+				item: "kubejs:andesite_blend"
 				type: "item"
 			}]
 			title: "Andesite Blend"
@@ -162,6 +137,7 @@
 			y: 0.0d
 		}
 		{
+			dependencies: ["59D6BDAA00B936A6"]
 			id: "70A15061FA3B03F0"
 			tasks: [{
 				count: 2L
@@ -173,6 +149,10 @@
 			y: 0.0d
 		}
 		{
+			dependencies: [
+				"0BEC75B508DE57F9"
+				"7AA0E8034655D154"
+			]
 			id: "3333406792F5CE07"
 			tasks: [{
 				id: "31807001D465C896"
@@ -183,6 +163,7 @@
 			y: 2.0d
 		}
 		{
+			dependencies: ["3333406792F5CE07"]
 			id: "4EFDE2AD9B665426"
 			tasks: [{
 				count: 3L
@@ -192,6 +173,224 @@
 			}]
 			x: 1.5d
 			y: 2.0d
+		}
+		{
+			id: "4A9B126669F3C235"
+			tasks: [{
+				id: "652AFA5EBE472589"
+				item: "kubejs:small_iron_dust"
+				type: "item"
+			}]
+			x: 2.5d
+			y: 5.5d
+		}
+		{
+			dependencies: [
+				"74DBCD588BE361F4"
+				"4A9B126669F3C235"
+			]
+			id: "50A1AA4D66943C94"
+			tasks: [{
+				id: "252290731A42D43A"
+				item: "kubejs:copper_refinment_blend"
+				type: "item"
+			}]
+			title: "Mixer > Copper Blend"
+			x: 4.0d
+			y: 5.5d
+		}
+		{
+			dependencies: ["50A1AA4D66943C94"]
+			id: "749915362B284A67"
+			tasks: [{
+				id: "7B89B6D4364B7A65"
+				item: "embers:melter"
+				type: "item"
+			}]
+			x: 5.5d
+			y: 5.5d
+		}
+		{
+			dependencies: ["749915362B284A67"]
+			id: "737BC1BC747352E9"
+			tasks: [{
+				id: "0B5B2B28E95F2055"
+				item: "immersiveengineering:slag"
+				type: "item"
+			}]
+			x: 7.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["4CB0DEB50B97EBE6"]
+			id: "46C632C03ABC8799"
+			tasks: [{
+				id: "1173753F68FED81F"
+				item: "embers:stamper"
+				type: "item"
+			}]
+			x: 8.5d
+			y: 5.5d
+		}
+		{
+			dependencies: ["46C632C03ABC8799"]
+			id: "7F69C3EBBFE6F1EF"
+			tasks: [{
+				id: "6B8B01121116BBB0"
+				item: "minecraft:copper_ingot"
+				type: "item"
+			}]
+			x: 10.0d
+			y: 5.5d
+		}
+		{
+			dependencies: [
+				"2C9EB7C4FC122836"
+				"633A76490A9C3899"
+			]
+			id: "035B7C423C1F6915"
+			tasks: [{
+				id: "7C27E9D3DABEA510"
+				item: "embers:mixer_centrifuge"
+				type: "item"
+			}]
+			x: 7.0d
+			y: 7.0d
+		}
+		{
+			dependencies: ["1603BFECA9A187D5"]
+			id: "633A76490A9C3899"
+			tasks: [{
+				id: "2F9830977838F17C"
+				item: "embers:soul_crude_bucket"
+				type: "item"
+			}]
+			x: 7.0d
+			y: 8.5d
+		}
+		{
+			dependencies: ["6012DA08C4C34C2D"]
+			id: "2C9EB7C4FC122836"
+			tasks: [{
+				id: "590108EC98C22185"
+				item: "minecraft:bucket"
+				type: "item"
+			}]
+			title: "Copper Essence Bucket"
+			x: 5.5d
+			y: 7.0d
+		}
+		{
+			dependencies: ["781EDDB568D79B96"]
+			id: "6012DA08C4C34C2D"
+			tasks: [{
+				id: "4B57076DE535CAF8"
+				item: "embers:mixer_centrifuge"
+				type: "item"
+			}]
+			title: "Mix with Molten Copper"
+			x: 4.0d
+			y: 7.0d
+		}
+		{
+			dependencies: ["7BF37F18AB69CD92"]
+			id: "781EDDB568D79B96"
+			tasks: [{
+				id: "01501897150738EE"
+				item: "minecraft:lava_bucket"
+				type: "item"
+			}]
+			x: 2.5d
+			y: 7.0d
+		}
+		{
+			dependencies: [
+				"035B7C423C1F6915"
+				"749915362B284A67"
+			]
+			id: "4CB0DEB50B97EBE6"
+			tasks: [{
+				id: "2D08AB6C706C4F9C"
+				item: "embers:molten_copper_bucket"
+				type: "item"
+			}]
+			x: 7.0d
+			y: 5.5d
+		}
+		{
+			dependencies: ["298A3EC4BBDFD02F"]
+			id: "74DBCD588BE361F4"
+			tasks: [{
+				id: "24888819E4EA895A"
+				item: "kubejs:copper_oxide_dust"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["64A3DAFEAB821446"]
+			id: "235E43D5B910D687"
+			tasks: [{
+				id: "0195853B49A82D9C"
+				item: "create:mechanical_press"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["0DE9E6CF5A9AC075"]
+			id: "7BF37F18AB69CD92"
+			tasks: [{
+				id: "13CF073A9BAA1F9F"
+				item: "embers:melter"
+				type: "item"
+			}]
+			x: 1.0d
+			y: 7.0d
+		}
+		{
+			id: "0DE9E6CF5A9AC075"
+			tasks: [{
+				id: "7DE52612ADB81968"
+				item: "minecraft:cobblestone"
+				type: "item"
+			}]
+			x: 1.0d
+			y: 8.5d
+		}
+		{
+			dependencies: ["6C05B8E476B511FC"]
+			id: "1603BFECA9A187D5"
+			tasks: [{
+				id: "42CEAB02BF303C80"
+				item: "minecraft:soul_sand"
+				type: "item"
+			}]
+			x: 5.5d
+			y: 8.5d
+		}
+		{
+			dependencies: ["5AD4E73A372962F5"]
+			id: "6C05B8E476B511FC"
+			tasks: [{
+				id: "53CACFB6813BC25E"
+				item: "minecraft:soul_campfire"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 8.5d
+		}
+		{
+			id: "5AD4E73A372962F5"
+			tasks: [{
+				id: "131A0A5AFB257B1A"
+				item: "minecraft:sand"
+				type: "item"
+			}]
+			x: 2.5d
+			y: 8.5d
 		}
 	]
 	title: "Create 1"

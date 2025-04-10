@@ -1,0 +1,33 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"running": {
+			"animation_length": 360,
+			"bones": {
+				"cylender": {
+					"rotation": {
+						"vector": [
+							"Math.acos((math.pow(Math.sqrt(64*64 + 304*304 - 2*64*304*math.cos(query.anim_time)), 2) + 304*304 - 64*64) / (2*Math.sqrt(64*64 + 304*304 - 2*64*304*math.cos(query.anim_time))*304)) * math.clamp(-(query.anim_time - 180) * 100, -1, 1)",
+							0,
+							0
+						],
+						"easing": "linear"
+					}
+				},
+				"crank_shaft": {
+					"rotation": {
+						"vector": ["-query.anim_time ", 0, 0],
+						"easing": "linear"
+					}
+				},
+				"piston": {
+					"position": {
+						"vector": [0, 0, "(Math.sqrt(64*64 + 304*304 - 2*64*304*math.cos(query.anim_time)) - 240)"],
+						"easing": "linear"
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

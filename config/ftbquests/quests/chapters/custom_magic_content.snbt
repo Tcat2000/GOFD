@@ -1,0 +1,456 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "custom_magic_content"
+	group: "6A93A99260EB7FB8"
+	id: "2890ABC5970F0DA7"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: [
+				"10E301A60799F000"
+				"61B74ECD9B2B241A"
+			]
+			id: "7BBDDB332742910F"
+			subtitle: "Used to make celestial lenses"
+			tasks: [{
+				id: "2E466432B36622A1"
+				item: "kubejs:weak_celestial_alloy"
+				type: "item"
+			}]
+			title: "Weak Celestial Alloy"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			id: "61B74ECD9B2B241A"
+			subtitle: "The base material for the alloy"
+			tasks: [{
+				id: "24EA3B34A07309E1"
+				item: "minecraft:copper_ingot"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			id: "10E301A60799F000"
+			subtitle: "Hand lens is used for manual crafting"
+			tasks: [{
+				id: "47C5F23C885441B8"
+				item: "kubejs:hand_lens"
+				type: "item"
+			}]
+			title: "Hand Lens"
+			x: 0.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"7BBDDB332742910F"
+				"7AE17C30D50AB1C2"
+				"40F75D201DFF01A7"
+			]
+			id: "02FA45E2CF9AB3D1"
+			subtitle: "Starting point for Tiny Celestial Lenses"
+			tasks: [{
+				id: "67181E63ED670D5C"
+				item: "botania:lens_magnet"
+				type: "item"
+			}]
+			title: "Tiny Celestial Base Lens"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			id: "40F75D201DFF01A7"
+			subtitle: "Materials for making solar lenses"
+			tasks: [{
+				id: "2826610E64746A07"
+				item: "embers:ember_crystal_cluster"
+				type: "item"
+			}]
+			title: "Solar Materials"
+			x: 2.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["02FA45E2CF9AB3D1"]
+			id: "5F065E6BD5B90046"
+			subtitle: "Lenses to filter out solar light"
+			tasks: [{
+				id: "27701C7700D3A4A9"
+				item: "botania:lens_gravity"
+				type: "item"
+			}]
+			title: "Tiny Solar lenses"
+			x: 4.0d
+			y: -2.0d
+		}
+		{
+			id: "7AE17C30D50AB1C2"
+			subtitle: "Materials for making lunar lenses"
+			tasks: [{
+				id: "4C3C3A46463E6716"
+				item: "botania:quartz_lavender"
+				type: "item"
+			}]
+			title: "Lunar Materials"
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["02FA45E2CF9AB3D1"]
+			id: "0C2947F5A241C80A"
+			subtitle: "lenses to filter out lunar light"
+			tasks: [{
+				id: "6024BFA112657CD8"
+				item: "botania:lens_efficiency"
+				type: "item"
+			}]
+			title: "Tiny Lunar Lenses"
+			x: 4.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"5F065E6BD5B90046"
+				"0C2947F5A241C80A"
+			]
+			id: "35C64F0CE172BDE0"
+			subtitle: "With a functional tiny setup, you can make small lenses"
+			tasks: [{
+				id: "61B25B8F2A2919F8"
+				title: "Tiny Transmutation setup"
+				type: "checkmark"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["234A9990FFF5492F"]
+			id: "1CBBF549BCC2A846"
+			subtitle: "More concentraited version of the Celestial Alloy"
+			tasks: [{
+				id: "577C7B6054CCFC62"
+				item: "kubejs:weak_solar_alloy"
+				type: "item"
+			}]
+			x: 12.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["234A9990FFF5492F"]
+			id: "7B2AB2B09191259F"
+			subtitle: "More concentraited version of the Celestial Alloy"
+			tasks: [{
+				id: "30EF790E5D1D5E7E"
+				item: "kubejs:weak_lunar_alloy"
+				type: "item"
+			}]
+			x: 12.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["1CBBF549BCC2A846"]
+			id: "1D7ED51F7F4DD1C2"
+			subtitle: "Better quality base lense, only good for solar lenses"
+			tasks: [{
+				id: "40A1CA2A2F66F27E"
+				item: "botania:lens_explosive"
+				type: "item"
+			}]
+			title: "Solar Base Lens"
+			x: 14.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["7B2AB2B09191259F"]
+			id: "5BB1816537DD9F20"
+			subtitle: "Better quality base lense, only good for lunar lenses"
+			tasks: [{
+				id: "6D417899935657DD"
+				item: "botania:lens_warp"
+				type: "item"
+			}]
+			title: "Lunar Base Lens"
+			x: 14.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["6D88FAD53E88381A"]
+			id: "160E53DB895B85B4"
+			subtitle: "Larger version of the tiny lenses"
+			tasks: [{
+				id: "437E84373076A3A1"
+				item: "botania:lens_gravity"
+				type: "item"
+			}]
+			title: "Small Solar Lenses"
+			x: 10.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["6D88FAD53E88381A"]
+			id: "0C7BF0F25B427908"
+			subtitle: "Larger version of the tiny lenses"
+			tasks: [{
+				id: "4DB6D0FBE8F1E60B"
+				item: "botania:lens_efficiency"
+				type: "item"
+			}]
+			title: "Small Lunar Lenses"
+			x: 10.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["35C64F0CE172BDE0"]
+			id: "6D88FAD53E88381A"
+			subtitle: "Starting point for Small Celestial Lenses"
+			tasks: [{
+				id: "773CFDA327B375E6"
+				item: "botania:lens_magnet"
+				type: "item"
+			}]
+			title: "Small Celestial Lens Base"
+			x: 8.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"160E53DB895B85B4"
+				"0C7BF0F25B427908"
+			]
+			id: "234A9990FFF5492F"
+			subtitle: "More powerful than the tiny setup"
+			tasks: [{
+				id: "5DBFBDE078C39611"
+				title: "Small Transmutation setup"
+				type: "checkmark"
+			}]
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["335DE3C5948F081E"]
+			id: "1E57FCE28B372228"
+			tasks: [{
+				id: "7C9F11B1B981CA19"
+				item: "kubejs:solar_alloy"
+				type: "item"
+			}]
+			x: 18.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["335DE3C5948F081E"]
+			id: "16516E90645242BE"
+			tasks: [{
+				id: "2C5B87A986924F72"
+				item: "kubejs:lunar_alloy"
+				type: "item"
+			}]
+			x: 18.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["335DE3C5948F081E"]
+			id: "051E9D1AC195CB3D"
+			tasks: [{
+				id: "1DBA021700DAD62E"
+				item: "kubejs:celestial_alloy"
+				type: "item"
+			}]
+			x: 20.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"0835D8B8D805733F"
+				"37C069BEB83388CD"
+			]
+			id: "335DE3C5948F081E"
+			subtitle: "A even larger setup is required to make more powerful alloys"
+			tasks: [{
+				id: "32A600ADD9E267CE"
+				title: "Medium Transmutation Setup"
+				type: "checkmark"
+			}]
+			x: 18.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["234A9990FFF5492F"]
+			id: "20A348394AB5DB06"
+			subtitle: "Starting point for Medium Celestial Lenses"
+			tasks: [{
+				id: "3CE8C85E26288D3A"
+				item: "botania:lens_magnet"
+				type: "item"
+			}]
+			title: "Medium Celestial Lens Base"
+			x: 14.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"1D7ED51F7F4DD1C2"
+				"20A348394AB5DB06"
+			]
+			id: "37C069BEB83388CD"
+			subtitle: "Larger version of the small lenses"
+			tasks: [{
+				id: "35088FD519FA87BC"
+				item: "botania:lens_gravity"
+				type: "item"
+			}]
+			title: "Medium Solar Lenses"
+			x: 16.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"20A348394AB5DB06"
+				"5BB1816537DD9F20"
+			]
+			id: "0835D8B8D805733F"
+			subtitle: "Larger version of the small lenses"
+			tasks: [{
+				id: "03F997CA54472A52"
+				item: "botania:lens_efficiency"
+				type: "item"
+			}]
+			title: "Medium Lunar Lenses"
+			x: 16.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["051E9D1AC195CB3D"]
+			id: "4BD7D8E308FEA2B2"
+			subtitle: "TODO: figure out processing for this. A small amount of star metal can be isolated from Celestial Alloy"
+			tasks: [{
+				id: "5BB210E05112BCE3"
+				item: "kubejs:small_bronze_dust"
+				type: "item"
+			}]
+			title: "Grains of Starmetal"
+			x: 22.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["335DE3C5948F081E"]
+			id: "0D9435F65ACE30F5"
+			subtitle: "Starting point for Large Celestial Lenses"
+			tasks: [{
+				id: "49FC5BF3C0812493"
+				item: "botania:lens_magnet"
+				type: "item"
+			}]
+			title: "Large Celestial Lens Base"
+			x: 20.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0D9435F65ACE30F5"]
+			id: "09706628B4917ABF"
+			subtitle: "Larger version of the medium lenses"
+			tasks: [{
+				id: "5A9AE031EF8AFF55"
+				item: "botania:lens_gravity"
+				type: "item"
+			}]
+			title: "Large Solar Lenses"
+			x: 22.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["0D9435F65ACE30F5"]
+			id: "2FEC2DCAE640AFA7"
+			subtitle: "Larger version of the medium lenses"
+			tasks: [{
+				id: "23A6B6A58698D5B4"
+				item: "botania:lens_efficiency"
+				type: "item"
+			}]
+			title: "Large Lunar Lenses"
+			x: 22.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"09706628B4917ABF"
+				"2FEC2DCAE640AFA7"
+			]
+			hide_details_until_startable: false
+			id: "5932F0FAB78CD6F9"
+			tasks: [{
+				id: "73DE2DBAAEE26CEF"
+				title: "Large Transmutation Setup"
+				type: "checkmark"
+			}]
+			x: 24.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"5932F0FAB78CD6F9"
+				"74F1C6124DF5F51B"
+				"796611D7E0D8D4EF"
+			]
+			id: "4DDD018BDC23E828"
+			subtitle: "Unlike the other lenses, blocking out elements, the star lens focuses more energy"
+			tasks: [{
+				id: "61523B3DE4A2AFA1"
+				item: "botania:lens_phantom"
+				type: "item"
+			}]
+			title: "Star Lens"
+			x: 26.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4BD7D8E308FEA2B2"]
+			id: "74F1C6124DF5F51B"
+			tasks: [{
+				id: "22809B30CA6C1981"
+				item: "mekanism:dust_bronze"
+				type: "item"
+			}]
+			title: "Star Metal Dust"
+			x: 24.0d
+			y: -2.0d
+		}
+		{
+			id: "796611D7E0D8D4EF"
+			tasks: [
+				{
+					id: "0221E01F6F11B784"
+					item: "mekanism:dust_lapis_lazuli"
+					type: "item"
+				}
+				{
+					id: "5953ECF881A219E3"
+					item: "minecraft:redstone"
+					type: "item"
+				}
+			]
+			title: "Lunar + Solar Dust"
+			x: 24.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["4DDD018BDC23E828"]
+			id: "4995A62A0D8D52FC"
+			tasks: [{
+				id: "0DE55DB5BF1BB92A"
+				item: "kubejs:star_metal_ingot"
+				type: "item"
+			}]
+			title: "Star Metal"
+			x: 28.0d
+			y: 0.0d
+		}
+	]
+	title: "Custom Magic Content"
+}

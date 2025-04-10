@@ -1,5 +1,13 @@
 {
   "bookGuiScale": 0,
   "clickedVisualize": false,
-  "bookData": {}
+  "bookData": {
+    "pneumaticcraft:book": {
+      "viewedEntries": [
+        "pneumaticcraft:machines/vortex_tube"
+      ],
+      "bookmarks": [],
+      "completedManualQuests": []
+    }
+  }
 }

@@ -947,10 +947,10 @@ export interface $MethodHandleDesc extends $ConstantDesc {
 }
 
 export namespace $MethodHandleDesc {
+function ofConstructor(arg0: $ClassDesc$Type, ...arg1: ($ClassDesc$Type)[]): $DirectMethodHandleDesc
 function of(arg0: $DirectMethodHandleDesc$Kind$Type, arg1: $ClassDesc$Type, arg2: string, arg3: string): $DirectMethodHandleDesc
 function ofField(arg0: $DirectMethodHandleDesc$Kind$Type, arg1: $ClassDesc$Type, arg2: string, arg3: $ClassDesc$Type): $DirectMethodHandleDesc
 function ofMethod(arg0: $DirectMethodHandleDesc$Kind$Type, arg1: $ClassDesc$Type, arg2: string, arg3: $MethodTypeDesc$Type): $DirectMethodHandleDesc
-function ofConstructor(arg0: $ClassDesc$Type, ...arg1: ($ClassDesc$Type)[]): $DirectMethodHandleDesc
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1198,16 +1198,14 @@ import {$ConstantDesc, $ConstantDesc$Type} from "packages/java/lang/constant/$Co
  */
 export interface $MethodTypeDesc extends $ConstantDesc, $TypeDescriptor$OfMethod<($ClassDesc), ($MethodTypeDesc)> {
 
- "returnType"(): $ClassDesc
+ "displayDescriptor"(): string
  "equals"(arg0: any): boolean
  "descriptorString"(): string
  "insertParameterTypes"(arg0: integer, ...arg1: ($ClassDesc$Type)[]): $MethodTypeDesc
  "changeReturnType"(arg0: $ClassDesc$Type): $MethodTypeDesc
  "parameterCount"(): integer
  "parameterList"(): $List<($ClassDesc)>
- "parameterArray"(): ($ClassDesc)[]
  "changeParameterType"(arg0: integer, arg1: $ClassDesc$Type): $MethodTypeDesc
- "displayDescriptor"(): string
  "resolveConstantDesc"(arg0: $MethodHandles$Lookup$Type): any
 }
 
@@ -1649,16 +1647,17 @@ import {$TypeDescriptor$OfField, $TypeDescriptor$OfField$Type} from "packages/ja
  */
 export interface $ClassDesc extends $ConstantDesc, $TypeDescriptor$OfField<($ClassDesc)> {
 
+ "nested"(arg0: string): $ClassDesc
+ "nested"(arg0: string, ...arg1: (string)[]): $ClassDesc
+ "isClassOrInterface"(): boolean
  "equals"(arg0: any): boolean
  "isArray"(): boolean
  "isPrimitive"(): boolean
+ "componentType"(): $ClassDesc
  "packageName"(): string
  "descriptorString"(): string
  "arrayType"(arg0: integer): $ClassDesc
  "displayName"(): string
- "nested"(arg0: string): $ClassDesc
- "nested"(arg0: string, ...arg1: (string)[]): $ClassDesc
- "isClassOrInterface"(): boolean
  "resolveConstantDesc"(arg0: $MethodHandles$Lookup$Type): any
 }
 
@@ -1721,12 +1720,12 @@ import {$MethodHandleDesc, $MethodHandleDesc$Type} from "packages/java/lang/cons
  */
 export interface $DirectMethodHandleDesc extends $MethodHandleDesc {
 
+ "lookupDescriptor"(): string
+ "isOwnerInterface"(): boolean
  "methodName"(): string
  "refKind"(): integer
  "kind"(): $DirectMethodHandleDesc$Kind
  "owner"(): $ClassDesc
- "lookupDescriptor"(): string
- "isOwnerInterface"(): boolean
  "equals"(arg0: any): boolean
  "asType"(arg0: $MethodTypeDesc$Type): $MethodHandleDesc
  "invocationType"(): $MethodTypeDesc
@@ -1734,10 +1733,10 @@ export interface $DirectMethodHandleDesc extends $MethodHandleDesc {
 }
 
 export namespace $DirectMethodHandleDesc {
+function ofConstructor(arg0: $ClassDesc$Type, ...arg1: ($ClassDesc$Type)[]): $DirectMethodHandleDesc
 function of(arg0: $DirectMethodHandleDesc$Kind$Type, arg1: $ClassDesc$Type, arg2: string, arg3: string): $DirectMethodHandleDesc
 function ofField(arg0: $DirectMethodHandleDesc$Kind$Type, arg1: $ClassDesc$Type, arg2: string, arg3: $ClassDesc$Type): $DirectMethodHandleDesc
 function ofMethod(arg0: $DirectMethodHandleDesc$Kind$Type, arg1: $ClassDesc$Type, arg2: string, arg3: $MethodTypeDesc$Type): $DirectMethodHandleDesc
-function ofConstructor(arg0: $ClassDesc$Type, ...arg1: ($ClassDesc$Type)[]): $DirectMethodHandleDesc
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3617,6 +3616,11 @@ import {$DirectMethodHandleDesc, $DirectMethodHandleDesc$Type} from "packages/ja
 export class $DynamicConstantDesc<T> implements $ConstantDesc {
 
 
+public "constantName"(): string
+public "constantType"(): $ClassDesc
+public "bootstrapArgs"(): ($ConstantDesc)[]
+public static "ofCanonical"<T>(arg0: $DirectMethodHandleDesc$Type, arg1: string, arg2: $ClassDesc$Type, arg3: ($ConstantDesc$Type)[]): $ConstantDesc
+public "bootstrapArgsList"(): $List<($ConstantDesc)>
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
@@ -3625,11 +3629,6 @@ public static "of"<T>(arg0: $DirectMethodHandleDesc$Type): $DynamicConstantDesc<
 public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$Type): T
 public "bootstrapMethod"(): $DirectMethodHandleDesc
 public static "ofNamed"<T>(arg0: $DirectMethodHandleDesc$Type, arg1: string, arg2: $ClassDesc$Type, ...arg3: ($ConstantDesc$Type)[]): $DynamicConstantDesc<(T)>
-public "constantName"(): string
-public "constantType"(): $ClassDesc
-public "bootstrapArgs"(): ($ConstantDesc)[]
-public static "ofCanonical"<T>(arg0: $DirectMethodHandleDesc$Type, arg1: string, arg2: $ClassDesc$Type, arg3: ($ConstantDesc$Type)[]): $ConstantDesc
-public "bootstrapArgsList"(): $List<($ConstantDesc)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

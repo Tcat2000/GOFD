@@ -1,0 +1,496 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "pneumatic_craft"
+	group: "1EE0E24DF7C2736A"
+	id: "15EAB295F7BC00B4"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["787321888343BE80"]
+			id: "339B0D698757A498"
+			tasks: [{
+				id: "09C915F00A1A8931"
+				item: "pneumaticcraft:pressure_tube"
+				type: "item"
+			}]
+			x: 2.0d
+			y: -2.0d
+		}
+		{
+			id: "6C23EB76B0C66D3E"
+			tasks: [{
+				id: "11A1D07F86DE4019"
+				item: "pneumaticcraft:ingot_iron_compressed"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["6C23EB76B0C66D3E"]
+			id: "787321888343BE80"
+			tasks: [{
+				id: "707A813B8E190797"
+				item: "pneumaticcraft:reinforced_stone"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["787321888343BE80"]
+			id: "471DD65E8A4440DB"
+			tasks: [{
+				id: "3CE2E9F88177EE78"
+				item: "pneumaticcraft:air_compressor"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"6097ED547765D49C"
+				"363E7EE919D74B59"
+				"6C703B1D51C9921F"
+			]
+			dependency_requirement: "one_completed"
+			id: "5BAE9B0AD9C18C6C"
+			tasks: [{
+				id: "2FF170CE6A04AC8F"
+				item: "pneumaticcraft:plastic_bucket"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 4.0d
+		}
+		{
+			dependencies: [
+				"775256F57D362050"
+				"58014EA66B45DFAB"
+				"1CAC3B53586FF86D"
+			]
+			id: "363E7EE919D74B59"
+			optional: true
+			tasks: [
+				{
+					id: "7B6387F5F86C7689"
+					item: "immersiveengineering:biodiesel_bucket"
+					type: "item"
+				}
+				{
+					id: "58708A82903CD202"
+					item: "pneumaticcraft:biodiesel_bucket"
+					type: "item"
+				}
+			]
+			x: 4.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["5BAE9B0AD9C18C6C"]
+			id: "579BF626EC177522"
+			tasks: [{
+				id: "1D2E5CF5495E8D78"
+				item: "pneumaticcraft:plastic"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["787321888343BE80"]
+			id: "5D7EE07693F5BCEB"
+			optional: true
+			tasks: [{
+				id: "49883C08D2D43B84"
+				item: "pneumaticcraft:etching_tank"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["339B0D698757A498"]
+			id: "16F7185695DBA8D2"
+			optional: true
+			tasks: [{
+				id: "23D503F2F6F6C71A"
+				item: "pneumaticcraft:uv_light_box"
+				type: "item"
+			}]
+			x: 4.0d
+			y: -2.0d
+		}
+		{
+			id: "0D5C53B479E02037"
+			tasks: [{
+				id: "50327AE98AC5300B"
+				item: "mekanism:sawdust"
+				type: "item"
+			}]
+			x: 4.0d
+			y: -10.0d
+		}
+		{
+			id: "2D90AE6360DC90CB"
+			optional: true
+			tasks: [{
+				id: "69174072D832E4F8"
+				item: "embers:adhesive"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -10.0d
+		}
+		{
+			dependencies: [
+				"2D90AE6360DC90CB"
+				"0D5C53B479E02037"
+			]
+			id: "49A9F54E8E1BC1BD"
+			optional: true
+			tasks: [{
+				id: "63044AE278A44C67"
+				item: "kubejs:sawdust_mixture"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -10.0d
+		}
+		{
+			dependencies: ["49A9F54E8E1BC1BD"]
+			id: "19723D97A31D7C1A"
+			optional: true
+			tasks: [{
+				id: "5335EFD9C2FDBD47"
+				item: "kubejs:hardboard"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -8.0d
+		}
+		{
+			dependencies: [
+				"19723D97A31D7C1A"
+				"1E21497DAC685D48"
+			]
+			id: "13D3BEECDE7262FD"
+			optional: true
+			tasks: [{
+				id: "178AE2694BE17832"
+				item: "kubejs:basic_pcb_substrait"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -6.0d
+		}
+		{
+			dependencies: [
+				"7069E1170733D7F5"
+				"16F7185695DBA8D2"
+				"5D7EE07693F5BCEB"
+			]
+			id: "5E0931974F281DE4"
+			optional: true
+			tasks: [{
+				id: "585F48D396503878"
+				item: "kubejs:raw_basic_pcb"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["13D3BEECDE7262FD"]
+			id: "7069E1170733D7F5"
+			optional: true
+			tasks: [{
+				id: "64DAB17968EE36A6"
+				item: "kubejs:incomplete_basic_pcb"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["5E0931974F281DE4"]
+			id: "7668B2B805642F46"
+			optional: true
+			tasks: [{
+				id: "654DF4307BF9F230"
+				item: "kubejs:blank_basic_pcb"
+				type: "item"
+			}]
+			x: 8.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5E0931974F281DE4"]
+			id: "61576B3D3C15E43F"
+			optional: true
+			subtitle: "Basic PCBS are unrecoverable."
+			tasks: [{
+				id: "1285608FA92DF1F1"
+				item: "kubejs:failed_basic_pcb"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["7668B2B805642F46"]
+			id: "79FBEBCA84D3432F"
+			optional: true
+			tasks: [{
+				id: "26DEE23E11AE2549"
+				item: "kubejs:basic_pcb"
+				type: "item"
+			}]
+			x: 8.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["79FBEBCA84D3432F"]
+			id: "1CAC3B53586FF86D"
+			optional: true
+			tasks: [{
+				id: "49FC92D63B808235"
+				item: "pneumaticcraft:fluid_mixer"
+				type: "item"
+			}]
+			x: 8.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["79FBEBCA84D3432F"]
+			id: "6097ED547765D49C"
+			optional: true
+			tasks: [{
+				id: "78F1A35F347C4BA4"
+				item: "pneumaticcraft:thermopneumatic_processing_plant"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["6097ED547765D49C"]
+			id: "775256F57D362050"
+			optional: true
+			tasks: [{
+				id: "1464595139D4F3D1"
+				item: "pneumaticcraft:ethanol_bucket"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["6097ED547765D49C"]
+			id: "58014EA66B45DFAB"
+			optional: true
+			tasks: [{
+				id: "7CA873A5AE2E7EFE"
+				item: "pneumaticcraft:vegetable_oil_bucket"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["34189E1041AE1B4B"]
+			id: "6C703B1D51C9921F"
+			subtitle: "Alternate IE Biodiesel"
+			tasks: [{
+				id: "00192EDCDF361696"
+				item: "immersiveengineering:biodiesel_bucket"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			dependencies: [
+				"579BF626EC177522"
+				"7FB6B7A0080659F6"
+			]
+			id: "5A55C761FA5A339B"
+			tasks: [{
+				id: "44FF9AA31C5433E8"
+				item: "kubejs:silica_mixture"
+				type: "item"
+			}]
+			x: 11.0d
+			y: 6.0d
+		}
+		{
+			id: "7FB6B7A0080659F6"
+			tasks: [{
+				id: "11C54BA24A5A1044"
+				item: "minecraft:sand"
+				type: "item"
+			}]
+			x: 13.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["5A55C761FA5A339B"]
+			id: "4F4B11AA6902B4FC"
+			tasks: [{
+				id: "1545BC2ACC8B3596"
+				item: "kubejs:silica_board"
+				type: "item"
+			}]
+			x: 11.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["4F4B11AA6902B4FC"]
+			id: "5CACB4EF168A247B"
+			tasks: [{
+				id: "12E06F79FE1C0D68"
+				item: "kubejs:small_reinforced_pcb_substrait"
+				type: "item"
+			}]
+			x: 10.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["4F4B11AA6902B4FC"]
+			id: "3B08B754BADB5293"
+			tasks: [{
+				id: "7E228F1064A07F9A"
+				item: "kubejs:large_reinforced_pcb_substrait"
+				type: "item"
+			}]
+			x: 12.0d
+			y: 3.0d
+		}
+		{
+			dependencies: [
+				"62336F3E328273CD"
+				"5CACB4EF168A247B"
+			]
+			id: "6E8C285F2F465758"
+			tasks: [{
+				id: "2F79EF85234B7085"
+				item: "kubejs:incomplete_small_reinforced_pcb"
+				type: "item"
+			}]
+			x: 10.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"62336F3E328273CD"
+				"3B08B754BADB5293"
+			]
+			id: "49E001EFE902C3EC"
+			tasks: [{
+				id: "4D94AF9953C8665A"
+				item: "kubejs:incomplete_large_reinforced_pcb"
+				type: "item"
+			}]
+			x: 12.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["2C1D3F4AC3A3F8D1"]
+			id: "77DC8472B220A466"
+			tasks: [{
+				id: "2950C2273FCA3EF9"
+				item: "pneumaticcraft:failed_pcb"
+				type: "item"
+			}]
+			x: 12.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["2C6991ADA69BEADE"]
+			id: "74942B514CEDBF20"
+			tasks: [{
+				id: "55A5EFE6AC9F7B6C"
+				item: "kubejs:failed_large_reinforced_pcb"
+				type: "item"
+			}]
+			x: 14.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["2C6991ADA69BEADE"]
+			id: "438CE52DC0F653A9"
+			tasks: [{
+				id: "0943BC55900B9ABE"
+				item: "kubejs:blank_large_reinforced_pcb"
+				type: "item"
+			}]
+			x: 14.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["2C1D3F4AC3A3F8D1"]
+			id: "7BC2920FA55E8287"
+			tasks: [{
+				id: "4761AA1EFCFA7E48"
+				item: "pneumaticcraft:printed_circuit_board"
+				type: "item"
+			}]
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			id: "62336F3E328273CD"
+			tasks: [{
+				id: "67D0A8C8677913FB"
+				item: "kubejs:gold_foil"
+				type: "item"
+			}]
+			x: 11.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"6E8C285F2F465758"
+				"16F7185695DBA8D2"
+				"5D7EE07693F5BCEB"
+			]
+			id: "2C1D3F4AC3A3F8D1"
+			tasks: [{
+				id: "5516B80047CF993D"
+				item: "pneumaticcraft:empty_pcb"
+				type: "item"
+			}]
+			x: 10.0d
+			y: -1.0d
+		}
+		{
+			dependencies: [
+				"49E001EFE902C3EC"
+				"16F7185695DBA8D2"
+				"5D7EE07693F5BCEB"
+			]
+			id: "2C6991ADA69BEADE"
+			tasks: [{
+				id: "018974E141D90A21"
+				item: "kubejs:raw_large_reinforced_pcb"
+				type: "item"
+			}]
+			x: 12.0d
+			y: -1.0d
+		}
+		{
+			id: "1E21497DAC685D48"
+			tasks: [{
+				id: "482DCE5164881E11"
+				item: "kubejs:copper_foil"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -6.0d
+		}
+	]
+	title: "Pneumatic Craft"
+}

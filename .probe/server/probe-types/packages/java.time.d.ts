@@ -593,6 +593,8 @@ import {$Duration, $Duration$Type} from "packages/java/time/$Duration"
 export class $ZoneOffsetTransition implements $Comparable<($ZoneOffsetTransition)>, $Serializable {
 
 
+public "getInstant"(): $Instant
+public "isOverlap"(): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
@@ -606,16 +608,14 @@ public "getDateTimeBefore"(): $LocalDateTime
 public "getDateTimeAfter"(): $LocalDateTime
 public "getOffsetBefore"(): $ZoneOffset
 public "isValidOffset"(arg0: $ZoneOffset$Type): boolean
-public "getInstant"(): $Instant
-public "isOverlap"(): boolean
+get "instant"(): $Instant
+get "overlap"(): boolean
 get "duration"(): $Duration
 get "offsetAfter"(): $ZoneOffset
 get "gap"(): boolean
 get "dateTimeBefore"(): $LocalDateTime
 get "dateTimeAfter"(): $LocalDateTime
 get "offsetBefore"(): $ZoneOffset
-get "instant"(): $Instant
-get "overlap"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -834,6 +834,7 @@ static readonly "NOVEMBER": $Month
 static readonly "DECEMBER": $Month
 
 
+public "firstMonthOfQuarter"(): $Month
 public "get"(arg0: $TemporalField$Type): integer
 public "length"(arg0: boolean): integer
 public static "values"(): ($Month)[]
@@ -852,7 +853,6 @@ public "adjustInto"(arg0: $Temporal$Type): $Temporal
 public "plus"(arg0: long): $Month
 public "minus"(arg0: long): $Month
 public "firstDayOfYear"(arg0: boolean): integer
-public "firstMonthOfQuarter"(): $Month
 get "value"(): integer
 }
 /**
@@ -1855,7 +1855,9 @@ import {$ZoneOffset, $ZoneOffset$Type} from "packages/java/time/$ZoneOffset"
 import {$ValueRange, $ValueRange$Type} from "packages/java/time/temporal/$ValueRange"
 import {$ChronoLocalDate, $ChronoLocalDate$Type} from "packages/java/time/chrono/$ChronoLocalDate"
 import {$Chronology, $Chronology$Type} from "packages/java/time/chrono/$Chronology"
+import {$TemporalAmount, $TemporalAmount$Type} from "packages/java/time/temporal/$TemporalAmount"
 import {$TemporalQuery, $TemporalQuery$Type} from "packages/java/time/temporal/$TemporalQuery"
+import {$TemporalAdjuster, $TemporalAdjuster$Type} from "packages/java/time/temporal/$TemporalAdjuster"
 import {$DateTimeFormatter, $DateTimeFormatter$Type} from "packages/java/time/format/$DateTimeFormatter"
 import {$TemporalUnit, $TemporalUnit$Type} from "packages/java/time/temporal/$TemporalUnit"
 import {$ZoneId, $ZoneId$Type} from "packages/java/time/$ZoneId"
@@ -1865,6 +1867,10 @@ import {$ChronoLocalDateTime, $ChronoLocalDateTime$Type} from "packages/java/tim
 
 export interface $ChronoZonedDateTime<D extends $ChronoLocalDate> extends $Temporal, $Comparable<($ChronoZonedDateTime<(any)>)> {
 
+ "withZoneSameInstant"(arg0: $ZoneId$Type): $ChronoZonedDateTime<(D)>
+ "withZoneSameLocal"(arg0: $ZoneId$Type): $ChronoZonedDateTime<(D)>
+ "withLaterOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
+ "withEarlierOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
  "get"(arg0: $TemporalField$Type): integer
  "equals"(arg0: any): boolean
  "toString"(): string
@@ -1875,23 +1881,21 @@ export interface $ChronoZonedDateTime<D extends $ChronoLocalDate> extends $Tempo
  "query"<R>(arg0: $TemporalQuery$Type<(R)>): R
  "getOffset"(): $ZoneOffset
  "range"(arg0: $TemporalField$Type): $ValueRange
- "isSupported"(arg0: $TemporalUnit$Type): boolean
  "isSupported"(arg0: $TemporalField$Type): boolean
+ "isSupported"(arg0: $TemporalUnit$Type): boolean
  "isEqual"(arg0: $ChronoZonedDateTime$Type<(any)>): boolean
  "toEpochSecond"(): long
  "toInstant"(): $Instant
  "getChronology"(): $Chronology
  "getZone"(): $ZoneId
  "with"(arg0: $TemporalField$Type, arg1: long): $ChronoZonedDateTime<(D)>
+ "with"(arg0: $TemporalAdjuster$Type): $ChronoZonedDateTime<(D)>
+ "plus"(arg0: $TemporalAmount$Type): $ChronoZonedDateTime<(D)>
  "isAfter"(arg0: $ChronoZonedDateTime$Type<(any)>): boolean
  "isBefore"(arg0: $ChronoZonedDateTime$Type<(any)>): boolean
  "toLocalDate"(): D
  "toLocalTime"(): $LocalTime
  "toLocalDateTime"(): $ChronoLocalDateTime<(D)>
- "withZoneSameInstant"(arg0: $ZoneId$Type): $ChronoZonedDateTime<(D)>
- "withZoneSameLocal"(arg0: $ZoneId$Type): $ChronoZonedDateTime<(D)>
- "withLaterOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
- "withEarlierOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
  "until"(arg0: $Temporal$Type, arg1: $TemporalUnit$Type): long
 }
 
@@ -2266,8 +2270,8 @@ import {$Serializable, $Serializable$Type} from "packages/java/io/$Serializable"
 import {$ChronoZonedDateTime, $ChronoZonedDateTime$Type} from "packages/java/time/chrono/$ChronoZonedDateTime"
 import {$Instant, $Instant$Type} from "packages/java/time/$Instant"
 import {$LocalDate, $LocalDate$Type} from "packages/java/time/$LocalDate"
-import {$TemporalAccessor, $TemporalAccessor$Type} from "packages/java/time/temporal/$TemporalAccessor"
 import {$ZoneOffset, $ZoneOffset$Type} from "packages/java/time/$ZoneOffset"
+import {$TemporalAccessor, $TemporalAccessor$Type} from "packages/java/time/temporal/$TemporalAccessor"
 import {$DayOfWeek, $DayOfWeek$Type} from "packages/java/time/$DayOfWeek"
 import {$Clock, $Clock$Type} from "packages/java/time/$Clock"
 import {$LocalDateTime, $LocalDateTime$Type} from "packages/java/time/$LocalDateTime"
@@ -2279,21 +2283,29 @@ import {$DateTimeFormatter, $DateTimeFormatter$Type} from "packages/java/time/fo
 import {$TemporalUnit, $TemporalUnit$Type} from "packages/java/time/temporal/$TemporalUnit"
 import {$ZoneId, $ZoneId$Type} from "packages/java/time/$ZoneId"
 import {$Temporal, $Temporal$Type} from "packages/java/time/temporal/$Temporal"
-import {$LocalTime, $LocalTime$Type} from "packages/java/time/$LocalTime"
 import {$OffsetDateTime, $OffsetDateTime$Type} from "packages/java/time/$OffsetDateTime"
+import {$LocalTime, $LocalTime$Type} from "packages/java/time/$LocalTime"
 
 export class $ZonedDateTime implements $Temporal, $ChronoZonedDateTime<($LocalDate)>, $Serializable {
 
 
+public static "ofLocal"(arg0: $LocalDateTime$Type, arg1: $ZoneId$Type, arg2: $ZoneOffset$Type): $ZonedDateTime
+public "withZoneSameInstant"(arg0: $ZoneId$Type): $ZonedDateTime
+public "toOffsetDateTime"(): $OffsetDateTime
+public "withZoneSameLocal"(arg0: $ZoneId$Type): $ZonedDateTime
+public "withLaterOffsetAtOverlap"(): $ZonedDateTime
+public "withEarlierOffsetAtOverlap"(): $ZonedDateTime
+public static "ofStrict"(arg0: $LocalDateTime$Type, arg1: $ZoneOffset$Type, arg2: $ZoneId$Type): $ZonedDateTime
+public "withFixedOffsetZone"(): $ZonedDateTime
 public "get"(arg0: $TemporalField$Type): integer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "getLong"(arg0: $TemporalField$Type): long
 public "format"(arg0: $DateTimeFormatter$Type): string
+public static "of"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: $ZoneId$Type): $ZonedDateTime
 public static "of"(arg0: $LocalDate$Type, arg1: $LocalTime$Type, arg2: $ZoneId$Type): $ZonedDateTime
 public static "of"(arg0: $LocalDateTime$Type, arg1: $ZoneId$Type): $ZonedDateTime
-public static "of"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: $ZoneId$Type): $ZonedDateTime
 public static "from"(arg0: $TemporalAccessor$Type): $ZonedDateTime
 public "query"<R>(arg0: $TemporalQuery$Type<(R)>): R
 public "getOffset"(): $ZoneOffset
@@ -2311,18 +2323,16 @@ public "getSecond"(): integer
 public static "ofInstant"(arg0: $LocalDateTime$Type, arg1: $ZoneOffset$Type, arg2: $ZoneId$Type): $ZonedDateTime
 public static "ofInstant"(arg0: $Instant$Type, arg1: $ZoneId$Type): $ZonedDateTime
 public "getNano"(): integer
-public static "now"(arg0: $Clock$Type): $ZonedDateTime
 public static "now"(arg0: $ZoneId$Type): $ZonedDateTime
 public static "now"(): $ZonedDateTime
+public static "now"(arg0: $Clock$Type): $ZonedDateTime
 public "getZone"(): $ZoneId
-public "with"(arg0: $TemporalField$Type, arg1: long): $ZonedDateTime
 public "until"(arg0: $Temporal$Type, arg1: $TemporalUnit$Type): long
 public "plusNanos"(arg0: long): $ZonedDateTime
 public "plusSeconds"(arg0: long): $ZonedDateTime
 public "plusDays"(arg0: long): $ZonedDateTime
 public "plusHours"(arg0: long): $ZonedDateTime
 public "plusMinutes"(arg0: long): $ZonedDateTime
-public "minus"(arg0: long, arg1: $TemporalUnit$Type): $ZonedDateTime
 public "minusDays"(arg0: long): $ZonedDateTime
 public "minusHours"(arg0: long): $ZonedDateTime
 public "minusMinutes"(arg0: long): $ZonedDateTime
@@ -2348,12 +2358,6 @@ public "withMinute"(arg0: integer): $ZonedDateTime
 public "withSecond"(arg0: integer): $ZonedDateTime
 public "withNano"(arg0: integer): $ZonedDateTime
 public "minusWeeks"(arg0: long): $ZonedDateTime
-public static "ofLocal"(arg0: $LocalDateTime$Type, arg1: $ZoneId$Type, arg2: $ZoneOffset$Type): $ZonedDateTime
-public "withZoneSameInstant"(arg0: $ZoneId$Type): $ZonedDateTime
-public "toOffsetDateTime"(): $OffsetDateTime
-public "withEarlierOffsetAtOverlap"(): $ZonedDateTime
-public static "ofStrict"(arg0: $LocalDateTime$Type, arg1: $ZoneOffset$Type, arg2: $ZoneId$Type): $ZonedDateTime
-public "withFixedOffsetZone"(): $ZonedDateTime
 public "compareTo"(arg0: $ChronoZonedDateTime$Type<(any)>): integer
 public "isEqual"(arg0: $ChronoZonedDateTime$Type<(any)>): boolean
 public "toEpochSecond"(): long

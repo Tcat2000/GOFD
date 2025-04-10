@@ -7,11 +7,11 @@ export interface $AttributeSet {
  "isEqual"(arg0: $AttributeSet$Type): boolean
  "getAttributeCount"(): integer
  "getAttribute"(arg0: any): any
+ "copyAttributes"(): $AttributeSet
+ "getAttributeNames"(): $Enumeration<(any)>
  "containsAttribute"(arg0: any, arg1: any): boolean
  "containsAttributes"(arg0: $AttributeSet$Type): boolean
  "getResolveParent"(): $AttributeSet
- "getAttributeNames"(): $Enumeration<(any)>
- "copyAttributes"(): $AttributeSet
 }
 
 export namespace $AttributeSet {

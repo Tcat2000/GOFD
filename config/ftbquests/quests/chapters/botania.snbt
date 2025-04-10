@@ -1,0 +1,69 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "botania"
+	group: "1EE0E24DF7C2736A"
+	id: "46D233AA0D0CF1F3"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			id: "1BB7D2B666FFDD47"
+			tasks: [{
+				id: "34DBAC9925878E62"
+				item: "botania:mana_pool"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			id: "2936C4A9D36BE12B"
+			tasks: [{
+				id: "3E03A6E5FEFADE47"
+				item: "botania:livingrock"
+				type: "item"
+			}]
+			x: -2.0d
+			y: 2.0d
+		}
+		{
+			id: "7C2684E66B6339D9"
+			tasks: [
+				{
+					id: "00312637635C9A17"
+					item: "botania:root"
+					type: "item"
+				}
+				{
+					id: "0168FA8C561D68D7"
+					item: "botania:livingwood"
+					type: "item"
+				}
+			]
+			x: -2.0d
+			y: -2.0d
+		}
+		{
+			id: "6EE6933E8FDC48CD"
+			tasks: [{
+				id: "37D1997F04C982BF"
+				item: "botania:pure_daisy"
+				type: "item"
+			}]
+			x: -4.0d
+			y: 0.0d
+		}
+		{
+			id: "12E66C0E5726835C"
+			tasks: [{
+				id: "3859D59C91038E9F"
+				item: "botania:apothecary_default"
+				type: "item"
+			}]
+			x: -7.0d
+			y: 0.0d
+		}
+	]
+	title: "Botania"
+}

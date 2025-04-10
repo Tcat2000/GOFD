@@ -15,17 +15,17 @@ public "properties"(): $Map<(string), (any)>
 public "isBigEndian"(): boolean
 public "getEncoding"(): $AudioFormat$Encoding
 public "getChannels"(): integer
-public "getSampleSizeInBits"(): integer
 public "getFrameRate"(): float
 public "getFrameSize"(): integer
 public "getSampleRate"(): float
+public "getSampleSizeInBits"(): integer
 get "bigEndian"(): boolean
 get "encoding"(): $AudioFormat$Encoding
 get "channels"(): integer
-get "sampleSizeInBits"(): integer
 get "frameRate"(): float
 get "frameSize"(): integer
 get "sampleRate"(): float
+get "sampleSizeInBits"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

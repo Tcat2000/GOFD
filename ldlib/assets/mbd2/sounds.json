@@ -1,0 +1,20 @@
+{
+    "machine.compressor.start": {
+        "subtitle": "kubejs.subtitle.compressor_start",
+        "sounds": [
+            "kubejs:compressor_start"
+        ]
+    },
+    "machine.compressor.run": {
+        "subtitle": "kubejs.subtitle.compressor_running",
+        "sounds": [
+            "kubejs:compressor_running"
+        ]
+    },
+    "machine.compressor.stop": {
+        "subtitle": "kubejs.subtitle.compressor_stop",
+        "sounds": [
+            "kubejs:compressor_stop"
+        ]
+    }
+}

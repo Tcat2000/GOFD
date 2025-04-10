@@ -1,4 +1,3 @@
-import {$MBDMachineEvents$MachineCustomKeyframeEventJS, $MBDMachineEvents$MachineCustomKeyframeEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineCustomKeyframeEventJS"
 import {$MBDMachineEvents$MachineOnLoadEventJS, $MBDMachineEvents$MachineOnLoadEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineOnLoadEventJS"
 import {$FoodEatenEventJS, $FoodEatenEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$FoodEatenEventJS"
 import {$BlockPlacedEventJS, $BlockPlacedEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$BlockPlacedEventJS"
@@ -190,8 +189,6 @@ function onRecipeWorking(extra: string, handler: (event: $MBDMachineEvents$Machi
 function onRecipeWorking(handler: (event: $MBDMachineEvents$MachineOnRecipeWorkingEventJS) => void): void
 function onRightClick(extra: string, handler: (event: $MBDMachineEvents$MachineRightClickEventJS) => void): void
 function onRightClick(handler: (event: $MBDMachineEvents$MachineRightClickEventJS) => void): void
-function onCustomKeyframeTrigger(extra: string, handler: (event: $MBDMachineEvents$MachineCustomKeyframeEventJS) => void): void
-function onCustomKeyframeTrigger(handler: (event: $MBDMachineEvents$MachineCustomKeyframeEventJS) => void): void
 function onRecipeWaiting(extra: string, handler: (event: $MBDMachineEvents$MachineOnRecipeWaitingEventJS) => void): void
 function onRecipeWaiting(handler: (event: $MBDMachineEvents$MachineOnRecipeWaitingEventJS) => void): void
 function onBeforeRecipeModify(extra: string, handler: (event: $MBDMachineEvents$MachineRecipeModifyEventBeforeJS) => void): void

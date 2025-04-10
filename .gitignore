@@ -2,5 +2,7 @@ mods/**
 logs/**
 saves/**
 crash-reports/**
+screenshots/**
+.probe/**
 usernamecache.json
 usercache.json

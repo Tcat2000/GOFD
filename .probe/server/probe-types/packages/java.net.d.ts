@@ -42,8 +42,8 @@ export class $DatagramSocketImpl implements $SocketOptions {
 
 constructor()
 
-public "setOption"(arg0: integer, arg1: any): void
 public "getOption"(arg0: integer): any
+public "setOption"(arg0: integer, arg1: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -70,8 +70,8 @@ export class $SocketImpl implements $SocketOptions {
 constructor()
 
 public "toString"(): string
-public "setOption"(arg0: integer, arg1: any): void
 public "getOption"(arg0: integer): any
+public "setOption"(arg0: integer, arg1: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -176,23 +176,23 @@ public "getAddress"(): $InetAddress
 public "getPort"(): integer
 public "getOffset"(): integer
 public "getData"(): (byte)[]
-public "setAddress"(arg0: $InetAddress$Type): void
-public "setSocketAddress"(arg0: $SocketAddress$Type): void
-public "setData"(arg0: (byte)[]): void
-public "setData"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "setPort"(arg0: integer): void
 public "getSocketAddress"(): $SocketAddress
+public "setData"(arg0: (byte)[]): void
+public "setData"(arg0: (byte)[], arg1: integer, arg2: integer): void
+public "setAddress"(arg0: $InetAddress$Type): void
+public "setSocketAddress"(arg0: $SocketAddress$Type): void
 get "length"(): integer
 set "length"(value: integer)
 get "address"(): $InetAddress
 get "port"(): integer
 get "offset"(): integer
 get "data"(): (byte)[]
-set "address"(value: $InetAddress$Type)
-set "socketAddress"(value: $SocketAddress$Type)
-set "data"(value: (byte)[])
 set "port"(value: integer)
 get "socketAddress"(): $SocketAddress
+set "data"(value: (byte)[])
+set "address"(value: $InetAddress$Type)
+set "socketAddress"(value: $SocketAddress$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -441,38 +441,38 @@ public "bind"(arg0: $SocketAddress$Type, arg1: integer): void
 public "bind"(arg0: $SocketAddress$Type): void
 public "getChannel"(): $ServerSocketChannel
 public "isClosed"(): boolean
+public "getSoTimeout"(): integer
+public "setSoTimeout"(arg0: integer): void
+public "setReuseAddress"(arg0: boolean): void
+public "isBound"(): boolean
+public "getReceiveBufferSize"(): integer
+public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
+public "setReceiveBufferSize"(arg0: integer): void
+public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
+public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $ServerSocket
 public "getInetAddress"(): $InetAddress
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
 public "getLocalSocketAddress"(): $SocketAddress
-public "getReceiveBufferSize"(): integer
-public "setReceiveBufferSize"(arg0: integer): void
-public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
-public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $ServerSocket
+public "getLocalPort"(): integer
+public "getReuseAddress"(): boolean
 /**
  * 
  * @deprecated
  */
 public static "setSocketFactory"(arg0: $SocketImplFactory$Type): void
-public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
-public "getSoTimeout"(): integer
-public "setReuseAddress"(arg0: boolean): void
-public "setSoTimeout"(arg0: integer): void
-public "isBound"(): boolean
-public "getLocalPort"(): integer
-public "getReuseAddress"(): boolean
 get "channel"(): $ServerSocketChannel
 get "closed"(): boolean
-get "inetAddress"(): $InetAddress
-get "localSocketAddress"(): $SocketAddress
+get "soTimeout"(): integer
+set "soTimeout"(value: integer)
+set "reuseAddress"(value: boolean)
+get "bound"(): boolean
 get "receiveBufferSize"(): integer
 set "receiveBufferSize"(value: integer)
-set "socketFactory"(value: $SocketImplFactory$Type)
-get "soTimeout"(): integer
-set "reuseAddress"(value: boolean)
-set "soTimeout"(value: integer)
-get "bound"(): boolean
+get "inetAddress"(): $InetAddress
+get "localSocketAddress"(): $SocketAddress
 get "localPort"(): integer
 get "reuseAddress"(): boolean
+set "socketFactory"(value: $SocketImplFactory$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -517,60 +517,60 @@ public "bind"(arg0: $SocketAddress$Type): void
 public "getChannel"(): $DatagramChannel
 public "getBroadcast"(): boolean
 public "isClosed"(): boolean
-public "send"(arg0: $DatagramPacket$Type): void
+public "getTrafficClass"(): integer
+public "getSendBufferSize"(): integer
+public "getSoTimeout"(): integer
+public "setTrafficClass"(arg0: integer): void
+public "setSoTimeout"(arg0: integer): void
+public "setSendBufferSize"(arg0: integer): void
+public "setReuseAddress"(arg0: boolean): void
+public "isBound"(): boolean
+public "isConnected"(): boolean
+public "getReceiveBufferSize"(): integer
+public "setReceiveBufferSize"(arg0: integer): void
+public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "getLocalAddress"(): $InetAddress
+public "send"(arg0: $DatagramPacket$Type): void
+public "disconnect"(): void
+public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $DatagramSocket
 public "getInetAddress"(): $InetAddress
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
 public "getRemoteSocketAddress"(): $SocketAddress
 public "getLocalSocketAddress"(): $SocketAddress
-public "joinGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
-public "leaveGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
+public "getLocalPort"(): integer
+public "getReuseAddress"(): boolean
+public "receive"(arg0: $DatagramPacket$Type): void
 public "setBroadcast"(arg0: boolean): void
 /**
  * 
  * @deprecated
  */
 public static "setDatagramSocketImplFactory"(arg0: $DatagramSocketImplFactory$Type): void
-public "disconnect"(): void
-public "getReceiveBufferSize"(): integer
-public "setReceiveBufferSize"(arg0: integer): void
-public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $DatagramSocket
-public "isConnected"(): boolean
-public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
-public "getSoTimeout"(): integer
-public "getSendBufferSize"(): integer
-public "getTrafficClass"(): integer
-public "setReuseAddress"(arg0: boolean): void
-public "setSendBufferSize"(arg0: integer): void
-public "setSoTimeout"(arg0: integer): void
-public "setTrafficClass"(arg0: integer): void
-public "isBound"(): boolean
-public "getLocalPort"(): integer
-public "getReuseAddress"(): boolean
-public "receive"(arg0: $DatagramPacket$Type): void
+public "joinGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
+public "leaveGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
 get "port"(): integer
 get "channel"(): $DatagramChannel
 get "broadcast"(): boolean
 get "closed"(): boolean
+get "trafficClass"(): integer
+get "sendBufferSize"(): integer
+get "soTimeout"(): integer
+set "trafficClass"(value: integer)
+set "soTimeout"(value: integer)
+set "sendBufferSize"(value: integer)
+set "reuseAddress"(value: boolean)
+get "bound"(): boolean
+get "connected"(): boolean
+get "receiveBufferSize"(): integer
+set "receiveBufferSize"(value: integer)
 get "localAddress"(): $InetAddress
 get "inetAddress"(): $InetAddress
 get "remoteSocketAddress"(): $SocketAddress
 get "localSocketAddress"(): $SocketAddress
-set "broadcast"(value: boolean)
-set "datagramSocketImplFactory"(value: $DatagramSocketImplFactory$Type)
-get "receiveBufferSize"(): integer
-set "receiveBufferSize"(value: integer)
-get "connected"(): boolean
-get "soTimeout"(): integer
-get "sendBufferSize"(): integer
-get "trafficClass"(): integer
-set "reuseAddress"(value: boolean)
-set "sendBufferSize"(value: integer)
-set "soTimeout"(value: integer)
-set "trafficClass"(value: integer)
-get "bound"(): boolean
 get "localPort"(): integer
 get "reuseAddress"(): boolean
+set "broadcast"(value: boolean)
+set "datagramSocketImplFactory"(value: $DatagramSocketImplFactory$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -617,8 +617,8 @@ declare module "packages/java/net/$URLConnection" {
 import {$FileNameMap, $FileNameMap$Type} from "packages/java/net/$FileNameMap"
 import {$ContentHandlerFactory, $ContentHandlerFactory$Type} from "packages/java/net/$ContentHandlerFactory"
 import {$OutputStream, $OutputStream$Type} from "packages/java/io/$OutputStream"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$List, $List$Type} from "packages/java/util/$List"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InputStream, $InputStream$Type} from "packages/java/io/$InputStream"
 import {$Permission, $Permission$Type} from "packages/java/security/$Permission"
 import {$URL, $URL$Type} from "packages/java/net/$URL"
@@ -632,18 +632,6 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 export class $URLConnection {
 
 
-public "toString"(): string
-public "connect"(): void
-public "getInputStream"(): $InputStream
-public "getContent"(): any
-public "getContent"(arg0: ($Class$Type<(any)>)[]): any
-public "getPermission"(): $Permission
-public "setUseCaches"(arg0: boolean): void
-public "setRequestProperty"(arg0: string, arg1: string): void
-public "getURL"(): $URL
-public "getContentLength"(): integer
-public "getLastModified"(): long
-public "getDate"(): long
 public "getUseCaches"(): boolean
 public "getContentLengthLong"(): long
 public static "guessContentTypeFromStream"(arg0: $InputStream$Type): string
@@ -693,14 +681,18 @@ public static "setDefaultRequestProperty"(arg0: string, arg1: string): void
  */
 public static "getDefaultRequestProperty"(arg0: string): string
 public static "setContentHandlerFactory"(arg0: $ContentHandlerFactory$Type): void
-get "inputStream"(): $InputStream
-get "content"(): any
-get "permission"(): $Permission
-set "useCaches"(value: boolean)
-get "uRL"(): $URL
-get "contentLength"(): integer
-get "lastModified"(): long
-get "date"(): long
+public "toString"(): string
+public "connect"(): void
+public "getInputStream"(): $InputStream
+public "getContent"(): any
+public "getContent"(arg0: ($Class$Type<(any)>)[]): any
+public "getPermission"(): $Permission
+public "setUseCaches"(arg0: boolean): void
+public "setRequestProperty"(arg0: string, arg1: string): void
+public "getURL"(): $URL
+public "getContentLength"(): integer
+public "getLastModified"(): long
+public "getDate"(): long
 get "useCaches"(): boolean
 get "contentLengthLong"(): long
 get "requestProperties"(): $Map<(string), ($List<(string)>)>
@@ -728,6 +720,14 @@ set "defaultAllowUserInteraction"(value: boolean)
 get "defaultAllowUserInteraction"(): boolean
 get "ifModifiedSince"(): long
 set "contentHandlerFactory"(value: $ContentHandlerFactory$Type)
+get "inputStream"(): $InputStream
+get "content"(): any
+get "permission"(): $Permission
+set "useCaches"(value: boolean)
+get "uRL"(): $URL
+get "contentLength"(): integer
+get "lastModified"(): long
+get "date"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -966,14 +966,13 @@ import {$SocketOption, $SocketOption$Type} from "packages/java/net/$SocketOption
  */
 export class $Socket implements $Closeable {
 
-constructor(arg0: $InetAddress$Type, arg1: integer)
-constructor(arg0: string, arg1: integer, arg2: $InetAddress$Type, arg3: integer)
-constructor(arg0: $InetAddress$Type, arg1: integer, arg2: $InetAddress$Type, arg3: integer)
 /**
  * 
  * @deprecated
  */
 constructor(arg0: string, arg1: integer, arg2: boolean)
+constructor(arg0: $InetAddress$Type, arg1: integer, arg2: $InetAddress$Type, arg3: integer)
+constructor(arg0: string, arg1: integer, arg2: $InetAddress$Type, arg3: integer)
 /**
  * 
  * @deprecated
@@ -982,45 +981,46 @@ constructor(arg0: $InetAddress$Type, arg1: integer, arg2: boolean)
 constructor()
 constructor(arg0: $Proxy$Type)
 constructor(arg0: string, arg1: integer)
+constructor(arg0: $InetAddress$Type, arg1: integer)
 
+public "getOutputStream"(): $OutputStream
 public "toString"(): string
-public "connect"(arg0: $SocketAddress$Type, arg1: integer): void
 public "connect"(arg0: $SocketAddress$Type): void
+public "connect"(arg0: $SocketAddress$Type, arg1: integer): void
 public "close"(): void
 public "getPort"(): integer
 public "getInputStream"(): $InputStream
 public "bind"(arg0: $SocketAddress$Type): void
 public "getChannel"(): $SocketChannel
-public "getOutputStream"(): $OutputStream
 public "isClosed"(): boolean
+public "getSoLinger"(): integer
+public "getTrafficClass"(): integer
+public "getSendBufferSize"(): integer
+public "getSoTimeout"(): integer
+public "setTrafficClass"(arg0: integer): void
+public "setKeepAlive"(arg0: boolean): void
+public "setTcpNoDelay"(arg0: boolean): void
+public "setSoTimeout"(arg0: integer): void
+public "setSendBufferSize"(arg0: integer): void
+public "setSoLinger"(arg0: boolean, arg1: integer): void
+public "setOOBInline"(arg0: boolean): void
+public "setReuseAddress"(arg0: boolean): void
+public "isBound"(): boolean
+public "isConnected"(): boolean
+public "getReceiveBufferSize"(): integer
+public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
+public "setReceiveBufferSize"(arg0: integer): void
+public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "getLocalAddress"(): $InetAddress
 public "isOutputShutdown"(): boolean
 public "isInputShutdown"(): boolean
+public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $Socket
 public "shutdownOutput"(): void
 public "shutdownInput"(): void
 public "getInetAddress"(): $InetAddress
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
 public "getRemoteSocketAddress"(): $SocketAddress
 public "getLocalSocketAddress"(): $SocketAddress
-public "getReceiveBufferSize"(): integer
-public "setReceiveBufferSize"(arg0: integer): void
-public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
-public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $Socket
-public "isConnected"(): boolean
-public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
-public "getSoTimeout"(): integer
-public "getSendBufferSize"(): integer
-public "getTrafficClass"(): integer
-public "getSoLinger"(): integer
-public "setKeepAlive"(arg0: boolean): void
-public "setReuseAddress"(arg0: boolean): void
-public "setSendBufferSize"(arg0: integer): void
-public "setSoTimeout"(arg0: integer): void
-public "setOOBInline"(arg0: boolean): void
-public "setTrafficClass"(arg0: integer): void
-public "setTcpNoDelay"(arg0: boolean): void
-public "setSoLinger"(arg0: boolean, arg1: integer): void
-public "isBound"(): boolean
 public "getLocalPort"(): integer
 public "getTcpNoDelay"(): boolean
 public "getKeepAlive"(): boolean
@@ -1032,32 +1032,32 @@ public "getOOBInline"(): boolean
  * @deprecated
  */
 public static "setSocketImplFactory"(arg0: $SocketImplFactory$Type): void
+get "outputStream"(): $OutputStream
 get "port"(): integer
 get "inputStream"(): $InputStream
 get "channel"(): $SocketChannel
-get "outputStream"(): $OutputStream
 get "closed"(): boolean
+get "soLinger"(): integer
+get "trafficClass"(): integer
+get "sendBufferSize"(): integer
+get "soTimeout"(): integer
+set "trafficClass"(value: integer)
+set "keepAlive"(value: boolean)
+set "tcpNoDelay"(value: boolean)
+set "soTimeout"(value: integer)
+set "sendBufferSize"(value: integer)
+set "oOBInline"(value: boolean)
+set "reuseAddress"(value: boolean)
+get "bound"(): boolean
+get "connected"(): boolean
+get "receiveBufferSize"(): integer
+set "receiveBufferSize"(value: integer)
 get "localAddress"(): $InetAddress
 get "outputShutdown"(): boolean
 get "inputShutdown"(): boolean
 get "inetAddress"(): $InetAddress
 get "remoteSocketAddress"(): $SocketAddress
 get "localSocketAddress"(): $SocketAddress
-get "receiveBufferSize"(): integer
-set "receiveBufferSize"(value: integer)
-get "connected"(): boolean
-get "soTimeout"(): integer
-get "sendBufferSize"(): integer
-get "trafficClass"(): integer
-get "soLinger"(): integer
-set "keepAlive"(value: boolean)
-set "reuseAddress"(value: boolean)
-set "sendBufferSize"(value: integer)
-set "soTimeout"(value: integer)
-set "oOBInline"(value: boolean)
-set "trafficClass"(value: integer)
-set "tcpNoDelay"(value: boolean)
-get "bound"(): boolean
 get "localPort"(): integer
 get "tcpNoDelay"(): boolean
 get "keepAlive"(): boolean
@@ -1115,8 +1115,8 @@ export {} // Mark the file as a module, do not remove unless there are other imp
  */
 export interface $SocketOptions {
 
- "setOption"(arg0: integer, arg1: any): void
  "getOption"(arg0: integer): any
+ "setOption"(arg0: integer, arg1: any): void
 }
 
 export namespace $SocketOptions {

@@ -285,11 +285,11 @@ public "hashCode"(): integer
 public "getPackage"(): $List<(string)>
 public "parts"(): $List<(string)>
 public "getClassPath"(): string
+public "getConcatenated"(sep: string): string
 public "getTypeScriptPath"(): string
 public "getGenerics"(): $List<(string)>
 public "getDirPath"(base: $Path$Type): $Path
 public "makePath"(base: $Path$Type): $Path
-public "getConcatenated"(sep: string): string
 public "getConcatenatedPackage"(sep: string): string
 public "getClassPathJava"(): string
 get "name"(): string
@@ -408,13 +408,13 @@ function literal(content: any): $JSPrimitiveType
 function and(...types: ($BaseType$Type)[]): $JSJoinedType$Intersection
 function primitive(type: string): $JSPrimitiveType
 function custom(formatter: $BiFunction$Type<($Declaration$Type), ($BaseType$FormatType$Type), (string)>, ...imports: ($ClassPath$Type)[]): $BaseType
+function arrayOf(...types: ($BaseType$Type)[]): $JSArrayType
+function parameterized(base: $BaseType$Type, ...params: ($BaseType$Type)[]): $TSParamType
 function typeMaybeGeneric(clazz: $Class$Type<(any)>): $BaseType
 function typeOf(clazz: $Class$Type<(any)>): $JSTypeOfType
 function typeOf(classPath: $ClassPath$Type): $JSTypeOfType
 function typeOf(classType: $BaseType$Type): $JSTypeOfType
 function ignoreContext(type: $BaseType$Type, formatType: $BaseType$FormatType$Type): $BaseType
-function arrayOf(...types: ($BaseType$Type)[]): $JSArrayType
-function parameterized(base: $BaseType$Type, ...params: ($BaseType$Type)[]): $TSParamType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -475,8 +475,8 @@ constructor()
 
 public "isEmpty"(): boolean
 public "merge"(other: $Wrapped$Type): void
-public "getUsedClassPaths"(): $Collection<($ClassPath)>
 public "addCode"(inner: $Code$Type): void
+public "getUsedClassPaths"(): $Collection<($ClassPath)>
 public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 get "empty"(): boolean
 get "usedClassPaths"(): $Collection<($ClassPath)>
@@ -589,11 +589,11 @@ constructor()
 
 public "format"(declaration: $Declaration$Type): $List<(string)>
 public "newline"(...comments: (string)[]): void
-public "formatComments"(): $List<(string)>
-public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
-public "addCommentAtStart"(...comments: (string)[]): void
-public "linebreak"(): void
 public "addComment"(...comments: (string)[]): void
+public "linebreak"(): void
+public "formatComments"(): $List<(string)>
+public "addCommentAtStart"(...comments: (string)[]): void
+public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -913,8 +913,8 @@ constructor(params: $List$Type<($ParamDecl$Type)>, returnType: $BaseType$Type)
 
 public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
-public "formatWithName"(name: string, declaration: $Declaration$Type, input: $BaseType$FormatType$Type): string
 public "asMethod"(methodName: string): $MethodDecl
+public "formatWithName"(name: string, declaration: $Declaration$Type, input: $BaseType$FormatType$Type): string
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -1035,26 +1035,26 @@ readonly "recordedClasses": $Set<($Clazz)>
 constructor(manager: $ScriptManager$Type, basePath: $Path$Type, scriptPath: $Path$Type, scriptPredicate: $Predicate$Type<($Clazz$Type)>)
 
 public "getSource"(): $Path
-public "getTypeFolder"(): $Path
-public "ensurePath"(path: string): $Path
-public "ensurePath"(path: string, script: boolean): $Path
-public "addGlobal"(identifier: string, ...content: ($Code$Type)[]): void
-public "addGlobal"(identifier: string, excludedNames: $Collection$Type<(string)>, ...content: ($Code$Type)[]): void
-public "getGlobalFolder"(): $Path
-public "dumpGlobal"(): void
-public "dumpClasses"(): void
-public "getPackageFolder"(): $Path
-public "dumpJSConfig"(): void
 public "dump"(): void
-public "assignType"(classPath: $ClassPath$Type, type: $BaseType$Type): void
 public "assignType"(classPath: $Class$Type<(any)>, type: $BaseType$Type): void
-public "retrieveClasses"(): $Set<($Class<(any)>)>
+public "assignType"(classPath: $ClassPath$Type, type: $BaseType$Type): void
 public "acceptClasses"(classes: $Collection$Type<($Clazz$Type)>): void
 public "removeClasses"(): void
+public "retrieveClasses"(): $Set<($Class<(any)>)>
+public "addGlobal"(identifier: string, excludedNames: $Collection$Type<(string)>, ...content: ($Code$Type)[]): void
+public "addGlobal"(identifier: string, ...content: ($Code$Type)[]): void
+public "ensurePath"(path: string): $Path
+public "ensurePath"(path: string, script: boolean): $Path
+public "dumpClasses"(): void
+public "getPackageFolder"(): $Path
+public "getGlobalFolder"(): $Path
+public "getTypeFolder"(): $Path
+public "dumpJSConfig"(): void
+public "dumpGlobal"(): void
 get "source"(): $Path
-get "typeFolder"(): $Path
-get "globalFolder"(): $Path
 get "packageFolder"(): $Path
+get "globalFolder"(): $Path
+get "typeFolder"(): $Path
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1192,14 +1192,14 @@ public "prefix"(prefix: string): $Snippet
 public "literal"(content: string): $Snippet
 public "description"(description: string): $Snippet
 public "newline"(): $Snippet
-public "registry"<T>(registry: $ResourceKey$Type<($Registry$Type<(T)>)>): $Snippet
-public "getPrefixes"(): $List<(string)>
-public "variable"(variable: $Variable$Type): $Snippet
 public "tabStop"(enumeration: integer, defaultValue: string): $Snippet
-public "tabStop"(): $Snippet
 public "tabStop"(enumeration: integer): $Snippet
-public "choices"(choices: $Collection$Type<(string)>): $Snippet
+public "tabStop"(): $Snippet
+public "registry"<T>(registry: $ResourceKey$Type<($Registry$Type<(T)>)>): $Snippet
+public "variable"(variable: $Variable$Type): $Snippet
+public "getPrefixes"(): $List<(string)>
 public "choices"(enumeration: integer, choices: $Collection$Type<(string)>): $Snippet
+public "choices"(choices: $Collection$Type<(string)>): $Snippet
 get "prefixes"(): $List<(string)>
 }
 /**
@@ -1603,8 +1603,8 @@ public "format"(): string
 public "write"(writer: $BufferedWriter$Type): void
 public "write"(writeTo: $Path$Type): void
 public "addCode"(code: $Code$Type): void
-public "writeAsModule"(writer: $BufferedWriter$Type): void
 public "findCode"<T extends $Code>(type: $Class$Type<(T)>): $Optional<(T)>
+public "writeAsModule"(writer: $BufferedWriter$Type): void
 public "excludeSymbol"(name: string): void
 }
 /**

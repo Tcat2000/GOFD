@@ -18,7 +18,7 @@
 		{
 			icon: "embers:ember_crystal_cluster"
 			id: "45B490493A2A1943"
-			subtitle: "Tin"
+			subtitle: "Tin \\& Iron"
 			tasks: [{
 				id: "2CF101CC1D2AA8E4"
 				title: "Embers"
@@ -58,14 +58,14 @@
 				}
 				type: "item"
 			}]
-			title: "Immersive Engineering"
+			title: "Pre IE"
 			x: 3.0d
 			y: -2.0d
 		}
 		{
 			dependencies: ["45B490493A2A1943"]
 			id: "7ED7C37A444F64A3"
-			subtitle: "Iron"
+			subtitle: "Gold"
 			tasks: [{
 				id: "51B0CF8E24616505"
 				item: "occultism:spirit_fire"
@@ -78,7 +78,7 @@
 		{
 			dependencies: ["19B0E6FDB43A63B9"]
 			id: "5B2444F76F5E094B"
-			subtitle: "Quartz?"
+			subtitle: "Compressed Iron, Aluminum?, Plastic"
 			tasks: [{
 				id: "51A4277B4FA76CE0"
 				item: "pneumaticcraft:air_compressor"
@@ -121,14 +121,14 @@
 				"5B2444F76F5E094B"
 				"4A97BAB4CF4ADDE9"
 			]
+			icon: "immersiveengineering:crusher"
 			id: "55FB4224071F5D5D"
-			subtitle: "Brass"
 			tasks: [{
 				id: "69032DAF99A0D9CF"
-				item: "create:brass_hand"
+				item: "pneumaticcraft:advanced_air_compressor"
 				type: "item"
 			}]
-			title: "Create 2"
+			title: "Big IE \\& PNC"
 			x: 4.5d
 			y: -1.0d
 		}
@@ -141,7 +141,7 @@
 			}]
 			title: "AE2"
 			x: 6.0d
-			y: -2.0d
+			y: 0.0d
 		}
 		{
 			id: "021B34FC06592FF4"
@@ -161,9 +161,9 @@
 				item: "mbd2:mbd_gadgets"
 				type: "item"
 			}]
-			title: "Custom Content"
+			title: "Custom Tech Content"
 			x: 6.0d
-			y: 0.0d
+			y: 2.0d
 		}
 		{
 			id: "51D0B1EB43ECBF76"
@@ -208,13 +208,13 @@
 		}
 		{
 			dependencies: ["2CA739BF6591F470"]
-			id: "19126F1E928A74AB"
+			id: "1C0FEFAEE768BAFF"
 			tasks: [{
-				id: "34DA888FC2788134"
-				item: "embers:wildfire_core"
+				id: "37AE67236BBA169C"
+				item: "mbd2:mbd_gadgets"
 				type: "item"
 			}]
-			title: "Embers 2"
+			title: "Custom Magic Content"
 			x: 4.5d
 			y: -3.0d
 		}

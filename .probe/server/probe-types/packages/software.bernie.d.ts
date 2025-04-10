@@ -6,8 +6,8 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $EasingType {
 
- "apply"(arg0: $AnimationPoint$Type, arg1: double, arg2: double): double
  "apply"(arg0: $AnimationPoint$Type): double
+ "apply"(arg0: $AnimationPoint$Type, arg1: double, arg2: double): double
  "buildTransformer"(arg0: double): $Double2DoubleFunction
 
 (arg0: double): $Double2DoubleFunction
@@ -56,20 +56,20 @@ function back(arg0: double): $Double2DoubleFunction
 function fromJson(arg0: $JsonElement$Type): $EasingType
 function fromString(arg0: string): $EasingType
 function circle(arg0: double): double
-function bounce(arg0: double): $Double2DoubleFunction
-function linear(arg0: double): double
-function linear(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
-function easeIn(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
-function easeOut(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
 function lerpWithOverride(arg0: $AnimationPoint$Type, arg1: $EasingType$Type): double
-function catmullRom(arg0: double): double
+function elastic(arg0: double): $Double2DoubleFunction
+function easeIn(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
+function stepNonNegative(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
 function easeInOut(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
 function stepPositive(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
 function quadratic(arg0: double): double
-function cubic(arg0: double): double
-function elastic(arg0: double): $Double2DoubleFunction
-function stepNonNegative(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
+function catmullRom(arg0: double): double
+function easeOut(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
 function sine(arg0: double): double
+function cubic(arg0: double): double
+function linear(arg0: double): double
+function linear(arg0: $Double2DoubleFunction$Type): $Double2DoubleFunction
+function bounce(arg0: double): $Double2DoubleFunction
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -117,12 +117,12 @@ import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/
 
 export interface $GeoAnimatable {
 
- "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
+ "getAnimatableInstanceCache"(): $AnimatableInstanceCache
  "animatableCacheOverride"(): $AnimatableInstanceCache
  "shouldPlayAnimsWhileGamePaused"(): boolean
- "getTick"(arg0: any): double
+ "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
  "getBoneResetTime"(): double
- "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+ "getTick"(arg0: any): double
 }
 
 export namespace $GeoAnimatable {
@@ -173,8 +173,8 @@ import {$Matrix4f, $Matrix4f$Type} from "packages/org/joml/$Matrix4f"
 import {$GeoCube, $GeoCube$Type} from "packages/software/bernie/geckolib/cache/object/$GeoCube"
 import {$CoreGeoBone, $CoreGeoBone$Type} from "packages/software/bernie/geckolib/core/animatable/model/$CoreGeoBone"
 import {$Vector3d, $Vector3d$Type} from "packages/org/joml/$Vector3d"
-import {$Matrix3f, $Matrix3f$Type} from "packages/org/joml/$Matrix3f"
 import {$BoneSnapshot, $BoneSnapshot$Type} from "packages/software/bernie/geckolib/core/state/$BoneSnapshot"
+import {$Matrix3f, $Matrix3f$Type} from "packages/org/joml/$Matrix3f"
 
 export class $GeoBone implements $CoreGeoBone {
 
@@ -184,125 +184,125 @@ public "getName"(): string
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "isHidden"(): boolean
+public "getPosY"(): float
+public "getPosX"(): float
+public "setHidden"(arg0: boolean): void
+public "saveInitialSnapshot"(): void
+public "markPositionAsChanged"(): void
+public "markRotationAsChanged"(): void
 public "setLocalSpaceMatrix"(arg0: $Matrix4f$Type): void
 public "setModelSpaceMatrix"(arg0: $Matrix4f$Type): void
 public "setWorldSpaceMatrix"(arg0: $Matrix4f$Type): void
-public "saveInitialSnapshot"(): void
-public "markRotationAsChanged"(): void
-public "markPositionAsChanged"(): void
-public "shouldNeverRender"(): boolean
-public "getLocalPosition"(): $Vector3d
-public "getModelPosition"(): $Vector3d
-public "getInflate"(): double
-public "getReset"(): boolean
-public "getWorldPosition"(): $Vector3d
 public "getRotationVector"(): $Vector3d
 public "setModelPosition"(arg0: $Vector3d$Type): void
+public "getModelPosition"(): $Vector3d
+public "getWorldPosition"(): $Vector3d
+public "getInflate"(): double
+public "shouldNeverRender"(): boolean
 public "getPositionVector"(): $Vector3d
 public "getScaleVector"(): $Vector3d
-public "getPosX"(): float
-public "getPosY"(): float
-public "getMirror"(): boolean
-public "getModelRotationMatrix"(): $Matrix4f
-public "addRotationOffsetFromBone"(arg0: $GeoBone$Type): void
-public "getLocalSpaceMatrix"(): $Matrix4f
-public "setTrackingMatrices"(arg0: boolean): void
-public "getModelSpaceMatrix"(): $Matrix4f
-public "getWorldSpaceMatrix"(): $Matrix4f
-public "setWorldSpaceNormal"(arg0: $Matrix3f$Type): void
-public "getWorldSpaceNormal"(): $Matrix3f
-public "setHidden"(arg0: boolean): void
+public "getLocalPosition"(): $Vector3d
+public "getReset"(): boolean
 public "getPosZ"(): float
+public "getMirror"(): boolean
 public "isTrackingMatrices"(): boolean
+public "isHidingChildren"(): boolean
 public "getCubes"(): $List<($GeoCube)>
 public "getChildBones"(): $List<($GeoBone)>
-public "isHidingChildren"(): boolean
-public "setRotX"(arg0: float): void
-public "setPosZ"(arg0: float): void
-public "setRotY"(arg0: float): void
-public "setScaleY"(arg0: float): void
-public "getScaleX"(): float
-public "getScaleY"(): float
-public "setRotZ"(arg0: float): void
-public "getRotY"(): float
-public "setPivotY"(arg0: float): void
-public "getPivotX"(): float
-public "setPivotX"(arg0: float): void
-public "setScaleX"(arg0: float): void
-public "setPosY"(arg0: float): void
-public "getScaleZ"(): float
-public "getPivotY"(): float
 public "getRotX"(): float
-public "setPivotZ"(arg0: float): void
-public "setPosX"(arg0: float): void
+public "getRotY"(): float
+public "setPosZ"(arg0: float): void
+public "setPivotY"(arg0: float): void
 public "getPivotZ"(): float
-public "setScaleZ"(arg0: float): void
+public "setPivotX"(arg0: float): void
+public "setScaleY"(arg0: float): void
 public "getRotZ"(): float
+public "getScaleY"(): float
+public "setPosY"(arg0: float): void
+public "setPivotZ"(arg0: float): void
+public "getPivotX"(): float
+public "getPivotY"(): float
+public "setChildrenHidden"(arg0: boolean): void
 public "markScaleAsChanged"(): void
+public "setRotX"(arg0: float): void
+public "setRotY"(arg0: float): void
+public "setScaleX"(arg0: float): void
+public "setScaleZ"(arg0: float): void
+public "getScaleZ"(): float
+public "setRotZ"(arg0: float): void
+public "getScaleX"(): float
+public "setPosX"(arg0: float): void
 public "getInitialSnapshot"(): $BoneSnapshot
-public "resetStateChanges"(): void
+public "hasScaleChanged"(): boolean
 public "hasPositionChanged"(): boolean
 public "hasRotationChanged"(): boolean
-public "hasScaleChanged"(): boolean
-public "setChildrenHidden"(arg0: boolean): void
-public "updatePosition"(arg0: float, arg1: float, arg2: float): void
+public "resetStateChanges"(): void
+public "getModelSpaceMatrix"(): $Matrix4f
+public "getWorldSpaceMatrix"(): $Matrix4f
+public "getLocalSpaceMatrix"(): $Matrix4f
+public "getModelRotationMatrix"(): $Matrix4f
+public "setTrackingMatrices"(arg0: boolean): void
+public "getWorldSpaceNormal"(): $Matrix3f
+public "addRotationOffsetFromBone"(arg0: $GeoBone$Type): void
+public "setWorldSpaceNormal"(arg0: $Matrix3f$Type): void
 public "updateRotation"(arg0: float, arg1: float, arg2: float): void
-public "updateScale"(arg0: float, arg1: float, arg2: float): void
 public "updatePivot"(arg0: float, arg1: float, arg2: float): void
+public "updatePosition"(arg0: float, arg1: float, arg2: float): void
+public "updateScale"(arg0: float, arg1: float, arg2: float): void
 public "saveSnapshot"(): $BoneSnapshot
 get "name"(): string
 get "hidden"(): boolean
+get "posY"(): float
+get "posX"(): float
+set "hidden"(value: boolean)
 set "localSpaceMatrix"(value: $Matrix4f$Type)
 set "modelSpaceMatrix"(value: $Matrix4f$Type)
 set "worldSpaceMatrix"(value: $Matrix4f$Type)
-get "localPosition"(): $Vector3d
-get "modelPosition"(): $Vector3d
-get "inflate"(): double
-get "reset"(): boolean
-get "worldPosition"(): $Vector3d
 get "rotationVector"(): $Vector3d
 set "modelPosition"(value: $Vector3d$Type)
+get "modelPosition"(): $Vector3d
+get "worldPosition"(): $Vector3d
+get "inflate"(): double
 get "positionVector"(): $Vector3d
 get "scaleVector"(): $Vector3d
-get "posX"(): float
-get "posY"(): float
-get "mirror"(): boolean
-get "modelRotationMatrix"(): $Matrix4f
-get "localSpaceMatrix"(): $Matrix4f
-set "trackingMatrices"(value: boolean)
-get "modelSpaceMatrix"(): $Matrix4f
-get "worldSpaceMatrix"(): $Matrix4f
-set "worldSpaceNormal"(value: $Matrix3f$Type)
-get "worldSpaceNormal"(): $Matrix3f
-set "hidden"(value: boolean)
+get "localPosition"(): $Vector3d
+get "reset"(): boolean
 get "posZ"(): float
+get "mirror"(): boolean
 get "trackingMatrices"(): boolean
+get "hidingChildren"(): boolean
 get "cubes"(): $List<($GeoCube)>
 get "childBones"(): $List<($GeoBone)>
-get "hidingChildren"(): boolean
-set "rotX"(value: float)
-set "posZ"(value: float)
-set "rotY"(value: float)
-set "scaleY"(value: float)
-get "scaleX"(): float
-get "scaleY"(): float
-set "rotZ"(value: float)
-get "rotY"(): float
-set "pivotY"(value: float)
-get "pivotX"(): float
-set "pivotX"(value: float)
-set "scaleX"(value: float)
-set "posY"(value: float)
-get "scaleZ"(): float
-get "pivotY"(): float
 get "rotX"(): float
-set "pivotZ"(value: float)
-set "posX"(value: float)
+get "rotY"(): float
+set "posZ"(value: float)
+set "pivotY"(value: float)
 get "pivotZ"(): float
-set "scaleZ"(value: float)
+set "pivotX"(value: float)
+set "scaleY"(value: float)
 get "rotZ"(): float
-get "initialSnapshot"(): $BoneSnapshot
+get "scaleY"(): float
+set "posY"(value: float)
+set "pivotZ"(value: float)
+get "pivotX"(): float
+get "pivotY"(): float
 set "childrenHidden"(value: boolean)
+set "rotX"(value: float)
+set "rotY"(value: float)
+set "scaleX"(value: float)
+set "scaleZ"(value: float)
+get "scaleZ"(): float
+set "rotZ"(value: float)
+get "scaleX"(): float
+set "posX"(value: float)
+get "initialSnapshot"(): $BoneSnapshot
+get "modelSpaceMatrix"(): $Matrix4f
+get "worldSpaceMatrix"(): $Matrix4f
+get "localSpaceMatrix"(): $Matrix4f
+get "modelRotationMatrix"(): $Matrix4f
+set "trackingMatrices"(value: boolean)
+get "worldSpaceNormal"(): $Matrix3f
+set "worldSpaceNormal"(value: $Matrix3f$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -389,33 +389,33 @@ constructor(argbInt: integer)
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getAlpha"(): integer
-public "brighter"(arg0: double): $Color
-public "darker"(arg0: float): $Color
 public static "HSBtoARGB"(arg0: float, arg1: float, arg2: float): integer
 public "argbInt"(): integer
 public static "ofOpaque"(arg0: integer): $Color
+public static "ofRGBA"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Color
+public static "ofRGBA"(arg0: float, arg1: float, arg2: float, arg3: float): $Color
 public static "ofHSB"(arg0: float, arg1: float, arg2: float): $Color
 public static "ofRGB"(arg0: float, arg1: float, arg2: float): $Color
 public static "ofRGB"(arg0: integer, arg1: integer, arg2: integer): $Color
-public static "ofRGBA"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Color
-public static "ofRGBA"(arg0: float, arg1: float, arg2: float, arg3: float): $Color
-public "getRed"(): integer
-public "getBlue"(): integer
-public "getGreen"(): integer
-public "getGreenFloat"(): float
+public "brighter"(arg0: double): $Color
+public "darker"(arg0: float): $Color
 public "getRedFloat"(): float
-public "getAlphaFloat"(): float
+public "getGreenFloat"(): float
 public "getBlueFloat"(): float
+public "getAlphaFloat"(): float
+public "getGreen"(): integer
+public "getBlue"(): integer
+public "getRed"(): integer
+public "getAlpha"(): integer
 public "getColor"(): integer
-get "alpha"(): integer
-get "red"(): integer
-get "blue"(): integer
-get "green"(): integer
-get "greenFloat"(): float
 get "redFloat"(): float
-get "alphaFloat"(): float
+get "greenFloat"(): float
 get "blueFloat"(): float
+get "alphaFloat"(): float
+get "green"(): integer
+get "blue"(): integer
+get "red"(): integer
+get "alpha"(): integer
 get "color"(): integer
 }
 /**
@@ -450,56 +450,56 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $AnimationController<T extends $GeoAnimatable> {
 
-constructor(arg0: T, arg1: $AnimationController$AnimationStateHandler$Type<(T)>)
 constructor(arg0: T, arg1: string, arg2: integer, arg3: $AnimationController$AnimationStateHandler$Type<(T)>)
+constructor(arg0: T, arg1: $AnimationController$AnimationStateHandler$Type<(T)>)
 constructor(arg0: T, arg1: string, arg2: $AnimationController$AnimationStateHandler$Type<(T)>)
 constructor(arg0: T, arg1: integer, arg2: $AnimationController$AnimationStateHandler$Type<(T)>)
 
+public "getAnimationSpeed"(): double
 public "getName"(): string
 public "stop"(): void
 public "process"(arg0: $CoreGeoModel$Type<(T)>, arg1: $AnimationState$Type<(T)>, arg2: $Map$Type<(string), ($CoreGeoBone$Type)>, arg3: $Map$Type<(string), ($BoneSnapshot$Type)>, arg4: double, arg5: boolean): void
-public "setAnimation"(arg0: $RawAnimation$Type): void
-public "getAnimationSpeed"(): double
 public "triggerableAnim"(arg0: string, arg1: $RawAnimation$Type): $AnimationController<(T)>
 public "getAnimationState"(): $AnimationController$State
+public "transitionLength"(arg0: integer): $AnimationController<(T)>
+public "tryTriggerAnimation"(arg0: string): boolean
+public "setAnimation"(arg0: $RawAnimation$Type): void
+public "setCustomInstructionKeyframeHandler"(arg0: $AnimationController$CustomKeyframeHandler$Type<(T)>): $AnimationController<(T)>
 public "getBoneAnimationQueues"(): $Map<(string), ($BoneAnimationQueue)>
 public "forceAnimationReset"(): void
-public "setAnimationSpeed"(arg0: double): $AnimationController<(T)>
-public "tryTriggerAnimation"(arg0: string): boolean
-public "transitionLength"(arg0: integer): $AnimationController<(T)>
-public "setCustomInstructionKeyframeHandler"(arg0: $AnimationController$CustomKeyframeHandler$Type<(T)>): $AnimationController<(T)>
-public "setAnimationSpeedHandler"(arg0: $Function$Type<(T), (double)>): $AnimationController<(T)>
-public "setParticleKeyframeHandler"(arg0: $AnimationController$ParticleKeyframeHandler$Type<(T)>): $AnimationController<(T)>
+public "hasAnimationFinished"(): boolean
+public "isPlayingTriggeredAnimation"(): boolean
 public "setOverrideEasingTypeFunction"(arg0: $Function$Type<(T), ($EasingType$Type)>): $AnimationController<(T)>
-public "setSoundKeyframeHandler"(arg0: $AnimationController$SoundKeyframeHandler$Type<(T)>): $AnimationController<(T)>
-public "receiveTriggeredAnimations"(): $AnimationController<(T)>
+public "setOverrideEasingType"(arg0: $EasingType$Type): $AnimationController<(T)>
+public "setAnimationSpeedHandler"(arg0: $Function$Type<(T), (double)>): $AnimationController<(T)>
 public "getCurrentAnimation"(): $AnimationProcessor$QueuedAnimation
+public "setSoundKeyframeHandler"(arg0: $AnimationController$SoundKeyframeHandler$Type<(T)>): $AnimationController<(T)>
+public "getTriggeredAnimation"(): $RawAnimation
+public "getCurrentRawAnimation"(): $RawAnimation
 /**
  * 
  * @deprecated
  */
 public "setTransitionLength"(arg0: integer): void
-public "isPlayingTriggeredAnimation"(): boolean
-public "setOverrideEasingType"(arg0: $EasingType$Type): $AnimationController<(T)>
-public "hasAnimationFinished"(): boolean
-public "getCurrentRawAnimation"(): $RawAnimation
-public "getTriggeredAnimation"(): $RawAnimation
-get "name"(): string
-set "animation"(value: $RawAnimation$Type)
+public "setParticleKeyframeHandler"(arg0: $AnimationController$ParticleKeyframeHandler$Type<(T)>): $AnimationController<(T)>
+public "receiveTriggeredAnimations"(): $AnimationController<(T)>
+public "setAnimationSpeed"(arg0: double): $AnimationController<(T)>
 get "animationSpeed"(): double
+get "name"(): string
 get "animationState"(): $AnimationController$State
-get "boneAnimationQueues"(): $Map<(string), ($BoneAnimationQueue)>
-set "animationSpeed"(value: double)
+set "animation"(value: $RawAnimation$Type)
 set "customInstructionKeyframeHandler"(value: $AnimationController$CustomKeyframeHandler$Type<(T)>)
-set "animationSpeedHandler"(value: $Function$Type<(T), (double)>)
-set "particleKeyframeHandler"(value: $AnimationController$ParticleKeyframeHandler$Type<(T)>)
-set "overrideEasingTypeFunction"(value: $Function$Type<(T), ($EasingType$Type)>)
-set "soundKeyframeHandler"(value: $AnimationController$SoundKeyframeHandler$Type<(T)>)
-get "currentAnimation"(): $AnimationProcessor$QueuedAnimation
+get "boneAnimationQueues"(): $Map<(string), ($BoneAnimationQueue)>
 get "playingTriggeredAnimation"(): boolean
+set "overrideEasingTypeFunction"(value: $Function$Type<(T), ($EasingType$Type)>)
 set "overrideEasingType"(value: $EasingType$Type)
-get "currentRawAnimation"(): $RawAnimation
+set "animationSpeedHandler"(value: $Function$Type<(T), (double)>)
+get "currentAnimation"(): $AnimationProcessor$QueuedAnimation
+set "soundKeyframeHandler"(value: $AnimationController$SoundKeyframeHandler$Type<(T)>)
 get "triggeredAnimation"(): $RawAnimation
+get "currentRawAnimation"(): $RawAnimation
+set "particleKeyframeHandler"(value: $AnimationController$ParticleKeyframeHandler$Type<(T)>)
+set "animationSpeed"(value: double)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -529,8 +529,8 @@ public "inflate"(): double
 public "size"(): $Vec3
 public "pivot"(): $Vec3
 public "quads"(): ($GeoQuad)[]
-public "mirror"(): boolean
 public "rotation"(): $Vec3
+public "mirror"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -611,10 +611,10 @@ constructor(boneName: string, rotationKeyFrames: $KeyframeStack$Type<($Keyframe$
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "boneName"(): string
 public "rotationKeyFrames"(): $KeyframeStack<($Keyframe<($IValue)>)>
-public "positionKeyFrames"(): $KeyframeStack<($Keyframe<($IValue)>)>
 public "scaleKeyFrames"(): $KeyframeStack<($Keyframe<($IValue)>)>
+public "positionKeyFrames"(): $KeyframeStack<($Keyframe<($IValue)>)>
+public "boneName"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -637,14 +637,14 @@ export class $KeyFrameEvent<T extends $GeoAnimatable, E extends $KeyFrameData> {
 
 constructor(arg0: T, arg1: double, arg2: $AnimationController$Type<(T)>, arg3: E)
 
-public "getKeyframeData"(): E
-public "getAnimationTick"(): double
 public "getController"(): $AnimationController<(T)>
+public "getKeyframeData"(): E
 public "getAnimatable"(): T
-get "keyframeData"(): E
-get "animationTick"(): double
+public "getAnimationTick"(): double
 get "controller"(): $AnimationController<(T)>
+get "keyframeData"(): E
 get "animatable"(): T
+get "animationTick"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -667,9 +667,9 @@ export class $AnimatableInstanceCache {
 
 constructor(arg0: $GeoAnimatable$Type)
 
-public "getManagerForId"<T extends $GeoAnimatable>(arg0: long): $AnimatableManager<(T)>
 public "addDataPoint"<D>(arg0: long, arg1: $DataTicket$Type<(D)>, arg2: D): void
 public "getDataPoint"<D>(arg0: long, arg1: $DataTicket$Type<(D)>): D
+public "getManagerForId"<T extends $GeoAnimatable>(arg0: long): $AnimatableManager<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -729,8 +729,8 @@ import {$AnimationProcessor, $AnimationProcessor$Type} from "packages/software/b
 
 export interface $CoreGeoModel<E extends $GeoAnimatable> {
 
- "getAnimationProcessor"(): $AnimationProcessor<(E)>
  "setCustomAnimations"(arg0: E, arg1: long, arg2: $AnimationState$Type<(E)>): void
+ "getAnimationProcessor"(): $AnimationProcessor<(E)>
  "getAnimation"(arg0: E, arg1: string): $Animation
  "handleAnimations"(arg0: E, arg1: long, arg2: $AnimationState$Type<(E)>): void
  "getBakedGeoModel"(arg0: string): $CoreBakedGeoModel
@@ -772,30 +772,29 @@ export class $GeoModel<T extends $GeoAnimatable> implements $CoreGeoModel<(T)> {
 
 constructor()
 
-public "addAdditionalStateData"(arg0: T, arg1: long, arg2: $BiConsumer$Type<($DataTicket$Type<(T)>), (T)>): void
+public "getAnimationResource"(arg0: T): $ResourceLocation
 public "getAnimationProcessor"(): $AnimationProcessor<(T)>
 public "getAnimationResourceFallbacks"(arg0: T): ($ResourceLocation)[]
-public "getAnimationResource"(arg0: T): $ResourceLocation
+public "addAdditionalStateData"(arg0: T, arg1: long, arg2: $BiConsumer$Type<($DataTicket$Type<(T)>), (T)>): void
 public "getAnimation"(arg0: T, arg1: string): $Animation
-public "getRenderType"(arg0: T, arg1: $ResourceLocation$Type): $RenderType
 public "handleAnimations"(arg0: T, arg1: long, arg2: $AnimationState$Type<(T)>): void
 public "getBakedModel"(arg0: $ResourceLocation$Type): $BakedGeoModel
-public "getModelResource"(arg0: T, arg1: $GeoRenderer$Type<(T)>): $ResourceLocation
-/**
- * 
- * @deprecated
- */
-public "getModelResource"(arg0: T): $ResourceLocation
+public "getTextureResource"(arg0: T, arg1: $GeoRenderer$Type<(T)>): $ResourceLocation
 /**
  * 
  * @deprecated
  */
 public "getTextureResource"(arg0: T): $ResourceLocation
-public "getTextureResource"(arg0: T, arg1: $GeoRenderer$Type<(T)>): $ResourceLocation
+/**
+ * 
+ * @deprecated
+ */
+public "getModelResource"(arg0: T): $ResourceLocation
+public "getModelResource"(arg0: T, arg1: $GeoRenderer$Type<(T)>): $ResourceLocation
 public "crashIfBoneMissing"(): boolean
-public "getBakedGeoModel"(arg0: string): $BakedGeoModel
 public "getBone"(arg0: string): $Optional<($GeoBone)>
 public "applyMolangQueries"(arg0: T, arg1: double): void
+public "getRenderType"(arg0: T, arg1: $ResourceLocation$Type): $RenderType
 public "setCustomAnimations"(arg0: T, arg1: long, arg2: $AnimationState$Type<(T)>): void
 get "animationProcessor"(): $AnimationProcessor<(T)>
 }
@@ -866,43 +865,43 @@ readonly "bodyYOffset": float
 
 constructor(arg0: $GeoModel$Type<(T)>)
 
-public "setAllVisible"(arg0: boolean): void
+public "updateAnimatedTextureFrame"(arg0: T): void
+public "fireCompileRenderLayersEvent"(): void
 public "doPostRenderCleanup"(): void
 public "firePostRenderEvent"(arg0: $PoseStack$Type, arg1: $BakedGeoModel$Type, arg2: $MultiBufferSource$Type, arg3: float, arg4: integer): void
-public "fireCompileRenderLayersEvent"(): void
-public "updateAnimatedTextureFrame"(arg0: T): void
+public "withScale"(arg0: float): $GeoArmorRenderer<(T)>
+public "withScale"(arg0: float, arg1: float): $GeoArmorRenderer<(T)>
+public "setAllVisible"(arg0: boolean): void
 public "getCurrentEntity"(): $Entity
 public "renderToBuffer"(arg0: $PoseStack$Type, arg1: $VertexConsumer$Type, arg2: integer, arg3: integer, arg4: float, arg5: float, arg6: float, arg7: float): void
-public "applyBoneVisibilityByPart"(arg0: $EquipmentSlot$Type, arg1: $ModelPart$Type, arg2: $HumanoidModel$Type<(any)>): void
 public "getCurrentStack"(): $ItemStack
-public "getRenderType"(arg0: T, arg1: $ResourceLocation$Type, arg2: $MultiBufferSource$Type, arg3: float): $RenderType
-public "addRenderLayer"(arg0: $GeoRenderLayer$Type<(T)>): $GeoArmorRenderer<(T)>
 public "getGeoModel"(): $GeoModel<(T)>
-public "actuallyRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
-public "getInstanceId"(arg0: T): long
 public "preRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
+public "getInstanceId"(arg0: T): long
+public "actuallyRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
 public "renderRecursively"(arg0: $PoseStack$Type, arg1: T, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
 public "firePreRenderEvent"(arg0: $PoseStack$Type, arg1: $BakedGeoModel$Type, arg2: $MultiBufferSource$Type, arg3: float, arg4: integer): boolean
+public "getAnimatable"(): T
 public "getRenderLayers"(): $List<($GeoRenderLayer<(T)>)>
-public "withScale"(arg0: float, arg1: float): $GeoArmorRenderer<(T)>
-public "withScale"(arg0: float): $GeoArmorRenderer<(T)>
-public "getHeadBone"(): $GeoBone
-public "getRightArmBone"(): $GeoBone
-public "getBodyBone"(): $GeoBone
-public "getRightBootBone"(): $GeoBone
-public "getLeftBootBone"(): $GeoBone
-public "getLeftArmBone"(): $GeoBone
+public "addRenderLayer"(arg0: $GeoRenderLayer$Type<(T)>): $GeoArmorRenderer<(T)>
+public "applyBoneVisibilityByPart"(arg0: $EquipmentSlot$Type, arg1: $ModelPart$Type, arg2: $HumanoidModel$Type<(any)>): void
+public "getRenderType"(arg0: T, arg1: $ResourceLocation$Type, arg2: $MultiBufferSource$Type, arg3: float): $RenderType
 public "getCurrentSlot"(): $EquipmentSlot
+public "getHeadBone"(): $GeoBone
+public "getBodyBone"(): $GeoBone
 public "getLeftLegBone"(): $GeoBone
-public "getRightLegBone"(): $GeoBone
-public "prepForRender"(arg0: $Entity$Type, arg1: $ItemStack$Type, arg2: $EquipmentSlot$Type, arg3: $HumanoidModel$Type<(any)>): void
+public "getRightBootBone"(): $GeoBone
 public "scaleModelForBaby"(arg0: $PoseStack$Type, arg1: T, arg2: float, arg3: boolean): void
+public "getRightArmBone"(): $GeoBone
+public "prepForRender"(arg0: $Entity$Type, arg1: $ItemStack$Type, arg2: $EquipmentSlot$Type, arg3: $HumanoidModel$Type<(any)>): void
+public "getLeftArmBone"(): $GeoBone
+public "getLeftBootBone"(): $GeoBone
+public "getRightLegBone"(): $GeoBone
 public "getMotionAnimThreshold"(arg0: T): float
+public "createVerticesOfQuad"(arg0: $GeoQuad$Type, arg1: $Matrix4f$Type, arg2: $Vector3f$Type, arg3: $VertexConsumer$Type, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float): void
 public "preApplyRenderLayers"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
 public "applyRenderLayersForBone"(arg0: $PoseStack$Type, arg1: T, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
 public "scaleModelForRender"(arg0: float, arg1: float, arg2: $PoseStack$Type, arg3: T, arg4: $BakedGeoModel$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer): void
-public "createVerticesOfQuad"(arg0: $GeoQuad$Type, arg1: $Matrix4f$Type, arg2: $Vector3f$Type, arg3: $VertexConsumer$Type, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float): void
-public "getRenderColor"(arg0: T, arg1: float, arg2: integer): $Color
 public "getTextureLocation"(arg0: T): $ResourceLocation
 public "defaultRender"(arg0: $PoseStack$Type, arg1: T, arg2: $MultiBufferSource$Type, arg3: $RenderType$Type, arg4: $VertexConsumer$Type, arg5: float, arg6: float, arg7: integer): void
 public "getPackedOverlay"(arg0: T, arg1: float, arg2: float): integer
@@ -911,26 +910,28 @@ public "getPackedOverlay"(arg0: T, arg1: float, arg2: float): integer
  * @deprecated
  */
 public "getPackedOverlay"(arg0: T, arg1: float): integer
-public "applyRenderLayers"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
+public "renderCube"(arg0: $PoseStack$Type, arg1: $GeoCube$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
 public "renderChildBones"(arg0: $PoseStack$Type, arg1: T, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
 public "renderFinal"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float, arg11: float): void
-public "postRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
 public "renderCubesOfBone"(arg0: $PoseStack$Type, arg1: $GeoBone$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
 public "reRender"(arg0: $BakedGeoModel$Type, arg1: $PoseStack$Type, arg2: $MultiBufferSource$Type, arg3: T, arg4: $RenderType$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
-public "renderCube"(arg0: $PoseStack$Type, arg1: $GeoCube$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
+public "postRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
+public "applyRenderLayers"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
+public "getRenderColor"(arg0: T, arg1: float, arg2: integer): $Color
 set "allVisible"(value: boolean)
 get "currentEntity"(): $Entity
 get "currentStack"(): $ItemStack
 get "geoModel"(): $GeoModel<(T)>
+get "animatable"(): T
 get "renderLayers"(): $List<($GeoRenderLayer<(T)>)>
-get "headBone"(): $GeoBone
-get "rightArmBone"(): $GeoBone
-get "bodyBone"(): $GeoBone
-get "rightBootBone"(): $GeoBone
-get "leftBootBone"(): $GeoBone
-get "leftArmBone"(): $GeoBone
 get "currentSlot"(): $EquipmentSlot
+get "headBone"(): $GeoBone
+get "bodyBone"(): $GeoBone
 get "leftLegBone"(): $GeoBone
+get "rightBootBone"(): $GeoBone
+get "rightArmBone"(): $GeoBone
+get "leftArmBone"(): $GeoBone
+get "leftBootBone"(): $GeoBone
 get "rightLegBone"(): $GeoBone
 }
 /**
@@ -980,10 +981,10 @@ constructor(arg0: double, arg1: string, arg2: string, arg3: string)
 
 public "hashCode"(): integer
 public "script"(): string
-public "getLocator"(): string
 public "getEffect"(): string
-get "locator"(): string
+public "getLocator"(): string
 get "effect"(): string
+get "locator"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1007,12 +1008,12 @@ constructor(isSitting: boolean, isChild: boolean, netHeadYaw: float, headPitch: 
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
+public "isSitting"(): boolean
+public "isChild"(): boolean
 public "netHeadYaw"(): float
 public "headPitch"(): float
-public "isChild"(): boolean
-public "isSitting"(): boolean
-get "child"(): boolean
 get "sitting"(): boolean
+get "child"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1082,16 +1083,16 @@ import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/
 
 export interface $GeoBlockEntity extends $GeoAnimatable {
 
- "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
  "triggerAnim"(arg0: string, arg1: string): void
- "getTick"(arg0: any): double
+ "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
  "stopTriggeredAnimation"(arg0: string, arg1: string): void
  "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
- "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
+ "getTick"(arg0: any): double
+ "getAnimatableInstanceCache"(): $AnimatableInstanceCache
  "animatableCacheOverride"(): $AnimatableInstanceCache
  "shouldPlayAnimsWhileGamePaused"(): boolean
+ "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
  "getBoneResetTime"(): double
- "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 }
 
 export namespace $GeoBlockEntity {
@@ -1172,11 +1173,11 @@ constructor(keyFrame: $Keyframe$Type<(any)>, currentTick: double, transitionLeng
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "animationStartValue"(): double
 public "currentTick"(): double
 public "transitionLength"(): double
-public "animationEndValue"(): double
 public "keyFrame"(): $Keyframe<(any)>
+public "animationEndValue"(): double
+public "animationStartValue"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1210,23 +1211,21 @@ import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraf
 
 export interface $GeoRenderer<T extends $GeoAnimatable> {
 
- "doPostRenderCleanup"(): void
- "firePostRenderEvent"(arg0: $PoseStack$Type, arg1: $BakedGeoModel$Type, arg2: $MultiBufferSource$Type, arg3: float, arg4: integer): void
  "getMotionAnimThreshold"(arg0: T): float
- "fireCompileRenderLayersEvent"(): void
+ "createVerticesOfQuad"(arg0: $GeoQuad$Type, arg1: $Matrix4f$Type, arg2: $Vector3f$Type, arg3: $VertexConsumer$Type, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float): void
  "preApplyRenderLayers"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
  "applyRenderLayersForBone"(arg0: $PoseStack$Type, arg1: T, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
  "scaleModelForRender"(arg0: float, arg1: float, arg2: $PoseStack$Type, arg3: T, arg4: $BakedGeoModel$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer): void
- "createVerticesOfQuad"(arg0: $GeoQuad$Type, arg1: $Matrix4f$Type, arg2: $Vector3f$Type, arg3: $VertexConsumer$Type, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float): void
  "updateAnimatedTextureFrame"(arg0: T): void
- "getRenderColor"(arg0: T, arg1: float, arg2: integer): $Color
- "getRenderType"(arg0: T, arg1: $ResourceLocation$Type, arg2: $MultiBufferSource$Type, arg3: float): $RenderType
+ "fireCompileRenderLayersEvent"(): void
+ "doPostRenderCleanup"(): void
+ "firePostRenderEvent"(arg0: $PoseStack$Type, arg1: $BakedGeoModel$Type, arg2: $MultiBufferSource$Type, arg3: float, arg4: integer): void
  "getTextureLocation"(arg0: T): $ResourceLocation
- "defaultRender"(arg0: $PoseStack$Type, arg1: T, arg2: $MultiBufferSource$Type, arg3: $RenderType$Type, arg4: $VertexConsumer$Type, arg5: float, arg6: float, arg7: integer): void
  "getGeoModel"(): $GeoModel<(T)>
- "actuallyRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
- "getInstanceId"(arg0: T): long
  "preRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
+ "getInstanceId"(arg0: T): long
+ "actuallyRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
+ "defaultRender"(arg0: $PoseStack$Type, arg1: T, arg2: $MultiBufferSource$Type, arg3: $RenderType$Type, arg4: $VertexConsumer$Type, arg5: float, arg6: float, arg7: integer): void
  "renderRecursively"(arg0: $PoseStack$Type, arg1: T, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
  "firePreRenderEvent"(arg0: $PoseStack$Type, arg1: $BakedGeoModel$Type, arg2: $MultiBufferSource$Type, arg3: float, arg4: integer): boolean
  "getAnimatable"(): T
@@ -1236,14 +1235,16 @@ export interface $GeoRenderer<T extends $GeoAnimatable> {
  * @deprecated
  */
  "getPackedOverlay"(arg0: T, arg1: float): integer
- "applyRenderLayers"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
+ "renderCube"(arg0: $PoseStack$Type, arg1: $GeoCube$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
  "renderChildBones"(arg0: $PoseStack$Type, arg1: T, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: boolean, arg7: float, arg8: integer, arg9: integer, arg10: float, arg11: float, arg12: float, arg13: float): void
  "renderFinal"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float, arg11: float): void
- "postRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
  "renderCubesOfBone"(arg0: $PoseStack$Type, arg1: $GeoBone$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
  "reRender"(arg0: $BakedGeoModel$Type, arg1: $PoseStack$Type, arg2: $MultiBufferSource$Type, arg3: T, arg4: $RenderType$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
- "renderCube"(arg0: $PoseStack$Type, arg1: $GeoCube$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: float, arg8: float): void
+ "postRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $MultiBufferSource$Type, arg4: $VertexConsumer$Type, arg5: boolean, arg6: float, arg7: integer, arg8: integer, arg9: float, arg10: float, arg11: float, arg12: float): void
+ "applyRenderLayers"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
+ "getRenderColor"(arg0: T, arg1: float, arg2: integer): $Color
  "getRenderLayers"(): $List<($GeoRenderLayer<(T)>)>
+ "getRenderType"(arg0: T, arg1: $ResourceLocation$Type, arg2: $MultiBufferSource$Type, arg3: float): $RenderType
 }
 
 export namespace $GeoRenderer {
@@ -1275,9 +1276,9 @@ public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public static "from"<F extends $Keyframe<(any)>>(arg0: $KeyframeStack$Type<(F)>): $KeyframeStack<(F)>
+public "yKeyframes"(): $List<(T)>
 public "zKeyframes"(): $List<(T)>
 public "xKeyframes"(): $List<(T)>
-public "yKeyframes"(): $List<(T)>
 public "getLastKeyframeTime"(): double
 get "lastKeyframeTime"(): double
 }
@@ -1305,13 +1306,13 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "copyOf"(arg0: $RawAnimation$Type): $RawAnimation
 public static "begin"(): $RawAnimation
-public "thenWait"(arg0: integer): $RawAnimation
-public "thenPlay"(arg0: string): $RawAnimation
 public "thenLoop"(arg0: string): $RawAnimation
-public "then"(arg0: string, arg1: $Animation$LoopType$Type): $RawAnimation
-public "thenPlayAndHold"(arg0: string): $RawAnimation
-public "getAnimationStages"(): $List<($RawAnimation$Stage)>
 public "thenPlayXTimes"(arg0: string, arg1: integer): $RawAnimation
+public "thenPlayAndHold"(arg0: string): $RawAnimation
+public "thenWait"(arg0: integer): $RawAnimation
+public "getAnimationStages"(): $List<($RawAnimation$Stage)>
+public "then"(arg0: string, arg1: $Animation$LoopType$Type): $RawAnimation
+public "thenPlay"(arg0: string): $RawAnimation
 get "animationStages"(): $List<($RawAnimation$Stage)>
 }
 /**
@@ -1364,11 +1365,11 @@ constructor(arg0: string, arg1: $Class$Type<(any)>)
 
 public "decode"(arg0: $FriendlyByteBuf$Type): D
 public "encode"(arg0: D, arg1: $FriendlyByteBuf$Type): void
-public static "ofFloat"(arg0: $ResourceLocation$Type): $SerializableDataTicket<(float)>
+public static "ofString"(arg0: $ResourceLocation$Type): $SerializableDataTicket<(string)>
 public static "ofDouble"(arg0: $ResourceLocation$Type): $SerializableDataTicket<(double)>
+public static "ofFloat"(arg0: $ResourceLocation$Type): $SerializableDataTicket<(float)>
 public static "ofInt"(arg0: $ResourceLocation$Type): $SerializableDataTicket<(integer)>
 public static "ofBoolean"(arg0: $ResourceLocation$Type): $SerializableDataTicket<(boolean)>
-public static "ofString"(arg0: $ResourceLocation$Type): $SerializableDataTicket<(string)>
 public static "ofEnum"<E extends $Enum<(E)>>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(E)>): $SerializableDataTicket<(E)>
 }
 /**
@@ -1464,33 +1465,33 @@ export class $AnimationState<T extends $GeoAnimatable> {
 constructor(arg0: T, arg1: float, arg2: float, arg3: float, arg4: boolean)
 
 public "getData"<D>(arg0: $DataTicket$Type<(D)>): D
+public "withController"(arg0: $AnimationController$Type<(T)>): $AnimationState<(T)>
+public "isMoving"(): boolean
+public "getController"(): $AnimationController<(T)>
+public "getExtraData"(): $Map<($DataTicket<(any)>), (any)>
 public "setAnimation"(arg0: $RawAnimation$Type): void
+public "setData"<D>(arg0: $DataTicket$Type<(D)>, arg1: D): void
+public "getAnimatable"(): T
+public "getPartialTick"(): float
+public "setAndContinue"(arg0: $RawAnimation$Type): $PlayState
 public "resetCurrentAnimation"(): void
 public "isCurrentAnimationStage"(arg0: string): boolean
 public "getAnimationTick"(): double
-public "isMoving"(): boolean
-public "withController"(arg0: $AnimationController$Type<(T)>): $AnimationState<(T)>
-public "getController"(): $AnimationController<(T)>
-public "getAnimatable"(): T
-public "getExtraData"(): $Map<($DataTicket<(any)>), (any)>
-public "setData"<D>(arg0: $DataTicket$Type<(D)>, arg1: D): void
-public "setControllerSpeed"(arg0: float): void
-public "getLimbSwing"(): float
-public "getLimbSwingAmount"(): float
 public "isCurrentAnimation"(arg0: $RawAnimation$Type): boolean
-public "setAndContinue"(arg0: $RawAnimation$Type): $PlayState
-public "getPartialTick"(): float
-set "animation"(value: $RawAnimation$Type)
-get "animationTick"(): double
+public "getLimbSwing"(): float
+public "setControllerSpeed"(arg0: float): void
+public "getLimbSwingAmount"(): float
 get "moving"(): boolean
 get "controller"(): $AnimationController<(T)>
-get "animatable"(): T
 get "extraData"(): $Map<($DataTicket<(any)>), (any)>
-set "controllerSpeed"(value: float)
-get "limbSwing"(): float
-get "limbSwingAmount"(): float
-set "andContinue"(value: $RawAnimation$Type)
+set "animation"(value: $RawAnimation$Type)
+get "animatable"(): T
 get "partialTick"(): float
+set "andContinue"(value: $RawAnimation$Type)
+get "animationTick"(): double
+get "limbSwing"(): float
+set "controllerSpeed"(value: float)
+get "limbSwingAmount"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1541,24 +1542,24 @@ constructor(animationArmsDown: boolean, animationArmsOutFront: boolean, animatio
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
+public "identifier"(): string
+public static "deserializer"(): $JsonDeserializer<($ModelProperties)>
+public "textureWidth"(): double
+public "textureHeight"(): double
 public "animationArmsDown"(): boolean
 public "animationNoHeadBob"(): boolean
 public "preserveModelPose"(): boolean
 public "visibleBoundsWidth"(): double
-public "identifier"(): string
-public "animationArmsOutFront"(): boolean
-public "animationUpsideDown"(): boolean
+public "animationStatueOfLibertyArms"(): boolean
+public "animationSingleArmAnimation"(): boolean
+public "visibleBoundsHeight"(): double
+public "animationDontShowArmor"(): boolean
+public "animationStationaryLegs"(): boolean
 public "visibleBoundsOffset"(): (double)[]
 public "animationInvertedCrouch"(): boolean
-public "animationDontShowArmor"(): boolean
-public "animationSingleArmAnimation"(): boolean
-public "animationStationaryLegs"(): boolean
-public "visibleBoundsHeight"(): double
-public "animationStatueOfLibertyArms"(): boolean
+public "animationUpsideDown"(): boolean
+public "animationArmsOutFront"(): boolean
 public "animationSingleLegAnimation"(): boolean
-public static "deserializer"(): $JsonDeserializer<($ModelProperties)>
-public "textureWidth"(): double
-public "textureHeight"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1583,46 +1584,46 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "copy"(arg0: $BoneSnapshot$Type): $BoneSnapshot
 public "startRotAnim"(): void
-public "stopPosAnim"(arg0: double): void
 public "getOffsetZ"(): float
-public "stopScaleAnim"(arg0: double): void
-public "getOffsetY"(): float
-public "getOffsetX"(): float
-public "updateOffset"(arg0: float, arg1: float, arg2: float): void
-public "startScaleAnim"(): void
-public "startPosAnim"(): void
 public "stopRotAnim"(arg0: double): void
-public "isRotAnimInProgress"(): boolean
-public "getLastResetRotationTick"(): double
-public "getLastResetPositionTick"(): double
-public "isScaleAnimInProgress"(): boolean
-public "getLastResetScaleTick"(): double
-public "isPosAnimInProgress"(): boolean
-public "getScaleX"(): float
-public "getScaleY"(): float
+public "startScaleAnim"(): void
+public "stopPosAnim"(arg0: double): void
+public "getOffsetX"(): float
+public "stopScaleAnim"(arg0: double): void
+public "startPosAnim"(): void
+public "getOffsetY"(): float
+public "updateOffset"(arg0: float, arg1: float, arg2: float): void
+public "getRotX"(): float
 public "getRotY"(): float
 public "updateRotation"(arg0: float, arg1: float, arg2: float): void
+public "getRotZ"(): float
+public "getScaleY"(): float
 public "updateScale"(arg0: float, arg1: float, arg2: float): void
 public "getScaleZ"(): float
-public "getRotX"(): float
-public "getRotZ"(): float
+public "getScaleX"(): float
 public "getBone"(): $CoreGeoBone
+public "getLastResetRotationTick"(): double
+public "getLastResetScaleTick"(): double
+public "getLastResetPositionTick"(): double
+public "isRotAnimInProgress"(): boolean
+public "isPosAnimInProgress"(): boolean
+public "isScaleAnimInProgress"(): boolean
 get "offsetZ"(): float
-get "offsetY"(): float
 get "offsetX"(): float
-get "rotAnimInProgress"(): boolean
-get "lastResetRotationTick"(): double
-get "lastResetPositionTick"(): double
-get "scaleAnimInProgress"(): boolean
-get "lastResetScaleTick"(): double
-get "posAnimInProgress"(): boolean
-get "scaleX"(): float
-get "scaleY"(): float
-get "rotY"(): float
-get "scaleZ"(): float
+get "offsetY"(): float
 get "rotX"(): float
+get "rotY"(): float
 get "rotZ"(): float
+get "scaleY"(): float
+get "scaleZ"(): float
+get "scaleX"(): float
 get "bone"(): $CoreGeoBone
+get "lastResetRotationTick"(): double
+get "lastResetScaleTick"(): double
+get "lastResetPositionTick"(): double
+get "rotAnimInProgress"(): boolean
+get "posAnimInProgress"(): boolean
+get "scaleAnimInProgress"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1654,14 +1655,14 @@ export class $AnimationProcessor<T extends $GeoAnimatable> {
 constructor(arg0: $CoreGeoModel$Type<(T)>)
 
 public "registerGeoBone"(arg0: $CoreGeoBone$Type): void
-public "buildAnimationQueue"(arg0: T, arg1: $RawAnimation$Type): $Queue<($AnimationProcessor$QueuedAnimation)>
 public "getBone"(arg0: string): $CoreGeoBone
-public "setActiveModel"(arg0: $CoreBakedGeoModel$Type): void
-public "getRegisteredBones"(): $Collection<($CoreGeoBone)>
 public "preAnimationSetup"(arg0: T, arg1: double): void
+public "getRegisteredBones"(): $Collection<($CoreGeoBone)>
+public "setActiveModel"(arg0: $CoreBakedGeoModel$Type): void
 public "tickAnimation"(arg0: T, arg1: $CoreGeoModel$Type<(T)>, arg2: $AnimatableManager$Type<(T)>, arg3: double, arg4: $AnimationState$Type<(T)>, arg5: boolean): void
-set "activeModel"(value: $CoreBakedGeoModel$Type)
+public "buildAnimationQueue"(arg0: T, arg1: $RawAnimation$Type): $Queue<($AnimationProcessor$QueuedAnimation)>
 get "registeredBones"(): $Collection<($CoreGeoBone)>
+set "activeModel"(value: $CoreBakedGeoModel$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1714,25 +1715,25 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $GeoItem extends $SingletonGeoAnimatable {
 
+ "isPerspectiveAware"(): boolean
  "animatableCacheOverride"(): $AnimatableInstanceCache
  "getTick"(arg0: any): double
- "isPerspectiveAware"(): boolean
- "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
- "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
  "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+ "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+ "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
  "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
  "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
- "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
- "shouldPlayAnimsWhileGamePaused"(): boolean
- "getBoneResetTime"(): double
  "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+ "shouldPlayAnimsWhileGamePaused"(): boolean
+ "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
+ "getBoneResetTime"(): double
 }
 
 export namespace $GeoItem {
 const ID_NBT_KEY: string
 function getId(arg0: $ItemStack$Type): long
-function registerSyncedAnimatable(arg0: $GeoAnimatable$Type): void
 function getOrAssignId(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+function registerSyncedAnimatable(arg0: $GeoAnimatable$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1762,31 +1763,31 @@ constructor(bone: $CoreGeoBone$Type, rotationXQueue: $AnimationPointQueue$Type, 
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "addNextRotation"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: $BoneSnapshot$Type, arg4: $BoneSnapshot$Type, arg5: $AnimationPoint$Type, arg6: $AnimationPoint$Type, arg7: $AnimationPoint$Type): void
+public "addRotations"(arg0: $AnimationPoint$Type, arg1: $AnimationPoint$Type, arg2: $AnimationPoint$Type): void
 public "addNextScale"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: $BoneSnapshot$Type, arg4: $AnimationPoint$Type, arg5: $AnimationPoint$Type, arg6: $AnimationPoint$Type): void
+public "addNextRotation"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: $BoneSnapshot$Type, arg4: $BoneSnapshot$Type, arg5: $AnimationPoint$Type, arg6: $AnimationPoint$Type, arg7: $AnimationPoint$Type): void
 public "addNextPosition"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: $BoneSnapshot$Type, arg4: $AnimationPoint$Type, arg5: $AnimationPoint$Type, arg6: $AnimationPoint$Type): void
 public "addScales"(arg0: $AnimationPoint$Type, arg1: $AnimationPoint$Type, arg2: $AnimationPoint$Type): void
-public "addRotations"(arg0: $AnimationPoint$Type, arg1: $AnimationPoint$Type, arg2: $AnimationPoint$Type): void
 public "addPositions"(arg0: $AnimationPoint$Type, arg1: $AnimationPoint$Type, arg2: $AnimationPoint$Type): void
-public "addScaleXPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addPosXPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addPosZPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addScaleYPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addPosYPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addScaleZPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addRotationXPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addRotationYPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addRotationZPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "bone"(): $CoreGeoBone
+public "positionYQueue"(): $AnimationPointQueue
+public "rotationXQueue"(): $AnimationPointQueue
+public "rotationYQueue"(): $AnimationPointQueue
+public "positionZQueue"(): $AnimationPointQueue
+public "scaleYQueue"(): $AnimationPointQueue
+public "scaleZQueue"(): $AnimationPointQueue
+public "positionXQueue"(): $AnimationPointQueue
 public "rotationZQueue"(): $AnimationPointQueue
 public "scaleXQueue"(): $AnimationPointQueue
-public "rotationXQueue"(): $AnimationPointQueue
-public "scaleYQueue"(): $AnimationPointQueue
-public "positionXQueue"(): $AnimationPointQueue
-public "positionYQueue"(): $AnimationPointQueue
-public "positionZQueue"(): $AnimationPointQueue
-public "rotationYQueue"(): $AnimationPointQueue
-public "scaleZQueue"(): $AnimationPointQueue
+public "bone"(): $CoreGeoBone
+public "addRotationXPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addScaleZPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addScaleYPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addPosXPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addPosZPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addRotationYPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addScaleXPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addRotationZPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addPosYPoint"(arg0: $Keyframe$Type<(any)>, arg1: double, arg2: double, arg3: double, arg4: double): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1923,10 +1924,10 @@ constructor(arg0: $GeoRenderer$Type<(T)>)
 
 public "getDefaultBakedModel"(arg0: T): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer<(T)>
+public "render"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
 public "getGeoModel"(): $GeoModel<(T)>
 public "preRender"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
 public "renderForBone"(arg0: $PoseStack$Type, arg1: T, arg2: $GeoBone$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
-public "render"(arg0: $PoseStack$Type, arg1: T, arg2: $BakedGeoModel$Type, arg3: $RenderType$Type, arg4: $MultiBufferSource$Type, arg5: $VertexConsumer$Type, arg6: float, arg7: integer, arg8: integer): void
 get "renderer"(): $GeoRenderer<(T)>
 get "geoModel"(): $GeoModel<(T)>
 }
@@ -1960,8 +1961,8 @@ public "toString"(): string
 public "hashCode"(): integer
 public "endValue"(): T
 public "startValue"(): T
-public "easingArgs"(): $List<(T)>
 public "easingType"(): $EasingType
+public "easingArgs"(): $List<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2107,17 +2108,17 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $SingletonGeoAnimatable extends $GeoAnimatable {
 
- "animatableCacheOverride"(): $AnimatableInstanceCache
- "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
- "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
  "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+ "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+ "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
  "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+ "animatableCacheOverride"(): $AnimatableInstanceCache
  "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
- "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
- "shouldPlayAnimsWhileGamePaused"(): boolean
- "getTick"(arg0: any): double
- "getBoneResetTime"(): double
  "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+ "shouldPlayAnimsWhileGamePaused"(): boolean
+ "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
+ "getBoneResetTime"(): double
+ "getTick"(arg0: any): double
 }
 
 export namespace $SingletonGeoAnimatable {
@@ -2144,48 +2145,48 @@ export interface $CoreGeoBone {
  "getName"(): string
  "isHidden"(): boolean
  "getParent"(): $CoreGeoBone
- "saveInitialSnapshot"(): void
- "markRotationAsChanged"(): void
- "markPositionAsChanged"(): void
- "getPosX"(): float
  "getPosY"(): float
+ "getPosX"(): float
  "setHidden"(arg0: boolean): void
+ "saveInitialSnapshot"(): void
+ "markPositionAsChanged"(): void
+ "markRotationAsChanged"(): void
  "getPosZ"(): float
- "getChildBones"(): $List<(any)>
  "isHidingChildren"(): boolean
- "setRotX"(arg0: float): void
+ "getChildBones"(): $List<(any)>
+ "getRotX"(): float
+ "getRotY"(): float
  "setPosZ"(arg0: float): void
+ "updateRotation"(arg0: float, arg1: float, arg2: float): void
+ "setPivotY"(arg0: float): void
+ "updatePivot"(arg0: float, arg1: float, arg2: float): void
+ "getPivotZ"(): float
+ "setPivotX"(arg0: float): void
+ "setScaleY"(arg0: float): void
+ "getRotZ"(): float
+ "getScaleY"(): float
+ "setPosY"(arg0: float): void
+ "setPivotZ"(arg0: float): void
+ "getPivotX"(): float
+ "getPivotY"(): float
+ "setChildrenHidden"(arg0: boolean): void
+ "markScaleAsChanged"(): void
+ "setRotX"(arg0: float): void
  "setRotY"(arg0: float): void
  "updatePosition"(arg0: float, arg1: float, arg2: float): void
- "setScaleY"(arg0: float): void
- "getScaleX"(): float
- "getScaleY"(): float
- "setRotZ"(arg0: float): void
- "getRotY"(): float
- "setPivotY"(arg0: float): void
- "updateRotation"(arg0: float, arg1: float, arg2: float): void
- "getPivotX"(): float
- "setPivotX"(arg0: float): void
  "setScaleX"(arg0: float): void
- "setPosY"(arg0: float): void
+ "setScaleZ"(arg0: float): void
  "updateScale"(arg0: float, arg1: float, arg2: float): void
  "getScaleZ"(): float
- "updatePivot"(arg0: float, arg1: float, arg2: float): void
- "getPivotY"(): float
- "getRotX"(): float
- "setPivotZ"(arg0: float): void
+ "setRotZ"(arg0: float): void
+ "getScaleX"(): float
  "setPosX"(arg0: float): void
- "getPivotZ"(): float
- "setScaleZ"(arg0: float): void
- "getRotZ"(): float
- "markScaleAsChanged"(): void
  "getInitialSnapshot"(): $BoneSnapshot
- "resetStateChanges"(): void
+ "hasScaleChanged"(): boolean
+ "saveSnapshot"(): $BoneSnapshot
  "hasPositionChanged"(): boolean
  "hasRotationChanged"(): boolean
- "hasScaleChanged"(): boolean
- "setChildrenHidden"(arg0: boolean): void
- "saveSnapshot"(): $BoneSnapshot
+ "resetStateChanges"(): void
 }
 
 export namespace $CoreGeoBone {
@@ -2210,8 +2211,8 @@ import {$CoreGeoBone, $CoreGeoBone$Type} from "packages/software/bernie/geckolib
 
 export interface $CoreBakedGeoModel {
 
- "searchForChildBone"(arg0: $CoreGeoBone$Type, arg1: string): $CoreGeoBone
  "getBones"(): $List<(any)>
+ "searchForChildBone"(arg0: $CoreGeoBone$Type, arg1: string): $CoreGeoBone
  "getBone"(arg0: string): $Optional<(any)>
 }
 
@@ -2242,26 +2243,26 @@ export class $AnimatableManager<T extends $GeoAnimatable> {
 constructor(arg0: $GeoAnimatable$Type)
 
 public "getData"<D>(arg0: $DataTicket$Type<(D)>): D
-public "getBoneSnapshotCollection"(): $Map<(string), ($BoneSnapshot)>
 public "addController"(arg0: $AnimationController$Type<(any)>): void
-public "removeController"(arg0: string): void
-public "isFirstTick"(): boolean
-public "startedAt"(arg0: double): void
-public "updatedAt"(arg0: double): void
-public "getFirstTickTime"(): double
-public "setData"<D>(arg0: $DataTicket$Type<(D)>, arg1: D): void
-public "clearSnapshotCache"(): void
 public "getLastUpdateTime"(): double
-public "getAnimationControllers"(): $Map<(string), ($AnimationController<(T)>)>
+public "tryTriggerAnimation"(arg0: string): void
+public "tryTriggerAnimation"(arg0: string, arg1: string): void
 public "stopTriggeredAnimation"(arg0: string, arg1: string): void
 public "stopTriggeredAnimation"(arg0: string): void
-public "tryTriggerAnimation"(arg0: string, arg1: string): void
-public "tryTriggerAnimation"(arg0: string): void
-get "boneSnapshotCollection"(): $Map<(string), ($BoneSnapshot)>
-get "firstTick"(): boolean
-get "firstTickTime"(): double
+public "setData"<D>(arg0: $DataTicket$Type<(D)>, arg1: D): void
+public "getAnimationControllers"(): $Map<(string), ($AnimationController<(T)>)>
+public "getFirstTickTime"(): double
+public "startedAt"(arg0: double): void
+public "isFirstTick"(): boolean
+public "updatedAt"(arg0: double): void
+public "getBoneSnapshotCollection"(): $Map<(string), ($BoneSnapshot)>
+public "removeController"(arg0: string): void
+public "clearSnapshotCache"(): void
 get "lastUpdateTime"(): double
 get "animationControllers"(): $Map<(string), ($AnimationController<(T)>)>
+get "firstTickTime"(): double
+get "firstTick"(): boolean
+get "boneSnapshotCollection"(): $Map<(string), ($BoneSnapshot)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

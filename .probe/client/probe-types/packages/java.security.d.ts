@@ -58,6 +58,7 @@ export class $Provider$Service {
 
 constructor(arg0: $Provider$Type, arg1: string, arg2: string, arg3: string, arg4: $List$Type<(string)>, arg5: $Map$Type<(string), (string)>)
 
+public "supportsParameter"(arg0: any): boolean
 public "toString"(): string
 public "newInstance"(arg0: any): any
 public "getType"(): string
@@ -65,7 +66,6 @@ public "getClassName"(): string
 public "getAttribute"(arg0: string): string
 public "getAlgorithm"(): string
 public "getProvider"(): $Provider
-public "supportsParameter"(arg0: any): boolean
 get "type"(): string
 get "className"(): string
 get "algorithm"(): string
@@ -86,8 +86,8 @@ export type $Provider$Service_ = $Provider$Service$Type;
 declare module "packages/java/security/$Signature" {
 import {$Certificate, $Certificate$Type} from "packages/java/security/cert/$Certificate"
 import {$SecureRandom, $SecureRandom$Type} from "packages/java/security/$SecureRandom"
-import {$AlgorithmParameters, $AlgorithmParameters$Type} from "packages/java/security/$AlgorithmParameters"
 import {$PublicKey, $PublicKey$Type} from "packages/java/security/$PublicKey"
+import {$AlgorithmParameters, $AlgorithmParameters$Type} from "packages/java/security/$AlgorithmParameters"
 import {$PrivateKey, $PrivateKey$Type} from "packages/java/security/$PrivateKey"
 import {$ByteBuffer, $ByteBuffer$Type} from "packages/java/nio/$ByteBuffer"
 import {$Provider, $Provider$Type} from "packages/java/security/$Provider"
@@ -97,26 +97,10 @@ import {$AlgorithmParameterSpec, $AlgorithmParameterSpec$Type} from "packages/ja
 export class $Signature extends $SignatureSpi {
 
 
-public "toString"(): string
-public "clone"(): any
-public "update"(arg0: (byte)[]): void
-public "update"(arg0: (byte)[], arg1: integer, arg2: integer): void
-public "update"(arg0: byte): void
-public "update"(arg0: $ByteBuffer$Type): void
-public static "getInstance"(arg0: string): $Signature
-public static "getInstance"(arg0: string, arg1: string): $Signature
-public static "getInstance"(arg0: string, arg1: $Provider$Type): $Signature
-public "getParameters"(): $AlgorithmParameters
-public "sign"(arg0: (byte)[], arg1: integer, arg2: integer): integer
-public "sign"(): (byte)[]
-public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
-public "verify"(arg0: (byte)[]): boolean
-public "getAlgorithm"(): string
-public "getProvider"(): $Provider
-public "initVerify"(arg0: $PublicKey$Type): void
 public "initVerify"(arg0: $Certificate$Type): void
-public "initSign"(arg0: $PrivateKey$Type): void
+public "initVerify"(arg0: $PublicKey$Type): void
 public "initSign"(arg0: $PrivateKey$Type, arg1: $SecureRandom$Type): void
+public "initSign"(arg0: $PrivateKey$Type): void
 public "setParameter"(arg0: $AlgorithmParameterSpec$Type): void
 /**
  * 
@@ -128,10 +112,26 @@ public "setParameter"(arg0: string, arg1: any): void
  * @deprecated
  */
 public "getParameter"(arg0: string): any
+public "toString"(): string
+public "clone"(): any
+public "update"(arg0: byte): void
+public "update"(arg0: (byte)[]): void
+public "update"(arg0: (byte)[], arg1: integer, arg2: integer): void
+public "update"(arg0: $ByteBuffer$Type): void
+public static "getInstance"(arg0: string): $Signature
+public static "getInstance"(arg0: string, arg1: string): $Signature
+public static "getInstance"(arg0: string, arg1: $Provider$Type): $Signature
+public "getParameters"(): $AlgorithmParameters
+public "sign"(arg0: (byte)[], arg1: integer, arg2: integer): integer
+public "sign"(): (byte)[]
+public "verify"(arg0: (byte)[]): boolean
+public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
+public "getAlgorithm"(): string
+public "getProvider"(): $Provider
+set "parameter"(value: $AlgorithmParameterSpec$Type)
 get "parameters"(): $AlgorithmParameters
 get "algorithm"(): string
 get "provider"(): $Provider
-set "parameter"(value: $AlgorithmParameterSpec$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -186,13 +186,13 @@ import {$Provider, $Provider$Type} from "packages/java/security/$Provider"
 
 export class $SecureRandom extends $Random {
 
-constructor(arg0: (byte)[])
 constructor()
+constructor(arg0: (byte)[])
 
 public "toString"(): string
+public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type, arg2: $Provider$Type): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type, arg2: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type): $SecureRandom
-public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type, arg2: $Provider$Type): $SecureRandom
 public static "getInstance"(arg0: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $SecureRandom
@@ -311,6 +311,7 @@ import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
 export class $CertPath implements $Serializable {
 
 
+public "getEncodings"(): $Iterator<(string)>
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
@@ -318,11 +319,10 @@ public "getCertificates"(): $List<(any)>
 public "getType"(): string
 public "getEncoded"(arg0: string): (byte)[]
 public "getEncoded"(): (byte)[]
-public "getEncodings"(): $Iterator<(string)>
+get "encodings"(): $Iterator<(string)>
 get "certificates"(): $List<(any)>
 get "type"(): string
 get "encoded"(): (byte)[]
-get "encodings"(): $Iterator<(string)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -361,8 +361,8 @@ declare module "packages/java/security/$Provider" {
 import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
 import {$Provider$Service, $Provider$Service$Type} from "packages/java/security/$Provider$Service"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$Enumeration, $Enumeration$Type} from "packages/java/util/$Enumeration"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$Enumeration, $Enumeration$Type} from "packages/java/util/$Enumeration"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$InputStream, $InputStream$Type} from "packages/java/io/$InputStream"
 import {$Properties, $Properties$Type} from "packages/java/util/$Properties"
@@ -373,6 +373,12 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 export class $Provider extends $Properties {
 
 
+public "getService"(arg0: string, arg1: string): $Provider$Service
+public "getServices"(): $Set<($Provider$Service)>
+public "configure"(arg0: string): $Provider
+public "isConfigured"(): boolean
+public "getVersionStr"(): string
+public "getInfo"(): string
 public "getName"(): string
 public "remove"(arg0: any): any
 public "remove"(arg0: any, arg1: any): boolean
@@ -383,8 +389,8 @@ public "toString"(): string
 public "values"(): $Collection<(any)>
 public "load"(arg0: $InputStream$Type): void
 public "clear"(): void
-public "replace"(arg0: any, arg1: any): any
 public "replace"(arg0: any, arg1: any, arg2: any): boolean
+public "replace"(arg0: any, arg1: any): any
 public "replaceAll"(arg0: $BiFunction$Type<(any), (any), (any)>): void
 public "elements"(): $Enumeration<(any)>
 public "merge"(arg0: any, arg1: any, arg2: $BiFunction$Type<(any), (any), (any)>): any
@@ -403,12 +409,6 @@ public "computeIfPresent"(arg0: any, arg1: $BiFunction$Type<(any), (any), (any)>
  * @deprecated
  */
 public "getVersion"(): double
-public "getService"(arg0: string, arg1: string): $Provider$Service
-public "getServices"(): $Set<($Provider$Service)>
-public "configure"(arg0: string): $Provider
-public "isConfigured"(): boolean
-public "getVersionStr"(): string
-public "getInfo"(): string
 public static "copyOf"<K, V>(arg0: $Map$Type<(any), (any)>): $Map<(K), (V)>
 public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V): $Map<(K), (V)>
 public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V): $Map<(K), (V)>
@@ -423,12 +423,12 @@ public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, a
 public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V): $Map<(K), (V)>
 public static "entry"<K, V>(arg0: K, arg1: V): $Map$Entry<(K), (V)>
 public static "ofEntries"<K, V>(...arg0: ($Map$Entry$Type<(any), (any)>)[]): $Map<(K), (V)>
-get "name"(): string
-get "version"(): double
 get "services"(): $Set<($Provider$Service)>
 get "configured"(): boolean
 get "versionStr"(): string
 get "info"(): string
+get "name"(): string
+get "version"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -593,18 +593,18 @@ import {$AlgorithmParameterSpec, $AlgorithmParameterSpec$Type} from "packages/ja
 export class $AlgorithmParameters {
 
 
+public "getParameterSpec"<T extends $AlgorithmParameterSpec>(arg0: $Class$Type<(T)>): T
 public "toString"(): string
+public static "getInstance"(arg0: string): $AlgorithmParameters
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $AlgorithmParameters
 public static "getInstance"(arg0: string, arg1: string): $AlgorithmParameters
-public static "getInstance"(arg0: string): $AlgorithmParameters
-public "init"(arg0: (byte)[]): void
 public "init"(arg0: (byte)[], arg1: string): void
 public "init"(arg0: $AlgorithmParameterSpec$Type): void
-public "getEncoded"(): (byte)[]
+public "init"(arg0: (byte)[]): void
 public "getEncoded"(arg0: string): (byte)[]
+public "getEncoded"(): (byte)[]
 public "getAlgorithm"(): string
 public "getProvider"(): $Provider
-public "getParameterSpec"<T extends $AlgorithmParameterSpec>(arg0: $Class$Type<(T)>): T
 get "encoded"(): (byte)[]
 get "algorithm"(): string
 get "provider"(): $Provider

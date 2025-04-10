@@ -1,0 +1,379 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "immersive_engineering"
+	group: "1EE0E24DF7C2736A"
+	id: "2A5A8ECE8E4440DB"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["10855C6A58BE9D73"]
+			id: "19025596B9FC3794"
+			tasks: [{
+				id: "29645730407CF27B"
+				item: "immersiveengineering:blastbrick"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"49189F4DD0D671BD"
+				"1CDF894414B9B643"
+			]
+			id: "1CDFA54E25063B9A"
+			tasks: [{
+				id: "3F8C373AEDBF1EEC"
+				item: "minecraft:clay_ball"
+				type: "item"
+			}]
+			title: "Fire Clay"
+			x: -4.0d
+			y: 0.0d
+		}
+		{
+			id: "49189F4DD0D671BD"
+			tasks: [{
+				id: "5CFF46D24B05F79F"
+				item: "minecraft:clay_ball"
+				type: "item"
+			}]
+			x: -4.0d
+			y: -2.0d
+		}
+		{
+			id: "1CDF894414B9B643"
+			tasks: [{
+				id: "263452085E732C8E"
+				item: "minecraft:sand"
+				type: "item"
+			}]
+			x: -4.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["1CDFA54E25063B9A"]
+			id: "10855C6A58BE9D73"
+			tasks: [{
+				id: "5D0D31E6C8F7A245"
+				item: "minecraft:nether_brick"
+				type: "item"
+			}]
+			title: "Fire Brick"
+			x: -2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["19025596B9FC3794"]
+			id: "6AA0767FFA0E7D69"
+			tasks: [{
+				id: "41BD89E7A3281A05"
+				item: "minecraft:blast_furnace"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6AA0767FFA0E7D69"]
+			id: "1696B27FEC50E35B"
+			tasks: [{
+				id: "3F66081DC25C104B"
+				item: "immersiveengineering:ingot_steel"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"1696B27FEC50E35B"
+				"6E7708DC1645856D"
+			]
+			id: "145284F3BFF7CBE4"
+			tasks: [{
+				id: "59CD68B1CF8DA762"
+				item: "immersiveengineering:metal_press"
+				type: "item"
+			}]
+			x: 4.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["145284F3BFF7CBE4"]
+			id: "0B768E002B8C0CB4"
+			tasks: [{
+				id: "64B9DE6FF453CD59"
+				item: "immersiveengineering:plate_steel"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"0B768E002B8C0CB4"
+				"77A0279E3B3CD5C0"
+			]
+			id: "5B19334AD119BC22"
+			tasks: [{
+				id: "54F3BBE5ECEDB037"
+				item: "immersiveengineering:mold_wire"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["5B19334AD119BC22"]
+			id: "2BBD4B90EE9F5800"
+			tasks: [{
+				id: "1D5D47860E49F860"
+				item: "immersiveengineering:wirecoil_copper"
+				type: "item"
+			}]
+			x: 10.0d
+			y: -2.0d
+		}
+		{
+			id: "038639826539FAA7"
+			tasks: [{
+				id: "21502E1A772504B6"
+				item: "immersiveengineering:seed"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -8.0d
+		}
+		{
+			dependencies: ["038639826539FAA7"]
+			id: "5B5C57072B0A6AE4"
+			tasks: [{
+				id: "1F4561AE5A4CC1E2"
+				item: "immersiveengineering:hemp_fiber"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["5B5C57072B0A6AE4"]
+			id: "4586C3D41EC6EB59"
+			tasks: [{
+				id: "7B91748D279D4B8E"
+				item: "immersiveengineering:hemp_fabric"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -4.0d
+		}
+		{
+			dependencies: [
+				"2BBD4B90EE9F5800"
+				"4586C3D41EC6EB59"
+			]
+			id: "4804CB69CDA6274C"
+			tasks: [{
+				id: "7AAECFF4C655F1E5"
+				item: "immersiveengineering:wirecoil_copper_ins"
+				type: "item"
+			}]
+			x: 10.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["10855C6A58BE9D73"]
+			id: "44E1C2D62ACB4AFE"
+			tasks: [{
+				id: "69D5C5C2C3640B90"
+				item: "immersiveengineering:cokebrick"
+				type: "item"
+			}]
+			x: -2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["44E1C2D62ACB4AFE"]
+			id: "747C1ACEF5EDC36E"
+			tasks: [{
+				id: "654C257759FBE586"
+				item: "immersiveengineering:coal_coke"
+				type: "item"
+			}]
+			x: -2.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["44E1C2D62ACB4AFE"]
+			id: "1880762668BD023D"
+			tasks: [{
+				id: "2421CB0A466E1EB8"
+				item: "immersiveengineering:creosote_bucket"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["1880762668BD023D"]
+			id: "7940D7E411BF81E6"
+			tasks: [{
+				id: "658394CBF603A870"
+				item: "immersiveengineering:treated_wood_horizontal"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["7940D7E411BF81E6"]
+			id: "77A0279E3B3CD5C0"
+			tasks: [{
+				id: "5825C731A6C5B0BE"
+				item: "immersiveengineering:workbench"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["1696B27FEC50E35B"]
+			id: "1D694A7AB2D5747B"
+			optional: true
+			tasks: [{
+				id: "450F64E5AC06DAA4"
+				item: "immersiveengineering:fermenter"
+				type: "item"
+			}]
+			x: 4.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["1696B27FEC50E35B"]
+			id: "347B7425FC2242BF"
+			optional: true
+			tasks: [{
+				id: "2B7DF175595532DF"
+				item: "immersiveengineering:squeezer"
+				type: "item"
+			}]
+			x: 4.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["1696B27FEC50E35B"]
+			id: "5BF794B32B003112"
+			optional: true
+			tasks: [{
+				id: "659C086EF307BC76"
+				item: "immersiveengineering:refinery"
+				type: "item"
+			}]
+			x: 4.0d
+			y: -8.0d
+		}
+		{
+			dependencies: ["1D694A7AB2D5747B"]
+			id: "7ADB8E6470673CF9"
+			optional: true
+			tasks: [{
+				id: "76F706B0A601ABDC"
+				item: "immersiveengineering:ethanol_bucket"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["347B7425FC2242BF"]
+			id: "4B4EC3BC75EE19E8"
+			optional: true
+			tasks: [{
+				id: "15143629D144B247"
+				item: "immersiveengineering:plantoil_bucket"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -6.0d
+		}
+		{
+			dependencies: [
+				"4B4EC3BC75EE19E8"
+				"7ADB8E6470673CF9"
+				"5BF794B32B003112"
+			]
+			id: "34189E1041AE1B4B"
+			optional: true
+			tasks: [{
+				id: "63E7B17DB0DE0F1B"
+				item: "immersiveengineering:biodiesel_bucket"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -8.0d
+		}
+		{
+			dependencies: ["0CC8BE3B179021AC"]
+			id: "6E7708DC1645856D"
+			tasks: [{
+				id: "43B759C9C32188F8"
+				item: "immersiveengineering:capacitor_lv"
+				type: "item"
+			}]
+			x: 2.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"17DFAB6C7DCCF599"
+				"30BFC3810AA6E5B2"
+			]
+			dependency_requirement: "one_completed"
+			id: "0CC8BE3B179021AC"
+			tasks: [{
+				id: "557862C667D0E46F"
+				item: "immersiveengineering:dynamo"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -2.0d
+		}
+		{
+			id: "17DFAB6C7DCCF599"
+			optional: true
+			tasks: [{
+				id: "6F75EAB32D21C87E"
+				item: "immersiveengineering:watermill"
+				type: "item"
+			}]
+			x: -2.0d
+			y: -2.0d
+		}
+		{
+			id: "30BFC3810AA6E5B2"
+			optional: true
+			tasks: [{
+				id: "17ABFFBC08B47E52"
+				item: "immersiveengineering:windmill"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["30BFC3810AA6E5B2"]
+			id: "22147AF6361E6C3D"
+			optional: true
+			tasks: [{
+				id: "635085D3F0B811B1"
+				item: "immersiveengineering:windmill_sail"
+				type: "item"
+			}]
+			x: 2.0d
+			y: -4.0d
+		}
+	]
+	title: "Immersive Engineering"
+}

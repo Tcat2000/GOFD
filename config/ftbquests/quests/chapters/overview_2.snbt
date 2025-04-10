@@ -1,0 +1,84 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "overview_2"
+	group: ""
+	id: "5FDA1C9220B9D503"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			id: "0EA504F135125F0E"
+			subtitle: "explains backstory"
+			tasks: [{
+				id: "26DD9F2B0F8EE25E"
+				title: "intro"
+				type: "checkmark"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			id: "223BA67D0B0560D3"
+			subtitle: "Coal is most abondent natural resource"
+			tasks: [{
+				id: "18C043C9AF6126C4"
+				item: "minecraft:coal"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			id: "26FD6F255F0EC6A2"
+			subtitle: "make tin with embers"
+			tasks: [{
+				id: "63FD1C98484C48C4"
+				item: "mekanism:ingot_tin"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			id: "313B52021E2046F4"
+			subtitle: "copper made with create and embers"
+			tasks: [{
+				id: "15306F1095279BD8"
+				item: "minecraft:copper_ingot"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			id: "081A1AB52B518BC5"
+			subtitle: "iron from embers, QOL and needed soon"
+			tasks: [{
+				id: "286D50DD3F345213"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -1.5d
+		}
+		{
+			id: "51B835802DEF7EC6"
+			subtitle: "iron QOL"
+			tasks: [{
+				id: "599E2F50AF3D6140"
+				item: {
+					Count: 1
+					id: "minecraft:iron_pickaxe"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: 8.0d
+			y: -3.0d
+		}
+	]
+	title: "Overview"
+}
