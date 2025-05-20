@@ -72,9 +72,9 @@ export interface $VertexFormatDescription {
 
  "id"(): integer
  "stride"(): integer
- "containsElement"(arg0: $CommonVertexAttribute$Type): boolean
  "getElementOffset"(arg0: $CommonVertexAttribute$Type): integer
  "isSimpleFormat"(): boolean
+ "containsElement"(arg0: $CommonVertexAttribute$Type): boolean
 }
 
 export namespace $VertexFormatDescription {

@@ -118,9 +118,9 @@ MBDMachineEvents.onTick("mbd2:super_furnace", event => {
     var machine = event.getEvent().getMachine();
     var dir = machine.getPos().offset(multiplyVector(machine.getFrontFacing().get().getNormal(), 0,0,-1)).offset(0,-1,0);
     var heat = machine.getLevel().getBlockEntity(dir).saveWithId().get("fuelLevel");
-    machine.getCustomData().putInt("heat", heat)
+    machine.getCustomData().putInt("heat", heat);
     
-})
+});
 MBDMachineEvents.onRecipeWorking("mbd2:blaze_smelter", event => {
     var machine = event.getEvent().getMachine();
     var dir = machine.getPos().offset(multiplyVector(machine.getFrontFacing().get().getNormal(), 0,0,-1)).offset(0,-1,0);

@@ -56,19 +56,18 @@ static readonly "SECRET_KEY": integer
 
 
 public "getBlockSize"(): integer
-public static "getMaxAllowedKeyLength"(arg0: string): integer
 public "toString"(): string
-public "update"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[], arg4: integer): integer
-public "update"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[]): integer
-public "update"(arg0: $ByteBuffer$Type, arg1: $ByteBuffer$Type): integer
 public "update"(arg0: (byte)[], arg1: integer, arg2: integer): (byte)[]
+public "update"(arg0: $ByteBuffer$Type, arg1: $ByteBuffer$Type): integer
+public "update"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[], arg4: integer): integer
 public "update"(arg0: (byte)[]): (byte)[]
+public "update"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[]): integer
 public "wrap"(arg0: $Key$Type): (byte)[]
+public static "getInstance"(arg0: string, arg1: string): $Cipher
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $Cipher
 public static "getInstance"(arg0: string): $Cipher
-public static "getInstance"(arg0: string, arg1: string): $Cipher
-public "init"(arg0: integer, arg1: $Key$Type, arg2: $AlgorithmParameterSpec$Type): void
 public "init"(arg0: integer, arg1: $Key$Type, arg2: $AlgorithmParameters$Type): void
+public "init"(arg0: integer, arg1: $Key$Type, arg2: $AlgorithmParameterSpec$Type): void
 public "init"(arg0: integer, arg1: $Key$Type, arg2: $SecureRandom$Type): void
 public "init"(arg0: integer, arg1: $Key$Type): void
 public "init"(arg0: integer, arg1: $Key$Type, arg2: $AlgorithmParameterSpec$Type, arg3: $SecureRandom$Type): void
@@ -79,6 +78,7 @@ public "getParameters"(): $AlgorithmParameters
 public "unwrap"(arg0: (byte)[], arg1: string, arg2: integer): $Key
 public "getAlgorithm"(): string
 public "getProvider"(): $Provider
+public static "getMaxAllowedKeyLength"(arg0: string): integer
 public "getExemptionMechanism"(): $ExemptionMechanism
 public "updateAAD"(arg0: (byte)[]): void
 public "updateAAD"(arg0: $ByteBuffer$Type): void

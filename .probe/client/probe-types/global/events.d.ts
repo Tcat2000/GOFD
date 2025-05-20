@@ -5,6 +5,7 @@ import {$ItemEntityInteractedEventJS, $ItemEntityInteractedEventJS$Type} from "p
 import {$LangEventJS, $LangEventJS$Type} from "packages/dev/latvian/mods/kubejs/client/$LangEventJS"
 import {$TypingModificationEventJS, $TypingModificationEventJS$Type} from "packages/moe/wolfgirl/probejs/events/$TypingModificationEventJS"
 import {$ExplosionEventJS$After, $ExplosionEventJS$After$Type} from "packages/dev/latvian/mods/kubejs/level/$ExplosionEventJS$After"
+import {$PlayerModelEvent, $PlayerModelEvent$Type} from "packages/net/liopyu/animationjs/events/$PlayerModelEvent"
 import {$PaintScreenEventJS, $PaintScreenEventJS$Type} from "packages/dev/latvian/mods/kubejs/client/painter/screen/$PaintScreenEventJS"
 import {$MenuType, $MenuType$Type} from "packages/net/minecraft/world/inventory/$MenuType"
 import {$ItemTooltipEventJS, $ItemTooltipEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemTooltipEventJS"
@@ -15,6 +16,7 @@ import {$ClientEventJS, $ClientEventJS$Type} from "packages/dev/latvian/mods/kub
 import {$LivingEntityDeathEventJS, $LivingEntityDeathEventJS$Type} from "packages/dev/latvian/mods/kubejs/entity/$LivingEntityDeathEventJS"
 import {$RemoveJEICategoriesEvent, $RemoveJEICategoriesEvent$Type} from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$RemoveJEICategoriesEvent"
 import {$InformationJEIEventJS, $InformationJEIEventJS$Type} from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$InformationJEIEventJS"
+import {$HandRenderEvent, $HandRenderEvent$Type} from "packages/net/liopyu/animationjs/events/$HandRenderEvent"
 import {$BlockRightClickedEventJS, $BlockRightClickedEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$BlockRightClickedEventJS"
 import {$MBDMachineEvents$MachineClientTickEventJS, $MBDMachineEvents$MachineClientTickEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineClientTickEventJS"
 import {$EntitySpawnedEventJS, $EntitySpawnedEventJS$Type} from "packages/dev/latvian/mods/kubejs/entity/$EntitySpawnedEventJS"
@@ -29,7 +31,6 @@ import {$ExplosionEventJS$Before, $ExplosionEventJS$Before$Type} from "packages/
 import {$JEISubtypesEventJS, $JEISubtypesEventJS$Type} from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$JEISubtypesEventJS"
 import {$ItemDroppedEventJS, $ItemDroppedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemDroppedEventJS"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$MBDMachineEvents$MachineClientSetupEventJS, $MBDMachineEvents$MachineClientSetupEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineClientSetupEventJS"
 import {$TypeAssignmentEventJS, $TypeAssignmentEventJS$Type} from "packages/moe/wolfgirl/probejs/events/$TypeAssignmentEventJS"
 import {$ItemSmeltedEventJS, $ItemSmeltedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemSmeltedEventJS"
 import {$DetectorBlockEventJS, $DetectorBlockEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$DetectorBlockEventJS"
@@ -50,6 +51,7 @@ import {$ItemCraftedEventJS, $ItemCraftedEventJS$Type} from "packages/dev/latvia
 import {$GenerateClientAssetsEventJS, $GenerateClientAssetsEventJS$Type} from "packages/dev/latvian/mods/kubejs/client/$GenerateClientAssetsEventJS"
 import {$LivingEntityDropsEventJS, $LivingEntityDropsEventJS$Type} from "packages/dev/latvian/mods/kubejs/entity/forge/$LivingEntityDropsEventJS"
 import {$RemoveJEIRecipesEvent, $RemoveJEIRecipesEvent$Type} from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$RemoveJEIRecipesEvent"
+import {$PlayerRenderer, $PlayerRenderer$Type} from "packages/net/liopyu/animationjs/events/$PlayerRenderer"
 
 declare global {
 export namespace ProbeEvents {
@@ -115,6 +117,11 @@ function tick(extra: string, handler: (event: $SimpleLevelEventJS) => void): voi
 function tick(handler: (event: $SimpleLevelEventJS) => void): void
 function afterExplosion(handler: (event: $ExplosionEventJS$After) => void): void
 }
+export namespace AnimationJS {
+function playerRenderer(handler: (event: $PlayerRenderer) => void): void
+function handRenderer(handler: (event: $HandRenderEvent) => void): void
+function playerModel(handler: (event: $PlayerModelEvent) => void): void
+}
 export namespace EntityEvents {
 function spawned(extra: $EntityType$Type, handler: (event: $EntitySpawnedEventJS) => void): void
 function spawned(handler: (event: $EntitySpawnedEventJS) => void): void
@@ -146,8 +153,6 @@ function onClientTick(extra: string, handler: (event: $MBDMachineEvents$MachineC
 function onClientTick(handler: (event: $MBDMachineEvents$MachineClientTickEventJS) => void): void
 function onCustomDataUpdate(extra: string, handler: (event: $MBDMachineEvents$MachineCustomDataUpdateEventJS) => void): void
 function onCustomDataUpdate(handler: (event: $MBDMachineEvents$MachineCustomDataUpdateEventJS) => void): void
-function onClientMachineSetup(extra: string, handler: (event: $MBDMachineEvents$MachineClientSetupEventJS) => void): void
-function onClientMachineSetup(handler: (event: $MBDMachineEvents$MachineClientSetupEventJS) => void): void
 }
 export namespace BlockEvents {
 function broken(extra: $Block$Type, handler: (event: $BlockBrokenEventJS) => void): void

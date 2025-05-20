@@ -5,6 +5,72 @@
 	group: "34DE6C1EE226FBA2"
 	icon: "create:wrench"
 	id: "12098B4B2323C55C"
+	images: [
+		{
+			height: 0.7d
+			image: "mbd2:textures/quests/blue_turn.png"
+			rotation: 0.0d
+			width: 0.7d
+			x: 0.7295918367346985d
+			y: 4.239795918367349d
+		}
+		{
+			height: 1.32d
+			image: "mbd2:textures/quests/blue.png"
+			rotation: 0.0d
+			width: 1.32d
+			x: 1.58d
+			y: 4.5d
+		}
+		{
+			height: 0.7d
+			image: "mbd2:textures/quests/blue_turn.png"
+			rotation: -90.0d
+			width: 0.7d
+			x: 0.7295918367346985d
+			y: 4.790816326530617d
+		}
+		{
+			height: 15.15d
+			image: "mbd2:textures/quests/test.png"
+			rotation: 0.0d
+			width: 15.15d
+			x: 4.992006802721079d
+			y: 2.498809523809527d
+		}
+		{
+			height: 1.0d
+			image: "kubejs:item/spinner"
+			rotation: 0.0d
+			width: 1.0d
+			x: 11.5d
+			y: 5.0d
+		}
+		{
+			height: 1.0d
+			image: "botania:block/alfheim_portal_swirl"
+			rotation: 0.0d
+			width: 1.0d
+			x: 11.5d
+			y: 6.0d
+		}
+		{
+			height: 29.0d
+			image: "mbd2:textures/quests/background_create.png"
+			rotation: 0.0d
+			width: 29.0d
+			x: 23.5d
+			y: 3.0d
+		}
+		{
+			height: 1.0d
+			image: "ftbteams:textures/add.png"
+			rotation: 0.0d
+			width: 1.0d
+			x: 8.5d
+			y: 10.5d
+		}
+	]
 	order_index: 0
 	quest_links: [ ]
 	quests: [
@@ -50,35 +116,25 @@
 				item: "mbd2:ember_engine"
 				type: "item"
 			}]
-			x: -4.5d
+			x: -1.5d
 			y: 4.5d
 		}
 		{
-			dependencies: ["235E43D5B910D687"]
+			dependencies: ["64A3DAFEAB821446"]
 			id: "4DD9613A79B2570D"
+			subtitle: "Press Org. Matter into Bio Mass"
 			tasks: [{
 				id: "1D12078786672161"
 				item: "kubejs:bio_mass"
 				type: "item"
 			}]
-			title: "Press -> Bio Mass"
-			x: 0.0d
-			y: 4.5d
-		}
-		{
-			dependencies: ["4DD9613A79B2570D"]
-			id: "298A3EC4BBDFD02F"
-			tasks: [{
-				id: "55E1F816AAA1A4FE"
-				item: "create:encased_fan"
-				type: "item"
-			}]
-			title: "Washing"
-			x: 1.5d
-			y: 4.5d
+			x: 21.0d
+			y: 6.5d
 		}
 		{
 			id: "64A3DAFEAB821446"
+			min_required_dependencies: 1
+			subtitle: "Almost any plant matter (add more)"
 			tasks: [
 				{
 					id: "2EF2B31FB7F793C0"
@@ -107,8 +163,8 @@
 				}
 			]
 			title: "Organic Matter"
-			x: -3.0d
-			y: 4.5d
+			x: 18.5d
+			y: 6.5d
 		}
 		{
 			dependencies: [
@@ -175,89 +231,6 @@
 			y: 2.0d
 		}
 		{
-			id: "4A9B126669F3C235"
-			tasks: [{
-				id: "652AFA5EBE472589"
-				item: "kubejs:small_iron_dust"
-				type: "item"
-			}]
-			x: 2.5d
-			y: 5.5d
-		}
-		{
-			dependencies: [
-				"74DBCD588BE361F4"
-				"4A9B126669F3C235"
-			]
-			id: "50A1AA4D66943C94"
-			tasks: [{
-				id: "252290731A42D43A"
-				item: "kubejs:copper_refinment_blend"
-				type: "item"
-			}]
-			title: "Mixer > Copper Blend"
-			x: 4.0d
-			y: 5.5d
-		}
-		{
-			dependencies: ["50A1AA4D66943C94"]
-			id: "749915362B284A67"
-			tasks: [{
-				id: "7B89B6D4364B7A65"
-				item: "embers:melter"
-				type: "item"
-			}]
-			x: 5.5d
-			y: 5.5d
-		}
-		{
-			dependencies: ["749915362B284A67"]
-			id: "737BC1BC747352E9"
-			tasks: [{
-				id: "0B5B2B28E95F2055"
-				item: "immersiveengineering:slag"
-				type: "item"
-			}]
-			x: 7.0d
-			y: 4.0d
-		}
-		{
-			dependencies: ["4CB0DEB50B97EBE6"]
-			id: "46C632C03ABC8799"
-			tasks: [{
-				id: "1173753F68FED81F"
-				item: "embers:stamper"
-				type: "item"
-			}]
-			x: 8.5d
-			y: 5.5d
-		}
-		{
-			dependencies: ["46C632C03ABC8799"]
-			id: "7F69C3EBBFE6F1EF"
-			tasks: [{
-				id: "6B8B01121116BBB0"
-				item: "minecraft:copper_ingot"
-				type: "item"
-			}]
-			x: 10.0d
-			y: 5.5d
-		}
-		{
-			dependencies: [
-				"2C9EB7C4FC122836"
-				"633A76490A9C3899"
-			]
-			id: "035B7C423C1F6915"
-			tasks: [{
-				id: "7C27E9D3DABEA510"
-				item: "embers:mixer_centrifuge"
-				type: "item"
-			}]
-			x: 7.0d
-			y: 7.0d
-		}
-		{
 			dependencies: ["1603BFECA9A187D5"]
 			id: "633A76490A9C3899"
 			tasks: [{
@@ -265,90 +238,47 @@
 				item: "embers:soul_crude_bucket"
 				type: "item"
 			}]
-			x: 7.0d
-			y: 8.5d
+			x: 29.5d
+			y: 3.0d
 		}
 		{
-			dependencies: ["6012DA08C4C34C2D"]
+			dependencies: [
+				"74DBCD588BE361F4"
+				"781EDDB568D79B96"
+			]
 			id: "2C9EB7C4FC122836"
+			subtitle: "Lava and Copper Oxides in create Mixer"
 			tasks: [{
-				id: "590108EC98C22185"
-				item: "minecraft:bucket"
+				id: "5479351C2EB343DD"
+				item: "kubejs:copper_essence_bucket"
 				type: "item"
 			}]
 			title: "Copper Essence Bucket"
-			x: 5.5d
-			y: 7.0d
+			x: 26.0d
+			y: 6.5d
 		}
 		{
-			dependencies: ["781EDDB568D79B96"]
-			id: "6012DA08C4C34C2D"
-			tasks: [{
-				id: "4B57076DE535CAF8"
-				item: "embers:mixer_centrifuge"
-				type: "item"
-			}]
-			title: "Mix with Molten Copper"
-			x: 4.0d
-			y: 7.0d
-		}
-		{
-			dependencies: ["7BF37F18AB69CD92"]
+			dependencies: ["0DE9E6CF5A9AC075"]
 			id: "781EDDB568D79B96"
+			subtitle: "Melt Cobblestone using Melter"
 			tasks: [{
 				id: "01501897150738EE"
 				item: "minecraft:lava_bucket"
 				type: "item"
 			}]
-			x: 2.5d
-			y: 7.0d
+			x: 26.0d
+			y: 3.0d
 		}
 		{
-			dependencies: [
-				"035B7C423C1F6915"
-				"749915362B284A67"
-			]
-			id: "4CB0DEB50B97EBE6"
-			tasks: [{
-				id: "2D08AB6C706C4F9C"
-				item: "embers:molten_copper_bucket"
-				type: "item"
-			}]
-			x: 7.0d
-			y: 5.5d
-		}
-		{
-			dependencies: ["298A3EC4BBDFD02F"]
+			dependencies: ["4DD9613A79B2570D"]
 			id: "74DBCD588BE361F4"
 			tasks: [{
 				id: "24888819E4EA895A"
 				item: "kubejs:copper_oxide_dust"
 				type: "item"
 			}]
-			x: 3.0d
-			y: 4.5d
-		}
-		{
-			dependencies: ["64A3DAFEAB821446"]
-			id: "235E43D5B910D687"
-			tasks: [{
-				id: "0195853B49A82D9C"
-				item: "create:mechanical_press"
-				type: "item"
-			}]
-			x: -1.5d
-			y: 4.5d
-		}
-		{
-			dependencies: ["0DE9E6CF5A9AC075"]
-			id: "7BF37F18AB69CD92"
-			tasks: [{
-				id: "13CF073A9BAA1F9F"
-				item: "embers:melter"
-				type: "item"
-			}]
-			x: 1.0d
-			y: 7.0d
+			x: 23.5d
+			y: 6.5d
 		}
 		{
 			id: "0DE9E6CF5A9AC075"
@@ -357,41 +287,122 @@
 				item: "minecraft:cobblestone"
 				type: "item"
 			}]
-			x: 1.0d
-			y: 8.5d
+			x: 24.5d
+			y: -0.5d
 		}
 		{
-			dependencies: ["6C05B8E476B511FC"]
+			dependencies: [
+				"6C05B8E476B511FC"
+				"1EB6489F7B07BFB1"
+			]
 			id: "1603BFECA9A187D5"
 			tasks: [{
 				id: "42CEAB02BF303C80"
 				item: "minecraft:soul_sand"
 				type: "item"
 			}]
-			x: 5.5d
-			y: 8.5d
+			x: 29.5d
+			y: -0.5d
 		}
 		{
 			dependencies: ["5AD4E73A372962F5"]
 			id: "6C05B8E476B511FC"
+			optional: true
 			tasks: [{
 				id: "53CACFB6813BC25E"
 				item: "minecraft:soul_campfire"
 				type: "item"
 			}]
-			x: 4.0d
-			y: 8.5d
+			title: "Haunting"
+			x: 28.0d
+			y: -1.5d
 		}
 		{
+			dependencies: ["0DE9E6CF5A9AC075"]
 			id: "5AD4E73A372962F5"
 			tasks: [{
 				id: "131A0A5AFB257B1A"
 				item: "minecraft:sand"
 				type: "item"
 			}]
-			x: 2.5d
-			y: 8.5d
+			x: 27.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["5AD4E73A372962F5"]
+			id: "1EB6489F7B07BFB1"
+			optional: true
+			tasks: [{
+				id: "142CBA701DA1A5A8"
+				item: "embers:alchemy_pedestal"
+				type: "item"
+			}]
+			title: "Alchemy"
+			x: 28.0d
+			y: 0.5d
+		}
+		{
+			dependencies: [
+				"199BB98B91AA436A"
+				"2C9EB7C4FC122836"
+			]
+			dependency_requirement: "one_completed"
+			id: "45D60BF6280A17EA"
+			subtitle: "stamp Copper Essence with Bone Meal using Flat Stamp"
+			tasks: [{
+				id: "50FC9383D3C34403"
+				item: "kubejs:copper_coal_meal"
+				type: "item"
+			}]
+			x: 28.0d
+			y: 6.5d
+		}
+		{
+			dependencies: [
+				"056E6F073F54AC80"
+				"633A76490A9C3899"
+			]
+			id: "199BB98B91AA436A"
+			tasks: [{
+				id: "09907BA0B40C1CC8"
+				item: "kubejs:copper_essence_bucket"
+				type: "item"
+			}]
+			x: 28.0d
+			y: 3.0d
+		}
+		{
+			id: "056E6F073F54AC80"
+			tasks: [{
+				id: "394B6C713872ABD8"
+				item: "kubejs:copper_ore_crystal"
+				type: "item"
+			}]
+			x: 30.0d
+			y: 5.0d
+		}
+		{
+			dependencies: ["45D60BF6280A17EA"]
+			id: "76C3827EDB64AD75"
+			tasks: [{
+				id: "6E1D8FDF9CD848D7"
+				item: "kubejs:copper_ore_crystal"
+				type: "item"
+			}]
+			x: 29.5d
+			y: 6.5d
+		}
+		{
+			dependencies: ["76C3827EDB64AD75"]
+			id: "38413C2309533076"
+			tasks: [{
+				id: "40103F5874E4A6C6"
+				item: "minecraft:raw_copper"
+				type: "item"
+			}]
+			x: 32.5d
+			y: 6.5d
 		}
 	]
-	title: "Create 1"
+	title: "Create"
 }

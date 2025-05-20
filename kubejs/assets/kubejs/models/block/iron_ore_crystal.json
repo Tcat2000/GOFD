@@ -1,0 +1,9 @@
+{
+    "loader": "forge:obj",
+    "flip_v": false,
+    "model": "kubejs:models/block/crystal/iron_ore_crystal.obj",
+    "textures": {
+        "texture0": "minecraft:block/stone",
+        "particle": "minecraft:block/stone"
+    }
+}

@@ -14,17 +14,17 @@ public "matches"(arg0: $AudioFormat$Type): boolean
 public "properties"(): $Map<(string), (any)>
 public "isBigEndian"(): boolean
 public "getEncoding"(): $AudioFormat$Encoding
+public "getSampleRate"(): float
 public "getChannels"(): integer
 public "getFrameRate"(): float
 public "getFrameSize"(): integer
-public "getSampleRate"(): float
 public "getSampleSizeInBits"(): integer
 get "bigEndian"(): boolean
 get "encoding"(): $AudioFormat$Encoding
+get "sampleRate"(): float
 get "channels"(): integer
 get "frameRate"(): float
 get "frameSize"(): integer
-get "sampleRate"(): float
 get "sampleSizeInBits"(): integer
 }
 /**

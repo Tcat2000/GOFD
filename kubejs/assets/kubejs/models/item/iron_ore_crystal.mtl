@@ -1,0 +1,5 @@
+# Made in Blockbench 4.12.3
+newmtl m_8ecf9bc6-6566-ae38-5287-3b5bfb185c6c
+map_Kd minecraft:block/stone
+newmtl m_5e56759d-97c0-7c18-bc41-6471dbaae5d9
+map_Kd minecraft:block/raw_iron_block

@@ -1,0 +1,138 @@
+{
+    "multipart": [
+        {
+            "apply": [
+                {
+                    "model": "kubejs:block/base"
+                }
+            ]
+        },
+        {
+            "apply": [
+                {
+                    "model": "minecraft:block/air",
+                    "weight": 2
+                },
+                {
+                    "model": "kubejs:block/iron_0",
+                    "weight": 2
+                },
+                {
+                    "model": "kubejs:block/iron_1",
+                    "weight": 2
+                },
+                {
+                    "model": "kubejs:block/iron_2",
+                    "weight": 2
+                },
+                {
+                    "model": "kubejs:block/iron_3",
+                    "weight": 1
+                },
+                {
+                    "model": "kubejs:block/iron_4",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "apply": [
+                {
+                    "model": "minecraft:block/air",
+                    "weight": 4
+                },
+                {
+                    "model": "kubejs:block/iron_0",
+                    "weight": 4,
+                    "y": 90
+                },
+                {
+                    "model": "kubejs:block/iron_2",
+                    "weight": 4,
+                    "y": 90
+                },
+                {
+                    "model": "kubejs:block/iron_2",
+                    "weight": 4,
+                    "y": 90
+                },
+                {
+                    "model": "kubejs:block/iron_3",
+                    "weight": 2,
+                    "y": 90
+                },
+                {
+                    "model": "kubejs:block/iron_4",
+                    "weight": 2,
+                    "y": 90
+                }
+            ]
+        },
+        {
+            "apply": [
+                {
+                    "model": "minecraft:block/air",
+                    "weight": 6
+                },
+                {
+                    "model": "kubejs:block/iron_0",
+                    "weight": 6,
+                    "y": 180
+                },
+                {
+                    "model": "kubejs:block/iron_1",
+                    "weight": 6,
+                    "y": 180
+                },
+                {
+                    "model": "kubejs:block/iron_2",
+                    "weight": 6,
+                    "y": 180
+                },
+                {
+                    "model": "kubejs:block/iron_3",
+                    "weight": 3,
+                    "y": 180
+                },
+                {
+                    "model": "kubejs:block/iron_4",
+                    "weight": 3,
+                    "y": 180
+                }
+            ]
+        },
+        {
+            "apply": [
+                {
+                    "model": "minecraft:block/air",
+                    "weight": 8
+                },
+                {
+                    "model": "kubejs:block/iron_0",
+                    "weight": 8,
+                    "y": 270
+                },
+                {
+                    "model": "kubejs:block/iron_1",
+                    "weight": 8,
+                    "y": 270
+                },
+                {
+                    "model": "kubejs:block/iron_2",
+                    "weight": 8,
+                    "y": 270
+                },
+                {
+                    "model": "kubejs:block/iron_3",
+                    "weight": 4,
+                    "y": 270
+                },
+                {
+                    "model": "kubejs:block/iron_4",
+                    "weight": 4,
+                    "y": 270
+                }
+            ]
+        }
+    ]
+}

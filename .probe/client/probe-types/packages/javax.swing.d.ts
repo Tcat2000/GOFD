@@ -3,15 +3,15 @@ import {$Enumeration, $Enumeration$Type} from "packages/java/util/$Enumeration"
 
 export interface $AttributeSet {
 
+ "containsAttribute"(arg0: any, arg1: any): boolean
+ "containsAttributes"(arg0: $AttributeSet$Type): boolean
+ "getResolveParent"(): $AttributeSet
  "isDefined"(arg0: any): boolean
  "isEqual"(arg0: $AttributeSet$Type): boolean
  "getAttributeCount"(): integer
  "getAttribute"(arg0: any): any
  "copyAttributes"(): $AttributeSet
  "getAttributeNames"(): $Enumeration<(any)>
- "containsAttribute"(arg0: any, arg1: any): boolean
- "containsAttributes"(arg0: $AttributeSet$Type): boolean
- "getResolveParent"(): $AttributeSet
 }
 
 export namespace $AttributeSet {

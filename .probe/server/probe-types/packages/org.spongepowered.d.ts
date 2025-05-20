@@ -83,26 +83,26 @@ constructor(arg0: string, arg1: boolean, arg2: byte)
 constructor(arg0: string, arg1: boolean, arg2: character)
 constructor(arg0: string, arg1: boolean, arg2: double)
 
-public "getReturnValueB"(): byte
-public "getReturnValueC"(): character
-public "getReturnValueD"(): double
+public "getReturnValue"(): R
 public "setReturnValue"(arg0: R): void
 public "getReturnValueJ"(): long
+public "getReturnValueC"(): character
+public "getReturnValueI"(): integer
+public "getReturnValueD"(): double
+public "getReturnValueB"(): byte
 public "getReturnValueF"(): float
 public "getReturnValueS"(): short
 public "getReturnValueZ"(): boolean
-public "getReturnValueI"(): integer
-public "getReturnValue"(): R
-get "returnValueB"(): byte
-get "returnValueC"(): character
-get "returnValueD"(): double
+get "returnValue"(): R
 set "returnValue"(value: R)
 get "returnValueJ"(): long
+get "returnValueC"(): character
+get "returnValueI"(): integer
+get "returnValueD"(): double
+get "returnValueB"(): byte
 get "returnValueF"(): float
 get "returnValueS"(): short
 get "returnValueZ"(): boolean
-get "returnValueI"(): integer
-get "returnValue"(): R
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

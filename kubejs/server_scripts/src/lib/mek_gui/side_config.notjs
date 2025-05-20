@@ -1,0 +1,133 @@
+const { $Widget } = require("packages/com/lowdragmc/lowdraglib/gui/widget/$Widget");
+const { $Position } = require("packages/com/lowdragmc/lowdraglib/utils/$Position");
+const { $Size } = require("packages/com/lowdragmc/lowdraglib/utils/$Size");
+
+BlockEvents.rightClicked('minecraft:diamond_block', event => {
+    BlockUIFactory.INSTANCE.openUI(event.player, event.block, "mek_side_config_test");
+});
+LDLibUI.block("mek_side_config_test", event => {
+    event.success(openSideConfigUI(new WidgetGroup(), event.block));
+    event.block.level.getBlock(event.block.pos.offset(0,1,0))
+});
+
+let button_none = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_none.png")
+let button_input = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_input.png")
+let button_output = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_output.png")
+let button_input_output = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_input_output.png")
+let button_energy = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_energy.png")
+let modes_normal = [button_none, button_input, button_output, button_input_output, button_energy];
+
+let button_none_selected = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_none.png")
+let button_input_selected = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_input.png")
+let button_output_selected = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_output.png")
+let button_input_output_selected = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_input_output.png")
+let button_energy_selected = new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_energy.png")
+let modes_selected = [button_none_selected, button_input_selected, button_output_selected, button_input_output_selected, button_energy_selected];
+
+function openSideConfigUI(source, block, energy, gas, infuse, pigment, slurry, item) {
+    let creator = UIProject.loadUIFromFile("ldlib:mek/side_config");
+    let root = creator.get();
+
+    let eject = false;
+
+    let blur_overlay = root.getFirstWidgetById("blur");
+    let eject_indicator = root.getFirstWidgetById("eject_indicator");
+
+    let config_top = config(root, "config_top", block.level.getBlock(block.pos.offset(0,1,0)), new $Position(74, 56));
+    let config_front = config(root, "config_front", block.level.getBlock(block.pos.offset(0,0,-1)), new $Position(74, 56 + 23));
+    let config_bottom = config(root, "config_bottom", block.level.getBlock(block.pos.offset(0,-1,0)), new $Position(74, 56 + 23 + 23));
+    let config_left = config(root, "config_left", block.level.getBlock(block.pos.offset(-1,0,0)), new $Position(74 - 23, 56 + 23));
+    let config_right = config(root, "config_right", block.level.getBlock(block.pos.offset(1,0,0)), new $Position(74 + 23, 56 + 23));
+    let config_back = config(root, "config_back", block.level.getBlock(block.pos.offset(0,0,1)), new $Position(74 - 23, 56 + 23 + 23));
+
+    let button_close = root.getFirstWidgetById("close");
+    let dragger = new JavaAdapter(Java.loadClass("com.lowdragmc.lowdraglib.gui.widget.Widget"), {
+        mouseDragged: function(mouseX, mouseY, button, dragX, dragY) {
+            if(this.dragging) root.setSelfPosition(this.startPos.add(mouseX - this.mouseX, mouseY - this.mouseY));
+        },
+        mouseClicked: function(mouseX, mouseY, button) {
+            this.dragging = this.isMouseOverElement(mouseX, mouseY);
+            this.startPos = root.getSelfPosition();
+            this.mouseX = mouseX;
+            this.mouseY = mouseY;
+        },
+        mouseReleased: function(mouseX, mouseY, button) {
+
+        }
+    }, new $Position(3,3), new $Size(156, 18)).setId("dragger");
+    root.addWidget(dragger);
+    let button_reset = new JavaAdapter(Java.loadClass("com.lowdragmc.lowdraglib.gui.widget.WidgetGroup"), {
+        mouseClicked: function(mouseX, mouseY, button) {
+            if(!this.isMouseOverElement(mouseX, mouseY)) return;
+            config_top.mode = 0;
+            config_top.updateTexture();
+            config_front.mode = 0;
+            config_front.updateTexture();
+            config_bottom.mode = 0;
+            config_bottom.updateTexture();
+            config_left.mode = 0;
+            config_left.updateTexture();
+            config_right.mode = 0;
+            config_right.updateTexture();
+            config_back.mode = 0;
+            config_back.updateTexture();
+        },
+        mouseMoved: function(mouseX, mouseY) {
+            if(!this.isMouseOverElement(mouseX, mouseY)) this.setBackground(new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_14.png"));
+            else this.setBackground(new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_14_selected.png"));
+        }
+    }, new $Position(139,98), new $Size(14, 14)).setId("reset_sides");
+    button_reset.addWidget(new ImageWidget(0, 0, 14, 14, new ResourceTexture["(java.lang.String)"]("mekanism:gui/button/clear_sides.png")));
+    root.addWidget(button_reset);
+
+    let button_toggle = new JavaAdapter(Java.loadClass("com.lowdragmc.lowdraglib.gui.widget.WidgetGroup"), {
+        mouseClicked: function(mouseX, mouseY, button) {
+            if(!this.isMouseOverElement(mouseX, mouseY)) return;
+            eject = !eject;
+            console.log(eject);
+            
+            if(eject) eject_indicator.setText(Component.literal("Eject: on"));
+            if(!eject) eject_indicator.setText(Component.literal("Eject: off"));
+        },
+        mouseMoved: function(mouseX, mouseY) {
+            if(!this.isMouseOverElement(mouseX, mouseY)) this.setBackground(new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_14.png"));
+            else this.setBackground(new ResourceTexture["(java.lang.String)"]("mbd2:textures/gui/mek/button_14_selected.png"));
+        }
+    }, new $Position(139,25), new $Size(14, 14)).setId("reset_sides");
+    button_toggle.addWidget(new ImageWidget(0, 0, 14, 14, new ResourceTexture["(java.lang.String)"]("mekanism:gui/button/auto_eject.png")));
+    root.addWidget(button_toggle);
+
+    blur_overlay.setVisible(false);
+
+
+    source.addWidget(root);
+    source.mouseMoved(0,0);
+    return source;
+}
+
+function config(root, id, block, pos) {
+    let obj = {};
+    obj.updateTexture = function() {
+        obj.button.setBackground(modes_normal[obj.mode]);
+    }
+    obj.button = new JavaAdapter(Java.loadClass("com.lowdragmc.lowdraglib.gui.widget.WidgetGroup"), {
+        mouseClicked: function(mouseX, mouseY, button) {
+            if(!this.isMouseOverElement(mouseX, mouseY)) return;
+            obj.mode = (obj.mode + 1) % modes_normal.length;
+            obj.updateTexture();
+        }
+    }, pos, new $Size(22, 22)).setId(id).setBackground(modes_normal[0]);
+    obj.slot = new PhantomSlotWidget().setId("slot");
+    obj.slot.setSelfPosition(2,2);
+    obj.button.addWidget(obj.slot);
+    obj.slot.drawHoverOverlay = false;
+    root.addWidget(obj.button);
+    obj.mode = 0;
+    obj.slot.setHandlerSlot(new ItemStackTransfer(1), 0);
+    obj.slot.setItem(block.item);
+    return obj;
+}
+
+function button(root,) {
+
+}

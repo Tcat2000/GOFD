@@ -10,4 +10,9 @@ StartupEvents.registry("block", event => {
 
     event.create("boiler/wall");
     event.create("boiler/firebox");
+
+    event.create("marble");
+    event.create("enscribed_marble");
+    event.create("dark_marble");
+    event.create("star_marble");
 });

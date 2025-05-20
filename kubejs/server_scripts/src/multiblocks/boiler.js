@@ -17,7 +17,7 @@ const NBTBurnTime = "burn_time";
 const NBTBoilProgress = "boil_progress";
 
 const recipe = MBDRegistries.RECIPE_TYPES.get("mbd2:boiler");
-const recipes = recipeManagerGetter.getMinecraftServer().getRecipeManager().getAllRecipesFor(recipe);
+// const recipes = recipeManagerGetter.getMinecraftServer().getRecipeManager().getAllRecipesFor(recipe);
 
 const thermalConvectionSpeed = 0.1;
 
@@ -41,7 +41,6 @@ MBDMachineEvents.onStructureFormed(boiler, eve => {
     data.putInt(NBTFireBoxCount, fireboxCount);
 
     console.log(recipe);
-    console.log(recipes);
 });
 
 MBDMachineEvents.onTick(boiler, eve => {
@@ -114,3 +113,14 @@ MBDMachineEvents.onTick(boiler, eve => {
     data.putInt(NBTBurnTime, burnTime);
     data.putFloat(NBTBoilProgress, boil);
 });
+
+MBDMachineEvents.onUI(boiler, event => {
+    var machine = event.getEvent().getMachine();
+    var data = machine.getCustomData();
+    var root = event.getEvent().root;
+    var slot_in = root.getFirstWidgetById("ui:fillter_in_0");
+    var slot_out = root.getFirstWidgetById("ui:filler_out_0");
+    var water_tank = root.getFirstWidgetById("ui:water_0");
+
+    global.AugmentFluidTankWidgetFillSlot(water_tank, slot_in, slot_out);
+})

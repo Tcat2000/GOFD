@@ -1,0 +1,162 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mekanism"
+	group: "6A93A99260EB7FB8"
+	id: "0DAB942046B4328A"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			id: "50FA3853576D7569"
+			tasks: [{
+				id: "352BD9343ABD90EC"
+				item: "minecraft:quartz"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			id: "6DCE33015004FBE1"
+			tasks: [{
+				id: "02BE7331A029D525"
+				item: "mekanism:chemical_crystallizer"
+				type: "item"
+			}]
+			x: -2.0d
+			y: 0.0d
+		}
+		{
+			id: "008F1C3761DA5BB9"
+			tasks: [{
+				id: "3A74B5A35F3B6E24"
+				item: "mekanism:chemical_dissolution_chamber"
+				type: "item"
+			}]
+			x: -6.0d
+			y: 0.0d
+		}
+		{
+			id: "56E858A59E7E802C"
+			tasks: [{
+				id: "4806FBB26E3D8998"
+				item: "mekanism:chemical_washer"
+				type: "item"
+			}]
+			x: -4.0d
+			y: 0.0d
+		}
+		{
+			id: "2966DDA82B3D7C36"
+			tasks: [{
+				id: "32CA4C9BF4343106"
+				item: "kubejs:small_quartz"
+				type: "item"
+			}]
+			x: -8.0d
+			y: 0.0d
+		}
+		{
+			id: "7EA918A73F4D12C9"
+			tasks: [{
+				id: "402383F498DD705B"
+				item: "botania:quartz_dark"
+				type: "item"
+			}]
+			x: 1.0d
+			y: -2.5d
+		}
+		{
+			id: "38C1F0472103EF9B"
+			tasks: [{
+				id: "060554093E35739B"
+				item: "botania:quartz_mana"
+				type: "item"
+			}]
+			x: 2.0d
+			y: -2.0d
+		}
+		{
+			id: "23BA0F3D1F078223"
+			tasks: [{
+				id: "67AC2DB6D6CFE281"
+				item: "botania:quartz_blaze"
+				type: "item"
+			}]
+			x: 2.5d
+			y: -1.0d
+		}
+		{
+			id: "797BF11BFC1005C4"
+			tasks: [{
+				id: "0E8F1135B21BCC10"
+				item: "botania:quartz_lavender"
+				type: "item"
+			}]
+			x: 2.5d
+			y: 0.0d
+		}
+		{
+			id: "5D84352D92D7E052"
+			tasks: [{
+				id: "084D94C0026349B8"
+				item: "botania:quartz_red"
+				type: "item"
+			}]
+			x: 2.5d
+			y: 1.0d
+		}
+		{
+			id: "1F49D4C0713271EB"
+			tasks: [{
+				id: "13184B7C86698A23"
+				item: "botania:quartz_elven"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			id: "78A751C58CF39A50"
+			tasks: [{
+				id: "65DBFBD81933708B"
+				item: "botania:quartz_sunny"
+				type: "item"
+			}]
+			x: 1.0d
+			y: 2.5d
+		}
+		{
+			id: "614BD2F586707F5F"
+			tasks: [{
+				id: "657BE3DF08E83ECF"
+				item: "kubejs:quartz_ore_crystal"
+				type: "item"
+			}]
+			x: -10.0d
+			y: 0.0d
+		}
+		{
+			id: "0F03A81F8CE3BA4F"
+			tasks: [{
+				id: "2EB275DCB30BF799"
+				item: "kubejs:quartz_coal_meal"
+				type: "item"
+			}]
+			x: -12.0d
+			y: 0.0d
+		}
+		{
+			id: "34FE86D65FD54586"
+			tasks: [{
+				id: "43878A192FBC4319"
+				item: "minecraft:bone_meal"
+				type: "item"
+			}]
+			x: -14.0d
+			y: 0.0d
+		}
+	]
+	title: "Mekanism"
+}

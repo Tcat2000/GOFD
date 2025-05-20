@@ -6,16 +6,16 @@ export class $PropertyChangeEvent extends $EventObject {
 constructor(arg0: any, arg1: string, arg2: any, arg3: any)
 
 public "toString"(): string
+public "getPropertyName"(): string
 public "getOldValue"(): any
 public "getNewValue"(): any
 public "getPropagationId"(): any
 public "setPropagationId"(arg0: any): void
-public "getPropertyName"(): string
+get "propertyName"(): string
 get "oldValue"(): any
 get "newValue"(): any
 get "propagationId"(): any
 set "propagationId"(value: any)
-get "propertyName"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

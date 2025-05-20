@@ -3724,8 +3724,8 @@ import {$AnnotatedType, $AnnotatedType$Type} from "packages/java/lang/reflect/$A
  */
 export interface $AnnotatedTypeVariable extends $AnnotatedType {
 
- "getAnnotatedBounds"(): ($AnnotatedType)[]
  "getAnnotatedOwnerType"(): $AnnotatedType
+ "getAnnotatedBounds"(): ($AnnotatedType)[]
  "getAnnotation"<T extends $Annotation>(arg0: $Class$Type<(T)>): T
  "getAnnotations"(): ($Annotation)[]
  "getDeclaredAnnotations"(): ($Annotation)[]

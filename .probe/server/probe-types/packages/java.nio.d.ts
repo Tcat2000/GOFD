@@ -22,18 +22,18 @@ public "isWritable"(): boolean
 public "selector"(): $Selector
 public "cancel"(): void
 public "isValid"(): boolean
+public "interestOps"(): integer
+public "interestOps"(arg0: integer): $SelectionKey
+public "readyOps"(): integer
+public "isAcceptable"(): boolean
 public "interestOpsOr"(arg0: integer): integer
 public "interestOpsAnd"(arg0: integer): integer
 public "isConnectable"(): boolean
-public "interestOps"(arg0: integer): $SelectionKey
-public "interestOps"(): integer
-public "isAcceptable"(): boolean
-public "readyOps"(): integer
 get "readable"(): boolean
 get "writable"(): boolean
 get "valid"(): boolean
-get "connectable"(): boolean
 get "acceptable"(): boolean
+get "connectable"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -739,10 +739,10 @@ export interface $MulticastChannel extends $NetworkChannel {
  "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type): $MembershipKey
  "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type, arg2: $InetAddress$Type): $MembershipKey
  "close"(): void
+ "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "bind"(arg0: $SocketAddress$Type): $NetworkChannel
  "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
  "getLocalAddress"(): $SocketAddress
- "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "supportedOptions"(): $Set<($SocketOption<(any)>)>
  "isOpen"(): boolean
 }
@@ -1121,12 +1121,13 @@ export class $ServerSocketChannel extends $AbstractSelectableChannel implements 
 
 
 public "validOps"(): integer
+public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $ServerSocketChannel
 public "accept"(): $SocketChannel
-public static "open"(arg0: $ProtocolFamily$Type): $ServerSocketChannel
 public static "open"(): $ServerSocketChannel
+public static "open"(arg0: $ProtocolFamily$Type): $ServerSocketChannel
 public "bind"(arg0: $SocketAddress$Type, arg1: integer): $ServerSocketChannel
-public "socket"(): $ServerSocket
 public "getLocalAddress"(): $SocketAddress
+public "socket"(): $ServerSocket
 public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
 public "isOpen"(): boolean
@@ -1261,28 +1262,26 @@ public "write"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
 public "write"(arg0: ($ByteBuffer$Type)[]): long
 public "write"(arg0: $ByteBuffer$Type): integer
 public "read"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
-public "read"(arg0: $ByteBuffer$Type): integer
 public "read"(arg0: ($ByteBuffer$Type)[]): long
+public "read"(arg0: $ByteBuffer$Type): integer
 public "connect"(arg0: $SocketAddress$Type): boolean
 public static "open"(arg0: $SocketAddress$Type): $SocketChannel
 public static "open"(): $SocketChannel
 public static "open"(arg0: $ProtocolFamily$Type): $SocketChannel
-public "bind"(arg0: $SocketAddress$Type): $SocketChannel
+public "getLocalAddress"(): $SocketAddress
+public "shutdownOutput"(): $SocketChannel
+public "shutdownInput"(): $SocketChannel
 public "socket"(): $Socket
 public "isConnected"(): boolean
-public "getLocalAddress"(): $SocketAddress
 public "isConnectionPending"(): boolean
 public "finishConnect"(): boolean
 public "getRemoteAddress"(): $SocketAddress
-public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $SocketChannel
-public "shutdownOutput"(): $SocketChannel
-public "shutdownInput"(): $SocketChannel
 public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
 public "isOpen"(): boolean
 public "close"(): void
-get "connected"(): boolean
 get "localAddress"(): $SocketAddress
+get "connected"(): boolean
 get "connectionPending"(): boolean
 get "remoteAddress"(): $SocketAddress
 }
@@ -1438,8 +1437,8 @@ public "channel"(): $MulticastChannel
 public "drop"(): void
 public "isValid"(): boolean
 public "unblock"(arg0: $InetAddress$Type): $MembershipKey
-public "networkInterface"(): $NetworkInterface
 public "sourceAddress"(): $InetAddress
+public "networkInterface"(): $NetworkInterface
 get "valid"(): boolean
 }
 /**
@@ -1777,30 +1776,31 @@ export class $DatagramChannel extends $AbstractSelectableChannel implements $Byt
 
 
 public "validOps"(): integer
-public "write"(arg0: ($ByteBuffer$Type)[]): long
 public "write"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
 public "write"(arg0: $ByteBuffer$Type): integer
+public "write"(arg0: ($ByteBuffer$Type)[]): long
 public "read"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
 public "read"(arg0: $ByteBuffer$Type): integer
 public "read"(arg0: ($ByteBuffer$Type)[]): long
 public "connect"(arg0: $SocketAddress$Type): $DatagramChannel
 public static "open"(arg0: $ProtocolFamily$Type): $DatagramChannel
 public static "open"(): $DatagramChannel
+public "bind"(arg0: $SocketAddress$Type): $DatagramChannel
+public "getLocalAddress"(): $SocketAddress
 public "socket"(): $DatagramSocket
 public "isConnected"(): boolean
-public "getLocalAddress"(): $SocketAddress
-public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
-public "getRemoteAddress"(): $SocketAddress
 public "disconnect"(): $DatagramChannel
+public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
 public "receive"(arg0: $ByteBuffer$Type): $SocketAddress
+public "getRemoteAddress"(): $SocketAddress
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type): $MembershipKey
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type, arg2: $InetAddress$Type): $MembershipKey
 public "close"(): void
 public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
 public "isOpen"(): boolean
-get "connected"(): boolean
 get "localAddress"(): $SocketAddress
+get "connected"(): boolean
 get "remoteAddress"(): $SocketAddress
 }
 /**
@@ -2038,10 +2038,10 @@ import {$SocketOption, $SocketOption$Type} from "packages/java/net/$SocketOption
  */
 export interface $NetworkChannel extends $Channel {
 
+ "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "bind"(arg0: $SocketAddress$Type): $NetworkChannel
  "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
  "getLocalAddress"(): $SocketAddress
- "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "supportedOptions"(): $Set<($SocketOption<(any)>)>
  "isOpen"(): boolean
  "close"(): void
@@ -2299,8 +2299,8 @@ import {$GroupPrincipal, $GroupPrincipal$Type} from "packages/java/nio/file/attr
 export class $UserPrincipalLookupService {
 
 
-public "lookupPrincipalByName"(arg0: string): $UserPrincipal
 public "lookupPrincipalByGroupName"(arg0: string): $GroupPrincipal
+public "lookupPrincipalByName"(arg0: string): $UserPrincipal
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2569,14 +2569,14 @@ public "provider"(): $SelectorProvider
 public "close"(): void
 public "keys"(): $Set<($SelectionKey)>
 public static "open"(): $Selector
-public "wakeup"(): $Selector
+public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>, arg1: long): integer
 public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
 public "select"(): integer
 public "select"(arg0: long): integer
-public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>, arg1: long): integer
-public "selectedKeys"(): $Set<($SelectionKey)>
-public "selectNow"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
+public "wakeup"(): $Selector
 public "selectNow"(): integer
+public "selectNow"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
+public "selectedKeys"(): $Set<($SelectionKey)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

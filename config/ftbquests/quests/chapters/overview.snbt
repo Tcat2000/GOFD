@@ -3,6 +3,7 @@
 	default_quest_shape: ""
 	filename: "overview"
 	group: ""
+	icon: "minecraft:filled_map"
 	id: "1ACDA7D339999F4F"
 	images: [{
 		height: 1.0d
@@ -18,7 +19,7 @@
 		{
 			icon: "embers:ember_crystal_cluster"
 			id: "45B490493A2A1943"
-			subtitle: "Tin \\& Iron"
+			subtitle: "Tin \\& Iron Obsidian?"
 			tasks: [{
 				id: "2CF101CC1D2AA8E4"
 				title: "Embers"
@@ -46,7 +47,7 @@
 				"7ED7C37A444F64A3"
 			]
 			id: "4A97BAB4CF4ADDE9"
-			subtitle: "Steel"
+			subtitle: "Steel, Aluminum"
 			tasks: [{
 				id: "4A43586E4EEC8711"
 				item: {
@@ -58,7 +59,7 @@
 				}
 				type: "item"
 			}]
-			title: "Pre IE"
+			title: "Immersive Engineering"
 			x: 3.0d
 			y: -2.0d
 		}
@@ -78,43 +79,45 @@
 		{
 			dependencies: ["19B0E6FDB43A63B9"]
 			id: "5B2444F76F5E094B"
-			subtitle: "Compressed Iron, Aluminum?, Plastic"
+			subtitle: "Compressed Iron, Plastic"
 			tasks: [{
 				id: "51A4277B4FA76CE0"
 				item: "pneumaticcraft:air_compressor"
 				type: "item"
 			}]
-			title: "Pnematic Craft"
+			title: "PNC"
 			x: 3.0d
-			y: 2.0d
+			y: 0.0d
 		}
 		{
-			dependencies: ["7ED7C37A444F64A3"]
+			dependencies: ["646CDFC41C8C2B3F"]
 			id: "2CA739BF6591F470"
-			subtitle: "Redstone"
+			subtitle: "Diamond"
 			tasks: [{
 				id: "1BD2998312872783"
 				item: "botania:mana_pool"
 				type: "item"
 			}]
 			title: "Botania"
-			x: 3.0d
-			y: 0.0d
+			x: 4.5d
+			y: 1.0d
 		}
 		{
 			dependencies: [
 				"5B2444F76F5E094B"
 				"2CA739BF6591F470"
+				"1C0FEFAEE768BAFF"
 			]
 			id: "179E3DF98E188C24"
+			subtitle: "Quartz"
 			tasks: [{
 				id: "243DBD31597B65ED"
 				item: "mekanism:alloy_reinforced"
 				type: "item"
 			}]
 			title: "Mekanism"
-			x: 4.5d
-			y: 3.0d
+			x: 6.0d
+			y: 0.0d
 		}
 		{
 			dependencies: [
@@ -133,6 +136,10 @@
 			y: -1.0d
 		}
 		{
+			dependencies: [
+				"179E3DF98E188C24"
+				"55FB4224071F5D5D"
+			]
 			id: "5ADD9337FF6DADAF"
 			tasks: [{
 				id: "303500EFC25CD2E3"
@@ -141,7 +148,7 @@
 			}]
 			title: "AE2"
 			x: 6.0d
-			y: 0.0d
+			y: -2.0d
 		}
 		{
 			id: "021B34FC06592FF4"
@@ -196,19 +203,22 @@
 			y: 0.0d
 		}
 		{
+			dependencies: ["7ED7C37A444F64A3"]
 			id: "646CDFC41C8C2B3F"
+			subtitle: "Redstone"
 			tasks: [{
 				id: "333DE4A996E7290C"
 				item: "minecraft:torchflower"
 				type: "item"
 			}]
 			title: "Nature's Aura"
-			x: 4.5d
-			y: 1.0d
+			x: 3.0d
+			y: 2.0d
 		}
 		{
-			dependencies: ["2CA739BF6591F470"]
+			dependencies: ["4A97BAB4CF4ADDE9"]
 			id: "1C0FEFAEE768BAFF"
+			subtitle: "Star Metal"
 			tasks: [{
 				id: "37AE67236BBA169C"
 				item: "mbd2:mbd_gadgets"

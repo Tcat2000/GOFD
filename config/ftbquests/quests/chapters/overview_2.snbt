@@ -3,6 +3,7 @@
 	default_quest_shape: ""
 	filename: "overview_2"
 	group: ""
+	icon: "botania:cosmetic_questgiver_mark"
 	id: "5FDA1C9220B9D503"
 	order_index: 1
 	quest_links: [ ]

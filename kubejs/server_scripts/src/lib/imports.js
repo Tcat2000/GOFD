@@ -1,0 +1,1 @@
+const FluidTransferHelper = Java.loadClass("com.lowdragmc.lowdraglib.side.fluid.FluidTransferHelper");

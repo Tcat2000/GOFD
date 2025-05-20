@@ -102,9 +102,9 @@ export class $BlockEntityBuilder<T extends $BlockEntity, P> extends $AbstractBui
 
 public "register"(): $BlockEntityEntry<(T)>
 public static "create"<T extends $BlockEntity, P>(arg0: $AbstractRegistrate$Type<(any)>, arg1: P, arg2: string, arg3: $BuilderCallback$Type, arg4: $BlockEntityBuilder$BlockEntityFactory$Type<(T)>): $BlockEntityBuilder<(T), (P)>
-public "renderer"(arg0: $NonNullSupplier$Type<($NonNullFunction$Type<($BlockEntityRendererProvider$Context$Type), ($BlockEntityRenderer$Type<(any)>)>)>): $BlockEntityBuilder<(T), (P)>
 public "validBlocks"(...arg0: ($NonNullSupplier$Type<(any)>)[]): $BlockEntityBuilder<(T), (P)>
 public "validBlock"(arg0: $NonNullSupplier$Type<(any)>): $BlockEntityBuilder<(T), (P)>
+public "renderer"(arg0: $NonNullSupplier$Type<($NonNullFunction$Type<($BlockEntityRendererProvider$Context$Type), ($BlockEntityRenderer$Type<(any)>)>)>): $BlockEntityBuilder<(T), (P)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
@@ -169,10 +169,10 @@ export class $ItemProviderEntry<T extends $ItemLike> extends $RegistryEntry<(T)>
 constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $RegistryObject$Type<(T)>)
 
 public "is"(arg0: $Item$Type): boolean
-public "asItem"(): $Item
-public "asStack"(arg0: integer): $ItemStack
 public "asStack"(): $ItemStack
+public "asStack"(arg0: integer): $ItemStack
 public "isIn"(arg0: $ItemStack$Type): boolean
+public "asItem"(): $Item
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
@@ -276,9 +276,9 @@ export class $RegistrateLootTableProvider extends $LootTableProvider implements 
 constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $PackOutput$Type)
 
 public "getSide"(): $LogicalSide
-public "getTables"(): $List<($LootTableProvider$SubProviderEntry)>
 public "addLootAction"(arg0: $LootContextParamSet$Type, arg1: $Consumer$Type<($BiConsumer$Type<($ResourceLocation$Type), ($LootTable$Builder$Type)>)>): void
 public "addLootAction"<T extends $RegistrateLootTables>(arg0: $RegistrateLootTableProvider$LootType$Type<(T)>, arg1: $NonNullConsumer$Type<(T)>): void
+public "getTables"(): $List<($LootTableProvider$SubProviderEntry)>
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
 get "side"(): $LogicalSide
 get "tables"(): $List<($LootTableProvider$SubProviderEntry)>
@@ -368,17 +368,17 @@ public "block"(): $BlockBuilder<($LiquidBlock), ($FluidBuilder<(T), (P)>)>
 public "block"<B extends $LiquidBlock>(arg0: $NonNullBiFunction$Type<($NonNullSupplier$Type<(any)>), ($BlockBehaviour$Properties$Type), (any)>): $BlockBuilder<(B), ($FluidBuilder<(T), (P)>)>
 public "lang"(arg0: string): $FluidBuilder<(T), (P)>
 public "tag"(...arg0: ($TagKey$Type<($Fluid$Type)>)[]): $FluidBuilder<(T), (P)>
-public "renderType"(arg0: $Supplier$Type<($RenderType$Type)>): $FluidBuilder<(T), (P)>
 public "removeTag"(...arg0: ($TagKey$Type<($Fluid$Type)>)[]): $FluidBuilder<(T), (P)>
-public "bucket"(): $ItemBuilder<($BucketItem), ($FluidBuilder<(T), (P)>)>
-public "bucket"<I extends $BucketItem>(arg0: $NonNullBiFunction$Type<($Supplier$Type<(any)>), ($Item$Properties$Type), (any)>): $ItemBuilder<(I), ($FluidBuilder<(T), (P)>)>
 public "defaultLang"(): $FluidBuilder<(T), (P)>
-public "defaultSource"(): $FluidBuilder<(T), (P)>
-public "defaultBlock"(): $FluidBuilder<(T), (P)>
 public "defaultBucket"(): $FluidBuilder<(T), (P)>
 public "fluidProperties"(arg0: $NonNullConsumer$Type<($ForgeFlowingFluid$Properties$Type)>): $FluidBuilder<(T), (P)>
+public "defaultBlock"(): $FluidBuilder<(T), (P)>
+public "defaultSource"(): $FluidBuilder<(T), (P)>
 public "noBlock"(): $FluidBuilder<(T), (P)>
 public "noBucket"(): $FluidBuilder<(T), (P)>
+public "bucket"(): $ItemBuilder<($BucketItem), ($FluidBuilder<(T), (P)>)>
+public "bucket"<I extends $BucketItem>(arg0: $NonNullBiFunction$Type<($Supplier$Type<(any)>), ($Item$Properties$Type), (any)>): $ItemBuilder<(I), ($FluidBuilder<(T), (P)>)>
+public "renderType"(arg0: $Supplier$Type<($RenderType$Type)>): $FluidBuilder<(T), (P)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
@@ -510,8 +510,8 @@ constructor(arg0: $Supplier$Type<($FeatureFlagSet$Type)>, arg1: $BooleanSupplier
 public "accept"(arg0: $Supplier$Type<(any)>, arg1: $CreativeModeTab$TabVisibility$Type): void
 public "accept"(arg0: $Supplier$Type<(any)>): void
 public "getFlags"(): $FeatureFlagSet
-public "accept"(arg0: $ItemStack$Type, arg1: $CreativeModeTab$TabVisibility$Type): void
 public "hasPermissions"(): boolean
+public "accept"(arg0: $ItemStack$Type, arg1: $CreativeModeTab$TabVisibility$Type): void
 public "acceptAll"(arg0: $Collection$Type<($ItemStack$Type)>, arg1: $CreativeModeTab$TabVisibility$Type): void
 public "accept"(arg0: $ItemStack$Type): void
 public "accept"(arg0: $ItemLike$Type): void
@@ -661,8 +661,8 @@ export type $NonNullSupplier_<T> = $NonNullSupplier$Type<(T)>;
 declare module "packages/com/tterrag/registrate/$AbstractRegistrate" {
 import {$IEventBus, $IEventBus$Type} from "packages/net/minecraftforge/eventbus/api/$IEventBus"
 import {$CreativeModeTabModifier, $CreativeModeTabModifier$Type} from "packages/com/tterrag/registrate/util/$CreativeModeTabModifier"
-import {$RegistryBuilder, $RegistryBuilder$Type} from "packages/net/minecraftforge/registries/$RegistryBuilder"
 import {$NonNullConsumer, $NonNullConsumer$Type} from "packages/com/tterrag/registrate/util/nullness/$NonNullConsumer"
+import {$RegistryBuilder, $RegistryBuilder$Type} from "packages/net/minecraftforge/registries/$RegistryBuilder"
 import {$Screen, $Screen$Type} from "packages/net/minecraft/client/gui/screens/$Screen"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
@@ -718,113 +718,113 @@ import {$NonNullFunction, $NonNullFunction$Type} from "packages/com/tterrag/regi
 export class $AbstractRegistrate<S extends $AbstractRegistrate<(S)>> {
 
 
-public "get"<R, T extends R>(arg0: $ResourceKey$Type<(any)>): $RegistryEntry<(T)>
 public "get"<R, T extends R>(arg0: string, arg1: $ResourceKey$Type<(any)>): $RegistryEntry<(T)>
+public "get"<R, T extends R>(arg0: $ResourceKey$Type<(any)>): $RegistryEntry<(T)>
 public "transform"<R, T extends R, P, S2 extends $Builder<(R), (T), (P), (S2)>>(arg0: $NonNullFunction$Type<(S), (S2)>): S2
 public "transform"(arg0: $NonNullUnaryOperator$Type<(S)>): S
 public "isRegistered"<R>(arg0: $ResourceKey$Type<(any)>): boolean
-public "entry"<R, T extends R, P, S2 extends $Builder<(R), (T), (P), (S2)>>(arg0: $NonNullBiFunction$Type<(string), ($BuilderCallback$Type), (S2)>): S2
 public "entry"<R, T extends R, P, S2 extends $Builder<(R), (T), (P), (S2)>>(arg0: string, arg1: $NonNullFunction$Type<($BuilderCallback$Type), (S2)>): S2
-public "generic"<R, T extends R, P>(arg0: P, arg1: $ResourceKey$Type<($Registry$Type<(R)>)>, arg2: $NonNullSupplier$Type<(T)>): $NoConfigBuilder<(R), (T), (P)>
+public "entry"<R, T extends R, P, S2 extends $Builder<(R), (T), (P), (S2)>>(arg0: $NonNullBiFunction$Type<(string), ($BuilderCallback$Type), (S2)>): S2
 public "generic"<R, T extends R>(arg0: $ResourceKey$Type<($Registry$Type<(R)>)>, arg1: $NonNullSupplier$Type<(T)>): $NoConfigBuilder<(R), (T), (S)>
 public "generic"<R, T extends R>(arg0: string, arg1: $ResourceKey$Type<($Registry$Type<(R)>)>, arg2: $NonNullSupplier$Type<(T)>): $NoConfigBuilder<(R), (T), (S)>
+public "generic"<R, T extends R, P>(arg0: P, arg1: $ResourceKey$Type<($Registry$Type<(R)>)>, arg2: $NonNullSupplier$Type<(T)>): $NoConfigBuilder<(R), (T), (P)>
 public "generic"<R, T extends R, P>(arg0: P, arg1: string, arg2: $ResourceKey$Type<($Registry$Type<(R)>)>, arg3: $NonNullSupplier$Type<(T)>): $NoConfigBuilder<(R), (T), (P)>
-public "block"<T extends $Block, P>(arg0: P, arg1: string, arg2: $NonNullFunction$Type<($BlockBehaviour$Properties$Type), (T)>): $BlockBuilder<(T), (P)>
 public "block"<T extends $Block>(arg0: $NonNullFunction$Type<($BlockBehaviour$Properties$Type), (T)>): $BlockBuilder<(T), (S)>
 public "block"<T extends $Block, P>(arg0: P, arg1: $NonNullFunction$Type<($BlockBehaviour$Properties$Type), (T)>): $BlockBuilder<(T), (P)>
 public "block"<T extends $Block>(arg0: string, arg1: $NonNullFunction$Type<($BlockBehaviour$Properties$Type), (T)>): $BlockBuilder<(T), (S)>
+public "block"<T extends $Block, P>(arg0: P, arg1: string, arg2: $NonNullFunction$Type<($BlockBehaviour$Properties$Type), (T)>): $BlockBuilder<(T), (P)>
 public "object"(arg0: string): S
-public "item"<T extends $Item>(arg0: string, arg1: $NonNullFunction$Type<($Item$Properties$Type), (T)>): $ItemBuilder<(T), (S)>
 public "item"<T extends $Item, P>(arg0: P, arg1: string, arg2: $NonNullFunction$Type<($Item$Properties$Type), (T)>): $ItemBuilder<(T), (P)>
 public "item"<T extends $Item, P>(arg0: P, arg1: $NonNullFunction$Type<($Item$Properties$Type), (T)>): $ItemBuilder<(T), (P)>
 public "item"<T extends $Item>(arg0: $NonNullFunction$Type<($Item$Properties$Type), (T)>): $ItemBuilder<(T), (S)>
+public "item"<T extends $Item>(arg0: string, arg1: $NonNullFunction$Type<($Item$Properties$Type), (T)>): $ItemBuilder<(T), (S)>
 public "getAll"<R>(arg0: $ResourceKey$Type<(any)>): $Collection<($RegistryEntry<(R)>)>
-public "entity"<T extends $Entity>(arg0: string, arg1: $EntityType$EntityFactory$Type<(T)>, arg2: $MobCategory$Type): $EntityBuilder<(T), (S)>
 public "entity"<T extends $Entity, P>(arg0: P, arg1: $EntityType$EntityFactory$Type<(T)>, arg2: $MobCategory$Type): $EntityBuilder<(T), (P)>
 public "entity"<T extends $Entity, P>(arg0: P, arg1: string, arg2: $EntityType$EntityFactory$Type<(T)>, arg3: $MobCategory$Type): $EntityBuilder<(T), (P)>
+public "entity"<T extends $Entity>(arg0: string, arg1: $EntityType$EntityFactory$Type<(T)>, arg2: $MobCategory$Type): $EntityBuilder<(T), (S)>
 public "entity"<T extends $Entity>(arg0: $EntityType$EntityFactory$Type<(T)>, arg1: $MobCategory$Type): $EntityBuilder<(T), (S)>
-public "fluid"(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"(arg0: string, arg1: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"(arg0: string, arg1: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"<T extends $ForgeFlowingFluid>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $NonNullSupplier$Type<($FluidType$Type)>, arg3: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
-public "fluid"<T extends $ForgeFlowingFluid>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $FluidBuilder$FluidTypeFactory$Type, arg3: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
-public "fluid"<T extends $ForgeFlowingFluid>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
-public "fluid"(arg0: string): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"<P>(arg0: P, arg1: string, arg2: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<P>(arg0: P, arg1: string): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullSupplier$Type<($FluidType$Type)>, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
-public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $FluidBuilder$FluidTypeFactory$Type, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
-public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
-public "fluid"<P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $FluidBuilder$FluidTypeFactory$Type, arg5: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
-public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
-public "fluid"<P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<P>(arg0: P, arg1: string, arg2: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<T extends $ForgeFlowingFluid>(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $FluidBuilder$FluidTypeFactory$Type, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
-public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $NonNullSupplier$Type<($FluidType$Type)>, arg5: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
-public "fluid"<T extends $ForgeFlowingFluid>(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
-public "fluid"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"<P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<P>(arg0: P, arg1: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<P>(arg0: P, arg1: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<P>(arg0: P): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
-public "fluid"<T extends $ForgeFlowingFluid>(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullSupplier$Type<($FluidType$Type)>, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
-public "fluid"(): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"(arg0: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "fluid"(arg0: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
-public "getOptional"<R, T extends R>(arg0: string, arg1: $ResourceKey$Type<(any)>): $RegistryEntry<(T)>
-public "makeRegistry"<R>(arg0: string, arg1: $Supplier$Type<($RegistryBuilder$Type<(R)>)>): $ResourceKey<($Registry<(R)>)>
+public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>), P>(arg0: P, arg1: string, arg2: $MenuBuilder$ForgeMenuFactory$Type<(T)>, arg3: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (P)>
+public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>)>(arg0: string, arg1: $MenuBuilder$MenuFactory$Type<(T)>, arg2: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (S)>
+public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>)>(arg0: $MenuBuilder$ForgeMenuFactory$Type<(T)>, arg1: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (S)>
+public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>), P>(arg0: P, arg1: string, arg2: $MenuBuilder$MenuFactory$Type<(T)>, arg3: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (P)>
+public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>)>(arg0: $MenuBuilder$MenuFactory$Type<(T)>, arg1: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (S)>
+public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>), P>(arg0: P, arg1: $MenuBuilder$MenuFactory$Type<(T)>, arg2: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (P)>
+public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>)>(arg0: string, arg1: $MenuBuilder$ForgeMenuFactory$Type<(T)>, arg2: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (S)>
+public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>), P>(arg0: P, arg1: $MenuBuilder$ForgeMenuFactory$Type<(T)>, arg2: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (P)>
 public "getModEventBus"(): $IEventBus
+public "defaultCreativeTab"(arg0: string): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (S)>
+public "defaultCreativeTab"<P>(arg0: P, arg1: string): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (P)>
+public "defaultCreativeTab"(): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (S)>
 public "defaultCreativeTab"(arg0: $ResourceKey$Type<($CreativeModeTab$Type)>): S
 public "defaultCreativeTab"<P>(arg0: P): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (P)>
-public "defaultCreativeTab"(arg0: string): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (S)>
-public "defaultCreativeTab"(): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (S)>
 public "defaultCreativeTab"<P>(arg0: P, arg1: string, arg2: $Consumer$Type<($CreativeModeTab$Builder$Type)>): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (P)>
 public "defaultCreativeTab"<P>(arg0: P, arg1: $Consumer$Type<($CreativeModeTab$Builder$Type)>): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (P)>
 public "defaultCreativeTab"(arg0: string, arg1: $Consumer$Type<($CreativeModeTab$Builder$Type)>): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (S)>
-public "defaultCreativeTab"<P>(arg0: P, arg1: string): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (P)>
 public "defaultCreativeTab"(arg0: $Consumer$Type<($CreativeModeTab$Builder$Type)>): $NoConfigBuilder<($CreativeModeTab), ($CreativeModeTab), (S)>
 public "skipErrors"(arg0: boolean): S
 public static "isDevEnvironment"(): boolean
-public "setDataGenerator"<P extends $RegistrateProvider, R>(arg0: $Builder$Type<(R), (any), (any), (any)>, arg1: $ProviderType$Type<(any)>, arg2: $NonNullConsumer$Type<(any)>): S
-public "setDataGenerator"<P extends $RegistrateProvider, R>(arg0: string, arg1: $ResourceKey$Type<(any)>, arg2: $ProviderType$Type<(any)>, arg3: $NonNullConsumer$Type<(any)>): S
+public "genData"<T extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: T): void
 public "getDataProvider"<P extends $RegistrateProvider>(arg0: $ProviderType$Type<(P)>): $Optional<(P)>
 public "addDataGenerator"<T extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
 public "addLang"(arg0: string, arg1: $ResourceLocation$Type, arg2: string): $MutableComponent
 public "addLang"(arg0: string, arg1: $ResourceLocation$Type, arg2: string, arg3: string): $MutableComponent
 public "addRawLang"(arg0: string, arg1: string): $MutableComponent
-public "genData"<T extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: T): void
+public "setDataGenerator"<P extends $RegistrateProvider, R>(arg0: string, arg1: $ResourceKey$Type<(any)>, arg2: $ProviderType$Type<(any)>, arg3: $NonNullConsumer$Type<(any)>): S
+public "setDataGenerator"<P extends $RegistrateProvider, R>(arg0: $Builder$Type<(R), (any), (any), (any)>, arg1: $ProviderType$Type<(any)>, arg2: $NonNullConsumer$Type<(any)>): S
 public "getModid"(): string
-public "enchantment"<T extends $Enchantment>(arg0: string, arg1: $EnchantmentCategory$Type, arg2: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (S)>
-public "enchantment"<T extends $Enchantment>(arg0: $EnchantmentCategory$Type, arg1: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (S)>
-public "enchantment"<T extends $Enchantment, P>(arg0: P, arg1: $EnchantmentCategory$Type, arg2: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (P)>
-public "enchantment"<T extends $Enchantment, P>(arg0: P, arg1: string, arg2: $EnchantmentCategory$Type, arg3: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (P)>
-public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>)>(arg0: $MenuBuilder$ForgeMenuFactory$Type<(T)>, arg1: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (S)>
-public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>)>(arg0: string, arg1: $MenuBuilder$MenuFactory$Type<(T)>, arg2: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (S)>
-public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>)>(arg0: string, arg1: $MenuBuilder$ForgeMenuFactory$Type<(T)>, arg2: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (S)>
-public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>), P>(arg0: P, arg1: $MenuBuilder$ForgeMenuFactory$Type<(T)>, arg2: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (P)>
-public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>), P>(arg0: P, arg1: string, arg2: $MenuBuilder$ForgeMenuFactory$Type<(T)>, arg3: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (P)>
-public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>), P>(arg0: P, arg1: string, arg2: $MenuBuilder$MenuFactory$Type<(T)>, arg3: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (P)>
-public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>), P>(arg0: P, arg1: $MenuBuilder$MenuFactory$Type<(T)>, arg2: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (P)>
-public "menu"<T extends $AbstractContainerMenu, SC extends ($Screen) & ($MenuAccess<(T)>)>(arg0: $MenuBuilder$MenuFactory$Type<(T)>, arg1: $NonNullSupplier$Type<($MenuBuilder$ScreenFactory$Type<(T), (SC)>)>): $MenuBuilder<(T), (SC), (S)>
-public "simple"<R, T extends R>(arg0: string, arg1: $ResourceKey$Type<($Registry$Type<(R)>)>, arg2: $NonNullSupplier$Type<(T)>): $RegistryEntry<(T)>
-public "simple"<R, T extends R, P>(arg0: P, arg1: string, arg2: $ResourceKey$Type<($Registry$Type<(R)>)>, arg3: $NonNullSupplier$Type<(T)>): $RegistryEntry<(T)>
-public "simple"<R, T extends R, P>(arg0: P, arg1: $ResourceKey$Type<($Registry$Type<(R)>)>, arg2: $NonNullSupplier$Type<(T)>): $RegistryEntry<(T)>
-public "simple"<R, T extends R>(arg0: $ResourceKey$Type<($Registry$Type<(R)>)>, arg1: $NonNullSupplier$Type<(T)>): $RegistryEntry<(T)>
-public "blockEntity"<T extends $BlockEntity, P>(arg0: P, arg1: $BlockEntityBuilder$BlockEntityFactory$Type<(T)>): $BlockEntityBuilder<(T), (P)>
-public "blockEntity"<T extends $BlockEntity, P>(arg0: P, arg1: string, arg2: $BlockEntityBuilder$BlockEntityFactory$Type<(T)>): $BlockEntityBuilder<(T), (P)>
+public "fluid"<P>(arg0: P, arg1: string, arg2: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: string): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: string, arg2: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullSupplier$Type<($FluidType$Type)>, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
+public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $FluidBuilder$FluidTypeFactory$Type, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
+public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
+public "fluid"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $NonNullSupplier$Type<($FluidType$Type)>, arg5: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
+public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $FluidBuilder$FluidTypeFactory$Type, arg5: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
+public "fluid"<T extends $ForgeFlowingFluid, P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (P)>
+public "fluid"<P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<T extends $ForgeFlowingFluid>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
+public "fluid"<T extends $ForgeFlowingFluid>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $FluidBuilder$FluidTypeFactory$Type, arg3: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
+public "fluid"<T extends $ForgeFlowingFluid>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $NonNullSupplier$Type<($FluidType$Type)>, arg3: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
+public "fluid"(arg0: string): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(arg0: string, arg1: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(arg0: string, arg1: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(arg0: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(arg0: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"<T extends $ForgeFlowingFluid>(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullSupplier$Type<($FluidType$Type)>, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
+public "fluid"<P>(arg0: P): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"<P>(arg0: P, arg1: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (P)>
+public "fluid"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $FluidBuilder$FluidTypeFactory$Type): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullSupplier$Type<($FluidType$Type)>): $FluidBuilder<($ForgeFlowingFluid$Flowing), (S)>
+public "fluid"<T extends $ForgeFlowingFluid>(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
+public "fluid"<T extends $ForgeFlowingFluid>(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $FluidBuilder$FluidTypeFactory$Type, arg4: $NonNullFunction$Type<($ForgeFlowingFluid$Properties$Type), (T)>): $FluidBuilder<(T), (S)>
 public "blockEntity"<T extends $BlockEntity>(arg0: string, arg1: $BlockEntityBuilder$BlockEntityFactory$Type<(T)>): $BlockEntityBuilder<(T), (S)>
+public "blockEntity"<T extends $BlockEntity, P>(arg0: P, arg1: string, arg2: $BlockEntityBuilder$BlockEntityFactory$Type<(T)>): $BlockEntityBuilder<(T), (P)>
+public "blockEntity"<T extends $BlockEntity, P>(arg0: P, arg1: $BlockEntityBuilder$BlockEntityFactory$Type<(T)>): $BlockEntityBuilder<(T), (P)>
 public "blockEntity"<T extends $BlockEntity>(arg0: $BlockEntityBuilder$BlockEntityFactory$Type<(T)>): $BlockEntityBuilder<(T), (S)>
-public "addRegisterCallback"<R, T extends R>(arg0: string, arg1: $ResourceKey$Type<(any)>, arg2: $NonNullConsumer$Type<(any)>): S
+public "enchantment"<T extends $Enchantment, P>(arg0: P, arg1: $EnchantmentCategory$Type, arg2: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (P)>
+public "enchantment"<T extends $Enchantment>(arg0: string, arg1: $EnchantmentCategory$Type, arg2: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (S)>
+public "enchantment"<T extends $Enchantment, P>(arg0: P, arg1: string, arg2: $EnchantmentCategory$Type, arg3: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (P)>
+public "enchantment"<T extends $Enchantment>(arg0: $EnchantmentCategory$Type, arg1: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (S)>
+public "getOptional"<R, T extends R>(arg0: string, arg1: $ResourceKey$Type<(any)>): $RegistryEntry<(T)>
 public "addRegisterCallback"<R>(arg0: $ResourceKey$Type<(any)>, arg1: $Runnable$Type): S
+public "addRegisterCallback"<R, T extends R>(arg0: string, arg1: $ResourceKey$Type<(any)>, arg2: $NonNullConsumer$Type<(any)>): S
 public "modifyCreativeModeTab"(arg0: $ResourceKey$Type<($CreativeModeTab$Type)>, arg1: $Consumer$Type<($CreativeModeTabModifier$Type)>): S
+public "makeRegistry"<R>(arg0: string, arg1: $Supplier$Type<($RegistryBuilder$Type<(R)>)>): $ResourceKey<($Registry<(R)>)>
+public "simple"<R, T extends R, P>(arg0: P, arg1: string, arg2: $ResourceKey$Type<($Registry$Type<(R)>)>, arg3: $NonNullSupplier$Type<(T)>): $RegistryEntry<(T)>
+public "simple"<R, T extends R>(arg0: $ResourceKey$Type<($Registry$Type<(R)>)>, arg1: $NonNullSupplier$Type<(T)>): $RegistryEntry<(T)>
+public "simple"<R, T extends R>(arg0: string, arg1: $ResourceKey$Type<($Registry$Type<(R)>)>, arg2: $NonNullSupplier$Type<(T)>): $RegistryEntry<(T)>
+public "simple"<R, T extends R, P>(arg0: P, arg1: $ResourceKey$Type<($Registry$Type<(R)>)>, arg2: $NonNullSupplier$Type<(T)>): $RegistryEntry<(T)>
 get "modEventBus"(): $IEventBus
 get "devEnvironment"(): boolean
 get "modid"(): string
@@ -925,24 +925,21 @@ import {$HolderLookup$Provider, $HolderLookup$Provider$Type} from "packages/net/
 import {$CompletableFuture, $CompletableFuture$Type} from "packages/java/util/concurrent/$CompletableFuture"
 import {$RegistrateTagsProvider, $RegistrateTagsProvider$Type} from "packages/com/tterrag/registrate/providers/$RegistrateTagsProvider"
 import {$ExistingFileHelper, $ExistingFileHelper$Type} from "packages/net/minecraftforge/common/data/$ExistingFileHelper"
-import {$TagKey, $TagKey$Type} from "packages/net/minecraft/tags/$TagKey"
 import {$LogicalSide, $LogicalSide$Type} from "packages/net/minecraftforge/fml/$LogicalSide"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$PackOutput, $PackOutput$Type} from "packages/net/minecraft/data/$PackOutput"
 import {$AbstractRegistrate, $AbstractRegistrate$Type} from "packages/com/tterrag/registrate/$AbstractRegistrate"
 import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/$ResourceKey"
-import {$IntrinsicHolderTagsProvider$IntrinsicTagAppender, $IntrinsicHolderTagsProvider$IntrinsicTagAppender$Type} from "packages/net/minecraft/data/tags/$IntrinsicHolderTagsProvider$IntrinsicTagAppender"
 
 export class $RegistrateTagsProvider$IntrinsicImpl<T> extends $IntrinsicHolderTagsProvider<(T)> implements $RegistrateTagsProvider<(T)> {
 
 constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $ProviderType$Type<(any)>, arg2: string, arg3: $PackOutput$Type, arg4: $ResourceKey$Type<(any)>, arg5: $CompletableFuture$Type<($HolderLookup$Provider$Type)>, arg6: $Function$Type<(T), ($ResourceKey$Type<(T)>)>, arg7: $ExistingFileHelper$Type)
 
-public "addTag"(arg0: $TagKey$Type<(T)>): $IntrinsicHolderTagsProvider$IntrinsicTagAppender<(T)>
-public "getName"(): string
 public "getSide"(): $LogicalSide
+public "getName"(): string
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
-get "name"(): string
 get "side"(): $LogicalSide
+get "name"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -995,8 +992,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$TagKey, $TagKey$Type} from "packages/net/minecraft/tags/$TagKey"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$InventoryChangeTrigger$TriggerInstance, $InventoryChangeTrigger$TriggerInstance$Type} from "packages/net/minecraft/advancements/critereon/$InventoryChangeTrigger$TriggerInstance"
 import {$ItemPredicate, $ItemPredicate$Type} from "packages/net/minecraft/advancements/critereon/$ItemPredicate"
+import {$InventoryChangeTrigger$TriggerInstance, $InventoryChangeTrigger$TriggerInstance$Type} from "packages/net/minecraft/advancements/critereon/$InventoryChangeTrigger$TriggerInstance"
 import {$IntList, $IntList$Type} from "packages/it/unimi/dsi/fastutil/ints/$IntList"
 import {$NonNullSupplier, $NonNullSupplier$Type} from "packages/com/tterrag/registrate/util/nullness/$NonNullSupplier"
 import {$ItemLike, $ItemLike$Type} from "packages/net/minecraft/world/level/$ItemLike"
@@ -1015,17 +1012,17 @@ public static "tag"(arg0: $TagKey$Type<($Item$Type)>): $DataIngredient
 public "negate"(): $Predicate<($ItemStack)>
 public "and"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
 public "isSimple"(): boolean
+public static "ingredient"(arg0: $Ingredient$Type, arg1: $ResourceLocation$Type, ...arg2: ($ItemPredicate$Type)[]): $DataIngredient
+public static "ingredient"(arg0: $Ingredient$Type, arg1: $ItemLike$Type): $DataIngredient
+public static "ingredient"(arg0: $Ingredient$Type, arg1: $TagKey$Type<($Item$Type)>): $DataIngredient
+public "getCritereon"(arg0: $RegistrateRecipeProvider$Type): $InventoryChangeTrigger$TriggerInstance
 public "getSerializer"(): $IIngredientSerializer<($DataIngredient)>
 public static "items"<T extends $ItemLike>(arg0: T, ...arg1: (T)[]): $DataIngredient
 public static "items"<T extends $ItemLike>(arg0: $NonNullSupplier$Type<(any)>, ...arg1: ($NonNullSupplier$Type<(any)>)[]): $DataIngredient
 public static "stacks"(arg0: $ItemStack$Type, ...arg1: ($ItemStack$Type)[]): $DataIngredient
-public "toJson"(): $JsonElement
 public "isEmpty"(): boolean
+public "toJson"(): $JsonElement
 public "getStackingIds"(): $IntList
-public "getCritereon"(arg0: $RegistrateRecipeProvider$Type): $InventoryChangeTrigger$TriggerInstance
-public static "ingredient"(arg0: $Ingredient$Type, arg1: $ItemLike$Type): $DataIngredient
-public static "ingredient"(arg0: $Ingredient$Type, arg1: $TagKey$Type<($Item$Type)>): $DataIngredient
-public static "ingredient"(arg0: $Ingredient$Type, arg1: $ResourceLocation$Type, ...arg2: ($ItemPredicate$Type)[]): $DataIngredient
 public static "isEqual"<T>(arg0: any): $Predicate<(T)>
 public static "not"<T>(arg0: $Predicate$Type<(any)>): $Predicate<(T)>
 get "id"(): $ResourceLocation
@@ -1183,20 +1180,20 @@ public static "create"<T extends $Entity, P>(arg0: $AbstractRegistrate$Type<(any
 public "lang"(arg0: string): $EntityBuilder<(T), (P)>
 public "attributes"(arg0: $Supplier$Type<($AttributeSupplier$Builder$Type)>): $EntityBuilder<(T), (P)>
 public "tag"(...arg0: ($TagKey$Type<($EntityType$Type<(any)>)>)[]): $EntityBuilder<(T), (P)>
-public "renderer"(arg0: $NonNullSupplier$Type<($NonNullFunction$Type<($EntityRendererProvider$Context$Type), ($EntityRenderer$Type<(any)>)>)>): $EntityBuilder<(T), (P)>
-public "defaultLang"(): $EntityBuilder<(T), (P)>
-/**
- * 
- * @deprecated
- */
-public "defaultSpawnEgg"(arg0: integer, arg1: integer): $EntityBuilder<(T), (P)>
 public "spawnPlacement"(arg0: $SpawnPlacements$Type$Type, arg1: $Heightmap$Types$Type, arg2: $SpawnPlacements$SpawnPredicate$Type<(T)>): $EntityBuilder<(T), (P)>
 /**
  * 
  * @deprecated
  */
 public "spawnEgg"(arg0: integer, arg1: integer): $ItemBuilder<(any), ($EntityBuilder<(T), (P)>)>
+/**
+ * 
+ * @deprecated
+ */
+public "defaultSpawnEgg"(arg0: integer, arg1: integer): $EntityBuilder<(T), (P)>
+public "defaultLang"(): $EntityBuilder<(T), (P)>
 public "loot"(arg0: $NonNullBiConsumer$Type<($RegistrateEntityLootTables$Type), ($EntityType$Type<(T)>)>): $EntityBuilder<(T), (P)>
+public "renderer"(arg0: $NonNullSupplier$Type<($NonNullFunction$Type<($EntityRendererProvider$Context$Type), ($EntityRenderer$Type<(any)>)>)>): $EntityBuilder<(T), (P)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
@@ -1294,49 +1291,49 @@ readonly "map": $Map<($ResourceLocation), ($LootTable$Builder)>
 
 constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $Consumer$Type<($RegistrateBlockLootTables$Type)>)
 
-public static "createSilkTouchOrShearsDispatchTable"(arg0: $Block$Type, arg1: $LootPoolEntryContainer$Builder$Type<(any)>): $LootTable$Builder
-public "m_247577_"(arg0: $Block$Type, arg1: $LootTable$Builder$Type): void
-public "m_245765_"(arg0: $ItemLike$Type, arg1: $NumberProvider$Type): $LootTable$Builder
-public "m_246125_"(arg0: $Block$Type, arg1: $ItemLike$Type): void
-public "m_245644_"(arg0: $Block$Type): void
-public "m_271693_"(arg0: $Block$Type): $LootTable$Builder
-public "m_246535_"(arg0: $Block$Type): void
+public "m_245724_"(arg0: $Block$Type): void
 public "m_247733_"<T extends $ConditionUserBuilder<(T)>>(arg0: $ItemLike$Type, arg1: $ConditionUserBuilder$Type<(T)>): T
+public "m_246180_"(arg0: $Block$Type): $LootTable$Builder
+public "m_245895_"(arg0: $Block$Type): $LootTable$Builder
+public "m_247398_"(arg0: $Block$Type): $LootTable$Builder
+public "m_247233_"(arg0: $Block$Type): $LootTable$Builder
+public static "createShearsDispatchTable"(arg0: $Block$Type, arg1: $LootPoolEntryContainer$Builder$Type<(any)>): $LootTable$Builder
+public static "createSelfDropDispatchTable"(arg0: $Block$Type, arg1: $LootItemCondition$Builder$Type, arg2: $LootPoolEntryContainer$Builder$Type<(any)>): $LootTable$Builder
+public static "createCandleCakeDrops"(arg0: $Block$Type): $LootTable$Builder
+public static "createShearsOnlyDrop"(arg0: $ItemLike$Type): $LootTable$Builder
+public static "createDoublePlantShearsDrop"(arg0: $Block$Type): $LootTable$Builder
+public static "createSilkTouchOnlyTable"(arg0: $ItemLike$Type): $LootTable$Builder
+public static "createSilkTouchDispatchTable"(arg0: $Block$Type, arg1: $LootPoolEntryContainer$Builder$Type<(any)>): $LootTable$Builder
+public static "createCaveVinesDrop"(arg0: $Block$Type): $LootTable$Builder
+public "m_245142_"(arg0: $Block$Type, arg1: $ItemLike$Type, arg2: $NumberProvider$Type): $LootTable$Builder
+public "m_245514_"(arg0: $Block$Type, arg1: $ItemLike$Type): $LootTable$Builder
+public "m_245602_"(arg0: $ItemLike$Type): $LootTable$Builder
+public static "createBeeHiveDrop"(arg0: $Block$Type): $LootTable$Builder
+public static "createBeeNestDrop"(arg0: $Block$Type): $LootTable$Builder
+public "m_246047_"(arg0: $Block$Type, arg1: $Block$Type, ...arg2: (float)[]): $LootTable$Builder
+public "m_246142_"(arg0: $Block$Type, arg1: $Block$Type, ...arg2: (float)[]): $LootTable$Builder
+public "m_245079_"(arg0: $Block$Type, arg1: $ItemLike$Type): $LootTable$Builder
+public "m_247458_"(arg0: $Block$Type): $LootTable$Builder
+public "m_247334_"(arg0: $Block$Type): $LootTable$Builder
 public "m_246108_"<T extends $FunctionUserBuilder<(T)>>(arg0: $ItemLike$Type, arg1: $FunctionUserBuilder$Type<(T)>): T
 public "m_245238_"(arg0: $Block$Type, arg1: $Item$Type, arg2: $Item$Type, arg3: $LootItemCondition$Builder$Type): $LootTable$Builder
 public "m_245854_"(arg0: $Block$Type, arg1: $Block$Type): void
 public "m_245693_"(arg0: $Block$Type, arg1: $Block$Type): void
 public "m_245671_"(arg0: $Block$Type): $LootTable$Builder
-public "m_245349_"(arg0: $Block$Type): $LootTable$Builder
 public "m_246224_"(arg0: $Block$Type, arg1: $Block$Type): $LootTable$Builder
 public "m_245170_"(arg0: $Block$Type): $LootTable$Builder
-public "m_246218_"(arg0: $Block$Type): $LootTable$Builder
 public "m_246235_"(arg0: $Block$Type, arg1: $LootItemCondition$Builder$Type): $LootTable$Builder
-public "m_246167_"(arg0: $Block$Type): $LootTable$Builder
-public "m_246142_"(arg0: $Block$Type, arg1: $Block$Type, ...arg2: (float)[]): $LootTable$Builder
+public "m_245349_"(arg0: $Block$Type): $LootTable$Builder
 public "m_246109_"(arg0: $Block$Type, arg1: $Item$Type): $LootTable$Builder
-public "m_246047_"(arg0: $Block$Type, arg1: $Block$Type, ...arg2: (float)[]): $LootTable$Builder
-public "m_245079_"(arg0: $Block$Type, arg1: $ItemLike$Type): $LootTable$Builder
-public "m_247458_"(arg0: $Block$Type): $LootTable$Builder
-public "m_247334_"(arg0: $Block$Type): $LootTable$Builder
-public "m_246180_"(arg0: $Block$Type): $LootTable$Builder
-public "m_245895_"(arg0: $Block$Type): $LootTable$Builder
-public "m_247398_"(arg0: $Block$Type): $LootTable$Builder
-public "m_247233_"(arg0: $Block$Type): $LootTable$Builder
-public "m_245514_"(arg0: $Block$Type, arg1: $ItemLike$Type): $LootTable$Builder
-public "m_245142_"(arg0: $Block$Type, arg1: $ItemLike$Type, arg2: $NumberProvider$Type): $LootTable$Builder
-public "m_245602_"(arg0: $ItemLike$Type): $LootTable$Builder
-public static "createSilkTouchDispatchTable"(arg0: $Block$Type, arg1: $LootPoolEntryContainer$Builder$Type<(any)>): $LootTable$Builder
-public static "createShearsDispatchTable"(arg0: $Block$Type, arg1: $LootPoolEntryContainer$Builder$Type<(any)>): $LootTable$Builder
-public static "createSilkTouchOnlyTable"(arg0: $ItemLike$Type): $LootTable$Builder
-public static "createCaveVinesDrop"(arg0: $Block$Type): $LootTable$Builder
-public static "createCandleCakeDrops"(arg0: $Block$Type): $LootTable$Builder
-public static "createSelfDropDispatchTable"(arg0: $Block$Type, arg1: $LootItemCondition$Builder$Type, arg2: $LootPoolEntryContainer$Builder$Type<(any)>): $LootTable$Builder
-public static "createDoublePlantShearsDrop"(arg0: $Block$Type): $LootTable$Builder
-public static "createShearsOnlyDrop"(arg0: $ItemLike$Type): $LootTable$Builder
-public "m_245724_"(arg0: $Block$Type): void
-public static "createBeeHiveDrop"(arg0: $Block$Type): $LootTable$Builder
-public static "createBeeNestDrop"(arg0: $Block$Type): $LootTable$Builder
+public "m_246218_"(arg0: $Block$Type): $LootTable$Builder
+public "m_246167_"(arg0: $Block$Type): $LootTable$Builder
+public "m_246125_"(arg0: $Block$Type, arg1: $ItemLike$Type): void
+public "m_245644_"(arg0: $Block$Type): void
+public "m_247577_"(arg0: $Block$Type, arg1: $LootTable$Builder$Type): void
+public "m_271693_"(arg0: $Block$Type): $LootTable$Builder
+public "m_245765_"(arg0: $ItemLike$Type, arg1: $NumberProvider$Type): $LootTable$Builder
+public "m_246535_"(arg0: $Block$Type): void
+public static "createSilkTouchOrShearsDispatchTable"(arg0: $Block$Type, arg1: $LootPoolEntryContainer$Builder$Type<(any)>): $LootTable$Builder
 public "validate"(arg0: $Map$Type<($ResourceLocation$Type), ($LootTable$Type)>, arg1: $ValidationContext$Type): void
 public "generate"(arg0: $BiConsumer$Type<($ResourceLocation$Type), ($LootTable$Builder$Type)>): void
 }
@@ -1377,13 +1374,13 @@ static readonly "WALL_PROPS": $ImmutableMap<($Direction), ($Property<($WallSide)
 
 constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $PackOutput$Type, arg2: $ExistingFileHelper$Type)
 
-public "getExistingMultipartBuilder"(arg0: $Block$Type): $Optional<($MultiPartBlockStateBuilder)>
-public "getName"(): string
 public "getSide"(): $LogicalSide
 public "getExistingVariantBuilder"(arg0: $Block$Type): $Optional<($VariantBlockStateBuilder)>
+public "getExistingMultipartBuilder"(arg0: $Block$Type): $Optional<($MultiPartBlockStateBuilder)>
+public "getName"(): string
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
-get "name"(): string
 get "side"(): $LogicalSide
+get "name"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1434,10 +1431,10 @@ public "getRegistryKey"(): $ResourceKey<($Registry<(R)>)>
 public "transform"<R2, T2 extends R2, P2, S2 extends $Builder<(R2), (T2), (P2), (S2)>>(arg0: $NonNullFunction$0$Type<(S), (S2)>): S2
 public "build"(): P
 public "getEntry"(): T
-public "addMiscData"<D extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
-public "onRegisterAfter"<OR>(arg0: $ResourceKey$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
 public "onRegister"(arg0: $NonNullConsumer$Type<(any)>): S
 public "setData"<D extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: $NonNullBiConsumer$Type<($DataGenContext$Type<(R), (T)>), (D)>): S
+public "onRegisterAfter"<OR>(arg0: $ResourceKey$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
+public "addMiscData"<D extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
 public static "of"<T>(arg0: $Supplier$Type<($RegistryEntry$Type<(T)>)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<($RegistryEntry<(T)>)>
 public static "of"<T>(arg0: $Supplier$Type<($RegistryEntry$Type<(T)>)>): $NonNullSupplier<($RegistryEntry<(T)>)>
 public static "lazy"<T>(arg0: $Supplier$Type<($RegistryEntry$Type<(T)>)>): $NonNullSupplier<($RegistryEntry<(T)>)>
@@ -1467,15 +1464,14 @@ import {$AbstractBuilder, $AbstractBuilder$Type} from "packages/com/tterrag/regi
 import {$NonNullUnaryOperator, $NonNullUnaryOperator$Type} from "packages/com/tterrag/registrate/util/nullness/$NonNullUnaryOperator"
 import {$CreativeModeTab, $CreativeModeTab$Type} from "packages/net/minecraft/world/item/$CreativeModeTab"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$BuilderCallback, $BuilderCallback$Type} from "packages/com/tterrag/registrate/builders/$BuilderCallback"
 import {$RegistrateItemModelProvider, $RegistrateItemModelProvider$Type} from "packages/com/tterrag/registrate/providers/$RegistrateItemModelProvider"
+import {$BuilderCallback, $BuilderCallback$Type} from "packages/com/tterrag/registrate/builders/$BuilderCallback"
 import {$DataGenContext, $DataGenContext$Type} from "packages/com/tterrag/registrate/providers/$DataGenContext"
 import {$ItemColor, $ItemColor$Type} from "packages/net/minecraft/client/color/item/$ItemColor"
 import {$TagKey, $TagKey$Type} from "packages/net/minecraft/tags/$TagKey"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$NonNullBiConsumer, $NonNullBiConsumer$Type} from "packages/com/tterrag/registrate/util/nullness/$NonNullBiConsumer"
-import {$ItemEntry, $ItemEntry$Type} from "packages/com/tterrag/registrate/util/entry/$ItemEntry"
 import {$NonNullSupplier, $NonNullSupplier$Type} from "packages/com/tterrag/registrate/util/nullness/$NonNullSupplier"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/$ResourceKey"
@@ -1485,7 +1481,7 @@ import {$NonNullFunction, $NonNullFunction$Type} from "packages/com/tterrag/regi
 export class $ItemBuilder<T extends $Item, P> extends $AbstractBuilder<($Item), (T), (P), ($ItemBuilder<(T), (P)>)> {
 
 
-public "register"(): $ItemEntry<(T)>
+public "model"(arg0: $NonNullBiConsumer$Type<($DataGenContext$Type<($Item$Type), (T)>), ($RegistrateItemModelProvider$Type)>): $ItemBuilder<(T), (P)>
 public "properties"(arg0: $NonNullUnaryOperator$Type<($Item$Properties$Type)>): $ItemBuilder<(T), (P)>
 public "tab"(arg0: $ResourceKey$Type<($CreativeModeTab$Type)>): $ItemBuilder<(T), (P)>
 public "tab"(arg0: $ResourceKey$Type<($CreativeModeTab$Type)>, arg1: $Consumer$Type<($CreativeModeTabModifier$Type)>): $ItemBuilder<(T), (P)>
@@ -1494,11 +1490,10 @@ public "color"(arg0: $NonNullSupplier$Type<($Supplier$Type<($ItemColor$Type)>)>)
 public "lang"(arg0: string): $ItemBuilder<(T), (P)>
 public "recipe"(arg0: $NonNullBiConsumer$Type<($DataGenContext$Type<($Item$Type), (T)>), ($RegistrateRecipeProvider$Type)>): $ItemBuilder<(T), (P)>
 public "tag"(...arg0: ($TagKey$Type<($Item$Type)>)[]): $ItemBuilder<(T), (P)>
-public "initialProperties"(arg0: $NonNullSupplier$Type<($Item$Properties$Type)>): $ItemBuilder<(T), (P)>
-public "model"(arg0: $NonNullBiConsumer$Type<($DataGenContext$Type<($Item$Type), (T)>), ($RegistrateItemModelProvider$Type)>): $ItemBuilder<(T), (P)>
-public "defaultLang"(): $ItemBuilder<(T), (P)>
-public "removeTab"(arg0: $ResourceKey$Type<($CreativeModeTab$Type)>): $ItemBuilder<(T), (P)>
 public "defaultModel"(): $ItemBuilder<(T), (P)>
+public "removeTab"(arg0: $ResourceKey$Type<($CreativeModeTab$Type)>): $ItemBuilder<(T), (P)>
+public "initialProperties"(arg0: $NonNullSupplier$Type<($Item$Properties$Type)>): $ItemBuilder<(T), (P)>
+public "defaultLang"(): $ItemBuilder<(T), (P)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
@@ -1520,8 +1515,8 @@ import {$CachedOutput, $CachedOutput$Type} from "packages/net/minecraft/data/$Ca
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$CompletableFuture, $CompletableFuture$Type} from "packages/java/util/concurrent/$CompletableFuture"
 import {$BlockFamily$Variant, $BlockFamily$Variant$Type} from "packages/net/minecraft/data/$BlockFamily$Variant"
-import {$ShapedRecipeBuilder, $ShapedRecipeBuilder$Type} from "packages/net/minecraft/data/recipes/$ShapedRecipeBuilder"
 import {$FeatureFlagSet, $FeatureFlagSet$Type} from "packages/net/minecraft/world/flag/$FeatureFlagSet"
+import {$ShapedRecipeBuilder, $ShapedRecipeBuilder$Type} from "packages/net/minecraft/data/recipes/$ShapedRecipeBuilder"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$TagKey, $TagKey$Type} from "packages/net/minecraft/tags/$TagKey"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
@@ -1562,115 +1557,115 @@ constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $PackOutput$Type)
 
 public "accept"(arg0: $FinishedRecipe$Type): void
 public "fence"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string): void
-public static "has"(arg0: $ItemLike$Type): $InventoryChangeTrigger$TriggerInstance
 public static "has"(arg0: $MinMaxBounds$Ints$Type, arg1: $ItemLike$Type): $InventoryChangeTrigger$TriggerInstance
+public static "has"(arg0: $ItemLike$Type): $InventoryChangeTrigger$TriggerInstance
 public static "has"(arg0: $TagKey$Type<($Item$Type)>): $InventoryChangeTrigger$TriggerInstance
 public "square"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: boolean): void
-public static "wall"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
 public "wall"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>): void
-public "food"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
-public static "nineBlockStorageRecipes"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $RecipeCategory$Type, arg4: $ItemLike$Type): void
-public static "getConversionRecipeName"(arg0: $ItemLike$Type, arg1: $ItemLike$Type): string
-public static "getSmeltingRecipeName"(arg0: $ItemLike$Type): string
-public static "simpleCookingRecipe"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: string, arg2: $RecipeSerializer$Type<(any)>, arg3: integer, arg4: $ItemLike$Type, arg5: $ItemLike$Type, arg6: float): void
-public static "getBlastingRecipeName"(arg0: $ItemLike$Type): string
-public static "getSimpleRecipeName"(arg0: $ItemLike$Type): string
-public static "copySmithingTemplate"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $TagKey$Type<($Item$Type)>): void
-public static "copySmithingTemplate"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public "fenceGate"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string): void
-public static "pressurePlate"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "cut"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
+public static "wall"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
+public "getSide"(): $LogicalSide
+public "singleItem"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: integer, arg4: integer): void
+public static "oreCooking"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeSerializer$Type<(any)>, arg2: $List$Type<($ItemLike$Type)>, arg3: $RecipeCategory$Type, arg4: $ItemLike$Type, arg5: float, arg6: integer, arg7: string, arg8: string): void
+public static "woodenBoat"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "woodFromLogs"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "netheriteSmithing"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $Item$Type, arg2: $RecipeCategory$Type, arg3: $Item$Type): void
+public static "chestBoat"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "planksFromLog"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $TagKey$Type<($Item$Type)>, arg3: integer): void
+public static "buttonBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
+public static "doorBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
+public static "oreSmelting"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $List$Type<($ItemLike$Type)>, arg2: $RecipeCategory$Type, arg3: $ItemLike$Type, arg4: float, arg5: integer, arg6: string): void
+public static "twoByTwoPacker"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
+public static "threeByThreePacker"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
+public static "threeByThreePacker"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type, arg4: string): void
+public "door"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string): void
+public static "trimSmithing"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $Item$Type, arg2: $ResourceLocation$Type): void
+public static "fenceBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
+public static "fenceGateBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
+public static "slabBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $RecipeBuilder
+public static "stairBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
+public "trapDoor"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string): void
+public static "oreBlasting"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $List$Type<($ItemLike$Type)>, arg2: $RecipeCategory$Type, arg3: $ItemLike$Type, arg4: float, arg5: integer, arg6: string): void
+public static "planksFromLogs"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $TagKey$Type<($Item$Type)>, arg3: integer): void
 public static "inventoryTrigger"(...arg0: ($ItemPredicate$Type)[]): $InventoryChangeTrigger$TriggerInstance
-public "stonecutting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: integer): void
-public "stonecutting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>): void
-public "smoking"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer): void
-public "smoking"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
-public "smelting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
-public "smelting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer): void
-public "blasting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
-public "blasting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer): void
-/**
- * 
- * @deprecated
- */
-public "storage"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $NonNullSupplier$Type<(any)>): void
-public "storage"<T extends $ItemLike>(arg0: $NonNullSupplier$Type<(any)>, arg1: $RecipeCategory$Type, arg2: $NonNullSupplier$Type<(any)>): void
-public "storage"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $NonNullSupplier$Type<(any)>, arg3: $DataIngredient$Type, arg4: $NonNullSupplier$Type<(any)>): void
+public "safeId"(arg0: $DataIngredient$Type): $ResourceLocation
 public "safeId"(arg0: $ResourceLocation$Type): $ResourceLocation
 public "safeId"(arg0: $ItemLike$Type): $ResourceLocation
-public "safeId"(arg0: $DataIngredient$Type): $ResourceLocation
 public "safeName"(arg0: $DataIngredient$Type): string
 public "safeName"(arg0: $ResourceLocation$Type): string
 public "safeName"(arg0: $ItemLike$Type): string
 public "cooking"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer, arg5: string, arg6: $RecipeSerializer$Type<(any)>): void
 public "cooking"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer, arg5: $RecipeSerializer$Type<(any)>): void
-public static "planksFromLogs"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $TagKey$Type<($Item$Type)>, arg3: integer): void
-public static "woodFromLogs"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "planksFromLog"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $TagKey$Type<($Item$Type)>, arg3: integer): void
-public static "woodenBoat"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "netheriteSmithing"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $Item$Type, arg2: $RecipeCategory$Type, arg3: $Item$Type): void
-public static "chestBoat"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "buttonBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
-public "trapDoor"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string): void
-public static "oreBlasting"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $List$Type<($ItemLike$Type)>, arg2: $RecipeCategory$Type, arg3: $ItemLike$Type, arg4: float, arg5: integer, arg6: string): void
-public static "doorBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
-public static "fenceBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
-public static "trimSmithing"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $Item$Type, arg2: $ResourceLocation$Type): void
-public "door"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string): void
-public static "fenceGateBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
-public static "oreSmelting"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $List$Type<($ItemLike$Type)>, arg2: $RecipeCategory$Type, arg3: $ItemLike$Type, arg4: float, arg5: integer, arg6: string): void
-public static "oreCooking"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeSerializer$Type<(any)>, arg2: $List$Type<($ItemLike$Type)>, arg3: $RecipeCategory$Type, arg4: $ItemLike$Type, arg5: float, arg6: integer, arg7: string, arg8: string): void
-public static "twoByTwoPacker"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
-public static "threeByThreePacker"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
-public static "threeByThreePacker"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type, arg4: string): void
-public "singleItemUnfinished"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: integer, arg4: integer): $ShapelessRecipeBuilder
+public "saveAdvancement"(arg0: $CachedOutput$Type, arg1: $FinishedRecipe$Type, arg2: $JsonObject$Type): $CompletableFuture<(any)>
+public "m_253240_"(arg0: $CachedOutput$Type, arg1: $ResourceLocation$Type, arg2: $Advancement$Builder$Type): $CompletableFuture<(any)>
+public "storage"<T extends $ItemLike>(arg0: $NonNullSupplier$Type<(any)>, arg1: $RecipeCategory$Type, arg2: $NonNullSupplier$Type<(any)>): void
+/**
+ * 
+ * @deprecated
+ */
+public "storage"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $NonNullSupplier$Type<(any)>): void
+public "storage"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $NonNullSupplier$Type<(any)>, arg3: $DataIngredient$Type, arg4: $NonNullSupplier$Type<(any)>): void
+public static "pressurePlate"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public "fenceGate"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string): void
 public static "bedFromPlanksAndWool"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "stainedGlassPaneFromStainedGlass"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public "singleItemUnfinished"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: integer, arg4: integer): $ShapelessRecipeBuilder
+public "smeltingAndBlasting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
 public static "pressurePlateBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $RecipeBuilder
 public static "stainedGlassFromGlassAndDye"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "stonecutterResultFromBase"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
-public static "stonecutterResultFromBase"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type, arg4: integer): void
-public "smeltingAndBlasting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
-public static "candle"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public "getSide"(): $LogicalSide
-public static "smeltingResultFromBase"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "slabBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $RecipeBuilder
-public static "banner"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "stainedGlassPaneFromStainedGlass"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
 public "campfire"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer): void
 public "campfire"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
-public "planks"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>): void
-public "stairs"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string, arg4: boolean): void
-public static "coloredTerracottaFromTerracottaAndDye"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "nineBlockStorageRecipesWithCustomPacking"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $RecipeCategory$Type, arg4: $ItemLike$Type, arg5: string, arg6: string): void
-public static "stainedGlassPaneFromGlassPaneAndDye"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "nineBlockStorageRecipesRecipesWithCustomUnpacking"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $RecipeCategory$Type, arg4: $ItemLike$Type, arg5: string, arg6: string): void
-public "slab"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string, arg4: boolean): void
+public static "banner"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public "blasting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
+public "blasting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer): void
+public "smelting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
+public "smelting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer): void
+public "stonecutting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: integer): void
+public "stonecutting"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>): void
+public "smoking"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
+public "smoking"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float, arg4: integer): void
 public static "slab"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
-public static "stairBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
-public "singleItem"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: integer, arg4: integer): void
-public static "colorBlockWithDye"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $List$Type<($Item$Type)>, arg2: $List$Type<($Item$Type)>, arg3: string): void
-public static "polished"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
+public "slab"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string, arg4: boolean): void
+public "m_247051_"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $FeatureFlagSet$Type): void
+public static "cut"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
+public static "candle"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
 public static "generateRecipes"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $BlockFamily$Type): void
-public static "getBaseBlock"(arg0: $BlockFamily$Type, arg1: $BlockFamily$Variant$Type): $Block
-public static "trapdoorBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
 public static "chiseledBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $ShapedRecipeBuilder
+public static "getHasName"(arg0: $ItemLike$Type): string
+public static "signBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
+public static "colorBlockWithDye"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $List$Type<($Item$Type)>, arg2: $List$Type<($Item$Type)>, arg3: string): void
+public static "getItemName"(arg0: $ItemLike$Type): string
+public static "hangingSign"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "trapdoorBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
+public static "mosaicBuilder"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
 public static "concretePowder"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "insideOf"(arg0: $Block$Type): $EnterBlockTrigger$TriggerInstance
 public static "chiseled"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
 public static "polishedBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $RecipeBuilder
-public static "mosaicBuilder"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
-public static "cutBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $ShapedRecipeBuilder
-public static "getHasName"(arg0: $ItemLike$Type): string
-public static "getItemName"(arg0: $ItemLike$Type): string
-public static "signBuilder"(arg0: $ItemLike$Type, arg1: $Ingredient$Type): $RecipeBuilder
-public static "hangingSign"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public static "waxRecipes"(arg0: $Consumer$Type<($FinishedRecipe$Type)>): void
-public static "wallBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $RecipeBuilder
+public static "polished"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
 public static "cookRecipes"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: string, arg2: $RecipeSerializer$Type<(any)>, arg3: integer): void
+public static "waxRecipes"(arg0: $Consumer$Type<($FinishedRecipe$Type)>): void
+public static "insideOf"(arg0: $Block$Type): $EnterBlockTrigger$TriggerInstance
+public static "wallBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $RecipeBuilder
+public static "cutBuilder"(arg0: $RecipeCategory$Type, arg1: $ItemLike$Type, arg2: $Ingredient$Type): $ShapedRecipeBuilder
+public static "getBaseBlock"(arg0: $BlockFamily$Type, arg1: $BlockFamily$Variant$Type): $Block
+public static "smeltingResultFromBase"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "getSmeltingRecipeName"(arg0: $ItemLike$Type): string
+public static "nineBlockStorageRecipes"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $RecipeCategory$Type, arg4: $ItemLike$Type): void
+public static "getSimpleRecipeName"(arg0: $ItemLike$Type): string
+public static "getConversionRecipeName"(arg0: $ItemLike$Type, arg1: $ItemLike$Type): string
+public static "stonecutterResultFromBase"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type, arg4: integer): void
+public static "stonecutterResultFromBase"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $ItemLike$Type): void
+public static "simpleCookingRecipe"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: string, arg2: $RecipeSerializer$Type<(any)>, arg3: integer, arg4: $ItemLike$Type, arg5: $ItemLike$Type, arg6: float): void
+public static "copySmithingTemplate"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $TagKey$Type<($Item$Type)>): void
+public static "copySmithingTemplate"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "getBlastingRecipeName"(arg0: $ItemLike$Type): string
+public "food"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: float): void
+public "planks"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>): void
+public "stairs"<T extends $ItemLike>(arg0: $DataIngredient$Type, arg1: $RecipeCategory$Type, arg2: $Supplier$Type<(any)>, arg3: string, arg4: boolean): void
 public static "carpet"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
-public "m_247051_"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $FeatureFlagSet$Type): void
-public "m_253240_"(arg0: $CachedOutput$Type, arg1: $ResourceLocation$Type, arg2: $Advancement$Builder$Type): $CompletableFuture<(any)>
-public "saveAdvancement"(arg0: $CachedOutput$Type, arg1: $FinishedRecipe$Type, arg2: $JsonObject$Type): $CompletableFuture<(any)>
+public static "nineBlockStorageRecipesWithCustomPacking"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $RecipeCategory$Type, arg4: $ItemLike$Type, arg5: string, arg6: string): void
+public static "coloredTerracottaFromTerracottaAndDye"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "stainedGlassPaneFromGlassPaneAndDye"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ItemLike$Type, arg2: $ItemLike$Type): void
+public static "nineBlockStorageRecipesRecipesWithCustomUnpacking"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $RecipeCategory$Type, arg2: $ItemLike$Type, arg3: $RecipeCategory$Type, arg4: $ItemLike$Type, arg5: string, arg6: string): void
 public "andThen"(arg0: $Consumer$Type<(any)>): $Consumer<($FinishedRecipe)>
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
 get "side"(): $LogicalSide
@@ -1760,20 +1755,20 @@ public "recipe"(arg0: $NonNullBiConsumer$Type<($DataGenContext$Type<($Block$Type
 public "tag"(...arg0: ($TagKey$Type<($Block$Type)>)[]): $BlockBuilder<(T), (P)>
 public "item"<I extends $Item>(arg0: $NonNullBiFunction$Type<(any), ($Item$Properties$Type), (any)>): $ItemBuilder<(I), ($BlockBuilder<(T), (P)>)>
 public "item"(): $ItemBuilder<($BlockItem), ($BlockBuilder<(T), (P)>)>
-public "defaultLoot"(): $BlockBuilder<(T), (P)>
-public "defaultBlockstate"(): $BlockBuilder<(T), (P)>
-public "blockstate"(arg0: $NonNullBiConsumer$Type<($DataGenContext$Type<($Block$Type), (T)>), ($RegistrateBlockstateProvider$Type)>): $BlockBuilder<(T), (P)>
-public "initialProperties"(arg0: $NonNullSupplier$Type<(any)>): $BlockBuilder<(T), (P)>
 public "simpleItem"(): $BlockBuilder<(T), (P)>
 /**
  * 
  * @deprecated
  */
 public "addLayer"(arg0: $Supplier$Type<($Supplier$Type<($RenderType$Type)>)>): $BlockBuilder<(T), (P)>
+public "defaultLoot"(): $BlockBuilder<(T), (P)>
 public "simpleBlockEntity"<BE extends $BlockEntity>(arg0: $BlockEntityBuilder$BlockEntityFactory$Type<(BE)>): $BlockBuilder<(T), (P)>
+public "defaultBlockstate"(): $BlockBuilder<(T), (P)>
+public "blockEntity"<BE extends $BlockEntity>(arg0: $BlockEntityBuilder$BlockEntityFactory$Type<(BE)>): $BlockEntityBuilder<(BE), ($BlockBuilder<(T), (P)>)>
+public "initialProperties"(arg0: $NonNullSupplier$Type<(any)>): $BlockBuilder<(T), (P)>
 public "defaultLang"(): $BlockBuilder<(T), (P)>
 public "loot"(arg0: $NonNullBiConsumer$Type<($RegistrateBlockLootTables$Type), (T)>): $BlockBuilder<(T), (P)>
-public "blockEntity"<BE extends $BlockEntity>(arg0: $BlockEntityBuilder$BlockEntityFactory$Type<(BE)>): $BlockEntityBuilder<(BE), ($BlockBuilder<(T), (P)>)>
+public "blockstate"(arg0: $NonNullBiConsumer$Type<($DataGenContext$Type<($Block$Type), (T)>), ($RegistrateBlockstateProvider$Type)>): $BlockBuilder<(T), (P)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
@@ -1810,14 +1805,14 @@ constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $PackOutput$Type, arg2:
 
 public "accept"(arg0: $Advancement$Type): void
 public "desc"(arg0: string, arg1: string, arg2: string): $MutableComponent
-public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
-public "getName"(): string
 public "getSide"(): $LogicalSide
+public "getName"(): string
+public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
 public "title"(arg0: string, arg1: string, arg2: string): $MutableComponent
 public "andThen"(arg0: $Consumer$Type<(any)>): $Consumer<($Advancement)>
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
-get "name"(): string
 get "side"(): $LogicalSide
+get "name"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1849,9 +1844,9 @@ export class $EnchantmentBuilder<T extends $Enchantment, P> extends $AbstractBui
 public static "create"<T extends $Enchantment, P>(arg0: $AbstractRegistrate$Type<(any)>, arg1: P, arg2: string, arg3: $BuilderCallback$Type, arg4: $EnchantmentCategory$Type, arg5: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), (P)>
 public "lang"(arg0: string): $EnchantmentBuilder<(T), (P)>
 public "rarity"(arg0: $Enchantment$Rarity$Type): $EnchantmentBuilder<(T), (P)>
+public "defaultLang"(): $EnchantmentBuilder<(T), (P)>
 public "addSlots"(...arg0: ($EquipmentSlot$Type)[]): $EnchantmentBuilder<(T), (P)>
 public "addArmorSlots"(): $EnchantmentBuilder<(T), (P)>
-public "defaultLang"(): $EnchantmentBuilder<(T), (P)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
@@ -1937,8 +1932,8 @@ export interface $RegistrateTagsProvider<T> extends $RegistrateProvider {
 
  "addTag"(arg0: $TagKey$Type<(T)>): $TagsProvider$TagAppender<(T)>
  "getSide"(): $LogicalSide
- "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
  "getName"(): string
+ "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
 }
 
 export namespace $RegistrateTagsProvider {
@@ -1979,21 +1974,21 @@ constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $PackOutput$Type)
 public "add"(arg0: $CreativeModeTab$Type, arg1: string): void
 public "add"(arg0: string, arg1: string): void
 public "addItem"(arg0: $NonNullSupplier$Type<(any)>): void
+public "addTooltip"(arg0: $NonNullSupplier$Type<(any)>, arg1: $List$Type<(string)>): void
+public "addTooltip"(arg0: $NonNullSupplier$Type<(any)>, arg1: string): void
+public "addItemWithTooltip"(arg0: $NonNullSupplier$Type<(any)>, arg1: string, arg2: $List$Type<(string)>): void
+public "getSide"(): $LogicalSide
+public static "toEnglishName"(arg0: string): string
+public "getName"(): string
+public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
+public "getAutomaticName"<T>(arg0: $NonNullSupplier$Type<(any)>, arg1: $ResourceKey$Type<($Registry$Type<(T)>)>): string
 public "addEntityType"(arg0: $NonNullSupplier$Type<(any)>): void
 public "addBlock"(arg0: $NonNullSupplier$Type<(any)>): void
 public "addBlockWithTooltip"(arg0: $NonNullSupplier$Type<(any)>, arg1: string): void
 public "addBlockWithTooltip"(arg0: $NonNullSupplier$Type<(any)>, arg1: string, arg2: string): void
-public "getAutomaticName"<T>(arg0: $NonNullSupplier$Type<(any)>, arg1: $ResourceKey$Type<($Registry$Type<(T)>)>): string
-public static "toEnglishName"(arg0: string): string
-public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
-public "getName"(): string
-public "getSide"(): $LogicalSide
-public "addItemWithTooltip"(arg0: $NonNullSupplier$Type<(any)>, arg1: string, arg2: $List$Type<(string)>): void
-public "addTooltip"(arg0: $NonNullSupplier$Type<(any)>, arg1: $List$Type<(string)>): void
-public "addTooltip"(arg0: $NonNullSupplier$Type<(any)>, arg1: string): void
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
-get "name"(): string
 get "side"(): $LogicalSide
+get "name"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2029,12 +2024,12 @@ export interface $Builder<R, T extends R, P, S extends $Builder<(R), (T), (P), (
  "build"(): P
  "getOwner"(): $AbstractRegistrate<(any)>
  "getEntry"(): T
- "addMiscData"<D extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
- "onRegisterAfter"<OR>(arg0: $ResourceKey$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
  "onRegister"(arg0: $NonNullConsumer$Type<(any)>): S
- "asSupplier"(): $NonNullSupplier<(T)>
- "getRegistryKey"(): $ResourceKey<(any)>
  "setData"<D extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: $NonNullBiConsumer$Type<($DataGenContext$Type<(R), (T)>), (D)>): S
+ "asSupplier"(): $NonNullSupplier<(T)>
+ "onRegisterAfter"<OR>(arg0: $ResourceKey$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
+ "addMiscData"<D extends $RegistrateProvider>(arg0: $ProviderType$Type<(any)>, arg1: $NonNullConsumer$Type<(any)>): S
+ "getRegistryKey"(): $ResourceKey<(any)>
  "lazy"(): $NonNullSupplier<($RegistryEntry<(T)>)>
 }
 
@@ -2095,7 +2090,6 @@ public "orElseGet"(arg0: $Supplier$Type<(any)>): T
 public "getUnchecked"(): T
 public "getSibling"<R, E extends R>(arg0: $IForgeRegistry$Type<(R)>): $RegistryEntry<(E)>
 public "getSibling"<R, E extends R>(arg0: $ResourceKey$Type<(any)>): $RegistryEntry<(E)>
-public "getHolder"(): $Optional<($Holder<(T)>)>
 /**
  * 
  * @deprecated
@@ -2103,6 +2097,7 @@ public "getHolder"(): $Optional<($Holder<(T)>)>
 public "updateReference"(arg0: $IForgeRegistry$Type<(any)>): void
 public "updateReference"(arg0: $RegisterEvent$Type): void
 public "lazyMap"<U>(arg0: $Function$Type<(any), (any)>): $Supplier<(U)>
+public "getHolder"(): $Optional<($Holder<(T)>)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
@@ -2152,17 +2147,17 @@ constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $PackOutput$Type, arg2:
 public "name"(arg0: $NonNullSupplier$Type<(any)>): string
 public "generated"(arg0: $NonNullSupplier$Type<(any)>): $ItemModelBuilder
 public "generated"(arg0: $NonNullSupplier$Type<(any)>, ...arg1: ($ResourceLocation$Type)[]): $ItemModelBuilder
-public "modid"(arg0: $NonNullSupplier$Type<(any)>): string
-public "blockWithInventoryModel"(arg0: $NonNullSupplier$Type<(any)>): $ItemModelBuilder
-public "getName"(): string
-public "getSide"(): $LogicalSide
-public "blockItem"(arg0: $NonNullSupplier$Type<(any)>, arg1: string): $ItemModelBuilder
-public "blockItem"(arg0: $NonNullSupplier$Type<(any)>): $ItemModelBuilder
-public "handheld"(arg0: $NonNullSupplier$Type<(any)>): $ItemModelBuilder
 public "handheld"(arg0: $NonNullSupplier$Type<(any)>, arg1: $ResourceLocation$Type): $ItemModelBuilder
-public "blockSprite"(arg0: $NonNullSupplier$Type<(any)>, arg1: $ResourceLocation$Type): $ItemModelBuilder
+public "handheld"(arg0: $NonNullSupplier$Type<(any)>): $ItemModelBuilder
 public "blockSprite"(arg0: $NonNullSupplier$Type<(any)>): $ItemModelBuilder
+public "blockSprite"(arg0: $NonNullSupplier$Type<(any)>, arg1: $ResourceLocation$Type): $ItemModelBuilder
 public "itemTexture"(arg0: $NonNullSupplier$Type<(any)>): $ResourceLocation
+public "modid"(arg0: $NonNullSupplier$Type<(any)>): string
+public "getSide"(): $LogicalSide
+public "getName"(): string
+public "blockWithInventoryModel"(arg0: $NonNullSupplier$Type<(any)>): $ItemModelBuilder
+public "blockItem"(arg0: $NonNullSupplier$Type<(any)>): $ItemModelBuilder
+public "blockItem"(arg0: $NonNullSupplier$Type<(any)>, arg1: string): $ItemModelBuilder
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
 public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
 get "side"(): $LogicalSide
@@ -2247,8 +2242,8 @@ import {$LogicalSide, $LogicalSide$Type} from "packages/net/minecraftforge/fml/$
 export interface $RegistrateProvider extends $DataProvider {
 
  "getSide"(): $LogicalSide
- "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
  "getName"(): string
+ "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
 }
 
 export namespace $RegistrateProvider {
@@ -2288,10 +2283,10 @@ readonly "map": $Map<($EntityType<(any)>), ($Map<($ResourceLocation), ($LootTabl
 constructor(arg0: $AbstractRegistrate$Type<(any)>, arg1: $Consumer$Type<($RegistrateEntityLootTables$Type)>)
 
 public static "createSheepTable"(arg0: $ItemLike$Type): $LootTable$Builder
+public "generate"(): void
 public "m_247253_"(arg0: $FrogVariant$Type): $LootItemCondition$Builder
 public "m_247520_"(arg0: $EntityType$Type<(any)>, arg1: $ResourceLocation$Type, arg2: $LootTable$Builder$Type): void
 public "m_245309_"(arg0: $EntityType$Type<(any)>, arg1: $LootTable$Builder$Type): void
-public "generate"(): void
 public "m_245552_"(arg0: $EntityType$Type<(any)>): boolean
 public "validate"(arg0: $Map$Type<($ResourceLocation$Type), ($LootTable$Type)>, arg1: $ValidationContext$Type): void
 public "generate"(arg0: $BiConsumer$Type<($ResourceLocation$Type), ($LootTable$Builder$Type)>): void

@@ -2,9 +2,10 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "custom_magic_content"
-	group: "6A93A99260EB7FB8"
+	group: "1632C829334FA27E"
+	icon: "kubejs:star_metal_ingot"
 	id: "2890ABC5970F0DA7"
-	order_index: 0
+	order_index: 1
 	quest_links: [ ]
 	quests: [
 		{
@@ -336,7 +337,7 @@
 			}]
 			title: "Grains of Starmetal"
 			x: 22.0d
-			y: -4.0d
+			y: 0.0d
 		}
 		{
 			dependencies: ["335DE3C5948F081E"]

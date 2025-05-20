@@ -1,0 +1,11 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "occultism"
+	group: "34DE6C1EE226FBA2"
+	id: "4B87D72DAB450D22"
+	order_index: 1
+	quest_links: [ ]
+	quests: [ ]
+	title: "Occultism"
+}

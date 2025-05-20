@@ -2,49 +2,53 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "botania"
-	group: "1EE0E24DF7C2736A"
+	group: "1632C829334FA27E"
+	icon: {
+		Count: 1
+		id: "botania:mana_pool"
+		tag: {
+			RenderFull: 1b
+		}
+	}
 	id: "46D233AA0D0CF1F3"
-	order_index: 2
+	order_index: 0
 	quest_links: [ ]
 	quests: [
 		{
+			dependencies: ["2936C4A9D36BE12B"]
 			id: "1BB7D2B666FFDD47"
 			tasks: [{
 				id: "34DBAC9925878E62"
 				item: "botania:mana_pool"
 				type: "item"
 			}]
-			x: 0.0d
-			y: 0.0d
+			x: -5.5d
+			y: 4.0d
 		}
 		{
+			dependencies: ["6EE6933E8FDC48CD"]
 			id: "2936C4A9D36BE12B"
 			tasks: [{
 				id: "3E03A6E5FEFADE47"
 				item: "botania:livingrock"
 				type: "item"
 			}]
-			x: -2.0d
+			x: -5.5d
 			y: 2.0d
 		}
 		{
+			dependencies: ["6EE6933E8FDC48CD"]
 			id: "7C2684E66B6339D9"
-			tasks: [
-				{
-					id: "00312637635C9A17"
-					item: "botania:root"
-					type: "item"
-				}
-				{
-					id: "0168FA8C561D68D7"
-					item: "botania:livingwood"
-					type: "item"
-				}
-			]
-			x: -2.0d
+			tasks: [{
+				id: "0168FA8C561D68D7"
+				item: "botania:livingwood"
+				type: "item"
+			}]
+			x: -5.5d
 			y: -2.0d
 		}
 		{
+			dependencies: ["12E66C0E5726835C"]
 			id: "6EE6933E8FDC48CD"
 			tasks: [{
 				id: "37D1997F04C982BF"
@@ -61,7 +65,18 @@
 				item: "botania:apothecary_default"
 				type: "item"
 			}]
-			x: -7.0d
+			x: -9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6EE6933E8FDC48CD"]
+			id: "7C6F3AEB344FD432"
+			tasks: [{
+				id: "7A6F4B7073B3127B"
+				item: "kubejs:marble"
+				type: "item"
+			}]
+			x: -1.5d
 			y: 0.0d
 		}
 	]

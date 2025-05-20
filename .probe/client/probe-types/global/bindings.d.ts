@@ -22,6 +22,7 @@ import {$ItemUIJSFactory, $ItemUIJSFactory$Type} from "packages/com/lowdragmc/lo
 import {$JavaWrapper, $JavaWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$JavaWrapper"
 import {$ConfigBlockProperties, $ConfigBlockProperties$Type} from "packages/com/lowdragmc/mbd2/common/machine/definition/config/$ConfigBlockProperties"
 import {$RotationAxis, $RotationAxis$Type} from "packages/dev/latvian/mods/kubejs/util/$RotationAxis"
+import {$IO, $IO$Type} from "packages/com/lowdragmc/mbd2/api/capability/recipe/$IO"
 import {$Painter, $Painter$Type} from "packages/dev/latvian/mods/kubejs/client/painter/$Painter"
 import {$SidedNativeEvents, $SidedNativeEvents$Type} from "packages/zank/mods/eventjs/$SidedNativeEvents"
 import {$TabButton, $TabButton$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$TabButton"
@@ -71,8 +72,10 @@ import {$LabelWidget, $LabelWidget$Type} from "packages/com/lowdragmc/lowdraglib
 import {$ColorRectTexture, $ColorRectTexture$Type} from "packages/com/lowdragmc/lowdraglib/gui/texture/$ColorRectTexture"
 import {$Math, $Math$Type} from "packages/java/lang/$Math"
 import {$ButtonWidget, $ButtonWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$ButtonWidget"
+import {$ContentModifier, $ContentModifier$Type} from "packages/com/lowdragmc/mbd2/api/recipe/content/$ContentModifier"
 import {$ItemWrapper, $ItemWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$ItemWrapper"
 import {$Quaternionf, $Quaternionf$Type} from "packages/org/joml/$Quaternionf"
+import {$CapabilityIO, $CapabilityIO$Type} from "packages/com/lowdragmc/mbd2/common/trait/$CapabilityIO"
 import {$BlockSelectorWidget, $BlockSelectorWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$BlockSelectorWidget"
 import {$FluidAmounts, $FluidAmounts$Type} from "packages/dev/latvian/mods/kubejs/util/$FluidAmounts"
 import {$DraggableWidgetGroup, $DraggableWidgetGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$DraggableWidgetGroup"
@@ -82,6 +85,7 @@ import {$Matrix4f, $Matrix4f$Type} from "packages/org/joml/$Matrix4f"
 import {$SwitchWidget, $SwitchWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$SwitchWidget"
 import {$ProgressWidget, $ProgressWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$ProgressWidget"
 import {$FluidWrapper, $FluidWrapper$Type} from "packages/dev/latvian/mods/kubejs/fluid/$FluidWrapper"
+import {$ManaItemHandlerImpl, $ManaItemHandlerImpl$Type} from "packages/vazkii/botania/common/impl/mana/$ManaItemHandlerImpl"
 import {$InputItem, $InputItem$Type} from "packages/dev/latvian/mods/kubejs/item/$InputItem"
 import {$TreeListWidget, $TreeListWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$TreeListWidget"
 import {$BlockStateProperties, $BlockStateProperties$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockStateProperties"
@@ -97,12 +101,14 @@ import {$PhantomFluidWidget, $PhantomFluidWidget$Type} from "packages/com/lowdra
 import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
 import {$UIProject, $UIProject$Type} from "packages/com/lowdragmc/lowdraglib/gui/editor/data/$UIProject"
 import {$DraggableScrollableWidgetGroup, $DraggableScrollableWidgetGroup$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$DraggableScrollableWidgetGroup"
+import {$CorporeaHelperImpl, $CorporeaHelperImpl$Type} from "packages/vazkii/botania/common/impl/corporea/$CorporeaHelperImpl"
 import {$PhantomSlotWidget, $PhantomSlotWidget$Type} from "packages/com/lowdragmc/lowdraglib/gui/widget/$PhantomSlotWidget"
 
 declare global {
 const TankWidget: typeof $TankWidget
 const Platform: typeof $PlatformWrapper
 const ProgressTexture: typeof $ProgressTexture
+const ContentModifier: typeof $ContentModifier
 const Widget: typeof $Widget
 const OutputItem: typeof $OutputItem
 const RotationAxis: typeof $RotationAxis
@@ -124,9 +130,11 @@ const Client: $Minecraft
 const MBDRegistries: typeof $MBDRegistries
 const NativeEvents: $SidedNativeEvents
 const MachineState: typeof $MachineState
+const CorporeaHelper: $CorporeaHelperImpl
 const ConfigBlockProperties: typeof $ConfigBlockProperties
 const SoundType: typeof $SoundType
 const FillDirection: typeof $ProgressTexture$FillDirection
+const IO: typeof $IO
 const ResourceBorderTexture: typeof $ResourceBorderTexture
 const Fluid: typeof $FluidWrapper
 const Duration: typeof $Duration
@@ -142,6 +150,7 @@ const KMath: typeof $KMath
 const TabButton: typeof $TabButton
 const Vector3f: typeof $Vector3f
 const Stats: typeof $Stats
+const ManaHandler: $ManaItemHandlerImpl
 const BlockUIFactory: typeof $BlockUIJSFactory
 const Block: typeof $BlockWrapper
 const TextFieldWidget: typeof $TextFieldWidget
@@ -189,6 +198,7 @@ const LabelWidget: typeof $LabelWidget
 const DataTickets: typeof $DataTickets
 const SECOND: double
 const FluidTransferHelper: typeof $FluidTransferHelperImpl
+const CapabilityIO: typeof $CapabilityIO
 const ItemStackTransfer: typeof $ItemStackTransfer
 const FluidStorage: typeof $FluidStorage
 export import NBT = $NBTUtils

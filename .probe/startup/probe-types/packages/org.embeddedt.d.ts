@@ -78,9 +78,9 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $ModelPartExtended {
 
+ "embeddium$asOptional"(): $Optional<($ModelPart)>
  "embeddium$getPartsList"(): $List<($ModelPart)>
  "embeddium$getDescendantsByName"(): $Map<(string), ($ModelPart)>
- "embeddium$asOptional"(): $Optional<($ModelPart)>
 }
 
 export namespace $ModelPartExtended {

@@ -49,11 +49,13 @@ import {$BlockLootEventJS, $BlockLootEventJS$Type} from "packages/dev/latvian/mo
 import {$ItemSmeltedEventJS, $ItemSmeltedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemSmeltedEventJS"
 import {$DetectorBlockEventJS, $DetectorBlockEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$DetectorBlockEventJS"
 import {$AfterRecipesLoadedEventJS, $AfterRecipesLoadedEventJS$Type} from "packages/dev/latvian/mods/kubejs/recipe/$AfterRecipesLoadedEventJS"
+import {$MBDRecipeTypeEvents$TransferProxyRecipeEventJS, $MBDRecipeTypeEvents$TransferProxyRecipeEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDRecipeTypeEvents$TransferProxyRecipeEventJS"
 import {$MBDMachineEvents$MachineOnRecipeWaitingEventJS, $MBDMachineEvents$MachineOnRecipeWaitingEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineOnRecipeWaitingEventJS"
 import {$MBDMachineEvents$MachineFuelBurningFinishEventJS, $MBDMachineEvents$MachineFuelBurningFinishEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineFuelBurningFinishEventJS"
 import {$MBDMachineEvents$MachineUseCatalystEventJS, $MBDMachineEvents$MachineUseCatalystEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineUseCatalystEventJS"
 import {$SimplePlayerEventJS, $SimplePlayerEventJS$Type} from "packages/dev/latvian/mods/kubejs/player/$SimplePlayerEventJS"
 import {$InventoryChangedEventJS, $InventoryChangedEventJS$Type} from "packages/dev/latvian/mods/kubejs/player/$InventoryChangedEventJS"
+import {$UniversalController, $UniversalController$Type} from "packages/net/liopyu/animationjs/events/$UniversalController"
 import {$CommandEventJS, $CommandEventJS$Type} from "packages/dev/latvian/mods/kubejs/server/$CommandEventJS"
 import {$MBDMachineEvents$MachineNeighborChangedEventJS, $MBDMachineEvents$MachineNeighborChangedEventJS$Type} from "packages/com/lowdragmc/mbd2/integration/kubejs/events/$MBDMachineEvents$MachineNeighborChangedEventJS"
 import {$FishingLootEventJS, $FishingLootEventJS$Type} from "packages/dev/latvian/mods/kubejs/loot/$FishingLootEventJS"
@@ -96,6 +98,10 @@ function lowPriorityData(handler: (event: $DataPackEventJS) => void): void
 function fishingLootTables(handler: (event: $FishingLootEventJS) => void): void
 function genericLootTables(handler: (event: $GenericLootEventJS) => void): void
 function highPriorityData(handler: (event: $DataPackEventJS) => void): void
+}
+export namespace MBDRecipeTypeEvents {
+function onTransferProxyRecipe(extra: string, handler: (event: $MBDRecipeTypeEvents$TransferProxyRecipeEventJS) => void): void
+function onTransferProxyRecipe(handler: (event: $MBDRecipeTypeEvents$TransferProxyRecipeEventJS) => void): void
 }
 export namespace LDLibUI {
 function item(extra: string, handler: (event: $UIEvents$ItemUIEventJS) => void): void
@@ -159,6 +165,9 @@ function beforeExplosion(handler: (event: $ExplosionEventJS$Before) => void): vo
 function tick(extra: string, handler: (event: $SimpleLevelEventJS) => void): void
 function tick(handler: (event: $SimpleLevelEventJS) => void): void
 function afterExplosion(handler: (event: $ExplosionEventJS$After) => void): void
+}
+export namespace AnimationJS {
+function universalController(handler: (event: $UniversalController) => void): void
 }
 export namespace EntityEvents {
 function spawned(extra: $EntityType$Type, handler: (event: $EntitySpawnedEventJS) => void): void

@@ -1,0 +1,11 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "natures_aura"
+	group: "1EE0E24DF7C2736A"
+	id: "57E50A5359A60A9E"
+	order_index: 2
+	quest_links: [ ]
+	quests: [ ]
+	title: "Nature's Aura"
+}

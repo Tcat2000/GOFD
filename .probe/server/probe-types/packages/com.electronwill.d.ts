@@ -1,15 +1,15 @@
 declare module "packages/com/electronwill/nightconfig/core/file/$FileConfig" {
 import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
 import {$FileConfigBuilder, $FileConfigBuilder$Type} from "packages/com/electronwill/nightconfig/core/file/$FileConfigBuilder"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntSupplier"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ConfigFormat, $ConfigFormat$Type} from "packages/com/electronwill/nightconfig/core/$ConfigFormat"
 import {$Config, $Config$Type} from "packages/com/electronwill/nightconfig/core/$Config"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$File, $File$Type} from "packages/java/io/$File"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$OptionalLong, $OptionalLong$Type} from "packages/java/util/$OptionalLong"
+import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$AutoCloseable, $AutoCloseable$Type} from "packages/java/lang/$AutoCloseable"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
@@ -39,9 +39,9 @@ export interface $FileConfig extends $Config, $AutoCloseable {
  "set"<T>(arg0: string, arg1: any): T
  "set"<T>(arg0: $List$Type<(string)>, arg1: any): T
  "removeAll"(arg0: $UnmodifiableConfig$Type): void
- "unmodifiable"(): $UnmodifiableConfig
- "createSubConfig"(): $Config
  "valueMap"(): $Map<(string), (any)>
+ "createSubConfig"(): $Config
+ "unmodifiable"(): $UnmodifiableConfig
  "get"<T>(arg0: string): T
  "get"<T>(arg0: $List$Type<(string)>): T
  "getByte"(arg0: $List$Type<(string)>): byte
@@ -58,53 +58,53 @@ export interface $FileConfig extends $Config, $AutoCloseable {
  "size"(): integer
  "apply"<T>(arg0: string): T
  "apply"<T>(arg0: $List$Type<(string)>): T
- "contains"(arg0: string): boolean
  "contains"(arg0: $List$Type<(string)>): boolean
+ "contains"(arg0: string): boolean
  "isNull"(arg0: $List$Type<(string)>): boolean
  "isNull"(arg0: string): boolean
- "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
- "getOptional"<T>(arg0: string): $Optional<(T)>
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "configFormat"(): $ConfigFormat<(any)>
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getRaw"<T>(arg0: $List$Type<(string)>): T
- "getRaw"<T>(arg0: string): T
- "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
- "getOrElse"<T>(arg0: string, arg1: T): T
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getByteOrElse"(arg0: string, arg1: byte): byte
- "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
- "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
- "getShortOrElse"(arg0: string, arg1: short): short
- "getCharOrElse"(arg0: string, arg1: character): character
- "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
+ "getOptionalLong"(arg0: string): $OptionalLong
+ "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
  "getIntOrElse"(arg0: $List$Type<(string)>, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: $IntSupplier$Type): integer
- "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
- "getOptionalInt"(arg0: string): $OptionalInt
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
  "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
- "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
- "getOptionalLong"(arg0: string): $OptionalLong
+ "getOptionalInt"(arg0: string): $OptionalInt
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+ "getByteOrElse"(arg0: string, arg1: byte): byte
  "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
- "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
+ "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: string, arg1: long): long
+ "getShortOrElse"(arg0: string, arg1: short): short
+ "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
+ "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getCharOrElse"(arg0: string, arg1: character): character
+ "configFormat"(): $ConfigFormat<(any)>
+ "getRaw"<T>(arg0: $List$Type<(string)>): T
+ "getRaw"<T>(arg0: string): T
+ "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
+ "getOptional"<T>(arg0: string): $Optional<(T)>
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
+ "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: string, arg1: T): T
 }
 
 export namespace $FileConfig {
@@ -130,20 +130,20 @@ function wrap(arg0: $Map$Type<(string), (any)>, arg1: $ConfigFormat$Type<(any)>)
 function of(arg0: $ConfigFormat$Type<(any)>): $Config
 function of(arg0: $Supplier$Type<($Map$Type<(string), (any)>)>, arg1: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>): $Config
-function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
+function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type): $Config
-function inMemory(): $Config
-function inMemoryUniversal(): $Config
-function concurrentCopy(arg0: $UnmodifiableConfig$Type): $Config
-function concurrentCopy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
-function inMemoryConcurrent(): $Config
-function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $Config
-function inMemoryUniversalConcurrent(): $Config
-function isInsertionOrderPreserved(): boolean
 function getDefaultMapCreator<T>(arg0: boolean): $Supplier<($Map<(string), (T)>)>
 function getDefaultMapCreator<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(string), (T)>)>
 function setInsertionOrderPreserved(arg0: boolean): void
+function isInsertionOrderPreserved(): boolean
+function inMemoryUniversalConcurrent(): $Config
+function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $Config
+function concurrentCopy(arg0: $UnmodifiableConfig$Type): $Config
+function concurrentCopy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
+function inMemoryUniversal(): $Config
+function inMemoryConcurrent(): $Config
+function inMemory(): $Config
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -158,13 +158,13 @@ declare global {
 export type $FileConfig_ = $FileConfig$Type;
 }}
 declare module "packages/com/electronwill/nightconfig/core/$UnmodifiableConfig" {
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntSupplier"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ConfigFormat, $ConfigFormat$Type} from "packages/com/electronwill/nightconfig/core/$ConfigFormat"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$OptionalLong, $OptionalLong$Type} from "packages/java/util/$OptionalLong"
+import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -190,55 +190,55 @@ export interface $UnmodifiableConfig {
  "size"(): integer
  "apply"<T>(arg0: string): T
  "apply"<T>(arg0: $List$Type<(string)>): T
- "contains"(arg0: string): boolean
  "contains"(arg0: $List$Type<(string)>): boolean
+ "contains"(arg0: string): boolean
  "entrySet"(): $Set<(any)>
  "isNull"(arg0: $List$Type<(string)>): boolean
  "isNull"(arg0: string): boolean
- "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
- "getOptional"<T>(arg0: string): $Optional<(T)>
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "configFormat"(): $ConfigFormat<(any)>
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getRaw"<T>(arg0: $List$Type<(string)>): T
- "getRaw"<T>(arg0: string): T
- "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
- "getOrElse"<T>(arg0: string, arg1: T): T
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getByteOrElse"(arg0: string, arg1: byte): byte
- "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
- "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
- "getShortOrElse"(arg0: string, arg1: short): short
- "getCharOrElse"(arg0: string, arg1: character): character
- "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
+ "getOptionalLong"(arg0: string): $OptionalLong
+ "valueMap"(): $Map<(string), (any)>
+ "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
  "getIntOrElse"(arg0: $List$Type<(string)>, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: $IntSupplier$Type): integer
- "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
- "getOptionalInt"(arg0: string): $OptionalInt
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
  "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
- "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
- "getOptionalLong"(arg0: string): $OptionalLong
+ "getOptionalInt"(arg0: string): $OptionalInt
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+ "getByteOrElse"(arg0: string, arg1: byte): byte
  "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
- "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
+ "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: string, arg1: long): long
- "valueMap"(): $Map<(string), (any)>
+ "getShortOrElse"(arg0: string, arg1: short): short
+ "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
+ "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getCharOrElse"(arg0: string, arg1: character): character
+ "configFormat"(): $ConfigFormat<(any)>
+ "getRaw"<T>(arg0: $List$Type<(string)>): T
+ "getRaw"<T>(arg0: string): T
+ "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
+ "getOptional"<T>(arg0: string): $Optional<(T)>
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
+ "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: string, arg1: T): T
 }
 
 export namespace $UnmodifiableConfig {
@@ -257,34 +257,34 @@ declare global {
 export type $UnmodifiableConfig_ = $UnmodifiableConfig$Type;
 }}
 declare module "packages/com/electronwill/nightconfig/core/$UnmodifiableCommentedConfig" {
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntSupplier"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ConfigFormat, $ConfigFormat$Type} from "packages/com/electronwill/nightconfig/core/$ConfigFormat"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$OptionalLong, $OptionalLong$Type} from "packages/java/util/$OptionalLong"
+import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$LongSupplier, $LongSupplier$Type} from "packages/java/util/function/$LongSupplier"
 import {$OptionalInt, $OptionalInt$Type} from "packages/java/util/$OptionalInt"
 import {$UnmodifiableCommentedConfig$CommentNode, $UnmodifiableCommentedConfig$CommentNode$Type} from "packages/com/electronwill/nightconfig/core/$UnmodifiableCommentedConfig$CommentNode"
-import {$Map, $Map$Type} from "packages/java/util/$Map"
 import {$UnmodifiableConfig, $UnmodifiableConfig$Type} from "packages/com/electronwill/nightconfig/core/$UnmodifiableConfig"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $UnmodifiableCommentedConfig extends $UnmodifiableConfig {
 
  "entrySet"(): $Set<(any)>
  "getComment"(arg0: string): string
  "getComment"(arg0: $List$Type<(string)>): string
- "commentMap"(): $Map<(string), (string)>
- "getOptionalComment"(arg0: string): $Optional<(string)>
- "getOptionalComment"(arg0: $List$Type<(string)>): $Optional<(string)>
  "containsComment"(arg0: $List$Type<(string)>): boolean
  "containsComment"(arg0: string): boolean
- "getComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
+ "getOptionalComment"(arg0: string): $Optional<(string)>
+ "getOptionalComment"(arg0: $List$Type<(string)>): $Optional<(string)>
+ "commentMap"(): $Map<(string), (string)>
  "getComments"(): $Map<(string), ($UnmodifiableCommentedConfig$CommentNode)>
+ "getComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
  "get"<T>(arg0: string): T
  "get"<T>(arg0: $List$Type<(string)>): T
  "getByte"(arg0: $List$Type<(string)>): byte
@@ -301,54 +301,54 @@ export interface $UnmodifiableCommentedConfig extends $UnmodifiableConfig {
  "size"(): integer
  "apply"<T>(arg0: string): T
  "apply"<T>(arg0: $List$Type<(string)>): T
- "contains"(arg0: string): boolean
  "contains"(arg0: $List$Type<(string)>): boolean
+ "contains"(arg0: string): boolean
  "isNull"(arg0: $List$Type<(string)>): boolean
  "isNull"(arg0: string): boolean
- "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
- "getOptional"<T>(arg0: string): $Optional<(T)>
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "configFormat"(): $ConfigFormat<(any)>
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getRaw"<T>(arg0: $List$Type<(string)>): T
- "getRaw"<T>(arg0: string): T
- "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
- "getOrElse"<T>(arg0: string, arg1: T): T
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getByteOrElse"(arg0: string, arg1: byte): byte
- "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
- "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
- "getShortOrElse"(arg0: string, arg1: short): short
- "getCharOrElse"(arg0: string, arg1: character): character
- "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
+ "getOptionalLong"(arg0: string): $OptionalLong
+ "valueMap"(): $Map<(string), (any)>
+ "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
  "getIntOrElse"(arg0: $List$Type<(string)>, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: $IntSupplier$Type): integer
- "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
- "getOptionalInt"(arg0: string): $OptionalInt
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
  "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
- "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
- "getOptionalLong"(arg0: string): $OptionalLong
+ "getOptionalInt"(arg0: string): $OptionalInt
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+ "getByteOrElse"(arg0: string, arg1: byte): byte
  "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
- "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
+ "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: string, arg1: long): long
- "valueMap"(): $Map<(string), (any)>
+ "getShortOrElse"(arg0: string, arg1: short): short
+ "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
+ "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getCharOrElse"(arg0: string, arg1: character): character
+ "configFormat"(): $ConfigFormat<(any)>
+ "getRaw"<T>(arg0: $List$Type<(string)>): T
+ "getRaw"<T>(arg0: string): T
+ "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
+ "getOptional"<T>(arg0: string): $Optional<(T)>
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
+ "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: string, arg1: T): T
 }
 
 export namespace $UnmodifiableCommentedConfig {
@@ -405,10 +405,10 @@ export namespace $FileNotFoundAction {
 const CREATE_EMPTY: $FileNotFoundAction
 const READ_NOTHING: $FileNotFoundAction
 const THROW_ERROR: $FileNotFoundAction
-function copyData(arg0: $File$Type): $FileNotFoundAction
 function copyData(arg0: $URL$Type): $FileNotFoundAction
-function copyData(arg0: $Path$Type): $FileNotFoundAction
+function copyData(arg0: $File$Type): $FileNotFoundAction
 function copyData(arg0: $InputStream$Type): $FileNotFoundAction
+function copyData(arg0: $Path$Type): $FileNotFoundAction
 function copyResource(arg0: string): $FileNotFoundAction
 }
 /**
@@ -430,8 +430,8 @@ import {$FileConfig, $FileConfig$Type} from "packages/com/electronwill/nightconf
 import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
 import {$WritingMode, $WritingMode$Type} from "packages/com/electronwill/nightconfig/core/io/$WritingMode"
 import {$File, $File$Type} from "packages/java/io/$File"
-import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$URL, $URL$Type} from "packages/java/net/$URL"
+import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$Charset, $Charset$Type} from "packages/java/nio/charset/$Charset"
 import {$Config, $Config$Type} from "packages/com/electronwill/nightconfig/core/$Config"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -442,18 +442,18 @@ export class $GenericBuilder<Base extends $Config, Result extends $FileConfig> {
 public "charset"(arg0: $Charset$Type): $GenericBuilder<(Base), (Result)>
 public "build"(): Result
 public "sync"(): $GenericBuilder<(Base), (Result)>
-public "autosave"(): $GenericBuilder<(Base), (Result)>
+public "preserveInsertionOrder"(): $GenericBuilder<(Base), (Result)>
+public "concurrent"(): $GenericBuilder<(Base), (Result)>
 public "onFileNotFound"(arg0: $FileNotFoundAction$Type): $GenericBuilder<(Base), (Result)>
 public "writingMode"(arg0: $WritingMode$Type): $GenericBuilder<(Base), (Result)>
-public "concurrent"(): $GenericBuilder<(Base), (Result)>
 public "parsingMode"(arg0: $ParsingMode$Type): $GenericBuilder<(Base), (Result)>
-public "autoreload"(): $GenericBuilder<(Base), (Result)>
-public "backingMapCreator"(arg0: $Supplier$Type<($Map$Type<(string), (any)>)>): $GenericBuilder<(Base), (Result)>
-public "defaultData"(arg0: $File$Type): $GenericBuilder<(Base), (Result)>
 public "defaultData"(arg0: $URL$Type): $GenericBuilder<(Base), (Result)>
+public "defaultData"(arg0: $File$Type): $GenericBuilder<(Base), (Result)>
 public "defaultData"(arg0: $Path$Type): $GenericBuilder<(Base), (Result)>
+public "autoreload"(): $GenericBuilder<(Base), (Result)>
 public "defaultResource"(arg0: string): $GenericBuilder<(Base), (Result)>
-public "preserveInsertionOrder"(): $GenericBuilder<(Base), (Result)>
+public "autosave"(): $GenericBuilder<(Base), (Result)>
+public "backingMapCreator"(arg0: $Supplier$Type<($Map$Type<(string), (any)>)>): $GenericBuilder<(Base), (Result)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -533,13 +533,13 @@ declare global {
 export type $WriterSupplier_ = $WriterSupplier$Type;
 }}
 declare module "packages/com/electronwill/nightconfig/core/utils/$UnmodifiableConfigWrapper" {
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntSupplier"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ConfigFormat, $ConfigFormat$Type} from "packages/com/electronwill/nightconfig/core/$ConfigFormat"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$OptionalLong, $OptionalLong$Type} from "packages/java/util/$OptionalLong"
+import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -557,9 +557,9 @@ public "isEmpty"(): boolean
 public "size"(): integer
 public "contains"(arg0: $List$Type<(string)>): boolean
 public "entrySet"(): $Set<(any)>
+public "valueMap"(): $Map<(string), (any)>
 public "configFormat"(): $ConfigFormat<(any)>
 public "getRaw"<T>(arg0: $List$Type<(string)>): T
-public "valueMap"(): $Map<(string), (any)>
 public "get"<T>(arg0: string): T
 public "get"<T>(arg0: $List$Type<(string)>): T
 public "getByte"(arg0: $List$Type<(string)>): byte
@@ -577,47 +577,47 @@ public "apply"<T>(arg0: $List$Type<(string)>): T
 public "contains"(arg0: string): boolean
 public "isNull"(arg0: $List$Type<(string)>): boolean
 public "isNull"(arg0: string): boolean
-public "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
-public "getOptional"<T>(arg0: string): $Optional<(T)>
-public "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
-public "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
-public "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
-public "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
-public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
-public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
-public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
-public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
-public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
-public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
-public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
-public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
-public "getRaw"<T>(arg0: string): T
-public "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
-public "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
-public "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
-public "getOrElse"<T>(arg0: string, arg1: T): T
-public "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
-public "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
-public "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
-public "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
-public "getByteOrElse"(arg0: string, arg1: byte): byte
-public "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
-public "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
-public "getShortOrElse"(arg0: string, arg1: short): short
-public "getCharOrElse"(arg0: string, arg1: character): character
-public "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+public "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
+public "getOptionalLong"(arg0: string): $OptionalLong
+public "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
 public "getIntOrElse"(arg0: $List$Type<(string)>, arg1: integer): integer
 public "getIntOrElse"(arg0: string, arg1: integer): integer
 public "getIntOrElse"(arg0: string, arg1: $IntSupplier$Type): integer
-public "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
-public "getOptionalInt"(arg0: string): $OptionalInt
+public "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+public "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
+public "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+public "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
+public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
+public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
+public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
+public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
+public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+public "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
 public "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
-public "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
-public "getOptionalLong"(arg0: string): $OptionalLong
+public "getOptionalInt"(arg0: string): $OptionalInt
+public "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
+public "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
+public "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+public "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+public "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+public "getByteOrElse"(arg0: string, arg1: byte): byte
 public "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
-public "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
 public "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
+public "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
 public "getLongOrElse"(arg0: string, arg1: long): long
+public "getShortOrElse"(arg0: string, arg1: short): short
+public "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
+public "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+public "getCharOrElse"(arg0: string, arg1: character): character
+public "getRaw"<T>(arg0: string): T
+public "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
+public "getOptional"<T>(arg0: string): $Optional<(T)>
+public "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
+public "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+public "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
+public "getOrElse"<T>(arg0: string, arg1: T): T
 get "empty"(): boolean
 }
 /**
@@ -633,15 +633,15 @@ declare global {
 export type $UnmodifiableConfigWrapper_<C> = $UnmodifiableConfigWrapper$Type<(C)>;
 }}
 declare module "packages/com/electronwill/nightconfig/core/$CommentedConfig" {
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntSupplier"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ConfigFormat, $ConfigFormat$Type} from "packages/com/electronwill/nightconfig/core/$ConfigFormat"
 import {$Config, $Config$Type} from "packages/com/electronwill/nightconfig/core/$Config"
 import {$UnmodifiableCommentedConfig, $UnmodifiableCommentedConfig$Type} from "packages/com/electronwill/nightconfig/core/$UnmodifiableCommentedConfig"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$OptionalLong, $OptionalLong$Type} from "packages/java/util/$OptionalLong"
+import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -656,20 +656,22 @@ export interface $CommentedConfig extends $UnmodifiableCommentedConfig, $Config 
  "entrySet"(): $Set<(any)>
  "setComment"(arg0: string, arg1: string): string
  "setComment"(arg0: $List$Type<(string)>, arg1: string): string
- "putAllComments"(arg0: $UnmodifiableCommentedConfig$Type): void
+ "createSubConfig"(): $CommentedConfig
  "putAllComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
+ "putAllComments"(arg0: $UnmodifiableCommentedConfig$Type): void
+ "unmodifiable"(): $UnmodifiableCommentedConfig
  "commentMap"(): $Map<(string), (string)>
  "removeComment"(arg0: $List$Type<(string)>): string
  "removeComment"(arg0: string): string
  "clearComments"(): void
  "getComment"(arg0: string): string
  "getComment"(arg0: $List$Type<(string)>): string
- "getOptionalComment"(arg0: string): $Optional<(string)>
- "getOptionalComment"(arg0: $List$Type<(string)>): $Optional<(string)>
  "containsComment"(arg0: $List$Type<(string)>): boolean
  "containsComment"(arg0: string): boolean
- "getComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
+ "getOptionalComment"(arg0: string): $Optional<(string)>
+ "getOptionalComment"(arg0: $List$Type<(string)>): $Optional<(string)>
  "getComments"(): $Map<(string), ($UnmodifiableCommentedConfig$CommentNode)>
+ "getComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
  "add"(arg0: $List$Type<(string)>, arg1: any): boolean
  "add"(arg0: string, arg1: any): boolean
  "remove"<T>(arg0: $List$Type<(string)>): T
@@ -699,53 +701,53 @@ export interface $CommentedConfig extends $UnmodifiableCommentedConfig, $Config 
  "size"(): integer
  "apply"<T>(arg0: string): T
  "apply"<T>(arg0: $List$Type<(string)>): T
- "contains"(arg0: string): boolean
  "contains"(arg0: $List$Type<(string)>): boolean
+ "contains"(arg0: string): boolean
  "isNull"(arg0: $List$Type<(string)>): boolean
  "isNull"(arg0: string): boolean
- "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
- "getOptional"<T>(arg0: string): $Optional<(T)>
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "configFormat"(): $ConfigFormat<(any)>
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getRaw"<T>(arg0: $List$Type<(string)>): T
- "getRaw"<T>(arg0: string): T
- "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
- "getOrElse"<T>(arg0: string, arg1: T): T
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getByteOrElse"(arg0: string, arg1: byte): byte
- "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
- "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
- "getShortOrElse"(arg0: string, arg1: short): short
- "getCharOrElse"(arg0: string, arg1: character): character
- "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
+ "getOptionalLong"(arg0: string): $OptionalLong
+ "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
  "getIntOrElse"(arg0: $List$Type<(string)>, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: $IntSupplier$Type): integer
- "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
- "getOptionalInt"(arg0: string): $OptionalInt
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
  "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
- "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
- "getOptionalLong"(arg0: string): $OptionalLong
+ "getOptionalInt"(arg0: string): $OptionalInt
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+ "getByteOrElse"(arg0: string, arg1: byte): byte
  "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
- "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
+ "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: string, arg1: long): long
+ "getShortOrElse"(arg0: string, arg1: short): short
+ "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
+ "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getCharOrElse"(arg0: string, arg1: character): character
+ "configFormat"(): $ConfigFormat<(any)>
+ "getRaw"<T>(arg0: $List$Type<(string)>): T
+ "getRaw"<T>(arg0: string): T
+ "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
+ "getOptional"<T>(arg0: string): $Optional<(T)>
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
+ "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: string, arg1: T): T
 }
 
 export namespace $CommentedConfig {
@@ -760,21 +762,21 @@ function copy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $ConfigFormat$Type<
 function copy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>): $CommentedConfig
 function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $CommentedConfig
 function copy(arg0: $UnmodifiableCommentedConfig$Type): $CommentedConfig
-function inMemory(): $CommentedConfig
+function fake(arg0: $Config$Type): $CommentedConfig
+function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
-function concurrentCopy(arg0: $UnmodifiableConfig$Type): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type): $CommentedConfig
+function concurrentCopy(arg0: $UnmodifiableConfig$Type): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
 function inMemoryConcurrent(): $CommentedConfig
-function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $CommentedConfig
-function fake(arg0: $Config$Type): $CommentedConfig
+function inMemory(): $CommentedConfig
 function fake(arg0: $UnmodifiableConfig$Type): $UnmodifiableCommentedConfig
-function inMemoryUniversal(): $Config
-function inMemoryUniversalConcurrent(): $Config
-function isInsertionOrderPreserved(): boolean
 function getDefaultMapCreator<T>(arg0: boolean): $Supplier<($Map<(string), (T)>)>
 function getDefaultMapCreator<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(string), (T)>)>
 function setInsertionOrderPreserved(arg0: boolean): void
+function isInsertionOrderPreserved(): boolean
+function inMemoryUniversalConcurrent(): $Config
+function inMemoryUniversal(): $Config
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -938,17 +940,17 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $ConfigFormat<C extends $Config> {
 
+ "createConcurrentConfig"(): C
  "createConfig"(arg0: $Supplier$Type<($Map$Type<(string), (any)>)>): C
  "createConfig"(): C
- "supportsComments"(): boolean
- "createWriter"(): $ConfigWriter
- "createParser"(): $ConfigParser<(C)>
- "isInMemory"(): boolean
- "supportsType"(arg0: $Class$Type<(any)>): boolean
- "initEmptyFile"(arg0: $File$Type): void
  "initEmptyFile"(arg0: $Path$Type): void
+ "initEmptyFile"(arg0: $File$Type): void
  "initEmptyFile"(arg0: $WriterSupplier$Type): void
- "createConcurrentConfig"(): C
+ "createParser"(): $ConfigParser<(C)>
+ "createWriter"(): $ConfigWriter
+ "supportsComments"(): boolean
+ "supportsType"(arg0: $Class$Type<(any)>): boolean
+ "isInMemory"(): boolean
 }
 
 export namespace $ConfigFormat {
@@ -969,8 +971,8 @@ export type $ConfigFormat_<C> = $ConfigFormat$Type<(C)>;
 declare module "packages/com/electronwill/nightconfig/core/file/$CommentedFileConfig" {
 import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
 import {$FileConfig, $FileConfig$Type} from "packages/com/electronwill/nightconfig/core/file/$FileConfig"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntSupplier"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ConfigFormat, $ConfigFormat$Type} from "packages/com/electronwill/nightconfig/core/$ConfigFormat"
 import {$Config, $Config$Type} from "packages/com/electronwill/nightconfig/core/$Config"
 import {$CommentedFileConfigBuilder, $CommentedFileConfigBuilder$Type} from "packages/com/electronwill/nightconfig/core/file/$CommentedFileConfigBuilder"
@@ -978,8 +980,8 @@ import {$UnmodifiableCommentedConfig, $UnmodifiableCommentedConfig$Type} from "p
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$File, $File$Type} from "packages/java/io/$File"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$OptionalLong, $OptionalLong$Type} from "packages/java/util/$OptionalLong"
+import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -995,8 +997,10 @@ export interface $CommentedFileConfig extends $CommentedConfig, $FileConfig {
  "entrySet"(): $Set<(any)>
  "setComment"(arg0: string, arg1: string): string
  "setComment"(arg0: $List$Type<(string)>, arg1: string): string
- "putAllComments"(arg0: $UnmodifiableCommentedConfig$Type): void
+ "createSubConfig"(): $CommentedConfig
  "putAllComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
+ "putAllComments"(arg0: $UnmodifiableCommentedConfig$Type): void
+ "unmodifiable"(): $UnmodifiableCommentedConfig
  "commentMap"(): $Map<(string), (string)>
  "removeComment"(arg0: $List$Type<(string)>): string
  "removeComment"(arg0: string): string
@@ -1008,12 +1012,12 @@ export interface $CommentedFileConfig extends $CommentedConfig, $FileConfig {
  "getNioPath"(): $Path
  "getComment"(arg0: string): string
  "getComment"(arg0: $List$Type<(string)>): string
- "getOptionalComment"(arg0: string): $Optional<(string)>
- "getOptionalComment"(arg0: $List$Type<(string)>): $Optional<(string)>
  "containsComment"(arg0: $List$Type<(string)>): boolean
  "containsComment"(arg0: string): boolean
- "getComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
+ "getOptionalComment"(arg0: string): $Optional<(string)>
+ "getOptionalComment"(arg0: $List$Type<(string)>): $Optional<(string)>
  "getComments"(): $Map<(string), ($UnmodifiableCommentedConfig$CommentNode)>
+ "getComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
  "add"(arg0: $List$Type<(string)>, arg1: any): boolean
  "add"(arg0: string, arg1: any): boolean
  "remove"<T>(arg0: $List$Type<(string)>): T
@@ -1043,53 +1047,53 @@ export interface $CommentedFileConfig extends $CommentedConfig, $FileConfig {
  "size"(): integer
  "apply"<T>(arg0: string): T
  "apply"<T>(arg0: $List$Type<(string)>): T
- "contains"(arg0: string): boolean
  "contains"(arg0: $List$Type<(string)>): boolean
+ "contains"(arg0: string): boolean
  "isNull"(arg0: $List$Type<(string)>): boolean
  "isNull"(arg0: string): boolean
- "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
- "getOptional"<T>(arg0: string): $Optional<(T)>
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "configFormat"(): $ConfigFormat<(any)>
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getRaw"<T>(arg0: $List$Type<(string)>): T
- "getRaw"<T>(arg0: string): T
- "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
- "getOrElse"<T>(arg0: string, arg1: T): T
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getByteOrElse"(arg0: string, arg1: byte): byte
- "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
- "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
- "getShortOrElse"(arg0: string, arg1: short): short
- "getCharOrElse"(arg0: string, arg1: character): character
- "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
+ "getOptionalLong"(arg0: string): $OptionalLong
+ "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
  "getIntOrElse"(arg0: $List$Type<(string)>, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: $IntSupplier$Type): integer
- "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
- "getOptionalInt"(arg0: string): $OptionalInt
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
  "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
- "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
- "getOptionalLong"(arg0: string): $OptionalLong
+ "getOptionalInt"(arg0: string): $OptionalInt
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+ "getByteOrElse"(arg0: string, arg1: byte): byte
  "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
- "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
+ "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: string, arg1: long): long
+ "getShortOrElse"(arg0: string, arg1: short): short
+ "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
+ "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getCharOrElse"(arg0: string, arg1: character): character
+ "configFormat"(): $ConfigFormat<(any)>
+ "getRaw"<T>(arg0: $List$Type<(string)>): T
+ "getRaw"<T>(arg0: string): T
+ "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
+ "getOptional"<T>(arg0: string): $Optional<(T)>
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
+ "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: string, arg1: T): T
 }
 
 export namespace $CommentedFileConfig {
@@ -1122,21 +1126,21 @@ function copy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $ConfigFormat$Type<
 function copy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>): $CommentedConfig
 function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $CommentedConfig
 function copy(arg0: $UnmodifiableCommentedConfig$Type): $CommentedConfig
-function inMemory(): $CommentedConfig
+function fake(arg0: $Config$Type): $CommentedConfig
+function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
-function concurrentCopy(arg0: $UnmodifiableConfig$Type): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type): $CommentedConfig
+function concurrentCopy(arg0: $UnmodifiableConfig$Type): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
 function inMemoryConcurrent(): $CommentedConfig
-function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $CommentedConfig
-function fake(arg0: $Config$Type): $CommentedConfig
+function inMemory(): $CommentedConfig
 function fake(arg0: $UnmodifiableConfig$Type): $UnmodifiableCommentedConfig
-function inMemoryUniversal(): $Config
-function inMemoryUniversalConcurrent(): $Config
-function isInsertionOrderPreserved(): boolean
 function getDefaultMapCreator<T>(arg0: boolean): $Supplier<($Map<(string), (T)>)>
 function getDefaultMapCreator<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(string), (T)>)>
 function setInsertionOrderPreserved(arg0: boolean): void
+function isInsertionOrderPreserved(): boolean
+function inMemoryUniversalConcurrent(): $Config
+function inMemoryUniversal(): $Config
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1245,13 +1249,13 @@ declare global {
 export type $ConfigParser_<C> = $ConfigParser$Type<(C)>;
 }}
 declare module "packages/com/electronwill/nightconfig/core/$Config" {
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntSupplier"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ConfigFormat, $ConfigFormat$Type} from "packages/com/electronwill/nightconfig/core/$ConfigFormat"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$OptionalLong, $OptionalLong$Type} from "packages/java/util/$OptionalLong"
+import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -1276,9 +1280,9 @@ export interface $Config extends $UnmodifiableConfig {
  "set"<T>(arg0: $List$Type<(string)>, arg1: any): T
  "checked"(): $Config
  "removeAll"(arg0: $UnmodifiableConfig$Type): void
- "unmodifiable"(): $UnmodifiableConfig
- "createSubConfig"(): $Config
  "valueMap"(): $Map<(string), (any)>
+ "createSubConfig"(): $Config
+ "unmodifiable"(): $UnmodifiableConfig
  "get"<T>(arg0: string): T
  "get"<T>(arg0: $List$Type<(string)>): T
  "getByte"(arg0: $List$Type<(string)>): byte
@@ -1295,53 +1299,53 @@ export interface $Config extends $UnmodifiableConfig {
  "size"(): integer
  "apply"<T>(arg0: string): T
  "apply"<T>(arg0: $List$Type<(string)>): T
- "contains"(arg0: string): boolean
  "contains"(arg0: $List$Type<(string)>): boolean
+ "contains"(arg0: string): boolean
  "isNull"(arg0: $List$Type<(string)>): boolean
  "isNull"(arg0: string): boolean
- "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
- "getOptional"<T>(arg0: string): $Optional<(T)>
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "configFormat"(): $ConfigFormat<(any)>
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getRaw"<T>(arg0: $List$Type<(string)>): T
- "getRaw"<T>(arg0: string): T
- "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
- "getOrElse"<T>(arg0: string, arg1: T): T
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getByteOrElse"(arg0: string, arg1: byte): byte
- "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
- "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
- "getShortOrElse"(arg0: string, arg1: short): short
- "getCharOrElse"(arg0: string, arg1: character): character
- "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
+ "getOptionalLong"(arg0: string): $OptionalLong
+ "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
  "getIntOrElse"(arg0: $List$Type<(string)>, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: $IntSupplier$Type): integer
- "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
- "getOptionalInt"(arg0: string): $OptionalInt
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
  "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
- "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
- "getOptionalLong"(arg0: string): $OptionalLong
+ "getOptionalInt"(arg0: string): $OptionalInt
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+ "getByteOrElse"(arg0: string, arg1: byte): byte
  "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
- "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
+ "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
  "getLongOrElse"(arg0: string, arg1: long): long
+ "getShortOrElse"(arg0: string, arg1: short): short
+ "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
+ "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
+ "getCharOrElse"(arg0: string, arg1: character): character
+ "configFormat"(): $ConfigFormat<(any)>
+ "getRaw"<T>(arg0: $List$Type<(string)>): T
+ "getRaw"<T>(arg0: string): T
+ "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
+ "getOptional"<T>(arg0: string): $Optional<(T)>
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
+ "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: string, arg1: T): T
 }
 
 export namespace $Config {
@@ -1349,20 +1353,20 @@ function wrap(arg0: $Map$Type<(string), (any)>, arg1: $ConfigFormat$Type<(any)>)
 function of(arg0: $ConfigFormat$Type<(any)>): $Config
 function of(arg0: $Supplier$Type<($Map$Type<(string), (any)>)>, arg1: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>): $Config
-function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
+function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type): $Config
-function inMemory(): $Config
-function inMemoryUniversal(): $Config
-function concurrentCopy(arg0: $UnmodifiableConfig$Type): $Config
-function concurrentCopy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
-function inMemoryConcurrent(): $Config
-function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $Config
-function inMemoryUniversalConcurrent(): $Config
-function isInsertionOrderPreserved(): boolean
 function getDefaultMapCreator<T>(arg0: boolean): $Supplier<($Map<(string), (T)>)>
 function getDefaultMapCreator<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(string), (T)>)>
 function setInsertionOrderPreserved(arg0: boolean): void
+function isInsertionOrderPreserved(): boolean
+function inMemoryUniversalConcurrent(): $Config
+function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $Config
+function concurrentCopy(arg0: $UnmodifiableConfig$Type): $Config
+function concurrentCopy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
+function inMemoryUniversal(): $Config
+function inMemoryConcurrent(): $Config
+function inMemory(): $Config
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

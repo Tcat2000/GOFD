@@ -29,14 +29,14 @@ constructor(arg0: $BlockPos$Type, arg1: $BlockState$Type, arg2: $AnimatableBlock
 
 public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"(arg0: string, arg1: string): void
-public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "stopTriggeredAnimation"(arg0: string, arg1: string): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 public "getTick"(arg0: any): double
-public "animatableCacheOverride"(): $AnimatableInstanceCache
-public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
+public "triggerAnim"(arg0: string, arg1: string): void
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "animatableCacheOverride"(): $AnimatableInstanceCache
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "boneResetTime"(): double
 }
@@ -133,12 +133,12 @@ readonly "id": $ResourceLocation
 
 constructor(arg0: $ResourceLocation$Type, arg1: float, arg2: float)
 
-public "modifyTier"(arg0: $Consumer$Type<($MutableToolTier$Type)>): $AnimatableTiredItemBuilder<(T)>
-public "speedBaseline"(arg0: float): $AnimatableTiredItemBuilder<(T)>
-public "attackDamageBonus"(arg0: float): $AnimatableTiredItemBuilder<(T)>
 public "attackDamageBaseline"(arg0: float): $AnimatableTiredItemBuilder<(T)>
-public "speed"(arg0: float): $AnimatableTiredItemBuilder<(T)>
+public "modifyTier"(arg0: $Consumer$Type<($MutableToolTier$Type)>): $AnimatableTiredItemBuilder<(T)>
 public "tier"(arg0: $Tier$Type): $AnimatableTiredItemBuilder<(T)>
+public "attackDamageBonus"(arg0: float): $AnimatableTiredItemBuilder<(T)>
+public "speed"(arg0: float): $AnimatableTiredItemBuilder<(T)>
+public "speedBaseline"(arg0: float): $AnimatableTiredItemBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -210,11 +210,11 @@ readonly "id": $ResourceLocation
 
 constructor(arg0: $ResourceLocation$Type, arg1: $AnimatableBlockBuilder$Type)
 
-public "geoModel"(arg0: $Consumer$Type<($ExtendedGeoModel$Builder$Type<($AnimatableBlockItem$Type)>)>): $AnimatableBlockItemBuilder
-public "useEntityGuiLighting"(): $AnimatableBlockItemBuilder
-public "getTranslationKeyGroup"(): string
 public "defaultGeoModel"(): $AnimatableBlockItemBuilder
+public "geoModel"(arg0: $Consumer$Type<($ExtendedGeoModel$Builder$Type<($AnimatableBlockItem$Type)>)>): $AnimatableBlockItemBuilder
 public "generateAssetJsons"(arg0: $AssetJsonGenerator$Type): void
+public "getTranslationKeyGroup"(): string
+public "useEntityGuiLighting"(): $AnimatableBlockItemBuilder
 get "translationKeyGroup"(): string
 }
 /**
@@ -293,10 +293,10 @@ readonly "builder": $ExtendedGeoModel$Builder<(T)>
 
 constructor()
 
-public "getAnimationResource"(arg0: T): $ResourceLocation
-public "getTextureResource"(arg0: T): $ResourceLocation
-public "getModelResource"(arg0: T): $ResourceLocation
 public "getRenderType"(arg0: T, arg1: $ResourceLocation$Type): $RenderType
+public "getAnimationResource"(arg0: T): $ResourceLocation
+public "getModelResource"(arg0: T): $ResourceLocation
+public "getTextureResource"(arg0: T): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -345,24 +345,24 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $AnimatableArmorBuilder$Type)
 
-public "getDefaultAttributeModifiers"(arg0: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
 public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getDefaultAttributeModifiers"(arg0: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public "isPerspectiveAware"(): boolean
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
-public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public static "get"(arg0: $ItemStack$Type): $Equipable
-public "shouldPlayAnimsWhileGamePaused"(): boolean
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
@@ -537,26 +537,26 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $AnimatableSwordItem$Builder$Type)
 
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "releaseUsing"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "getDefaultAttributeModifiers"(arg0: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public "isPerspectiveAware"(): boolean
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
-public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
-public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
@@ -815,15 +815,15 @@ readonly "id": $ResourceLocation
 
 constructor(arg0: $ResourceLocation$Type)
 
-public "geoModel"(arg0: $Consumer$Type<($ExtendedGeoModel$Builder$Type<(T)>)>): $AbstractAnimatableItemBuilder<(T)>
+public "defaultGeoModel"(): $AbstractAnimatableItemBuilder<(T)>
 public "addAnimation"(arg0: $AbstractAnimatableItemBuilder$AnimationStateCallback$Type): $AbstractAnimatableItemBuilder<(T)>
 public "addController"(arg0: $Consumer$Type<($AnimationControllerBuilder$Type<(T)>)>): $AbstractAnimatableItemBuilder<(T)>
-public "usingAnimation"(arg0: $AbstractAnimatableItemBuilder$UsingAnimationCallback$Type): $AbstractAnimatableItemBuilder<(T)>
-public "releaseUsingAnimation"(arg0: $AbstractAnimatableItemBuilder$ReleaseUsingAnimationCallback$Type): $AbstractAnimatableItemBuilder<(T)>
-public "finishUsingAnimation"(arg0: $AbstractAnimatableItemBuilder$FinishUsingAnimationCallback$Type): $AbstractAnimatableItemBuilder<(T)>
-public "useEntityGuiLighting"(): $AbstractAnimatableItemBuilder<(T)>
-public "defaultGeoModel"(): $AbstractAnimatableItemBuilder<(T)>
+public "geoModel"(arg0: $Consumer$Type<($ExtendedGeoModel$Builder$Type<(T)>)>): $AbstractAnimatableItemBuilder<(T)>
 public "generateAssetJsons"(arg0: $AssetJsonGenerator$Type): void
+public "useEntityGuiLighting"(): $AbstractAnimatableItemBuilder<(T)>
+public "finishUsingAnimation"(arg0: $AbstractAnimatableItemBuilder$FinishUsingAnimationCallback$Type): $AbstractAnimatableItemBuilder<(T)>
+public "releaseUsingAnimation"(arg0: $AbstractAnimatableItemBuilder$ReleaseUsingAnimationCallback$Type): $AbstractAnimatableItemBuilder<(T)>
+public "usingAnimation"(arg0: $AbstractAnimatableItemBuilder$UsingAnimationCallback$Type): $AbstractAnimatableItemBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -844,8 +844,8 @@ import {$IClientItemExtensions, $IClientItemExtensions$Type} from "packages/net/
 import {$GeoAnimatable, $GeoAnimatable$Type} from "packages/software/bernie/geckolib/core/animatable/$GeoAnimatable"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$PacketDistributor$PacketTarget, $PacketDistributor$PacketTarget$Type} from "packages/net/minecraftforge/network/$PacketDistributor$PacketTarget"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Equipable, $Equipable$Type} from "packages/net/minecraft/world/item/$Equipable"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
@@ -873,28 +873,28 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $AnimatableShieldItem$Builder$Type)
 
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "releaseUsing"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "isValidRepairItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public "getUseDuration"(arg0: $ItemStack$Type): integer
 public static "getId"(arg0: $ItemStack$Type): long
-public "isPerspectiveAware"(): boolean
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
-public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public static "get"(arg0: $ItemStack$Type): $Equipable
-public "shouldPlayAnimsWhileGamePaused"(): boolean
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
@@ -952,26 +952,26 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $AnimatableAxeItem$Builder$Type)
 
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "releaseUsing"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "getDefaultAttributeModifiers"(arg0: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public "isPerspectiveAware"(): boolean
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
-public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
-public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
@@ -1023,8 +1023,8 @@ readonly "id": $ResourceLocation
 
 constructor(arg0: $ResourceLocation$Type)
 
-public "validRepairItem"(arg0: $AnimatableShieldItem$ValidRepairItemCallback$Type): $AnimatableShieldItem$Builder
 public "generateAssetJsons"(arg0: $AssetJsonGenerator$Type): void
+public "validRepairItem"(arg0: $AnimatableShieldItem$ValidRepairItemCallback$Type): $AnimatableShieldItem$Builder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1078,26 +1078,26 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $AnimatablePickaxeItem$Builder$Type)
 
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "releaseUsing"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "getDefaultAttributeModifiers"(arg0: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public "isPerspectiveAware"(): boolean
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
-public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
-public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
@@ -1142,16 +1142,16 @@ readonly "id": $ResourceLocation
 constructor(arg0: $ResourceLocation$Type)
 
 public "createObject"(): $Block
+public "noItem"(): $BlockBuilder
+public "defaultGeoModel"(): $AnimatableBlockBuilder
 public "geoModel"(arg0: $Consumer$Type<($ExtendedGeoModel$Builder$Type<($AnimatableBlockEntity$Type)>)>): $AnimatableBlockBuilder
+public "generateAssetJsons"(arg0: $AssetJsonGenerator$Type): void
+public "createAdditionalObjects"(): void
 /**
  * Creates a animatable Block Entity for this block
  */
 public "animatableBlockEntity"(arg0: $Consumer$Type<($AnimatableBlockEntityInfo$Type)>): $AnimatableBlockBuilder
-public "createAdditionalObjects"(): void
-public "defaultGeoModel"(): $AnimatableBlockBuilder
-public "noItem"(): $BlockBuilder
 public "animatableItem"(arg0: $Consumer$Type<($AnimatableBlockItemBuilder$Type)>): $AnimatableBlockBuilder
-public "generateAssetJsons"(arg0: $AssetJsonGenerator$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1199,18 +1199,18 @@ public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public "isPerspectiveAware"(): boolean
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
-public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
-public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
@@ -1255,8 +1255,8 @@ import {$EasingType, $EasingType$Type} from "packages/software/bernie/geckolib/c
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$AnimationController$ParticleKeyframeHandler, $AnimationController$ParticleKeyframeHandler$Type} from "packages/software/bernie/geckolib/core/animation/$AnimationController$ParticleKeyframeHandler"
 import {$GeoAnimatable, $GeoAnimatable$Type} from "packages/software/bernie/geckolib/core/animatable/$GeoAnimatable"
-import {$AnimationController$SoundKeyframeHandler, $AnimationController$SoundKeyframeHandler$Type} from "packages/software/bernie/geckolib/core/animation/$AnimationController$SoundKeyframeHandler"
 import {$AnimationController$CustomKeyframeHandler, $AnimationController$CustomKeyframeHandler$Type} from "packages/software/bernie/geckolib/core/animation/$AnimationController$CustomKeyframeHandler"
+import {$AnimationController$SoundKeyframeHandler, $AnimationController$SoundKeyframeHandler$Type} from "packages/software/bernie/geckolib/core/animation/$AnimationController$SoundKeyframeHandler"
 import {$RawAnimation, $RawAnimation$Type} from "packages/software/bernie/geckolib/core/animation/$RawAnimation"
 import {$AnimationController$AnimationStateHandler, $AnimationController$AnimationStateHandler$Type} from "packages/software/bernie/geckolib/core/animation/$AnimationController$AnimationStateHandler"
 
@@ -1264,27 +1264,6 @@ export class $AnimationControllerBuilder<T extends $GeoAnimatable> {
 
 constructor()
 
-public "name"(arg0: string): $AnimationControllerBuilder<(T)>
-/**
- * Registers a triggerable RawAnimation with the controller.
- * 
- * These can then be triggered by the various triggerAnim methods in GeoAnimatable's subclasses
- * 
- * @param name The name of the triggerable animation
- * 
- * @param animation The RawAnimation for this triggerable animation
- */
-public "triggerableAnim"(arg0: string, arg1: $RawAnimation$Type): $AnimationControllerBuilder<(T)>
-public "transitionTickTime"(arg0: integer): $AnimationControllerBuilder<(T)>
-public "animationState"(arg0: $AnimationController$AnimationStateHandler$Type<(T)>): $AnimationControllerBuilder<(T)>
-/**
- * Sets the controller's EasingType override function for animations.
- * 
- * By default, the controller will use whatever EasingType was defined in the animation json
- * 
- * @param easingType The new EasingType to use
- */
-public "overrideEasingTypeFunction"(arg0: $Function$Type<(T), ($EasingType$Type)>): $AnimationControllerBuilder<(T)>
 /**
  * Applies the given modifier function to this controller, for handling the speed that the controller should play its animations at.
  * 
@@ -1293,6 +1272,27 @@ public "overrideEasingTypeFunction"(arg0: $Function$Type<(T), ($EasingType$Type)
  * @param speedModFunction The function to apply to this controller to handle animation speed
  */
 public "animationSpeedHandler"(arg0: $Function$Type<(T), (double)>): $AnimationControllerBuilder<(T)>
+/**
+ * Sets the controller's EasingType override function for animations.
+ * 
+ * By default, the controller will use whatever EasingType was defined in the animation json
+ * 
+ * @param easingType The new EasingType to use
+ */
+public "overrideEasingTypeFunction"(arg0: $Function$Type<(T), ($EasingType$Type)>): $AnimationControllerBuilder<(T)>
+public "name"(arg0: string): $AnimationControllerBuilder<(T)>
+/**
+ * Applies the given ParticleKeyframeHandler to this controller, for handling particle keyframe instructions.
+ */
+public "particleKeyframe"(arg0: $AnimationController$ParticleKeyframeHandler$Type<(T)>): $AnimationControllerBuilder<(T)>
+/**
+ * Applies the given CustomKeyframeHandler to this controller, for handling sound keyframe instructions.
+ */
+public "customKeyframe"(arg0: $AnimationController$CustomKeyframeHandler$Type<(T)>): $AnimationControllerBuilder<(T)>
+/**
+ * Applies the given SoundKeyframeHandler to this controller, for handling sound keyframe instructions.
+ */
+public "soundKeyframe"(arg0: $AnimationController$SoundKeyframeHandler$Type<(T)>): $AnimationControllerBuilder<(T)>
 /**
  * Sets the controller's EasingType override for animations.
  * 
@@ -1309,18 +1309,18 @@ public "overrideEasingType"(arg0: $EasingType$Type): $AnimationControllerBuilder
  * @param speed The speed modifier to apply to this controller to handle animation speed.
  */
 public "animationSpeed"(arg0: double): $AnimationControllerBuilder<(T)>
+public "animationState"(arg0: $AnimationController$AnimationStateHandler$Type<(T)>): $AnimationControllerBuilder<(T)>
+public "transitionTickTime"(arg0: integer): $AnimationControllerBuilder<(T)>
 /**
- * Applies the given ParticleKeyframeHandler to this controller, for handling particle keyframe instructions.
+ * Registers a triggerable RawAnimation with the controller.
+ * 
+ * These can then be triggered by the various triggerAnim methods in GeoAnimatable's subclasses
+ * 
+ * @param name The name of the triggerable animation
+ * 
+ * @param animation The RawAnimation for this triggerable animation
  */
-public "particleKeyframe"(arg0: $AnimationController$ParticleKeyframeHandler$Type<(T)>): $AnimationControllerBuilder<(T)>
-/**
- * Applies the given SoundKeyframeHandler to this controller, for handling sound keyframe instructions.
- */
-public "soundKeyframe"(arg0: $AnimationController$SoundKeyframeHandler$Type<(T)>): $AnimationControllerBuilder<(T)>
-/**
- * Applies the given CustomKeyframeHandler to this controller, for handling sound keyframe instructions.
- */
-public "customKeyframe"(arg0: $AnimationController$CustomKeyframeHandler$Type<(T)>): $AnimationControllerBuilder<(T)>
+public "triggerableAnim"(arg0: string, arg1: $RawAnimation$Type): $AnimationControllerBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1372,6 +1372,7 @@ import {$AssetJsonGenerator, $AssetJsonGenerator$Type} from "packages/dev/latvia
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$ArmorItemBuilder, $ArmorItemBuilder$Type} from "packages/dev/latvian/mods/kubejs/item/custom/$ArmorItemBuilder"
 import {$Tier, $Tier$Type} from "packages/net/minecraft/world/item/$Tier"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$AnimatableArmorBuilder$BoneVisibilityCallback, $AnimatableArmorBuilder$BoneVisibilityCallback$Type} from "packages/org/mesdag/geckojs/item/armor/$AnimatableArmorBuilder$BoneVisibilityCallback"
 import {$MutableArmorTier, $MutableArmorTier$Type} from "packages/dev/latvian/mods/kubejs/item/$MutableArmorTier"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
@@ -1400,13 +1401,14 @@ readonly "id": $ResourceLocation
 
 constructor(arg0: $ResourceLocation$Type, arg1: $ArmorItem$Type$Type)
 
-public "geoModel"(arg0: $Consumer$Type<($ExtendedGeoModel$Builder$Type<($AnimatableArmorItem$Type)>)>): $AnimatableArmorBuilder
-public "addAnimation"(arg0: $AnimatableArmorBuilder$AnimationStateCallback$Type): $AnimatableArmorBuilder
-public "addController"(arg0: $Consumer$Type<($AnimationControllerBuilder$Type<($AnimatableArmorItem$Type)>)>): $AnimatableArmorBuilder
-public "armorItemUseGeoModel"(): $AnimatableArmorBuilder
+public "createObject"(): $Item
 public "boneVisibility"(arg0: $AnimatableArmorBuilder$BoneVisibilityCallback$Type): $AnimatableArmorBuilder
 public "defaultGeoModel"(): $AnimatableArmorBuilder
+public "addAnimation"(arg0: $AnimatableArmorBuilder$AnimationStateCallback$Type): $AnimatableArmorBuilder
+public "addController"(arg0: $Consumer$Type<($AnimationControllerBuilder$Type<($AnimatableArmorItem$Type)>)>): $AnimatableArmorBuilder
+public "geoModel"(arg0: $Consumer$Type<($ExtendedGeoModel$Builder$Type<($AnimatableArmorItem$Type)>)>): $AnimatableArmorBuilder
 public "generateAssetJsons"(arg0: $AssetJsonGenerator$Type): void
+public "armorItemUseGeoModel"(): $AnimatableArmorBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1434,35 +1436,35 @@ constructor()
 
 public "setScale"(arg0: float): void
 /**
- * This method should return the ResourceLocation path to your .animation.json animation file for this animatable
- */
-public "setAnimation"(arg0: $ExtendedGeoModel$ResourceCallback$Type<(T)>): void
-/**
- * This method should return the ResourceLocation path to your .png texture file for this animatable
- */
-public "setTexture"(arg0: $ExtendedGeoModel$ResourceCallback$Type<(T)>): void
-/**
  * The ResourceLocation path to your .png texture file for this animatable
  */
 public "setSimpleTexture"(arg0: $ResourceLocation$Type): void
-/**
- * The ResourceLocation path to your .animation.json animation file for this animatable
- */
-public "setSimpleAnimation"(arg0: $ResourceLocation$Type): void
 /**
  * The ResourceLocation path to your .geo.json model file for this animatable
  */
 public "setSimpleModel"(arg0: $ResourceLocation$Type): void
 /**
+ * The ResourceLocation path to your .animation.json animation file for this animatable
+ */
+public "setSimpleAnimation"(arg0: $ResourceLocation$Type): void
+/**
+ * This method should return the ResourceLocation path to your .png texture file for this animatable
+ */
+public "setTexture"(arg0: $ExtendedGeoModel$ResourceCallback$Type<(T)>): void
+/**
+ * This method should return the ResourceLocation path to your .animation.json animation file for this animatable
+ */
+public "setAnimation"(arg0: $ExtendedGeoModel$ResourceCallback$Type<(T)>): void
+/**
  * This method should return the ResourceLocation path to your .geo.json model file for this animatable
  */
 public "setModel"(arg0: $ExtendedGeoModel$ResourceCallback$Type<(T)>): void
 set "scale"(value: float)
-set "animation"(value: $ExtendedGeoModel$ResourceCallback$Type<(T)>)
-set "texture"(value: $ExtendedGeoModel$ResourceCallback$Type<(T)>)
 set "simpleTexture"(value: $ResourceLocation$Type)
-set "simpleAnimation"(value: $ResourceLocation$Type)
 set "simpleModel"(value: $ResourceLocation$Type)
+set "simpleAnimation"(value: $ResourceLocation$Type)
+set "texture"(value: $ExtendedGeoModel$ResourceCallback$Type<(T)>)
+set "animation"(value: $ExtendedGeoModel$ResourceCallback$Type<(T)>)
 set "model"(value: $ExtendedGeoModel$ResourceCallback$Type<(T)>)
 }
 /**
@@ -1525,26 +1527,26 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $AnimatableHoeItem$Builder$Type)
 
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "releaseUsing"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "getDefaultAttributeModifiers"(arg0: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public "isPerspectiveAware"(): boolean
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
-public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
-public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
@@ -1614,8 +1616,8 @@ import {$IClientItemExtensions, $IClientItemExtensions$Type} from "packages/net/
 import {$GeoAnimatable, $GeoAnimatable$Type} from "packages/software/bernie/geckolib/core/animatable/$GeoAnimatable"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$PacketDistributor$PacketTarget, $PacketDistributor$PacketTarget$Type} from "packages/net/minecraftforge/network/$PacketDistributor$PacketTarget"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -1639,25 +1641,25 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $AbstractAnimatableItemBuilder$Type<($AnimatableItem$Type)>)
 
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "releaseUsing"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type, arg3: integer): void
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public "isPerspectiveAware"(): boolean
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
-public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
-public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double

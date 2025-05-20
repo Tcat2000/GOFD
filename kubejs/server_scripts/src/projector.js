@@ -13,7 +13,7 @@ const NbtIo = Java.loadClass("net.minecraft.nbt.NbtIo");
 const FXHelper = Java.loadClass("com.lowdragmc.photon.client.fx.FXHelper");
 const ArrayList = Java.loadClass("java.util.ArrayList");
 
-const multiblockDefinitions = MBDRegistries.MACHINE_DEFINITIONS.values().stream().filter(def => def instanceof MultiblockMachineDefinition).toList();
+// const multiblockDefinitions = MBDRegistries.MACHINE_DEFINITIONS.values().stream().filter(def => def instanceof MultiblockMachineDefinition).toList();
 const entries = ["v12","test","whatever"];
 
 ItemEvents.firstRightClicked('kubejs:projector', event => {

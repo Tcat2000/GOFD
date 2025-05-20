@@ -10,35 +10,35 @@ constructor()
 public "getHost"(): string
 public "getPort"(): integer
 public "getProtocol"(): string
-public "getUserName"(): string
-public "getPassword"(): string
-public "setPort"(arg0: integer): void
-public "setHost"(arg0: string): void
 public "setProtocol"(arg0: string): void
+public "setHost"(arg0: string): void
+public "setPort"(arg0: integer): void
+public "getPassword"(): string
+public "getUserName"(): string
 public "setPassword"(arg0: string): void
-public "setUserName"(arg0: string): void
 public "setNtlmDomain"(arg0: string): void
+public "setUserName"(arg0: string): void
 public "getNtlmDomain"(): string
-public "getNonProxyHosts"(): string
+public "setNtlmHost"(arg0: string): void
 public "setNonProxyHosts"(arg0: string): void
 public "getNtlmHost"(): string
-public "setNtlmHost"(arg0: string): void
+public "getNonProxyHosts"(): string
 get "host"(): string
 get "port"(): integer
 get "protocol"(): string
-get "userName"(): string
-get "password"(): string
-set "port"(value: integer)
-set "host"(value: string)
 set "protocol"(value: string)
+set "host"(value: string)
+set "port"(value: integer)
+get "password"(): string
+get "userName"(): string
 set "password"(value: string)
-set "userName"(value: string)
 set "ntlmDomain"(value: string)
+set "userName"(value: string)
 get "ntlmDomain"(): string
-get "nonProxyHosts"(): string
+set "ntlmHost"(value: string)
 set "nonProxyHosts"(value: string)
 get "ntlmHost"(): string
-set "ntlmHost"(value: string)
+get "nonProxyHosts"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -99,9 +99,9 @@ public "setValue"(arg0: boolean): void
 public "setValue"(arg0: boolean): void
 public "toBoolean"(): boolean
 public "isTrue"(): boolean
+public "setFalse"(): void
 public "isFalse"(): boolean
 public "setTrue"(): void
-public "setFalse"(): void
 get "value"(): boolean
 set "value"(value: boolean)
 set "value"(value: boolean)
@@ -123,8 +123,8 @@ export type $MutableBoolean_ = $MutableBoolean$Type;
 declare module "packages/org/apache/maven/artifact/$Artifact" {
 import {$Comparable, $Comparable$Type} from "packages/java/lang/$Comparable"
 import {$VersionRange, $VersionRange$Type} from "packages/org/apache/maven/artifact/versioning/$VersionRange"
-import {$ArtifactMetadata, $ArtifactMetadata$Type} from "packages/org/apache/maven/artifact/metadata/$ArtifactMetadata"
 import {$ArtifactRepository, $ArtifactRepository$Type} from "packages/org/apache/maven/artifact/repository/$ArtifactRepository"
+import {$ArtifactMetadata, $ArtifactMetadata$Type} from "packages/org/apache/maven/artifact/metadata/$ArtifactMetadata"
 import {$Pattern, $Pattern$Type} from "packages/java/util/regex/$Pattern"
 import {$ArtifactHandler, $ArtifactHandler$Type} from "packages/org/apache/maven/artifact/handler/$ArtifactHandler"
 import {$File, $File$Type} from "packages/java/io/$File"
@@ -136,50 +136,50 @@ import {$ArtifactFilter, $ArtifactFilter$Type} from "packages/org/apache/maven/a
 export interface $Artifact extends $Comparable<($Artifact)> {
 
  "setVersion"(arg0: string): void
+ "getRepository"(): $ArtifactRepository
  "getId"(): string
  "getType"(): string
  "isResolved"(): boolean
  "setRelease"(arg0: boolean): void
  "getFile"(): $File
  "getVersion"(): string
- "getScope"(): string
  "setScope"(arg0: string): void
  "getVersionRange"(): $VersionRange
- "getMetadataList"(): $Collection<($ArtifactMetadata)>
- "addMetadata"(arg0: $ArtifactMetadata$Type): void
- "updateVersion"(arg0: string, arg1: $ArtifactRepository$Type): void
- "getBaseVersion"(): string
- "setBaseVersion"(arg0: string): void
- "getDownloadUrl"(): string
- "setRepository"(arg0: $ArtifactRepository$Type): void
- "setDownloadUrl"(arg0: string): void
- "hasClassifier"(): boolean
- "isSnapshot"(): boolean
- "isRelease"(): boolean
- "setResolved"(arg0: boolean): void
- "selectVersion"(arg0: string): void
- "setOptional"(arg0: boolean): void
- "getArtifactHandler"(): $ArtifactHandler
- "setArtifactId"(arg0: string): void
- "setGroupId"(arg0: string): void
- "setArtifactHandler"(arg0: $ArtifactHandler$Type): void
- "setDependencyTrail"(arg0: $List$Type<(string)>): void
- "setResolvedVersion"(arg0: string): void
- "setVersionRange"(arg0: $VersionRange$Type): void
- "getRepository"(): $ArtifactRepository
+ "getScope"(): string
  "isSelectedVersionKnown"(): boolean
- "getArtifactId"(): string
- "getClassifier"(): string
  "getDependencyTrail"(): $List<(string)>
+ "getGroupId"(): string
+ "getClassifier"(): string
+ "getArtifactId"(): string
  "setFile"(arg0: $File$Type): void
  "getSelectedVersion"(): $ArtifactVersion
- "getGroupId"(): string
  "isOptional"(): boolean
- "getDependencyFilter"(): $ArtifactFilter
+ "hasClassifier"(): boolean
+ "getMetadataList"(): $Collection<($ArtifactMetadata)>
+ "selectVersion"(arg0: string): void
+ "setGroupId"(arg0: string): void
+ "setVersionRange"(arg0: $VersionRange$Type): void
+ "setDependencyTrail"(arg0: $List$Type<(string)>): void
+ "setArtifactId"(arg0: string): void
+ "setResolvedVersion"(arg0: string): void
+ "setArtifactHandler"(arg0: $ArtifactHandler$Type): void
+ "isSnapshot"(): boolean
+ "setResolved"(arg0: boolean): void
+ "getArtifactHandler"(): $ArtifactHandler
+ "updateVersion"(arg0: string, arg1: $ArtifactRepository$Type): void
+ "setDownloadUrl"(arg0: string): void
+ "isRelease"(): boolean
+ "setRepository"(arg0: $ArtifactRepository$Type): void
+ "getBaseVersion"(): string
+ "addMetadata"(arg0: $ArtifactMetadata$Type): void
+ "setOptional"(arg0: boolean): void
+ "setBaseVersion"(arg0: string): void
+ "getDownloadUrl"(): string
  "getAvailableVersions"(): $List<($ArtifactVersion)>
+ "setDependencyFilter"(arg0: $ArtifactFilter$Type): void
+ "getDependencyFilter"(): $ArtifactFilter
  "setAvailableVersions"(arg0: $List$Type<($ArtifactVersion$Type)>): void
  "getDependencyConflictId"(): string
- "setDependencyFilter"(arg0: $ArtifactFilter$Type): void
  "compareTo"(arg0: $Artifact$Type): integer
 }
 
@@ -250,15 +250,15 @@ export interface $ArtifactMetadata extends $ArtifactMetadata$0 {
  "merge"(arg0: $ArtifactMetadata$Type): void
  "merge"(arg0: $ArtifactMetadata$0$Type): void
  "getKey"(): any
+ "getGroupId"(): string
+ "getArtifactId"(): string
  "getBaseVersion"(): string
- "extendedToString"(): string
  "getLocalFilename"(arg0: $ArtifactRepository$Type): string
  "getRemoteFilename"(): string
- "getArtifactId"(): string
- "getGroupId"(): string
- "storedInArtifactVersionDirectory"(): boolean
+ "extendedToString"(): string
  "storeInLocalRepository"(arg0: $ArtifactRepository$Type, arg1: $ArtifactRepository$Type): void
  "storedInGroupDirectory"(): boolean
+ "storedInArtifactVersionDirectory"(): boolean
 }
 
 export namespace $ArtifactMetadata {
@@ -294,20 +294,20 @@ public static "of"<L, R>(arg0: $Map$Entry$Type<(L), (R)>): $MutablePair<(L), (R)
 public static "of"<L, R>(arg0: L, arg1: R): $MutablePair<(L), (R)>
 public "setValue"(arg0: R): R
 public static "emptyArray"<L, R>(): ($MutablePair<(L), (R)>)[]
-public "setLeft"(arg0: L): void
-public "setRight"(arg0: R): void
 public "getLeft"(): L
 public "getRight"(): R
+public "setLeft"(arg0: L): void
+public "setRight"(arg0: R): void
 public static "copyOf"<K, V>(arg0: $Map$Entry$Type<(any), (any)>): $Map$Entry<(K), (V)>
 public static "comparingByKey"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
 public static "comparingByKey"<K extends $Comparable<(any)>, V>(): $Comparator<($Map$Entry<(K), (V)>)>
 public static "comparingByValue"<K, V extends $Comparable<(any)>>(): $Comparator<($Map$Entry<(K), (V)>)>
 public static "comparingByValue"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
 set "value"(value: R)
-set "left"(value: L)
-set "right"(value: R)
 get "left"(): L
 get "right"(): R
+set "left"(value: L)
+set "right"(value: R)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -351,9 +351,9 @@ export interface $ArtifactVersion extends $Comparable<($ArtifactVersion)> {
 
  "getMajorVersion"(): integer
  "getMinorVersion"(): integer
+ "getBuildNumber"(): integer
  "parseVersion"(arg0: string): void
  "getQualifier"(): string
- "getBuildNumber"(): integer
  "getIncrementalVersion"(): integer
  "compareTo"(arg0: $ArtifactVersion$Type): integer
 }
@@ -404,22 +404,22 @@ export class $Authentication {
 
 constructor(arg0: string, arg1: string)
 
-public "getPassword"(): string
-public "getPassphrase"(): string
 public "setPassphrase"(arg0: string): void
+public "getPassphrase"(): string
 public "setPrivateKey"(arg0: string): void
-public "getPrivateKey"(): string
-public "getUsername"(): string
+public "getPassword"(): string
 public "setPassword"(arg0: string): void
+public "getPrivateKey"(): string
 public "setUsername"(arg0: string): void
-get "password"(): string
-get "passphrase"(): string
+public "getUsername"(): string
 set "passphrase"(value: string)
+get "passphrase"(): string
 set "privateKey"(value: string)
-get "privateKey"(): string
-get "username"(): string
+get "password"(): string
 set "password"(value: string)
+get "privateKey"(): string
 set "username"(value: string)
+get "username"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -444,13 +444,13 @@ constructor(arg0: $ArtifactVersion$Type, arg1: boolean, arg2: $ArtifactVersion$T
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "isLowerBoundInclusive"(): boolean
 public "isUpperBoundInclusive"(): boolean
-public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
+public "isLowerBoundInclusive"(): boolean
 public "getLowerBound"(): $ArtifactVersion
 public "getUpperBound"(): $ArtifactVersion
-get "lowerBoundInclusive"(): boolean
+public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
 get "upperBoundInclusive"(): boolean
+get "lowerBoundInclusive"(): boolean
 get "lowerBound"(): $ArtifactVersion
 get "upperBound"(): $ArtifactVersion
 }
@@ -478,21 +478,21 @@ export class $VersionRange {
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getRecommendedVersion"(): $ArtifactVersion
-public "isSelectedVersionKnown"(arg0: $Artifact$Type): boolean
 public static "createFromVersionSpec"(arg0: string): $VersionRange
-public "restrict"(arg0: $VersionRange$Type): $VersionRange
-public "getSelectedVersion"(arg0: $Artifact$Type): $ArtifactVersion
-public static "createFromVersion"(arg0: string): $VersionRange
-public "matchVersion"(arg0: $List$Type<($ArtifactVersion$Type)>): $ArtifactVersion
+public "isSelectedVersionKnown"(arg0: $Artifact$Type): boolean
+public "getRecommendedVersion"(): $ArtifactVersion
 public "getRestrictions"(): $List<($Restriction)>
+public static "createFromVersion"(arg0: string): $VersionRange
+public "getSelectedVersion"(arg0: $Artifact$Type): $ArtifactVersion
+public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
+public "hasRestrictions"(): boolean
+public "restrict"(arg0: $VersionRange$Type): $VersionRange
+public "matchVersion"(arg0: $List$Type<($ArtifactVersion$Type)>): $ArtifactVersion
 /**
  * 
  * @deprecated
  */
 public "cloneOf"(): $VersionRange
-public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
-public "hasRestrictions"(): boolean
 get "recommendedVersion"(): $ArtifactVersion
 get "restrictions"(): $List<($Restriction)>
 }
@@ -520,25 +520,25 @@ static readonly "CHECKSUM_POLICY_FAIL": string
 static readonly "CHECKSUM_POLICY_WARN": string
 static readonly "CHECKSUM_POLICY_IGNORE": string
 
+constructor()
 constructor(arg0: boolean, arg1: string, arg2: string)
 constructor(arg0: $ArtifactRepositoryPolicy$Type)
-constructor()
 
+public "getChecksumPolicy"(): string
+public "checkOutOfDate"(arg0: $Date$Type): boolean
+public "setUpdatePolicy"(arg0: string): void
+public "getUpdatePolicy"(): string
+public "setChecksumPolicy"(arg0: string): void
 public "toString"(): string
 public "merge"(arg0: $ArtifactRepositoryPolicy$Type): void
 public "isEnabled"(): boolean
 public "setEnabled"(arg0: boolean): void
-public "setChecksumPolicy"(arg0: string): void
-public "getChecksumPolicy"(): string
-public "setUpdatePolicy"(arg0: string): void
-public "checkOutOfDate"(arg0: $Date$Type): boolean
-public "getUpdatePolicy"(): string
-get "enabled"(): boolean
-set "enabled"(value: boolean)
-set "checksumPolicy"(value: string)
 get "checksumPolicy"(): string
 set "updatePolicy"(value: string)
 get "updatePolicy"(): string
+set "checksumPolicy"(value: string)
+get "enabled"(): boolean
+set "enabled"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -567,44 +567,44 @@ export interface $ArtifactRepository {
  "find"(arg0: $Artifact$Type): $Artifact
  "getId"(): string
  "getProtocol"(): string
- "setLayout"(arg0: $ArtifactRepositoryLayout$Type): void
- "getProxy"(): $Proxy
  "setId"(arg0: string): void
- "getAuthentication"(): $Authentication
- "findVersions"(arg0: $Artifact$Type): $List<(string)>
- "isProjectAware"(): boolean
- "getBasedir"(): string
-/**
- * 
- * @deprecated
- */
- "setBlacklisted"(arg0: boolean): void
- "setUrl"(arg0: string): void
- "pathOf"(arg0: $Artifact$Type): string
-/**
- * 
- * @deprecated
- */
- "isUniqueVersion"(): boolean
- "setAuthentication"(arg0: $Authentication$Type): void
+ "setBlocked"(arg0: boolean): void
 /**
  * 
  * @deprecated
  */
  "isBlacklisted"(): boolean
  "getLayout"(): $ArtifactRepositoryLayout
- "getUrl"(): string
- "getReleases"(): $ArtifactRepositoryPolicy
  "getSnapshots"(): $ArtifactRepositoryPolicy
- "setBlocked"(arg0: boolean): void
  "isBlocked"(): boolean
- "setProxy"(arg0: $Proxy$Type): void
- "setMirroredRepositories"(arg0: $List$Type<($ArtifactRepository$Type)>): void
- "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$Type, arg1: $ArtifactRepository$Type): string
+ "getUrl"(): string
+ "setLayout"(arg0: $ArtifactRepositoryLayout$Type): void
+ "getReleases"(): $ArtifactRepositoryPolicy
+ "getProxy"(): $Proxy
+/**
+ * 
+ * @deprecated
+ */
+ "setBlacklisted"(arg0: boolean): void
+ "getBasedir"(): string
+ "setUrl"(arg0: string): void
+ "getAuthentication"(): $Authentication
+ "setAuthentication"(arg0: $Authentication$Type): void
+ "pathOf"(arg0: $Artifact$Type): string
+ "isProjectAware"(): boolean
+ "findVersions"(arg0: $Artifact$Type): $List<(string)>
+/**
+ * 
+ * @deprecated
+ */
+ "isUniqueVersion"(): boolean
  "setSnapshotUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$Type): void
- "getMirroredRepositories"(): $List<($ArtifactRepository)>
- "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
  "setReleaseUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$Type): void
+ "getMirroredRepositories"(): $List<($ArtifactRepository)>
+ "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$Type, arg1: $ArtifactRepository$Type): string
+ "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
+ "setMirroredRepositories"(arg0: $List$Type<($ArtifactRepository$Type)>): void
+ "setProxy"(arg0: $Proxy$Type): void
 }
 
 export namespace $ArtifactRepository {
@@ -632,11 +632,11 @@ export interface $Marker extends $Serializable {
  "equals"(obj: any): boolean
  "hashCode"(): integer
  "setParents"(...markers: ($Marker$Type)[]): $Marker
- "isInstanceOf"(m: $Marker$Type): boolean
  "isInstanceOf"(name: string): boolean
- "getParents"(): ($Marker)[]
+ "isInstanceOf"(m: $Marker$Type): boolean
  "addParents"(...markers: ($Marker$Type)[]): $Marker
  "hasParents"(): boolean
+ "getParents"(): ($Marker)[]
 }
 
 export namespace $Marker {
@@ -761,15 +761,15 @@ export interface $ArtifactMetadata {
 
  "merge"(arg0: $ArtifactMetadata$Type): void
  "getKey"(): any
+ "getGroupId"(): string
+ "getArtifactId"(): string
  "getBaseVersion"(): string
- "extendedToString"(): string
  "getLocalFilename"(arg0: $ArtifactRepository$Type): string
  "getRemoteFilename"(): string
- "getArtifactId"(): string
- "getGroupId"(): string
- "storedInArtifactVersionDirectory"(): boolean
+ "extendedToString"(): string
  "storeInLocalRepository"(arg0: $ArtifactRepository$Type, arg1: $ArtifactRepository$Type): void
  "storedInGroupDirectory"(): boolean
+ "storedInArtifactVersionDirectory"(): boolean
 }
 
 export namespace $ArtifactMetadata {
@@ -793,11 +793,11 @@ export interface $ArtifactHandler {
 
  "getLanguage"(): string
  "getExtension"(): string
+ "getDirectory"(): string
+ "getClassifier"(): string
  "isAddedToClasspath"(): boolean
  "getPackaging"(): string
- "getClassifier"(): string
  "isIncludesDependencies"(): boolean
- "getDirectory"(): string
 }
 
 export namespace $ArtifactHandler {

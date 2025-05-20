@@ -35,44 +35,46 @@ function createEqipmentGridUI(level) {
     let creator = UIProject.loadUIFromFile("ldlib:equipment_grid");
     let root = creator.get();
 
-    let icon = new $ImageWidget["(int,int,int,int,java.util.function.Supplier)"](0, 0, 50, 50, () => {
-        return JavaAdapter(Java.loadClass("com.lowdragmc.lowdraglib.gui.texture.IGuiTexture"), {
-            init: function() {
-                this.example = 5;
-            },
-            draw: function(graphics, mouseX, mouseY, x, y, width, height) {
-                // try {
-                //     let tessellator = Tesselator.getInstance();
-                //     let bufferbuilder = tessellator.getBuilder();
-                //     let matrix4f = graphics.pose().last().pose();
-                //     bufferbuilder.begin(VertexFormat.Mode.QUADS, POSITION_TEX);
+    // let icon = new $ImageWidget["(int,int,int,int,java.util.function.Supplier)"](0, 0, 50, 50, () => {
+    //     return JavaAdapter(Java.loadClass("com.lowdragmc.lowdraglib.gui.texture.IGuiTexture"), {
+    //         init: function() {
+    //             this.example = 5;
+    //         },
+    //         draw: function(graphics, mouseX, mouseY, x, y, width, height) {
+    //             // try {
+    //             //     let tessellator = Tesselator.getInstance();
+    //             //     let bufferbuilder = tessellator.getBuilder();
+    //             //     let matrix4f = graphics.pose().last().pose();
+    //             //     bufferbuilder.begin(VertexFormat.Mode.QUADS, POSITION_TEX);
 
-                //     // RenderSystem.setShader(() => GameRenderer.getPositionTexColorShader());
-                //     // RenderSystem.setShaderTexture(0, new ResourceLocation("mbd2:textures/gui/dial_indicator.png"));
-                //     // bufferbuilder.vertex(matrix4f, x, y + height, 0).uv(0, 1).endVertex();
-                //     // bufferbuilder.vertex(matrix4f, x + width, y + height, 0).uv(1, 1).endVertex();
-                //     // bufferbuilder.vertex(matrix4f, x + width, y, 0).uv(1, 0).endVertex();
-                //     // bufferbuilder.vertex(matrix4f, x, y, 0).uv(0, 0).endVertex();
+    //             //     // RenderSystem.setShader(() => GameRenderer.getPositionTexColorShader());
+    //             //     // RenderSystem.setShaderTexture(0, new ResourceLocation("mbd2:textures/gui/dial_indicator.png"));
+    //             //     // bufferbuilder.vertex(matrix4f, x, y + height, 0).uv(0, 1).endVertex();
+    //             //     // bufferbuilder.vertex(matrix4f, x + width, y + height, 0).uv(1, 1).endVertex();
+    //             //     // bufferbuilder.vertex(matrix4f, x + width, y, 0).uv(1, 0).endVertex();
+    //             //     // bufferbuilder.vertex(matrix4f, x, y, 0).uv(0, 0).endVertex();
                     
-                //     RenderSystem.setShader(() => GameRenderer.getPositionTexColorShader());
-                //     RenderSystem.setShaderTexture(0, new ResourceLocation("mbd2:textures/gui/pressure_gauge_5psi.png"));
-                //     bufferbuilder.vertex(matrix4f, x, y + height / 2, 0).uv(0, 1).endVertex();
-                //     bufferbuilder.vertex(matrix4f, x + width, y + height, 0).uv(1, 1).endVertex();
-                //     bufferbuilder.vertex(matrix4f, x + width, y, 0).uv(1, 0).endVertex();
-                //     bufferbuilder.vertex(matrix4f, x, y, 0).uv(0, 0).endVertex();
-                //     tessellator.end();
-                // }
-                // catch(e) {
-                //     console.log(e);
-                //     tessellator.end();
-                // }
-                let gaugeLocation = [50, 50];
-                PressureGaugeRenderer2D.drawPressureGauge(graphics, Minecraft.getInstance().font, -1, 7, 5, -1000, 3, x + gaugeLocation[0], y + gaugeLocation[1]);
-                //drawPressureGauge(net.minecraft.client.gui.GuiGraphics,number,number,number,number,number,number,number,number)
-            }
-        });
-    });
-    root.addWidget(icon);
+    //             //     RenderSystem.setShader(() => GameRenderer.getPositionTexColorShader());
+    //             //     RenderSystem.setShaderTexture(0, new ResourceLocation("mbd2:textures/gui/pressure_gauge_5psi.png"));
+    //             //     bufferbuilder.vertex(matrix4f, x, y + height / 2, 0).uv(0, 1).endVertex();
+    //             //     bufferbuilder.vertex(matrix4f, x + width, y + height, 0).uv(1, 1).endVertex();
+    //             //     bufferbuilder.vertex(matrix4f, x + width, y, 0).uv(1, 0).endVertex();
+    //             //     bufferbuilder.vertex(matrix4f, x, y, 0).uv(0, 0).endVertex();
+    //             //     tessellator.end();
+    //             // }
+    //             // catch(e) {
+    //             //     console.log(e);
+    //             //     tessellator.end();
+    //             // }
+    //             let gaugeLocation = [50, 50];
+    //             PressureGaugeRenderer2D.drawPressureGauge(graphics, Minecraft.getInstance().font, -1, 7, 5, -1000, 3, x + gaugeLocation[0], y + gaugeLocation[1]);
+    //             //drawPressureGauge(net.minecraft.client.gui.GuiGraphics,number,number,number,number,number,number,number,number)
+    //         }
+    //     });
+    // });
+    // root.addWidget(icon);
+
+    root.addWidget(CreatePressureGaugeWidget(20, 10, 5, -100, HighPressure));
 
     return root;
 }

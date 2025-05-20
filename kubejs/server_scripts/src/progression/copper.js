@@ -11,6 +11,27 @@ ServerEvents.recipes(event => {
     washing(event, ["kubejs:bio_mass"], ["kubejs:copper_oxide_dust"]);
     mixing(event, ["kubejs:copper_oxide_dust", "kubejs:small_iron_dust"], ["kubejs:copper_refinment_blend"]);
     melting(event, "kubejs:copper_refinment_blend", "embers:molten_copper*20", "kubejs:molten_slag*10");
+    melting(event, "#forge:cobblestone", "minecraft:lava*50");
+    mixing(event, [{
+        "amount": 100,
+        "fluid": "embers:soul_crude"
+      },{
+        "amount": 100,
+        "fluid": "kubejs:copper_essence"
+      }],{
+        "amount": 180,
+        "fluid": "embers:molten_copper"
+    });
+    mixing(event, [{
+        "amount": 100,
+        "fluid": "minecraft:lava"
+      },{
+        "amount": 100,
+        "fluid": "embers:molten_copper"
+      }],{
+        "amount": 100,
+        "fluid": "kubejs:copper_essence"
+    });
 });
 function pressing(event, ingredients, results) {
     event.custom({
@@ -44,7 +65,7 @@ function melting(event, ingredient, result, bonusResult) {
         }
         if(ingredient.startsWith("#")) {
             input = {
-                "tag": inputIgred[0]
+                "tag": inputIgred[0].substring(1)
             }
         }
     }
@@ -55,7 +76,7 @@ function melting(event, ingredient, result, bonusResult) {
         }
         if(ingredient.startsWith("#")) {
             input = {
-                "tag": inputIgred[0],
+                "tag": inputIgred[0].substring(1),
                 "count": inputCount
             }
         }
@@ -79,30 +100,38 @@ function melting(event, ingredient, result, bonusResult) {
             "amount": outputCount
         }
     }
+    if(bonusResult != undefined) {
+        var bonusIgred = bonusResult.split("*", 2)
     
-    var bonusIgred = bonusResult.split("*", 2)
-
-    var bonusCount = -1
-    if(bonusIgred.length > 1) bonusCount = Float.parseFloat(bonusIgred[1]);
-    
-    var bonus = {}
-    if(bonusCount == -1) {
-        bonus = {
-            "fluid": bonusIgred[0],
-            "amount": 1
+        var bonusCount = -1
+        if(bonusIgred.length > 1) bonusCount = Float.parseFloat(bonusIgred[1]);
+        
+        var bonus = {}
+        if(bonusCount == -1) {
+            bonus = {
+                "fluid": bonusIgred[0],
+                "amount": 1
+            }
         }
+        else {
+            bonus = {
+                "fluid": bonusIgred[0],
+                "amount": bonusCount
+            }
+        }
+    
+        event.custom({
+            "type": "embers:melting",
+            "bonus": bonus,
+            "input": input,
+            "output": output
+        });
     }
     else {
-        bonus = {
-            "fluid": bonusIgred[0],
-            "amount": bonusCount
-        }
+        event.custom({
+            "type": "embers:melting",
+            "input": input,
+            "output": output
+        });
     }
-
-    event.custom({
-        "type": "embers:melting",
-        "bonus": bonus,
-        "input": input,
-        "output": output
-    });
 }

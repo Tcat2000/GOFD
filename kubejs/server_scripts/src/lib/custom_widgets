@@ -1,0 +1,47 @@
+// priority: 10
+
+function CreatePressureGaugeWidget(x, y, pressureSource, minWorkingPressure, pressureValues, maxPressure, dangerPressure) {
+    return new $ImageWidget["(int,int,int,int,java.util.function.Supplier)"](x, y, 50, 50, () => {
+        if(pressureValues instanceof PressureConstant) {
+            var min = pressureValues.min;
+            var max = pressureValues.max;
+            var danger = pressureValues.danger;
+        }
+        else {
+            var min = pressureValues;
+            var max = maxPressure;
+            var danger = dangerPressure;
+        }
+
+        if(pressureSource instanceof Function) {
+            var psi = pressureSource;
+        }
+        if(pressureSource instanceof Number) {
+            var psi = function() {return pressureSource};
+        }
+
+        return JavaAdapter(Java.loadClass("com.lowdragmc.lowdraglib.gui.texture.IGuiTexture"), {
+            draw: function(graphics, mouseX, mouseY, x, y, width, height) {
+                PressureGaugeRenderer2D.drawPressureGauge(graphics, Minecraft.getInstance().font, min, max, danger, minWorkingPressure, psi(), x, y);
+            }
+        });
+    });
+}
+class PressureConstant {
+    constructor(min, max, danger) {
+        this.min = min;
+        this.max = max;
+        this.danger = danger;
+    }
+}
+const LowPressure = new PressureConstant(-1, 7, 5);
+const MediumPressure = new PressureConstant(-1, 12, 10);
+const HighPressure = new PressureConstant(-1, 25, 20);
+
+global.AugmentFluidTankWidgetFillSlot = function(FluidTankWidget, id, InputSlot, OutputSlot) {
+    let initialFluid = FluidTankWidget.fluidTank.getFluidInTank(id);
+
+    InputSlot.setChangeListener(() => {
+        FluidTransferHelper.tryFillContainer(InputSlot.getItem(), this.fluidTank, 99999999999, null, true);
+    });
+}

@@ -3,6 +3,7 @@
 	default_quest_shape: ""
 	filename: "embers"
 	group: "54592A670B710988"
+	icon: "embers:ember_activator"
 	id: "120099BE777598D1"
 	order_index: 0
 	quest_links: [ ]
@@ -25,8 +26,18 @@
 				type: "item"
 			}]
 			x: 4.0d
-			y: 0.0d
+			y: -1.5d
+		}
+		{
+			id: "7B2D2D6CCE37A50C"
+			tasks: [{
+				id: "186A7067CC4C47DB"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 1.5d
 		}
 	]
-	title: "Embers 1"
+	title: "Embers"
 }
